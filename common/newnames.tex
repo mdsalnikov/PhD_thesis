@@ -1,0 +1,88 @@
+% Новые переменные, которые могут использоваться во всём проекте
+% ГОСТ 7.0.11-2011
+% 9.2 Оформление текста автореферата диссертации
+% 9.2.1 Общая характеристика работы включает в себя следующие основные структурные
+% элементы:
+% актуальность темы исследования;
+\newcommand{\actualityTXT}{Актуальность темы.}
+% степень ее разработанности;
+\newcommand{\progressTXT}{Степень разработанности темы.}
+% цели и задачи;
+\newcommand{\aimTXT}{Целью}
+\newcommand{\tasksTXT}{задачи}
+% научную новизну;
+\newcommand{\noveltyTXT}{Научная новизна:}
+% теоретическую и практическую значимость работы;
+%\newcommand{\influenceTXT}{Теоретическая и практическая значимость}
+% или чаще используют просто
+\newcommand{\influenceTXT}{Практическая значимость}
+% методологию и методы исследования;
+\newcommand{\methodsTXT}{Методология и методы исследования.}
+% положения, выносимые на защиту;
+\newcommand{\defpositionsTXT}{Основные положения, выносимые на~защиту:}
+% степень достоверности и апробацию результатов.
+\newcommand{\reliabilityTXT}{Достоверность}
+\newcommand{\probationTXT}{Апробация работы.}
+
+\newcommand{\contributionTXT}{Личный вклад.}
+\newcommand{\publicationsTXT}{Публикации.}
+
+
+%%% Заголовки библиографии:
+
+% для автореферата:
+\newcommand{\bibtitleauthor}{Публикации автора по теме диссертации}
+\newcommand{\bibtitleauthorEn}{Author's publications on the dissertation subject}
+
+
+% для стиля библиографии `\insertbiblioauthorgrouped`
+\newcommand{\bibtitleauthorvak}{В изданиях из списка ВАК РФ}
+\newcommand{\bibtitleauthorscopus}{В изданиях, входящих в международную базу цитирования Scopus}
+\newcommand{\bibtitleauthorwos}{В изданиях, входящих в международную базу цитирования Web of Science}
+\newcommand{\bibtitleauthorother}{В прочих изданиях}
+\newcommand{\bibtitleauthorconf}{В сборниках трудов конференций}
+\newcommand{\bibtitleauthorpatent}{Зарегистрированные патенты}
+\newcommand{\bibtitleauthorprogram}{Зарегистрированные программы для ЭВМ}
+
+% для стиля библиографии `\insertbiblioauthorimportant`:
+\newcommand{\bibtitleauthorimportant}{Наиболее значимые \protect\MakeLowercase\bibtitleauthor}
+
+% для списка литературы в диссертации и списка чужих работ в автореферате:
+\newcommand{\bibtitlefull}{Список литературы} % (ГОСТ Р 7.0.11-2011, 4)
+\newcommand{\bibtitlefullEn}{Bibliography}
+
+
+
+% Aliases for popular symbols
+\newtheorem{lemma}{Lemma}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+\newtheorem{corollary}{Corollary}
+\DeclareMathOperator{\cost}{cost}
+\DeclareMathOperator{\kl}{KL}
+
+
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bV}{\mathbb{V}}
+\newcommand{\bom}{\boldsymbol\omega}
+\newcommand{\bmu}{\boldsymbol\mu}
+\newcommand{\bth}{\boldsymbol\theta}
+\newcommand{\cE}{{\cal E}}
+\newcommand{\cV}{{\cal V}}
+%\newcommand{\cP}{{\cal P}}
+\newcommand{\cN}{{\cal N}}
+\newcommand{\cG}{{\cal G}}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\id}{\mathbbm{1}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\placeholder}{\ast}
+
+\DeclareMathOperator{\Var}{Var}
+
+\tikzset{blank/.style={rectangle,inner sep=0pt,draw=none,fill=none,minimum
+    size=0pt} }

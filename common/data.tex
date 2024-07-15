@@ -1,0 +1,194 @@
+%%% Основные сведения %%%
+\newcommand{\thesisAuthorLastName}{Лукашевич}
+\newcommand{\thesisAuthorOtherNames}{Александр Леонидович}
+\newcommand{\thesisAuthorInitials}{А.\,Л.}
+\newcommand{\thesisAuthorLastNameEn}{Lukashevich}
+\newcommand{\thesisAuthorOtherNamesEn}{Aleksandr Leonidovich}
+\newcommand{\thesisAuthorInitialsEn}{A.\,L.}
+
+\newcommand{\thesisAuthor}             % Диссертация, ФИО автора
+{%
+    \texorpdfstring{% \texorpdfstring takes two arguments and uses the first for (La)TeX and the second for pdf
+        \thesisAuthorLastName~\thesisAuthorOtherNames% так будет отображаться на титульном листе или в тексте, где будет использоваться переменная
+    }{%
+        \thesisAuthorLastName, \thesisAuthorOtherNames% эта запись для свойств pdf-файла. В таком виде, если pdf будет обработан программами для сбора библиографических сведений, будет правильно представлена фамилия.
+    }
+}
+\newcommand{\thesisAuthorEn}             % Диссертация, ФИО автора
+{%
+    \texorpdfstring{% \texorpdfstring takes two arguments and uses the first for (La)TeX and the second for pdf
+        \thesisAuthorLastNameEn~\thesisAuthorOtherNamesEn% так будет отображаться на титульном листе или в тексте, где будет использоваться переменная
+    }{%
+        \thesisAuthorLastNameEn, \thesisAuthorOtherNamesEn% эта запись для свойств pdf-файла. В таком виде, если pdf будет обработан программами для сбора библиографических сведений, будет правильно представлена фамилия.
+    }
+}
+
+\newcommand{\thesisAuthorShort}        % Диссертация, ФИО автора инициалами
+{\thesisAuthorInitials~\thesisAuthorLastName}
+\newcommand{\thesisAuthorShortEn}        % Диссертация, ФИО автора инициалами
+{\thesisAuthorInitialsEn~\thesisAuthorLastNameEn}
+
+%\newcommand{\thesisUdk}                % Диссертация, УДК
+%{\fixme{xxx.xxx}}
+\newcommand{\thesisTitle}              % Диссертация, название
+{Эффективные подходы на основе данных в задачах стохастического оптимального распределения потоков электроэнергии}
+\newcommand{\thesisTitleEn}              % Диссертация, название
+{Efficient Data-Driven Approaches in Stochastic Optimal Power Flow}
+\newcommand{\thesisSpecialtyNumber}    % Диссертация, специальность, номер
+{1.2.2}%05.13.18
+\newcommand{\thesisSpecialtyTitle}     % Диссертация, специальность, название (название взято с сайта ВАК для примера)
+{Математическое моделирование, численные методы и комплексы программ}
+\newcommand{\thesisSpecialtyTitleEn}     % Диссертация, специальность, название (название взято с сайта ВАК для примера)
+{Mathematical modeling, numerical methods and program complexes}
+%% \newcommand{\thesisSpecialtyTwoNumber} % Диссертация, вторая специальность, номер
+%% {\fixme{XX.XX.XX}}
+%% \newcommand{\thesisSpecialtyTwoTitle}  % Диссертация, вторая специальность, название
+%% {\fixme{Теория и~методика физического воспитания, спортивной тренировки,
+%% оздоровительной и~адаптивной физической культуры}}
+\newcommand{\thesisDegree}             % Диссертация, ученая степень
+{кандидата физико-математических наук}
+\newcommand{\thesisDegreeEn}             % Диссертация, ученая степень
+{Candidate of Physical and Mathematical Sciences}
+\newcommand{\thesisDegreeShort}        % Диссертация, ученая степень, краткая запись
+{канд.~физ.-мат.~наук}
+\newcommand{\thesisDegreeShortEn}        % Диссертация, ученая степень, краткая запись
+{cand.~of phys.-math.~sciences}
+\newcommand{\thesisCity}               % Диссертация, город написания диссертации
+{Москва}
+\newcommand{\thesisCityEn}               % Диссертация, город написания диссертации
+{Moscow}
+\newcommand{\thesisYear}               % Диссертация, год написания диссертации
+{2024}
+\newcommand{\thesisOrganization}       % Диссертация, организация
+{Автономная некоммерческая образовательная организация высшего профессионального образования <<Сколковский институт науки и технологий>>}
+\newcommand{\thesisOrganizationEn}       % Диссертация, организация
+{Autonomous Non-Profit Organization for Higher Education <<Skolkovo Institute of Science and Technology>>}
+\newcommand{\thesisOrganizationShort}  % Диссертация, краткое название организации для доклада
+{Сколтех}
+\newcommand{\thesisOrganizationShortEn}  % Диссертация, краткое название организации для доклада
+{Skoltech}
+
+\newcommand{\thesisInOrganization}     % Диссертация, организация в предложном падеже: Работа выполнена в ...
+{Автономной некоммерческой образовательной организации высшего профессионального образования <<Сколковский институт науки и технологий>>}
+
+%% \newcommand{\supervisorDead}{}           % Рисовать рамку вокруг фамилии
+\newcommand{\supervisorFio}              % Научный руководитель, ФИО
+{Грязина Елена Николаевна }
+\newcommand{\supervisorRegalia}          % Научный руководитель, регалии
+{доктор компьютерных наук, профессор}
+\newcommand{\supervisorFioShort}         % Научный руководитель, ФИО
+{Е.\,Н.~Грязина}
+\newcommand{\supervisorRegaliaShort}     % Научный руководитель, регалии
+{д.~к.~н, проф.}
+
+\newcommand{\supervisorFioEn}              % Научный руководитель, ФИО
+{Gryazina Elena Nikolaevna }
+\newcommand{\supervisorRegaliaEn}          % Научный руководитель, регалии
+{Doctor of Computer Sciences, Professor}
+\newcommand{\supervisorFioShortEn}         % Научный руководитель, ФИО
+{\fixme{E.\,N.~Gryazina}}
+\newcommand{\supervisorRegaliaShortEn}     % Научный руководитель, регалии
+{\fixme{D.Sc., Prof}}
+
+%% \newcommand{\supervisorTwoDead}{}        % Рисовать рамку вокруг фамилии
+%% \newcommand{\supervisorTwoFio}           % Второй научный руководитель, ФИО
+%% {\fixme{Фамилия Имя Отчество}}
+%% \newcommand{\supervisorTwoRegalia}       % Второй научный руководитель, регалии
+%% {\fixme{уч. степень, уч. звание}}
+%% \newcommand{\supervisorTwoFioShort}      % Второй научный руководитель, ФИО
+%% {\fixme{И.\,О.~Фамилия}}
+%% \newcommand{\supervisorTwoRegaliaShort}  % Второй научный руководитель, регалии
+%% {\fixme{уч.~ст.,~уч.~зв.}}
+
+\newcommand{\opponentOneFio}           % Оппонент 1, ФИО
+{\fixme{Фамилия Имя Отчество}}
+\newcommand{\opponentOneRegalia}       % Оппонент 1, регалии
+{\fixme{доктор физико-математических наук, профессор}}
+\newcommand{\opponentOneJobPlace}      % Оппонент 1, место работы
+{\fixme{Не очень длинное название для места работы}}
+\newcommand{\opponentOneJobPost}       % Оппонент 1, должность
+{\fixme{старший научный сотрудник}}
+
+\newcommand{\opponentTwoFio}           % Оппонент 2, ФИО
+{\fixme{Фамилия Имя Отчество}}
+\newcommand{\opponentTwoRegalia}       % Оппонент 2, регалии
+{\fixme{кандидат физико-математических наук}}
+\newcommand{\opponentTwoJobPlace}      % Оппонент 2, место работы
+{\fixme{Основное место работы c длинным длинным длинным длинным названием}}
+\newcommand{\opponentTwoJobPost}       % Оппонент 2, должность
+{\fixme{старший научный сотрудник}}
+
+%% \newcommand{\opponentThreeFio}         % Оппонент 3, ФИО
+%% {\fixme{Фамилия Имя Отчество}}
+%% \newcommand{\opponentThreeRegalia}     % Оппонент 3, регалии
+%% {\fixme{кандидат физико-математических наук}}
+%% \newcommand{\opponentThreeJobPlace}    % Оппонент 3, место работы
+%% {\fixme{Основное место работы c длинным длинным длинным длинным названием}}
+%% \newcommand{\opponentThreeJobPost}     % Оппонент 3, должность
+%% {\fixme{старший научный сотрудник}}
+
+\newcommand{\opponentOneFioEn}           % Оппонент 1, ФИО
+{\fixme{Name name name}}
+\newcommand{\opponentOneRegaliaEn}       % Оппонент 1, регалии
+{\fixme{Doctor of physcial and mathematical sciences, Professor}}
+\newcommand{\opponentOneJobPlaceEn}      % Оппонент 1, место работы
+{\fixme{Somewhat long job place name}}
+\newcommand{\opponentOneJobPostEn}       % Оппонент 1, должность
+{\fixme{Senior research scientist}}
+
+\newcommand{\opponentTwoFioEn}           % Оппонент 2, ФИО
+{\fixme{Name name name}}
+\newcommand{\opponentTwoRegaliaEn}       % Оппонент 2, регалии
+{\fixme{Doctor of physcial and mathematical sciences}}
+\newcommand{\opponentTwoJobPlaceEn}      % Оппонент 2, место работы
+{\fixme{Main job place with a long long long long long long, reeeeally long title}}
+\newcommand{\opponentTwoJobPostEn}       % Оппонент 2, должность
+{\fixme{Senior research scientist}}
+
+\newcommand{\leadingOrganizationTitle} % Ведущая организация, дополнительные строки. Удалить, чтобы не отображать в автореферате
+{...}
+\newcommand{\leadingOrganizationTitleEn} % Ведущая организация, дополнительные строки. Удалить, чтобы не отображать в автореферате
+{...}
+
+\newcommand{\defenseDate}              % Защита, дата
+{11 сентября 2024г.~в 16 часов 00 минут}
+\newcommand{\defenseDateEn}              % Защита, дата
+{11 September 2024 at 16:00}
+\newcommand{\defenseCouncilNumber}     % Защита, номер диссертационного совета
+{...}
+\newcommand{\defenseCouncilNumberEn}     % Защита, номер диссертационного совета
+{\fixme{D\,123.456.78}}
+\newcommand{\defenseCouncilTitle}      % Защита, учреждение диссертационного совета
+{\fixme{Название учреждения}}
+\newcommand{\defenseCouncilTitleEn}      % Защита, учреждение диссертационного совета
+{\fixme{Defence council title}}
+\newcommand{\defenseCouncilAddress}    % Защита, адрес учреждение диссертационного совета
+{Территория Инновационного Центра «Сколково», Большой бульвар д.30, стр.1, Москва 121205}
+\newcommand{\defenseCouncilAddressEn}    % Защита, адрес учреждение диссертационного совета
+{The territory of the Skolkovo Innovation Center, Bolshoy Boulevard, 30, p.1, Moscow 121205}
+\newcommand{\defenseCouncilPhone}      % Телефон для справок
+{\fixme{+7~(0000)~00-00-00}}
+
+\newcommand{\defenseSecretaryFio}      % Секретарь диссертационного совета, ФИО
+{Копелевич Григорий Александрович}
+\newcommand{\defenseSecretaryRegalia}  % Секретарь диссертационного совета, регалии
+{\fixme{...}}            % Для сокращений есть ГОСТы, например: ГОСТ Р 7.0.12-2011 + http://base.garant.ru/179724/#block_30000
+
+\newcommand{\defenseSecretaryFioEn}      % Секретарь диссертационного совета, ФИО
+{Kopelevich Grigoriy Aleksandrovich}
+\newcommand{\defenseSecretaryRegaliaEn}  % Секретарь диссертационного совета, регалии
+{\fixme{...}}    
+
+\newcommand{\synopsisLibrary}          % Автореферат, название библиотеки
+{Сколтеха и на сайте организации https://dissovet.skoltech.ru}
+\newcommand{\synopsisDate}             % Автореферат, дата рассылки
+{<<\rule[-0.1cm]{0.75cm}{0.15mm}>>\rule[-0.1cm]{3cm}{0.15mm} \the\year~г}
+
+\newcommand{\synopsisLibraryEn}          % Автореферат, название библиотеки
+{library of Skoltech or on the website https://dissovet.skoltech.ru}
+\newcommand{\synopsisDateEn}             % Автореферат, дата рассылки
+{<<\rule[-0.1cm]{0.75cm}{0.15mm}>>\rule[-0.1cm]{3cm}{0.15mm}, \the\year}
+
+% To avoid conflict with beamer class use \providecommand
+\providecommand{\keywords}%            % Ключевые слова для метаданных PDF диссертации и автореферата
+{}

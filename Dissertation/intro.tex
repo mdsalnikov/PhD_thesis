@@ -1,0 +1,110 @@
+% \chapter*{Abstract}
+
+% Apparently the GOST for dissertations does not include an abstract
+
+\addcontentsline{toc}{chapter}{Introduction}
+\chapter*{Introduction}
+
+% Template and formatting:
+% All Skoltech theses have an abstract
+% One thesis had chapter summary at the end of each chapter. Looks like a good idea
+% Introduction is apparently just a regular chapter
+
+\input{common/characteristic}
+
+\section*{Publications}
+
+\paragraph{Thesis publications.} The thesis is based on the following three Q1 publications:
+
+\begin{enumerate}
+    \item \fullcite{lukashevich2021importance}
+    \item \fullcite{lukashevich2021power}
+    \item \fullcite{lukashevich2023importance}
+\end{enumerate}
+
+In all the above papers, the author was a principal contributor, who developed and implemented all listed algorithms, proved (in the last paper jointly with A. Bulkin) all supporting theorems and lemmas. 
+
+\paragraph{Other publications by the author.} Beyond the aforementioned publications, the author during his MS and PhD research published a few other papers, including five Q1 papers and two A-level conferences, exploring mathematically related problems in other fields:
+\begin{enumerate}
+    \item \fullcite{shevchenko2023climate}
+    \item \fullcite{morozov2023cmip}
+    \item \fullcite{mitrovic2023gp}
+    \item \fullcite{mitrovic2023fast}
+    \item \fullcite{mitrovic2023data}
+    \item \fullcite{dvurechensky2022hyperfast}
+    \item \fullcite{agafonov2021accelerated}
+    \item \fullcite{tanuishkina2024scirep}
+\end{enumerate}
+
+\section*{Acknowledgments} 
+The dissertation was completed at the {\thesisOrganizationEn}.
+
+I thank my advisor, Elena Gryazina, for providing guidance and assistance at all stages of my doctoral study. I would like to devote special and sincere gratitude to my former scientific advisor and long-term co-author Yury Maximov, who initally showed the research potential in the field of statistical methods in power system and supported me throughout the whole research started even before my graduate study period. I also thank my coauthors, Deepjyoti Deka, Mile Mitrovic, Petr Vorobev and Vyacheslav Gorchakov, for numerous insightful discussions. Last but not least, I thank my wife, my family and my friends for immense support during my scientific journey.
+
+\chapter{Introduction}
+\label{chap:Introduction}
+
+
+%Begin by providing a brief overview of power systems to set the context. Explain why power systems are critical, touching upon their role in modern society, economic importance, and their influence on technological advancements.
+\section{Background and context.}
+Carbon-free electricity generation is one of the most vital global challenges for the next decades. Renewable energy sources, such as wind, hydro, and solar power generation, are increasingly demanded, accessible, and widely used in modern power grids due to their ecological and economic benefits. For instance, California’s renewable portfolio standard currently mandates that 33\% of retail electricity sales come from renewable resources, with targets set to rise to 60\% by 2030 and 100\% by 2045. However, the integration of renewable energy generation introduces significant volatility and uncertainty to power systems, posing numerous challenges for operators. 
+
+In 2020, electricity production accounted for approximately 25\% of greenhouse gas emissions in the USA, making the integration of renewable energy a critical strategy for reducing emissions. Nonetheless, the increased variability in power generation and disturbances associated with renewables compromise grid security and challenge traditional operation and planning policies. Integrating renewable energy sources also aligns with the United Nations' sustainable development goals by promoting affordable and clean energy while enhancing energy security and resilience. Unfortunately, these benefits come with substantial challenges to grid optimization and control policies due to the significant uncertainties introduced by renewable energy sources.
+
+%Example:
+%"Power systems are the backbone of modern society, providing the necessary energy to drive economic activities, industrial processes, and daily life. As the demand for reliable and efficient energy continues to grow, the complexity and significance of power systems have increased, necessitating advanced research and development in this field."
+\section{Problem statement.}
+%2. Problem Statement
+%Identify the specific problem or gap in the current knowledge that your research addresses. This should be a concise statement that clearly defines the issue your thesis will tackle.
+Various algorithms have been developed to ensure grid reliability, utilizing methods ranging from machine learning to analytical and sampling-based approaches. Machine learning methods leverage historical data on weather, renewable generation, and grid operating parameters to estimate risks but are impractical for real-time operation due to their reliance on large datasets and extensive data collection times. Analytical approximation methods, which compute overload probabilities through integrals, often overestimate risks, particularly in rare events, compromising their practical efficiency. Sampling-based algorithms, such as Monte Carlo (MC) simulations, provide valuable alternatives for assessing reliability but struggle with the performance in evaluating rare, severe disturbances due to uniform exploration of fluctuation spaces.
+
+The Optimal Power Flow (OPF) problem, crucial for determining economically optimal power generation levels under given constraints, has several extensions to address uncertainty in power generation and consumption. Robust and chance-constrained formulations are popular, with the former assuming bounded uncertainty and the latter requiring high-probability satisfaction of security constraints. The Joint Chance-Constrained Optimal Power Flow (JCC-OPF) problem bounds the probability of security constraint failures but is computationally hard even under linear security limits and Gaussian uncertainty. Tractable convex approximations often yield conservative solutions unsuitable for practical operations. Scenario and Sample Average Approximations, which replace stochastic elements with deterministic inequalities, can handle non-Gaussian uncertainties but may require a large number of samples, complicating their application in large-scale grids.
+
+Additionally, the discrete-time dynamic chance-constrained OPF problem addresses optimal generation set-points over sequential timestamps, incorporating ramp-up and ramp-down constraints to manage the rate of power output changes. Automatic Generation Control (AGC) aids in efficient power dispatch, yet solving the chance-constrained problem for arbitrary distributions and joint technical limits remains computationally infeasible. Data-driven approximations, such as Scenario Approximation (SA) and Sample Average Approximation (SAA), although effective, are often computationally prohibitive when high accuracy is needed, necessitating extensive scenario reduction studies. This complexity highlights the need for improved methods to handle the uncertainties and operational challenges posed by the integration of renewable energy sources into power systems.
+
+Summing up, modern power system are influenced by various uncertainty sources and require modern data-driven and data-efficient methods to, firstly, estimate reliability of the current power system state, secondly, reliably control the conventional generators to reach the most economically efficient state, simultaneously satistying demand and meeting technical constraints.
+
+%Example:
+%"Despite significant advancements in power systems, challenges remain in improving the efficiency and stability of power grids, particularly with the integration of renewable energy sources. This research aims to address these challenges by exploring new circuit designs and control strategies."
+\section{Research objectives.}
+
+This research aims to develop advanced methods for improving the efficiency and accuracy of reliability assessments and optimization in power systems under uncertainty. We propose an adaptive importance sampling method to estimate the risk of reliability constraints violation more efficiently. This method utilizes physical information to create a mixture of distributions for sampling and employs convex optimization to iteratively adjust the weights of the mixture. By incorporating importance sampling, we aim to reduce the complexity and enhance the accuracy of scenario approximations for chance-constrained optimal power flow. This approach generates more informative samples, resulting in an optimization problem with fewer constraints. Additionally, we propose an A-priori Reduced Scenario Approximation (AR-SA) method, which integrates data-driven scenario approximation techniques to reduce the number of samples required while maintaining solution reliability. This method seeks to provide theoretical guarantees for the feasibility of solutions in joint chance-constrained dynamic optimal power flow problems. Our research extends existing importance sampling techniques and contributes to more effective and practical solutions for managing uncertainties in power system operations.
+
+\section{Significance of the Study}
+
+The research holds significant importance as it addresses critical challenges in modeling renewable energy sources higly penetrated power systems, which is vital for achieving carbon-free electricity generation. By developing advanced methods such as adaptive importance sampling and A-priori Reduced Scenario Approximation (AR-SA), the research aims to improve the efficiency and accuracy of reliability assessments and optimization under uncertainty. These methods contribute to overcoming limitations in current approaches, such as impracticality for real-time operations, overestimation of risks, and computational infeasibility in large-scale power grids. The outcomes of this research are expected to enhance the operational reliability and economic efficiency of power systems, facilitating the integration of renewable energy sources. This aligns with global sustainability goals by promoting cleaner energy solutions, reducing greenhouse gas emissions, and enhancing energy security and resilience. Ultimately, the research contributes to the advancement of power system technologies, supporting the global transition towards a more sustainable energy future.
+% 4. Significance of the Study
+% Explain the importance of your research and its potential impact. Discuss how your findings could contribute to the field of power systems and their broader implications.
+
+% Example:
+% "This study is significant as it aims to contribute to the development of more efficient and stable power systems. By addressing the challenges associated with renewable energy integration, the research has the potential to enhance the sustainability and reliability of future power grids, supporting the global transition towards greener energy solutions."
+
+% 5. Scope and Limitations
+% Define the scope of your research, including what will and will not be covered. This helps to set clear boundaries and manage the expectations of your readers.
+
+% Example:
+% "The scope of this research is limited to the development and analysis of circuit designs and control strategies within the context of renewable energy integration. It does not cover other aspects of power systems such as economic analysis or policy implications."
+
+% 6. Structure of the Thesis
+% Provide an outline of the subsequent chapters and briefly describe their content. This helps readers understand the organization of your thesis and the logical flow of your research.
+
+% Example:
+% "The thesis is organized into six chapters. Chapter 2 reviews the relevant literature on power systems and renewable energy integration. Chapter 3 details the theoretical framework and methodologies used in the research. Chapter 4 presents the development of the proposed circuit designs. Chapter 5 discusses the control strategies for renewable energy integration. Chapter 6 evaluates the performance of the proposed solutions through simulations and experimental results. Finally, Chapter 7 concludes the thesis with a summary of findings and suggestions for future research."
+
+% 7. Summary
+% Conclude the introduction with a brief summary that reiterates the importance of your research and sets the stage for the detailed exploration in the following chapters.
+
+% Example:
+% "In summary, this thesis aims to address critical challenges in power systems, particularly in the integration of renewable energy sources. By developing innovative circuit designs and control strategies, this research seeks to enhance the efficiency and stability of power grids, contributing to the advancement of sustainable energy solutions. The following chapters will delve into the theoretical foundations, methodologies, and empirical findings that support these objectives."
+
+% Additional Tips
+% Be Clear and Concise: Avoid unnecessary jargon and complex sentences. Aim for clarity and brevity to ensure your introduction is accessible to a broad audience.
+% Engage the Reader: Start with a compelling statement or fact to capture the reader's interest.
+% Cite Relevant Literature: Support your statements with references to key studies and authoritative sources in the field.
+% By following these guidelines, you can craft an effective introduction chapter that provides a strong foundation for your PhD thesis on power systems.
+
+\section{Summary.}
+The integration of renewable energy sources into modern power systems presents both significant opportunities and challenges. While these sources are crucial for achieving carbon-free electricity generation and meeting global sustainability goals, their inherent variability and uncertainty pose risks to grid reliability and stability. This research identifies the limitations of current methods for managing these uncertainties, such as machine learning, analytical approximations, and sampling-based algorithms, particularly in the context of the Optimal Power Flow (OPF) problem and its extensions. In response, we propose novel methods, including adaptive importance sampling and A-priori Reduced Scenario Approximation (AR-SA), to enhance the efficiency and accuracy of reliability assessments and optimization in power systems under uncertainty. By addressing these challenges, the research aims to improve the operational reliability and economic efficiency of power systems, facilitating the successful integration of renewable energy sources and supporting the global transition towards a sustainable energy future.
+
+
+
