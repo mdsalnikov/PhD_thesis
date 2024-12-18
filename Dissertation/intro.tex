@@ -4,80 +4,81 @@
 
 \addcontentsline{toc}{chapter}{Introduction}
 \chapter*{Introduction}
-
-% Template and formatting:
-% All Skoltech theses have an abstract
-% One thesis had chapter summary at the end of each chapter. Looks like a good idea
-% Introduction is apparently just a regular chapter
-
-\input{common/characteristic}
-
-\section*{Publications}
-
-\paragraph{Thesis publications.} The thesis is based on the following three Q1 publications:
-
-\begin{enumerate}
-    \item \fullcite{lukashevich2021importance}
-    \item \fullcite{lukashevich2021power}
-    \item \fullcite{lukashevich2023importance}
-\end{enumerate}
-
-In all the above papers, the author was a principal contributor, who developed and implemented all listed algorithms, proved (in the last paper jointly with A. Bulkin) all supporting theorems and lemmas. 
-
-\paragraph{Other publications by the author.} Beyond the aforementioned publications, the author during his MS and PhD research published a few other papers, including five Q1 papers and two A-level conferences, exploring mathematically related problems in other fields:
-\begin{enumerate}
-    \item \fullcite{shevchenko2023climate}
-    \item \fullcite{morozov2023cmip}
-    \item \fullcite{mitrovic2023gp}
-    \item \fullcite{mitrovic2023fast}
-    \item \fullcite{mitrovic2023data}
-    \item \fullcite{dvurechensky2022hyperfast}
-    \item \fullcite{agafonov2021accelerated}
-    \item \fullcite{tanuishkina2024scirep}
-\end{enumerate}
-
-\section*{Acknowledgments} 
-The dissertation was completed at the {\thesisOrganizationEn}.
-
-I thank my advisor, Elena Gryazina, for providing guidance and assistance at all stages of my doctoral study. I would like to devote special and sincere gratitude to my former scientific advisor and long-term co-author Yury Maximov, who initally showed the research potential in the field of statistical methods in power system and supported me throughout the whole research started even before my graduate study period. I also thank my coauthors, Deepjyoti Deka, Mile Mitrovic, Petr Vorobev and Vyacheslav Gorchakov, for numerous insightful discussions. Last but not least, I thank my wife, my family and my friends for immense support during my scientific journey.
-
-\chapter{Introduction}
 \label{chap:Introduction}
 
 
 %Begin by providing a brief overview of power systems to set the context. Explain why power systems are critical, touching upon their role in modern society, economic importance, and their influence on technological advancements.
-\section{Background and context.}
-Carbon-free electricity generation is one of the most vital global challenges for the next decades. Renewable energy sources, such as wind, hydro, and solar power generation, are increasingly demanded, accessible, and widely used in modern power grids due to their ecological and economic benefits. For instance, California’s renewable portfolio standard currently mandates that 33\% of retail electricity sales come from renewable resources, with targets set to rise to 60\% by 2030 and 100\% by 2045. However, the integration of renewable energy generation introduces significant volatility and uncertainty to power systems, posing numerous challenges for operators. 
+\paragraph{Background.}
 
-In 2020, electricity production accounted for approximately 25\% of greenhouse gas emissions in the USA, making the integration of renewable energy a critical strategy for reducing emissions. Nonetheless, the increased variability in power generation and disturbances associated with renewables compromise grid security and challenge traditional operation and planning policies. Integrating renewable energy sources also aligns with the United Nations' sustainable development goals by promoting affordable and clean energy while enhancing energy security and resilience. Unfortunately, these benefits come with substantial challenges to grid optimization and control policies due to the significant uncertainties introduced by renewable energy sources.
+
+
+A general way to model and quantize uncertainty in an optimization problem is the \emph{Chance Constraints} \cite{geng2019data}. Such kind of constraints allow one to properly incorporate uncertainty into optimization problems and define probability level at which one allows the system to violate constraints. The allowance for original deterministic constraints violation is important to avoid excessive solution conservatism. For example, finding a solution that is robust against each possible realization of uncertainty with unbounded support would result in an empty feasibility set. However, in most cases, chance constraints do not admit a closed-form expression, thus, making it impossible to use them in numerical solvers. These constraints are typically approximated using upper bounds on probability, e.g., Bernstein approximation, \cite{nemirovski2007convex} or using data, i.e., constructing a data-driven approximation. Further, we focus only on the latter type of approximations.
+
+%Paragraph about SA, SAA and other stuff from see comment
+%https://www.sciencedirect.com/science/article/abs/pii/S1367578819300306
+Chance constrained optimization originated in 1958 by Charnes \cite{charnes1958cost} and since then found a wide range of applications. For example, in economics \cite{yaari1965uncertain}, control theory \cite{calafiore2006scenario}, chemical processes \cite{sahinidis2004optimization} and in machine learning \cite{bertsimas2018robust,caramanis2011robust}.  Chance constraints are generally do not admit a closed-form expression. To this end, several approaches were developed to construct various approximations chance constraints. These approaches further evolved into major research and application fields. Among them are Abmiguous Chance Constraints \cite{nemirovski2012safe, ben2009robust}, Robust Optimization (RO) based Methods \cite{bertsimas2011theory}, Sample Average Approximation (SAA) \cite{sen1992relaxations, ahmed2008solving} and Scenario Approach (Approximation) (SA) \cite{calafiore2005uncertain}. SA and SAA are data-driven approaches, whereas the others are analytical or mixed.
+
+
+%Paragraph about "despite suck some dick" there are some problems. 
+Despite intensive research in the field of Chance Constrained Optimization, each subfield experiences difficulties: analytical approaches suffer from extensive conservativeness, while data-driven ones often are prohibitevely demanding in computational resources for large scale problems. The aforementioned drawbacks are critical in applications that require regular optimization. 
+One of such applications is power systems, where a higher amount of renewable generation increases power grid uncertainty, compromises its security, and challenges classical power grid operation and planning policies \cite{koutsoyiannis2016unavoidable}. It is worth mentioning that installation of renewable energy based generation is a common trend and brings substantial amount of randomness into the system \cite{koutsoyiannis2016unavoidable}, \cite{harjanne2019abandoning}. For example, according to recent International Energy Agency (IEA) report \cite{iea2024electricity}, renewable energy generation share growth is up to 50\% and to take 30\% of all conventional electricity generation around the world. 
+
+In power systems applications, the aforementioned drawbacks are crucial. Conservativeness leads to higher power market prices which influences industry and society, computational efficiency must be such that the computations accomplish within the re-evaluation interval defined by local system operator \cite{chen2008probabilistic, koutsoyiannis2016unavoidable, stott2012optimal}.
 
 %Example:
 %"Power systems are the backbone of modern society, providing the necessary energy to drive economic activities, industrial processes, and daily life. As the demand for reliable and efficient energy continues to grow, the complexity and significance of power systems have increased, necessitating advanced research and development in this field."
-\section{Problem statement.}
+
+%Example:
+%"Power systems are the backbone of modern society, providing the necessary energy to drive economic activities, industrial processes, and daily life. As the demand for reliable and efficient energy continues to grow, the complexity and significance of power systems have increased, necessitating advanced research and development in this field."
+
+
+\paragraph{Relevance of the work.}
+
+
+The research holds significant importance as it is developing and applying advanced methods such as mirror descent based adaptive importance sampling and A-priori Reduced Scenario Approximation (AR-SA), the research aims to improve the efficiency and accuracy of sample based probability estimation and optimization under uncertainty. These methods contribute to overcoming limitations in current approaches, such as impracticality for real-time operations, overestimation of risks, and computational infeasibility in large-scale problems. The outcomes of this research are expected to enhance the efficiency of commonly used approaches, making them significantly less data demanding. Moreover, the proposed methods and approaches are shown to be effective in power systems applications as they addresses critical challenges in modeling power systems with high amount of installed renewable energy generation, which become ubiquitous. %This aligns with global sustainability goals by promoting cleaner energy solutions, reducing greenhouse gas emissions, and enhancing energy security and resilience. 
+%Ultimately, the research contributes to the advancement of power system technologies, supporting the global transition towards a more sustainable energy future.
+
+
+
+% The \textbf{relevance} of the work is achieved by improving optimization algorithms' and approches' efficiency that would allow for more faster and accurate power grid risk estimation and operation.
+%Paragraph about Many researchers tried to suck some dick here but 
+% In other words, this thesis focuses on improving numerical efficiency of the data-driven approaches. This study leverages advanced statistical methods such as Importance Sampling (IS) for estimation of reliability of current power system state in power systems with high renewable energy penetration setting. Further, IS is adapted for increasing numerical efficiency of SA for static and dynamic estimation of optimal power generation in a power grid.
+
+
+
+% \paragraph{Problem statement.}
 %2. Problem Statement
 %Identify the specific problem or gap in the current knowledge that your research addresses. This should be a concise statement that clearly defines the issue your thesis will tackle.
-Various algorithms have been developed to ensure grid reliability, utilizing methods ranging from machine learning to analytical and sampling-based approaches. Machine learning methods leverage historical data on weather, renewable generation, and grid operating parameters to estimate risks but are impractical for real-time operation due to their reliance on large datasets and extensive data collection times. Analytical approximation methods, which compute overload probabilities through integrals, often overestimate risks, particularly in rare events, compromising their practical efficiency. Sampling-based algorithms, such as Monte Carlo (MC) simulations, provide valuable alternatives for assessing reliability but struggle with the performance in evaluating rare, severe disturbances due to uniform exploration of fluctuation spaces.
+% Various algorithms have been developed to ensure grid reliability, utilizing methods ranging from machine learning to analytical and sampling-based approaches. Machine learning methods leverage historical data on weather, renewable generation, and grid operating parameters to estimate risks but are impractical for real-time operation due to their reliance on large datasets and extensive data collection times. Analytical approximation methods, which compute overload probabilities through integrals, often overestimate risks, particularly in rare events, compromising their practical efficiency. Sampling-based algorithms, such as Monte Carlo (MC) simulations, provide valuable alternatives for assessing reliability but struggle with the performance in evaluating rare, severe disturbances due to uniform exploration of fluctuation spaces.
 
-The Optimal Power Flow (OPF) problem, crucial for determining economically optimal power generation levels under given constraints, has several extensions to address uncertainty in power generation and consumption. Robust and chance-constrained formulations are popular, with the former assuming bounded uncertainty and the latter requiring high-probability satisfaction of security constraints. The Joint Chance-Constrained Optimal Power Flow (JCC-OPF) problem bounds the probability of security constraint failures but is computationally hard even under linear security limits and Gaussian uncertainty. Tractable convex approximations often yield conservative solutions unsuitable for practical operations. Scenario and Sample Average Approximations, which replace stochastic elements with deterministic inequalities, can handle non-Gaussian uncertainties but may require a large number of samples, complicating their application in large-scale grids.
+% The Optimal Power Flow (OPF) problem, crucial for determining economically optimal power generation levels under given constraints, has several extensions to address uncertainty in power generation and consumption. Robust and chance-constrained formulations are popular, with the former assuming bounded uncertainty and the latter requiring high-probability satisfaction of security constraints. The Joint Chance-Constrained Optimal Power Flow (JCC-OPF) problem bounds the probability of security constraint failures but is computationally hard even under linear security limits and Gaussian uncertainty. Tractable convex approximations often yield conservative solutions unsuitable for practical operations. Scenario and Sample Average Approximations, which replace stochastic elements with deterministic inequalities, can handle non-Gaussian uncertainties but may require a large number of samples, complicating their application in large-scale grids.
 
-Additionally, the discrete-time dynamic chance-constrained OPF problem addresses optimal generation set-points over sequential timestamps, incorporating ramp-up and ramp-down constraints to manage the rate of power output changes. Automatic Generation Control (AGC) aids in efficient power dispatch, yet solving the chance-constrained problem for arbitrary distributions and joint technical limits remains computationally infeasible. Data-driven approximations, such as Scenario Approximation (SA) and Sample Average Approximation (SAA), although effective, are often computationally prohibitive when high accuracy is needed, necessitating extensive scenario reduction studies. This complexity highlights the need for improved methods to handle the uncertainties and operational challenges posed by the integration of renewable energy sources into power systems.
+% Additionally, the discrete-time dynamic chance-constrained OPF problem addresses optimal generation set-points over sequential timestamps, incorporating ramp-up and ramp-down constraints to manage the rate of power output changes. Automatic Generation Control (AGC) aids in efficient power dispatch, yet solving the chance-constrained problem for arbitrary distributions and joint technical limits remains computationally infeasible. Data-driven approximations, such as Scenario Approximation (SA) and Sample Average Approximation (SAA), although effective, are often computationally prohibitive when high accuracy is needed, necessitating extensive scenario reduction studies. This complexity highlights the need for improved methods to handle the uncertainties and operational challenges posed by the integration of renewable energy sources into power systems.
 
-Summing up, modern power system are influenced by various uncertainty sources and require modern data-driven and data-efficient methods to, firstly, estimate reliability of the current power system state, secondly, reliably control the conventional generators to reach the most economically efficient state, simultaneously satistying demand and meeting technical constraints.
+% Summing up, modern power system are influenced by various uncertainty sources and require modern data-driven and data-efficient methods to, firstly, estimate reliability of the current power system state, secondly, reliably control the conventional generators to reach the most economically efficient state, simultaneously satistying demand and meeting technical constraints.
 
 %Example:
 %"Despite significant advancements in power systems, challenges remain in improving the efficiency and stability of power grids, particularly with the integration of renewable energy sources. This research aims to address these challenges by exploring new circuit designs and control strategies."
-\section{Research objectives.}
+\paragraph{Dissertation goals.}
 
-This research aims to develop advanced methods for improving the efficiency and accuracy of reliability assessments and optimization in power systems under uncertainty. We propose an adaptive importance sampling method to estimate the risk of reliability constraints violation more efficiently. This method utilizes physical information to create a mixture of distributions for sampling and employs convex optimization to iteratively adjust the weights of the mixture. By incorporating importance sampling, we aim to reduce the complexity and enhance the accuracy of scenario approximations for chance-constrained optimal power flow. This approach generates more informative samples, resulting in an optimization problem with fewer constraints. Additionally, we propose an A-priori Reduced Scenario Approximation (AR-SA) method, which integrates data-driven scenario approximation techniques to reduce the number of samples required while maintaining solution reliability. This method seeks to provide theoretical guarantees for the feasibility of solutions in joint chance-constrained dynamic optimal power flow problems. Our research extends existing importance sampling techniques and contributes to more effective and practical solutions for managing uncertainties in power system operations.
 
-\section{Significance of the Study}
+This research aims to develop advanced methods for improving the efficiency and accuracy of reliability assessments and optimization under uncertainty. The results are demonstrated on power systems applications.
+To achieve this goal, the following tasks were set up and performed:
+% a)	Probability Estimation: Develop numerically efficient methods for estimating the probability of the current power system state being feasible against uncertainties that come from RES generation.
+% b)	Single Timestamp Optimization: Develop statistically based alorithms for the construction of data-efficient SA for S-OPF that yield reliable solutions for individual timestamps. Provide theoretical guarantees.
+% c)	24-Hour Sequence Optimization: Generalize the results of b) to optimize generator actions throughout a 24-hour period.
 
-The research holds significant importance as it addresses critical challenges in modeling renewable energy sources higly penetrated power systems, which is vital for achieving carbon-free electricity generation. By developing advanced methods such as adaptive importance sampling and A-priori Reduced Scenario Approximation (AR-SA), the research aims to improve the efficiency and accuracy of reliability assessments and optimization under uncertainty. These methods contribute to overcoming limitations in current approaches, such as impracticality for real-time operations, overestimation of risks, and computational infeasibility in large-scale power grids. The outcomes of this research are expected to enhance the operational reliability and economic efficiency of power systems, facilitating the integration of renewable energy sources. This aligns with global sustainability goals by promoting cleaner energy solutions, reducing greenhouse gas emissions, and enhancing energy security and resilience. Ultimately, the research contributes to the advancement of power system technologies, supporting the global transition towards a more sustainable energy future.
-% 4. Significance of the Study
-% Explain the importance of your research and its potential impact. Discuss how your findings could contribute to the field of power systems and their broader implications.
+\begin{enumerate}
+    \item Probability Estimation: Develop numerically efficient methods for estimating the probability measure of a polyhedron's complement. Provide theoretical support by formalizing the convergence theorem for estimate's variance and proving it. Support the theoretical advances by demonstrating algorithm's efficiency on power systems test cases. The power system example is the estimation of the probability that the current power system state is feasible against uncertainties that come from RES generation.
+    \item Linear Programming under Additive Uncertainty: Develop statistically based algorithms for the construction of data-efficient Scenario Approximation (SA) for Chance-Constrained Linear Programs that yield reliable solutions, assuming additive Gaussian uncertainty for decision variables. Provide theoretical guarantees that show the improvement for required number of samples for obtaining reliable solution. Demonstrate the approximation method validity numerically on power systems test cases, compare with existing approaches. The power system example is Chance Constrained Optimal Power Flow.
+    \item Linear Programming under Mixed Multiplicative-Additive Uncertainty: Generalize results for a non-Gaussian source uncertainty on a non-Gaussian case, consider mixed multiplicative-additive uncertainty. Assuming typical total uncertainty mitigation setup, derive analytical condition for filtering redundant scenarios in this setting. Prove that such scenario filtering increases data efficiency and demonstrate numerically the superiority to the scenario reduction methods and ambiguous chance constraints approach. Provide demonstration on power system example which is sequential time-stamp power system modeling, where major uncertainty contributors in grid are renewable energy sources (photo-voltaic panels, wind farms, hydro electrical generators, stochastic demand) and the algorithm for uncertainty mitigation is linear Automatic Generation Control (AGC).
+\end{enumerate}
+%We propose an adaptive importance sampling method to estimate the risk of reliability constraints violation more efficiently. 
+% This method utilizes physical information to create a mixture of distributions for sampling and employs convex optimization to iteratively adjust the weights of the mixture. 
+% By incorporating importance sampling, we aim to reduce the complexity and enhance the accuracy of scenario approximations for chance-constrained optimal power flow. This approach generates more informative samples, resulting in an optimization problem with fewer constraints. 
+% Additionally, we propose an A-priori Reduced Scenario Approximation (AR-SA) method, which integrates data-driven scenario approximation techniques to reduce the number of samples required while maintaining solution reliability. This method seeks to provide theoretical guarantees for the feasibility of solutions in joint chance-constrained dynamic optimal power flow problems. Our research extends existing importance sampling techniques and contributes to more effective and practical solutions for managing uncertainties in power system operations.
 
-% Example:
-% "This study is significant as it aims to contribute to the development of more efficient and stable power systems. By addressing the challenges associated with renewable energy integration, the research has the potential to enhance the sustainability and reliability of future power grids, supporting the global transition towards greener energy solutions."
+
 
 % 5. Scope and Limitations
 % Define the scope of your research, including what will and will not be covered. This helps to set clear boundaries and manage the expectations of your readers.
@@ -103,8 +104,89 @@ The research holds significant importance as it addresses critical challenges in
 % Cite Relevant Literature: Support your statements with references to key studies and authoritative sources in the field.
 % By following these guidelines, you can craft an effective introduction chapter that provides a strong foundation for your PhD thesis on power systems.
 
-\section{Summary.}
-The integration of renewable energy sources into modern power systems presents both significant opportunities and challenges. While these sources are crucial for achieving carbon-free electricity generation and meeting global sustainability goals, their inherent variability and uncertainty pose risks to grid reliability and stability. This research identifies the limitations of current methods for managing these uncertainties, such as machine learning, analytical approximations, and sampling-based algorithms, particularly in the context of the Optimal Power Flow (OPF) problem and its extensions. In response, we propose novel methods, including adaptive importance sampling and A-priori Reduced Scenario Approximation (AR-SA), to enhance the efficiency and accuracy of reliability assessments and optimization in power systems under uncertainty. By addressing these challenges, the research aims to improve the operational reliability and economic efficiency of power systems, facilitating the successful integration of renewable energy sources and supporting the global transition towards a sustainable energy future.
+\paragraph{Scientific novelty.}
 
 
+The scientific novelty is built up from the following results:
+\begin{enumerate}
+    \item The application of adaptive importance sampling combined with mirror descent methods to power systems, particularly in scenarios involving rare events. The convergence of the algorithm was established through stating and proving a convergence theorem for optimizing estimate's variance. Next, the performance of this novel approach with practical algorithms, such as pmvnorm, was demonstrated on an example from power systems that highlights its effectiveness and potential advantages.
+    \item A novel method for constructing scenario approximations, introducing a more efficient and accurate approach to scenario approximation. The theoretical guarantees for this novel construction method were provided, ensuring its mathematical soundness and reliability. Lastly, a numerical demonstrations on power systems examples were conducted to compare the performance of this new scenario approximation method with classical Monte Carlo-based approach, highlighting its efficiency and accuracy.
+    \item Introducing an a priori approach to reduce scenario approximations for dynamic optimal power flow with automatic generation control (AGC), enhancing computational efficiency and accuracy, studying normality of generation-demand mismatch using real time series of load, renewable generation of various sources. The statements that ensured validity of the reduction approach and shown an advantage in scenario complexity were proposed. These statements confirm the method's effectiveness and reliability in reducing scenario approximations for chance constrained linear programs with multiplicative uncertainty. A numerical demonstration was conducted on a dynamic optimal power flow problem. The demonstration compares the proposed a-priori approach with other scenario reduction methods, incorporating data-driven distributional robust optimization to showcase its superior performance and practical applicability.
+\end{enumerate}
+
+\paragraph{Theoretical and practical significance.}
+
+
+This innovative approach could significantly advance the field of scenario approximation by offering a more efficient and accurate methods. It may lead to advancements in mathematical modeling and optimization techniques. Implementing these new methods could enhance the performance of power system simulations, leading to more accurate predictions and better decision-making in energy management. Providing theoretical guarantees for the new construction method solidifies its mathematical underpinnings, paving the way for its wider acceptance in research and practical applications. Assurance of the method's validity offers confidence to practitioners and decision-makers in utilizing it for scenario approximation in power systems, potentially leading to more reliable system planning and operation. Conducting numerical demonstrations and comparisons contributes to the theoretical understanding of scenario approximation methods, offering insights into their strengths and weaknesses. By comparing the new approach with classical Monte Carlo-based methods, the study can inform practitioners about the performance differences, aiding them in choosing the most suitable method for scenario approximation in power systems. Moreover, numerical experiments included comparison of total execution time with current state-of-the-art methods and show the practical advantages of the proposed methods.
+
+\paragraph{Research methodology.}
+
+
+Methodology included methods of linear algebra, probability theory, mathematical statistics, numerical optimization methods, aspects of optimization methods, software development and models of power systems.
+
+\newpage
+
+\paragraph{Propositions for defense.}
+
+
+\begin{enumerate}
+
+    \item A numerical iterative method for estimation of a Gaussian volume of a polyhedron's complement. The method is of adaptive importance sampling family, where the sampling distribution is a Gaussian mixture. It iteratively minimizes the variance of the estimate over mixture weights using Mirror Descent. The convexity of the optimization problem is shown, stochastic gradient's expression is derived and, finally, the iterative method's convergence is shown. The method's performance is demonstrated against other estimation algorithms on power systems examples.
+    \item An algorithm for construction of Scenario Approximation for linear programming with additive uncertainty is proposed for solving Joint Chance Constrained programs. This algorithm is based on Importance Sampling, where the sampling distribution is Gaussian mixture. The subset of feasibility set is derived based on Gaussianity assumption for the sampling outside of it and constructing the SA based on those scenarios. The theorem on solution reliability and the number of samples required of such importance sampling based SA is stated, the proof was provided. The numerical demonstration is carried out on power systems test cases and compared to classical SA construction algorithms.
+    \item An algorithm for construction of Scenario Approximation for linear programming with mixed additive-multiplicative uncertainty is proposed for solving Joint Chance Constrained linear programs. The subset of feasibility set is derived for a-priori elimination of the redundant scenarios. The demonstration is conducted on the power system example which is sequential time-stamp power system modeling, where major uncertainty contributors in grid are renewable energy sources (photo-voltaic panels, wind farms, hydro electrical generators, stochastic demand) and the algorithm for uncertainty mitigation is linear Automatic Generation Control (AGC).
+    %The Gaussianity assumption is demostrated to be valid using Shapiro-Wilks statistical tests on real time series. 
+    The theorem on solution reliability and the number of samples required for reduced problems is stated, the proof was provided. The numerical demonstration is carried out on power systems test cases and compared to advanced scenario reduction methods and ambiguous chance constrained method.
+ 
+\end{enumerate}
+
+\paragraph{Validation of the research results, reliability.}
+
+
+The main results of the work have been reported in the following scientific conferences and workshops:
+
+\begin{enumerate}
+    \item INFORMS Annual Meeting 2021, 1st INFORMS Workshop on Quality, Statistics \& Reliability, October 15, 2021, Indianapolis
+    \item Rank A, CDC 2021, 60th IEEE Conference on Decision and Control, December 13-15 2021
+    \item Energy Research Seminar, Skoltech, October 12 2021
+    \item Rank A, IEEE PowerTech, Belgrade, June 25-29 2023
+    \item Seminar Lab. 7 of Institute for Control Sciences of Russian Academy of Sciences ''Theory of Automatic Control'', October 15 2024
+\end{enumerate}
+
+The proposed methods and approaches were equipped with theoretical statements, the proofs were provided, numerical examples show their validity. Specifically, for iterative methods, the convergence theorem was stated. The statement introduces a bound for the target estimate's variance and reveals asymptotic behaviour with respect to the number of iterations. For those methods that are applied to Scenario Approximations, theorems on an improvement in requires number of data samples (scenarios) are stated. Finally, all the proposed methods are compared with existing methods for solving similar optimization problems using measurable metrics. 
+
+All of the proposed methodologies and approaches were published in WoS, Scopus indexed journals of rank Q1 and presented at reputable international conferences.
+
+% \paragraph{Summary.}
+% The integration of renewable energy sources into modern power systems presents both significant opportunities and challenges. While these sources are crucial for achieving carbon-free electricity generation and meeting global sustainability goals, their inherent variability and uncertainty pose risks to grid reliability and stability. This research identifies the limitations of current methods for managing these uncertainties, such as machine learning, analytical approximations, and sampling-based algorithms, particularly in the context of the Optimal Power Flow (OPF) problem and its extensions. In response, we propose novel methods, including adaptive importance sampling and A-priori Reduced Scenario Approximation (AR-SA), to enhance the efficiency and accuracy of reliability assessments and optimization in power systems under uncertainty. By addressing these challenges, the research aims to improve the operational reliability and economic efficiency of power systems, facilitating the successful integration of renewable energy sources and supporting the global transition towards a sustainable energy future.
+
+
+
+
+
+% Template and formatting:
+% All Skoltech theses have an abstract
+% One thesis had chapter summary at the end of each chapter. Looks like a good idea
+% Introduction is apparently just a regular chapter
+
+\input{common/characteristic}
+
+% \section*{Publications}
+
+% \paragraph{Thesis publications.} The thesis is based on the following four Q1 publications:
+
+% \begin{enumerate}
+%     \item \fullcite{lukashevich2021importance}
+%     \item \fullcite{lukashevich2021power}
+%     \item \fullcite{lukashevich2023importance}
+%     \item \fullcite{mitrovic2023data}
+% \end{enumerate}
+
+% In all the above papers, except the last one, the author was a principal contributor, who developed and implemented all listed algorithms, proved (in the third paper jointly with A. Bulkin) all supporting theorems and lemmas. In the last paper the applicant developed method for experimental section, took part in the developing comparison methodology.
+
+\newpage
+
+\section*{Acknowledgments} 
+The dissertation was completed at the {\thesisOrganizationEn}.
+
+I thank my advisor, Elena Gryazina, for providing guidance and assistance at all stages of my doctoral study. I would like to devote special and sincere gratitude to my former scientific advisor and long-term co-author Yury Maximov, who initally showed the research potential in the field of statistical methods in power system and supported me throughout the whole research started even before my graduate study period. I also thank my coauthors, Deepjyoti Deka, Mile Mitrovic, Petr Vorobev, Aleksandr Bulkin and Vyacheslav Gorchakov, for numerous insightful discussions. Last but not least, I thank my wife, my family and my friends for immense support during my scientific journey.
 

@@ -1,6 +1,6 @@
 \chapter{Power Grid Reliability Estimation via Adaptive Importance Sampling}
 \label{chap:sampling}
-This chapter based on publication on the author \fullcite{lukashevich2021importance}
+This chapter is based on the publication of the dissertation author: \fullcite{lukashevich2021power}
 \section{Introduction}
 \label{sampling:introduction}
 
@@ -59,7 +59,7 @@ Finally, from Eqs.~\eqref{eq:DC-PF} the following system of inequalities defines
 (AB^\dagger C, - A B^\dagger C, C, -C)^\top p \le (\bar\theta, \bar\theta, \overline{p}, \underline{p})^\top, 
 \label{eq:feasibility_ineqs}
 \end{equation}
-with $W = (AB^\dagger C, - A B^\dagger C, C, -C)^\top$, $b = (\bar\theta, \bar\theta, \overline{p}, \underline{p})^\top$\!\!\!. Let $J = 2m + 2n$ be a number of constraints, e.g., rows in matrix $W$, then the reliability polytope $P$ is $\bigl\{p\!:\! \bigcap_{i=1}^J p^\top\!\!\omega^i \le b_i\bigr\}$. 
+with $W = (AB^\dagger C, - A B^\dagger C, C, -C)^\top$, $b = (\bar\theta, \bar\theta, \overline{p}, \underline{p})^\top$\!\!\!. Let $K = 2m + 2n$ be a number of constraints, e.g., rows in matrix $W$, then the reliability polytope $P$ is $\bigl\{p\!:\! \bigcap_{i=1}^K p^\top\!\!\omega_i \le b_i\bigr\}$. 
 
 Stochastic uncertainty in renewable generation and power consumption imposes a question of power grid reliability, e.g., estimating a probability that at least one of the reliability constraints is violated. Namely, we consider Gaussian fluctuations of power injections $p$ with known mean $\mu$ and covariance $\Sigma$ and aim at computing a constraint violation probability $\Pi$:
 \begin{align}\label{eq:prob}
@@ -67,72 +67,73 @@ Stochastic uncertainty in renewable generation and power consumption imposes a q
 \end{align}
 where $\mathbb{P}$ is a probability taken w.r.t. the normal pdf $\upsilon(p)$ of $p$. 
 
-Notice, that the probability $\Pi$ does not have an analytic expression, is computationally intractable, and even hard to approximate~\cite{owen2019importance,ryu2014adaptive,cappe2008adaptive, khachiyan1989problem}. 
-In practice, a union bound is often used to upper bound $\Pi$. Let $\Pi_i$ be a probability of a single event, e.g., $p^\top\omega^i > b_i$. It has an explicit expression for the Gaussian distribution, and by union bound inequality
-$\sum_{i\le J}\Pi_i \ge \Pi \ge \max_{i\le J} \Pi_i$; however, the bounds are loose when dealing with correlated violations which is often the case for power systems. 
+Notice, that the probability $\Pi$ does not have an analytic expression, it is computationally intractable, and even hard to approximate~\cite{owen2019importance,ryu2014adaptive,cappe2008adaptive, khachiyan1989problem}. 
+In practice, a union bound is often used to upper bound $\Pi$. Let $\Pi_i$ be a probability of a single event, e.g., $p^\top\omega_i > b_i$. It has an explicit expression for the Gaussian distribution, and by union bound inequality
+$\sum_{i\le K}\Pi_i \ge \Pi \ge \max_{i\le K} \Pi_i$. However, the bounds are loose when dealing with correlated violations which is often the case for power systems. 
 
 To refine the overload estimate and take into account simultaneous violation of multiple constraints, we propose an importance sampling procedure that allows to count the average number of constraints $N$ violated at the same time and, thus, improve the overload probability estimation to $\Pi/N$ instead of $\Pi$. It is meaningful for large power grids where multiple events are likely to happen synchronously.
 
-Table~\ref{tab:notation} summarizes chapter's notation. We use lower indices for elements of vectors and matrices, lower-case letters for probability density functions (pdfs), and upper-case letters for cumulative distribution functions (cdfs). When it does not lead to confusion, we use $\mathbb{P}$, $\mathbb{E}$, $\mathbb{V}$ to denote  probability, expectation, and variance without explicitly mentioning a distribution. 
+Table~\ref{tab:notation_sampling} summarizes chapter's notation. We use lower indices for elements of vectors and matrices, lower-case letters for probability density functions (pdfs), and upper-case letters for cumulative distribution functions (cdfs). When it does not lead to confusion, we use $\mathbb{P}$, $\mathbb{E}$, $\mathbb{V}$ to denote  probability, expectation, and variance without explicitly mentioning a distribution. 
 
 \begin{table}[t]
     \centering
-    \captionsetup{justification=centering}
     \caption{Chapter notation.}
-    \begin{tabular}{l|l|l|l}
+    \begin{tabularx}{\textwidth}{|m{1cm}|X|m{1.5cm}|X|}
+        \toprule
         $E$ & set of lines, $|E| = m$ & $\upsilon(p)$ & nominal distribution pdf\\
         $V$ & set of buses, $|V| = n$ & $\upsilon_D$ & parametric distribution pdf\\
         $B$ & $n\times n$ admittance matrix& $x$ & mixture distribution para- \\
-        $p_i$ & power injection & & meters, $x\in X \subseteq \mathbb{R}^J$\\
+        $p_i$ & power injection & & meters, $x\in X \subseteq \mathbb{R}^K$\\
         $\underline{p}_i$ & lower generation limit & 
-        $D_i$& $p\!\sim\!\mathcal{N}(\!\mu, \!\Sigma)$ s.t. $p^\top\! \omega^i \!> \!b_i$\hspace{-5mm}\\
+        $D_i$& $p\!\sim\!\mathcal{N}(\!\mu, \!\Sigma)$ s.t. $p^\top\! \omega_i \!> \!b_i$\hspace{-5mm}\\
         $\overline{p}_i$ & upper generation limit & $N$ & number of samples\\
         $\theta_i$ & phase angle & $\mathbb{P}$, $\mathbb{E}$ & probability, expectation\\
         $\theta_{ij}$ & phase angle difference%, $\theta_i - \theta_j$
         &$\mathbb{V}$, $\kl$ & Variance, KL-divergence\\
         $\bar\theta_{ij}$ & angle difference limits & ${\mathcal{N}}\!(\mu, \!\Sigma)\hspace{-5mm}$ &  Gaussian distribution with\\
         $I_n$ & $n\times n$ identity matrix & & mean $\mu$ and covariance $\Sigma$\\
-        $J$ & number of constraints & $\Phi$ & ${\mathcal{N}}(0,1)$ distribution cdf\\ 
+        $K$ & number of constraints & $\Phi$ & ${\mathcal{N}}(0,1)$ distribution cdf\\ 
         ${P}$ & reliability set, $p\!:\! W p \!\le\! b\!\!\!\!$ & $U(0,1)$ & uniform $(0,1)$ distribution\\
-        $\omega^i$ & rows of matrix $W$, $i\le J$ & $\Pi$ & overflow probability, $\!p\not\in\! P$
-    \end{tabular}
-    \label{tab:notation}
-    \vspace{-4mm}
+        $\omega_i$ & rows of matrix $W$, $i\le K$ & $\Pi$ & overflow probability, $\!p\not\in\! P$ \\
+        \bottomrule
+    \end{tabularx}
+    \label{tab:notation_sampling}
+    % \vspace{-4mm}
 \end{table}
 
 
 \section{Overload Probability Estimation}\label{sampling:prob}
 
 \subsection{A Single Constraint Case}
-We start with estimating the probability of fluctuating power injections to cause an overload of an individual constraint, e.g., $\Pi_i = \mathbb{P}(p^\top \omega^i \ge b_i)$ for some $i$, $1\le i \le J$. In the case of a Gaussian distribution, $p\sim \mathcal{N}(\mu,\Sigma)$ there is a closed form expression for it:
+We start with estimating the probability of fluctuating power injections to cause an overload of an individual constraint, e.g., $\Pi_i = \mathbb{P}(p^\top \omega_i \ge b_i)$ for some $i$, $1\le i \le K$. In the case of a Gaussian distribution, $p\sim \mathcal{N}(\mu,\Sigma)$ there is a closed form expression for it:
 % \begin{align*}
-% \Pi_i & = \mathbb{P}_{p\sim \mathcal{N}(\mu, \Sigma)}(p^\top \omega^i \ge b_i)  = \mathbb{P}((p - \mu)^\top \omega^i \ge b_i - \mu^\top \omega^i)\\
-% & = \mathbb{P}_{{\tilde p}\sim \mathcal{N}(0, I_n)} \left((\Sigma^{1/2}\omega^i)^\top {\tilde p} \ge b_i - \mu^\top \omega^i\right) \\
-% & = \mathbb{P}_{{\tilde p}\sim \mathcal{N}(0, I_n)} \left( {\tilde p}^\top {\bar\omega}_i \ge (b_i - \mu^\top \omega^i)/\|\Sigma^{1/2}\omega^i\|_2\right)  \\
-% & = \Phi((b_i - \mu^\top \omega^i)/\|\Sigma^{1/2}\omega^i\|_2), 
+% \Pi_i & = \mathbb{P}_{p\sim \mathcal{N}(\mu, \Sigma)}(p^\top \omega_i \ge b_i)  = \mathbb{P}((p - \mu)^\top \omega_i \ge b_i - \mu^\top \omega_i)\\
+% & = \mathbb{P}_{{\tilde p}\sim \mathcal{N}(0, I_n)} \left((\Sigma^{1/2}\omega_i)^\top {\tilde p} \ge b_i - \mu^\top \omega_i\right) \\
+% & = \mathbb{P}_{{\tilde p}\sim \mathcal{N}(0, I_n)} \left( {\tilde p}^\top {\bar\omega}_i \ge (b_i - \mu^\top \omega_i)/\|\Sigma^{1/2}\omega_i\|_2\right)  \\
+% & = \Phi((b_i - \mu^\top \omega_i)/\|\Sigma^{1/2}\omega_i\|_2), 
 % \end{align*}
 $%$\begin{align*}
-\Pi_i  = \mathbb{P}_{p\sim \mathcal{N}(\mu, \Sigma)}(p^\top \omega^i \ge b_i) %\\
-%& = \mathbb{P}_{{\tilde p}\sim \mathcal{N}(0, I_n)} \left( {\tilde p}^\top {\bar\omega}_i \ge (b_i - \mu^\top \omega^i)/\|\Sigma^{1/2}\omega^i\|_2\right)  \\
- = \Phi((b_i - \mu^\top \omega^i)/\|\Sigma^{1/2}\omega^i\|_2), 
+\Pi_i  = \mathbb{P}_{p\sim \mathcal{N}(\mu, \Sigma)}(p^\top \omega_i \ge b_i) %\\
+%& = \mathbb{P}_{{\tilde p}\sim \mathcal{N}(0, I_n)} \left( {\tilde p}^\top {\bar\omega}_i \ge (b_i - \mu^\top \omega_i)/\|\Sigma^{1/2}\omega_i\|_2\right)  \\
+ = \Phi((b_i - \mu^\top \omega_i)/\|\Sigma^{1/2}\omega_i\|_2), 
 $%\end{align*}
-where $\Phi$ is the standard Gaussian distribution cdf, ${\tilde p} = \Sigma^{-1/2}(p-\mu)$, ${\bar\omega}_i = (\Sigma^{1/2}\omega^i)^\top/\|\Sigma^{1/2}\omega^i\|_2$, and $1\le i \le J$. $\Pi_i$ are the probabilities of $p^\top \omega^i \ge b_i$, so that 
+where $\Phi$ is the standard Gaussian distribution cdf, ${\tilde p} = \Sigma^{-1/2}(p-\mu)$, ${\bar\omega}_i = (\Sigma^{1/2}\omega_i)^\top/\|\Sigma^{1/2}\omega_i\|_2$, and $1\le i \le K$. $\Pi_i$ are the probabilities of $p^\top \omega_i \ge b_i$, so that 
 $
-    \Pi = \mathbb{P}(\exists i: p^\top \omega^i \ge b_i) \le \sum_{i\le J}\mathbb{P}(p^\top \omega^i \ge b_i) = \sum_{i\le J} \Pi_i.
+    \Pi = \mathbb{P}(\exists i: p^\top \omega_i \ge b_i) \le \sum_{i\le K}\mathbb{P}(p^\top \omega_i \ge b_i) = \sum_{i\le K} \Pi_i.
 $
 
-Algorithm~\ref{alg:sample1d} is an instance of the inverse transorm method \cite{l2009monte} which allows to sample $p \sim \mathcal{N}(\mu, \Sigma)$ s.t. $p^\top \omega^i > b_i$. We refer this distribution as $D_i$, and its pdf is $\upsilon(p)/\Pi_i$ if $p^\top \omega^i > b_i$ and $0$ otherwise. Notice, that sample $p \sim \mathcal{N}(\mu, \Sigma)$ can be obtained with the plain MC from $\mathcal{N}(\mu, \Sigma)$, but it requires on average $1/\Pi_i$ trials instead of just one for Algorithm~\ref{alg:sample1d}.
+Algorithm~\ref{alg:sample1d} is an instance of the inverse transorm method \cite{l2009monte} which allows to sample $p \sim \mathcal{N}(\mu, \Sigma)$ s.t. $p^\top \omega_i > b_i$. We refer this distribution as $D_i$, and its pdf is $\upsilon(p)/\Pi_i$ if $p^\top \omega_i > b_i$ and $0$ otherwise. Notice, that sample $p \sim \mathcal{N}(\mu, \Sigma)$ can be obtained with the plain MC from $\mathcal{N}(\mu, \Sigma)$, but it requires on average $1/\Pi_i$ trials instead of just one for Algorithm~\ref{alg:sample1d}.
 
 \begin{algorithm}[H]
     \SetKwInOut{Input}{input}
     \SetKwInOut{Output}{output}
-    \caption{Sampling $p\sim \mathcal{N}(\mu,\Sigma)$ s.t. $p^\top \omega^i \geq b_i$}
+    \caption{Sampling $p\sim \mathcal{N}(\mu,\Sigma)$ s.t. $p^\top \omega_i \geq b_i$}
     \label{alg:sample1d}
-    \Input{Mean $\mu$, covariance $\Sigma$, and a constraint $p^\top \omega^i \le b_i$} 
-    \Output{$p\sim\mathcal{N}(\mu,\Sigma)$ s.t. $p^\top \omega^i \ge b_i$}
+    \Input{Mean $\mu$, covariance $\Sigma$, and a constraint $p^\top \omega_i \le b_i$} 
+    \Output{$p\sim\mathcal{N}(\mu,\Sigma)$ s.t. $p^\top \omega_i \ge b_i$}
     Sample $z \sim \mathcal{N}(0, I_n)$ and $u \sim U(0,1)$\;
     Compute $y = \Phi^{-1}(\Phi(\tau) + u(1 - \Phi(\tau)))$\;
-    Set $\phi = \bar\phi y + (I_n - \bar\phi\phi^\top) z$, with $\bar\phi = \Sigma^{1/2} \omega^i / \|\Sigma^{1/2} \omega^i\|_2$\!\! \;
+    Set $\phi = \bar\phi y + (I_n - \bar\phi\phi^\top) z$, with $\bar\phi = \Sigma^{1/2} \omega_i / \|\Sigma^{1/2} \omega_i\|_2$\!\! \;
     \Return $p = \Sigma^{1/2} (\phi+\mu)$
 \end{algorithm}
 
@@ -152,41 +153,40 @@ where we refer to $\upsilon(p)$ as \emph{nominal} distribution, and $\upsilon_D(
 
 A natural extension of importance sampling with a single linear constraint to the case of multiple linear constraints is to sample from a mixture distribution: 
 %\begin{align}\label{eq:mix}
-    $D = \sum_{i \le J} x_i D_i, \text{ with } \sum_{i\le J} x_i = 1, x_i \ge 0, \; 1\le i \le J,$
+    $D = \sum_{i \le K} x_i D_i, \text{ with } \sum_{i\le K} x_i = 1, x_i \ge 0, \; 1\le i \le K,$
 %\end{align}
-where $D_i$ is $\mathcal{N}(\mu,\Sigma)$ conditioned on $p^\top\omega^i > \!b_i$. 
+where $D_i$ is $\mathcal{N}(\mu,\Sigma)$ conditioned on $p^\top\omega_i > \!b_i$. 
 %
-The sampling algorithm consists of two steps. First, we choose a distribution $D_i$ with probability $x_i$. Second, we sample $p \sim D_i$, i.e. $p\sim \mathcal{N}(\mu,\Sigma)$ given $p^\top\omega^i>b_i$, according to Algorithm~\ref{alg:sample1d}.
+The sampling algorithm consists of two steps. First, we choose a distribution $D_i$ with probability $x_i$. Second, we sample $p \sim D_i$, i.e. $p\sim \mathcal{N}(\mu,\Sigma)$ given $p^\top\omega_i>b_i$, according to Algorithm~\ref{alg:sample1d}.
 %
 Probability density function $\upsilon_D(p, x)$ of $D$ is given by
-    $\upsilon_D(p, x) = \sum\limits_{i\le J} x_i \upsilon_i(p) 1[p^\top \omega^i > b_i]/\Pi_i$,
+    $\upsilon_D(p, x) = \sum\limits_{i\le K} x_i \upsilon_i(p) 1[p^\top \omega_i > b_i]/\Pi_i$,
     %
     %\begin{cases}
     %0, & \!\!p \in P,\\
-    %\sum_{i\le J} x_i \upsilon_i(p) 1[p^\top \omega^i > b_i], & \!\!p\not\in P,
+    %\sum_{i\le K} x_i \upsilon_i(p) 1[p^\top \omega_i > b_i], & \!\!p\not\in P,
     %\end{cases}
 %\end{align*}
 where $1[\cdot]$ is a binary indicator, and 
 $%\begin{align*}
-    \upsilon_i(p) = \upsilon(p) 1[p^\top\omega^i > b_i]/\Phi((b_i - \mu^\top\omega^i)/\|\Sigma^{1/2}\omega^i\|_2).
+    \upsilon_i(p) = \upsilon(p) 1[p^\top\omega_i > b_i]/\Phi((b_i - \mu^\top\omega_i)/\|\Sigma^{1/2}\omega_i\|_2).
 $%\end{align*}
 
 In contrast to the classical Monte-Carlo, which explores the uncertainty space uniformly according to the nominal distribution, importance sampling from parametric distribution $\upsilon_D(p,x)$ yields samples only from the area of interest, i.e., $p\not\in P$. 
 More specifically, Monte-Carlo generates many samples from the true distribution of power injections to estimate overflow probability, while the proposed approach only samples power injections that lead to an overload and adjusts their weights.
-Figure \ref{fig:00} illustrates the difference. 
+Figure \ref{fig:00} illustrates the difference. The white area stands for generations that do not exceed operating limits. A set of generations leading to at least one constraint violation is in grey. Two or more reliability constraints are not satisfied in the dark grey area. The samples from a nominal distribution and the constructed mixture are marked in red and green respectively.
 
 \begin{figure}
     \centering
     % \vspace{-3mm}
     \includegraphics[width=.95\textwidth]{Dissertation/images/sampling/conditioned_vs_MC.jpg}
     % \vspace{-5mm}
-    \caption{White area stands for generations that do not exceed operating limits. A set of generations leading to at least one constraint violation is in grey. Two or more reliability constraints are not satisfied in dark grey area. Samples from a nominal distribution and the constructed mixture marked in red and green resp. 
-    }
+    \caption{Samples produced using classical Monte-Carlo approach and using Importance Sampling procedure.}
     \label{fig:00}
     % \vspace{-5mm}
 \end{figure}
 
-Having a distribution mixture $\{D_i\}_{i=1}^J$we are looking for the weights $\{x_i\}_{i=1}^J$ to approximate a distribution $D$, $p \sim \mathcal{N}(\mu, \Sigma)$ s.t. $p\not\in P$, in the optimal way. Note that, any positive $\{x_i\}_{i=1}^J$ weights lead to an unbiased estimate 
+Having a distribution mixture $\{D_i\}_{i=1}^K$we are looking for the weights $\{x_i\}_{i=1}^K$ to approximate a distribution $D$, $p \sim \mathcal{N}(\mu, \Sigma)$ s.t. $p\not\in P$, in the optimal way. Note that, any positive $\{x_i\}_{i=1}^K$ weights lead to an unbiased estimate 
 \begin{align}\label{eq:aloe}
     {\hat \Pi} = N^{-1}\sum_{i=1}^N \upsilon(p^i)/\upsilon_D(p^i, x^i), \quad p^i \sim D^{x^i}
 \end{align}
@@ -208,30 +208,30 @@ where $f(p) = 1[p\not\in P]$.
 
 The optimal synthetic distribution can be chosen to minimize the variance, $\upsilon_*(p) = f(p)\upsilon(p)/\Pi$, and thus provide a better approximation to the integral. Notice, that for $\upsilon_D = \upsilon_*$ the variance $V(x) = 0$ and attains its minimum.  However, if $\upsilon_*(p)$ does not belong to the parametric family $\{\upsilon_D(p,x)\}_x$, we are looking for the best approximation of $\upsilon_*(p)$ within it, i.e. a minimum possible value of $V(x)$. 
 
-Figure~\ref{fig:fscheme} illustrates our approach. Starting from an initial weight assignment, $x_i^1 \propto \Pi_i$, at each iteration $N$ of the algorithm we sample $p^k \sim \upsilon_D(\cdot, x^k)$ and compute $x^{k+1}$ to minimize the variance of the estimate. We also update an empirical estimate to the probability 
+Figure~\ref{fig:fscheme} illustrates our approach. First, we initialize distributions $D_i$ based on a given set of constraints. Second, we initialize the weights of a mixture distribution to sample  $x_i\propto \Pi_i$. Then, with each new sample from $\sum_{i\le K} x_i D_i$ we update the weight vector $x$ and a overload estimate $\Pi_n$. See Eq.~\eqref{eq:md-upd} for details. In other words, starting from an initial weight assignment, $x_i^1 \propto \Pi_i$, at each iteration $N$ of the algorithm we sample $p^k \sim \upsilon_D(\cdot, x^k)$ and compute $x^{k+1}$ to minimize the variance of the estimate. We also update an empirical estimate of the probability 
 \begin{align}
     \hat \Pi = \frac{1}{k}\sum_{t=1}^k \frac{\upsilon(p^t) f(p^t)}{\upsilon_D(p^t, x^t)}, \; p^t \sim \upsilon_D(\cdot, x^t), t\le k \label{eq:emp}
 \end{align}
-and update parameters $x$ based on the value of $V(x^N)$ and its gradient. Before discussing the update strategy for the parameters $x$, we  outline some important properties of the variance $V(x)$ and empirical estimate~\eqref{eq:emp}. 
+and update parameters $x$ based on the value of $V(x^N)$ and its gradient. Before discussing the update strategy for the parameters $x$, we outline some important properties of the variance $V(x)$ and empirical estimate~\eqref{eq:emp}. 
 
 \begin{figure}
     \centering
     \begin{tikzpicture}[scale=0.7, node distance={15mm}, thick, main/.style = {draw, scale=.9}] 
-    \node[main] (a)  {Define distributions $D_i$, \par $p\sim \mathcal{N}(\mu, \Sigma)$ s.t. $p^\top \omega^i\ge b^i$}; 
-    \node[main] (b) [below = 4 mm of a] {Choose weights $x$ of the mixture, $p\sim\sum_{i\le J}x_i D_i$}; 
-    \node[main] (c) [below = 2 mm of b] {Sample $p \sim \Psi(p, x) = \sum_{i\le J }x_i D_i$}; 
+    \node[main] (a)  {Define distributions $D_i$, \par $p\sim \mathcal{N}(\mu, \Sigma)$ s.t. $p^\top \omega_i\ge b^i$}; 
+    \node[main] (b) [below = 4 mm of a] {Choose weights $x$ of the mixture, $p\sim\sum_{i\le K}x_i D_i$}; 
+    \node[main] (c) [below = 2 mm of b] {Sample $p \sim \Psi(p, x) = \sum_{i\le K }x_i D_i$}; 
     \node (x) [below = 3 mm of c]{};
     \node[main] (d) [left =  6 mm of x] {Update weights vector $x$};
     \node[main] (e) [right = 4 mm of x] {Update overload estimate $\Pi^N$}; 
     \draw[->] (a) -- (b) node[midway, right] { {\footnotesize set $x_i\propto \Pi_i$}};
     \draw[->] (b) -- (c);
-    \draw[<-] (-4.0,-1.95) -- (-4.0,-2.75);
+    \draw[<-] (-4.0,-2.3) -- (-4.0,-2.65);
     %\draw[-] (-4.0,-4.9) -- (-4.0,-1.5);
     \draw[->] (c) -- (d); 
     \draw[->] (c) -- (e);
     %\draw[->] (d) -- (e);
     \end{tikzpicture} 
-    \caption{Scheme of the proposed algorithm. First, we initialize distributions $D_i$ based on a given set of constraints. Second, we initialize the weights of a mixture distribution to sample  $x_i\propto \Pi_i$. Then, with each new sample from $\sum_{i\le J} x_i D_i$ we update the weight vector $x$ and a overload estimate $\Pi_n$. See Eq.~\eqref{eq:md-upd} for details.}
+    \caption{Scheme of the proposed estimation algorithm.}
     \label{fig:fscheme}
     % \vspace{-4mm}
 \end{figure}
@@ -239,14 +239,14 @@ and update parameters $x$ based on the value of $V(x^N)$ and its gradient. Befor
 Theorem~\ref{thm:var-convexity} implies convexity of the variance minimization %problem 
 \begin{align}
     \min_x \; & V(x), \; 
-    \text{s.t. } x_1 + \dots + x_J = 1, x_i \ge 0, 1\!\le\! i \!\le\! J\label{eq:var-min}
+    \text{s.t. } x_1 + \dots + x_K = 1, x_k \ge 0, 1\!\le\! k \!\le\! K\label{eq:var-min}
 \end{align}
-in $x$ for the mixture distribution $\upsilon_D(p,x) = \sum_{i=1}^J x_i \upsilon_i(p)$. %To improve numerical stability one may also add constraints $x_i \ge \varepsilon > 0$ that guarantee that the variance is bounded.
+in $x$ for the mixture distribution $\upsilon_D(p,x) = \sum_{i=1}^K x_i \upsilon_i(p)$. %To improve numerical stability one may also add constraints $x_i \ge \varepsilon > 0$ that guarantee that the variance is bounded.
 
 \begin{theorem}\label{thm:var-convexity}
 Problem~\eqref{eq:var-min} is convex in $x$, and for $x > 0$
 \begin{align*}
-    \nabla V(x) = \int_{\mathbb{R}^n} - f^2 (p)\upsilon^2(p)\upsilon_D^{-2}(p,x) (\upsilon_1(p), \dots, \upsilon_J(p))^\top dp.
+    \nabla V(x) = \int_{\mathbb{R}^n} - f^2 (p)\upsilon^2(p)\upsilon_D^{-2}(p,x) (\upsilon_1(p), \dots, \upsilon_K(p))^\top dp.
 \end{align*} 
 \end{theorem}
 \begin{proof}
@@ -254,7 +254,7 @@ The sub-integral expression, $f^2(p)\upsilon^2(p)/\upsilon_D(p,x)$, is convex fo
 \begin{align*}
     \nabla^2_x \left[f^2(p)\upsilon^2(p)/\upsilon_D(p,x)\right] = 2f^2(p)\upsilon^2(p)/\upsilon^3_D(p,x) h h^\top \!\succeq\! 0,
 \end{align*}
-where $h = (\upsilon_1(p), \dots, \upsilon_J(p))^\top = \nabla_x \upsilon_D(p,x)$. 
+where $h = (\upsilon_1(p), \dots, \upsilon_K(p))^\top = \nabla_x \upsilon_D(p,x)$. 
 The latter implies the integral's convexity. %Indeed, the Hessian of the sub-integral expression is non-negative for any $x$ 
 Finally, by the dominated convergence theorem as $\mathbb{E}_{p \sim \upsilon_D(\cdot,x)} \nabla_x\left[f^2(p)\upsilon^2(p)/\upsilon_D(p,x)\right]$ is finite for $x>0$, one can exchange the order of differentiation and integration and 
 %\begin{align*}
@@ -277,7 +277,7 @@ $\hat \Pi$ is an unbiased estimate of $\Pi$ if for all $k$, $1\le k \le N$, $x_k
 \begin{proof} 
 By the law of total expectation for $f(p) \!=\! 1[p\!\not\in\! P]$
 \begin{align*}
-    \mathbb{E}\, {\hat\Pi} & = \frac{1}{n}\sum_{k=1}^n  \mathbb{E}\biggl[\mathbb{E}_{p^k\sim\upsilon_D(p, x^k)} \biggl[ \frac{\upsilon(p^k) f(p^k)}{\upsilon_D(p^k,x^k)}\big| x^k\biggr]\biggr] = \Pi, %\sum_{i=1}^n \frac{\Pi}{n}= \Pi,
+    \mathbb{E}\, {\hat\Pi} & = \frac{1}{N}\sum_{k=1}^N  \mathbb{E}\biggl[\mathbb{E}_{p^k\sim\upsilon_D(p, x^k)} \biggl[ \frac{\upsilon(p^k) f(p^k)}{\upsilon_D(p^k,x^k)}\big| x^k\biggr]\biggr] = \Pi, %\sum_{i=1}^n \frac{\Pi}{n}= \Pi,
 \end{align*}
 as $\mathbb{E}_{p^k} \bigl[ \frac{\upsilon(p^k)f(p^k)}{\upsilon_D(p^k,x^k)}\big| x^k\bigr] = \Pi$. %\!=\! \int \frac{\upsilon(p^k)1[p^k \not\in P]}{\upsilon_D(p^k,x^k)}\upsilon_D(p^k,x^k) dp^k
 \end{proof}
@@ -306,37 +306,37 @@ In this section we focus on efficient numerical methods for minimizing variance 
 %
 The mirror descent update for solving Prob.~\eqref{eq:var-min}
 %\begin{align}\label{eq:md-problem}
-%    \min_{x \ge 0, \sum_{i\le J} x_i = 1} V(x),
+%    \min_{x \ge 0, \sum_{i\le K} x_i = 1} V(x),
 %\end{align}
 is an iterative modification of a point $x^k$ according to
 \begin{align}\label{eq:md-upd}
     \!\!x^{k+1} = \argmin\limits_{x\in S}\left\{\eta^k \nabla V(x^k)^\top (x - x^k) + D_\omega(x, x^k)\right\}\!\!,
 \end{align}
-where $S =\{x \ge 0,x_1+\dots+ x_J = 1\}$, a step-size $\eta^k \!>\! 0$, 
+where $S =\{x \ge 0,x_1+\dots+ x_K = 1\}$, a step-size $\eta^k \!>\! 0$, 
 $D_\omega(x, x^k)$ is the Bregman divergence defined for any strongly convex and smooth (distance-generating) function~$\omega$~as
 $
     D_\omega(x, x^k) = \omega(x) - \{\omega(x^k) + \nabla \omega(x^k)^\top (x^k - x)\}.
 $
-So as the distance generating function is strongly convex and smooth in $x,$ so is the Bregman divergence. When $\omega(x) = \|x\|_2^2/2,$ mirror descent step is the same as in the gradient descent method, $x^{k+1} = x_k - \eta^k \nabla V(x^k)$. However, the negative entropy, $\omega(x) = -\sum_{i=1}^n x_i \log x_i$, is known to be the optimal choice for simplex constrained optimization. For $k\ge 1$ and $1\le i \le J$, solving~Eq.~\eqref{eq:md-upd} in $x$ leads to an update 
+So as the distance generating function is strongly convex and smooth in $x,$ so is the Bregman divergence. When $\omega(x) = \|x\|_2^2/2,$ mirror descent step is the same as in the gradient descent method, $x^{k+1} = x^k - \eta^k \nabla V(x^k)$. However, the negative entropy, $\omega(x) = -\sum_{i=1}^n x_i \log x_i$, is known to be the optimal choice for simplex constrained optimization. For $k\ge 1$ and $1\le i \le K$, solving~Eq.~\eqref{eq:md-upd} in $x$ leads to an update 
 \begin{align}
-\label{eq:_upd}x^{k+1}_i = x^k_i \frac{\exp(-\eta^k(\nabla V(x^k))_i)}{\sum_{j=1}^J x^k_j \exp(-\eta^k(\nabla V(x^k))_j)}, \eta^k > 0.
+\label{eq:_upd}x^{k+1}_i = x^k_i \frac{\exp(-\eta^k(\nabla V(x^k))_i)}{\sum_{j=1}^K x^k_j \exp(-\eta^k(\nabla V(x^k))_j)}, \eta^k > 0.
 \end{align}
 
 Finally, upon minimizing stochastic objective $V(x),$ the expectation of the gradient is inaccessible, so one substitutes $\nabla V(x)$ with a stochastic gradient that comes from the uncertainty realization~$p$,
 $g(x, p) =  - f^2 (p)\upsilon^2(p)\upsilon_D^{-3}(p,x) h^\top, \; \mathbb{E}_{p\sim \upsilon_D}g(x, p) = \nabla V(x),$
 and $h = (\upsilon_1(p), \dots, \upsilon_k(p))$. Finally 
 $
-    \upsilon_D(p,x)/\upsilon(p) = \sum_{i\le J} x_i 1[p^\top \omega^i \ge b_i] / \Pi_i,
+    \upsilon_D(p,x)/\upsilon(p) = \sum_{i\le K} x_i 1[p^\top \omega_i \ge b_i] / \Pi_i,
 $
 and $f(p) = 1 $ for any $p\sim\upsilon_D$; 
-$g_i (x^k, p) \!=\! \Pi_i^{-1} 1[p^\top \omega^i \!>\! b_i]/(\sum_{j\le J} x_j^k 1[p^\top \omega^j \!>\! b_j])^3$, $i\!\le\!J$. %/ \Pi_j\right)^3})$, $1\le i \le J$.
+$g_i (x^k, p) \!=\! \Pi_i^{-1} 1[p^\top \omega_i \!>\! b_i]/(\sum_{j\le K} x_j^k 1[p^\top \omega_j \!>\! b_j])^3$, $i\!\le\!K$. %/ \Pi_j\right)^3})$, $1\le i \le K$.
 
 %\begin{align}\label{eq:_upd}
-%    x^{k+1}_i = \frac{x^k_i \exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega^i > b_i]}{\sum_{j\le J} x_j^k 1[p^\top \omega_j \ge b_j]}\right)}{\sum_{j=1}^J x_j^k \exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega_j > b_j]}{\sum_{i\le J} x_i 1[p^\top \omega^i \ge b_i]}\right)}, 1\le i \le J.
+%    x^{k+1}_i = \frac{x^k_i \exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega_i > b_i]}{\sum_{j\le K} x_j^k 1[p^\top \omega_j \ge b_j]}\right)}{\sum_{j=1}^K x_j^k \exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega_j > b_j]}{\sum_{i\le K} x_i 1[p^\top \omega_i \ge b_i]}\right)}, 1\le i \le K.
 %\end{align}
 %{\color{blue}
 %\begin{align}\label{eq:_upd}
-%    x^{k+1}_i = \frac{x^k_i \exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega^i > b_i] / \Pi_i}{\left( %\sum_{j\le J} x_j^k 1[p^\top \omega_j \ge b_j] / \Pi_j\right)^3}\right)}{\sum_{l \leq J}x^k_l %\exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega_l > b_l] / \Pi_l}{\left( \sum_{j\le J} x_j^k 1[p^\top %\omega_j \ge b_j] / \Pi_j\right)^3}\right)}, 1\le i \le J.
+%    x^{k+1}_i = \frac{x^k_i \exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega_i > b_i] / \Pi_i}{\left( %\sum_{j\le K} x_j^k 1[p^\top \omega_j \ge b_j] / \Pi_j\right)^3}\right)}{\sum_{l \leq K}x^k_l %\exp\left(\frac{\eta^k \upsilon(p) 1[p^\top \omega_l > b_l] / \Pi_l}{\left( \sum_{j\le K} x_j^k 1[p^\top %\omega_j \ge b_j] / \Pi_j\right)^3}\right)}, 1\le i \le K.
 %\end{align}
 %}
 
@@ -344,36 +344,36 @@ Theorem~\ref{thm:lan} is a restatement of \cite[Theorem 4.1.]{lan2020first} whic
 
 \begin{theorem}\label{thm:lan}
     For any function $V(x)$ that is $M$-Lipschitz in $\ell_1$ norm, i.e. $\|V(x) - V(y)\|_\infty \le M \|x-y\|_1 \forall x,y$, a constant step-size policy $\eta^k = \eta \le 1/M$, and 
-    a sequence $\{x^k\}_{k\ge 1}$ generated by \eqref{eq:md-upd} with $\omega(x) = \sum_{i\le J} x_i\log x_i$, one has
+    a sequence $\{x^k\}_{k\ge 1}$ generated by \eqref{eq:md-upd} with $\omega(x) = \sum_{i\le K} x_i\log x_i$, one has
     \begin{align*}
         N^{-1}\sum_{i=1}^N (V(x^i)  - V^*) \le 
-        (\log J + (M^2 + \sigma^2) N \eta^2)/(N\eta),
+        (\log K + (M^2 + \sigma^2) N \eta^2)/(N\eta),
     \end{align*}
 with $\mathbb{E}_{\upsilon_D}\|g(p,x)- \nabla V(x)\|_\infty^2 \le \sigma^2$, $V_*$ is the optimum of~\eqref{eq:var-min}. 
 \end{theorem}
 
 In our study, function $V(x)$ is $M$-Lipschitz for $x\in S$ with 
 $$
-\|\nabla V(x)\|_\infty \le \max_{i\le J}\int_{\mathbb{R}^n} f^2(p)\upsilon^2(p)\upsilon^{-2}_D(p,x) \upsilon_i(p) dp \le M, 
+\|\nabla V(x)\|_\infty \le \max_{i\le K}\int_{\mathbb{R}^n} f^2(p)\upsilon^2(p)\upsilon^{-2}_D(p,x) \upsilon_i(p) dp \le M, 
 $$
-where $M = \max_{i\le J}\varepsilon^{-2}\Pi_i^2$ for $x\ge \varepsilon > 0$, and %$\mathbb{E}_{p\sim \upsilon_D} & \|g(p,x) - \nabla V(x)\|_\infty^2 \le 2\mathbb{E} \biggl\|\frac{f^2(p)\upsilon^3(p)}{\upsilon^2(p,x)} h\biggr\|_\infty^2  + 2\mathbb{E} \|\nabla V(x)\|_\infty^2 \le 4 \Pi^2/\varepsilon^2$.
+where $M = \max_{i\le K}\varepsilon^{-2}\Pi_i^2$ for $x\ge \varepsilon > 0$, and %$\mathbb{E}_{p\sim \upsilon_D} & \|g(p,x) - \nabla V(x)\|_\infty^2 \le 2\mathbb{E} \biggl\|\frac{f^2(p)\upsilon^3(p)}{\upsilon^2(p,x)} h\biggr\|_\infty^2  + 2\mathbb{E} \|\nabla V(x)\|_\infty^2 \le 4 \Pi^2/\varepsilon^2$.
 \begin{align*}
     & \mathbb{E}_{p\sim \upsilon_D} \|g(p,x) - \nabla V(x)\|_\infty^2 \\
    % = \mathbb{E} \biggl\|\frac{f^2(p)\upsilon^3(p)}{\upsilon_D^2(p,x)} h \! - \!\nabla V(x)\biggr\|_\infty^2 \\
     &\; \le 2\mathbb{E} \|f^2(p)\upsilon^3(p)\upsilon_D^{-2}(p,x) h\|_\infty^2  + 2\mathbb{E} \|\nabla V(x)\|_\infty^2 \le 4 M^2. 
 \end{align*}
 To this end, according to Theorem~\ref{thm:lan} the optimal choice of 
-$\eta = M^{-1}\sqrt{\log J/(5N)},$ which yields almost dimension independent convergence rate stated in Theorem~\ref{thm:md-c}. 
-\begin{theorem}\label{thm:md-c} Mirror descent with an update~\eqref{eq:_upd} and a step-size policy $\eta^k \!=\! \eta M^{-1}\!\sqrt{(\log J)/N}$,  $\eta \sqrt{(\log J)/N}\!\le\! 1$ yields
+$\eta = M^{-1}\sqrt{\log K/(5N)},$ which yields almost dimension independent convergence rate stated in Theorem~\ref{thm:md-c}. 
+\begin{theorem}\label{thm:md-c} Mirror descent with an update~\eqref{eq:_upd} and a step-size policy $\eta^k \!=\! \eta M^{-1}\!\sqrt{(\log K)/N}$,  $\eta \sqrt{(\log K)/N}\!\le\! 1$ yields
 \begin{align*}
-    \mathbb{V}_{\upsilon_D} (\hat \Pi) = N^{-1}\sum_{k=1}^N V(x^k) < \frac{V^*}{N} +  \left(\frac{M}{\eta}+ \frac{5\eta}{M}\right)\frac{\sqrt{\log J}}{\eta N^{3/2}}, 
+    \mathbb{V}_{\upsilon_D} (\hat \Pi) = N^{-1}\sum_{k=1}^N V(x^k) < \frac{V^*}{N} +  \left(\frac{M}{\eta}+ \frac{5\eta}{M}\right)\frac{\sqrt{\log K}}{\eta N^{3/2}}, 
 \end{align*}
-with $M \!= \!\max_{i\le J}\varepsilon^{-2}\Pi_i^2$,  $x\!\ge\! \varepsilon$, $V^*$ be the optimum of~\eqref{eq:var-min}.
+with $M \!= \!\max_{i\le K}\varepsilon^{-2}\Pi_i^2$,  $x\!\ge\! \varepsilon$, $V^*$ be the optimum of~\eqref{eq:var-min}.
 \end{theorem}
 %\par {\color{red} Sasha, please check the proof line by line}
-%\par {\color{red} Sasha, please check (1) ref vs eqref; change all $d \to J$ }
+%\par {\color{red} Sasha, please check (1) ref vs eqref; change all $d \to K$ }
 
-Compared to the earlier results of~\cite{owen2019importance}, the rate of convergence depends as $O(\sqrt{\log J})$ on the dimension $J$, while earlier results \cite{owen2019importance} claim linear at dependence. Thus, our result provides a substantial acceleration for large-scale problems.  
+Compared to the earlier results of~\cite{owen2019importance}, the rate of convergence depends as $O(\sqrt{\log K})$ on the dimension $K$, while earlier results \cite{owen2019importance} claim linear dependence. Thus, our result provides a substantial acceleration for large-scale problems.  
 
 \section{Empirical Study}\label{sampling:emp}
 
@@ -386,24 +386,23 @@ In this study, we have compared Monte-Carlo Sampling, ALOE \cite{owen2019importa
 %\paragraph{Numerical stability}
 %Mirror descent update rule imposes the question of numerical stability as $x^{k+1}$ can get below machine precision for small $x^k$ and a small update factor. 
 %
-%To avoid numerical instability, we freeze coordinates $x_i$ that correspond to initial probabilities $\Pi_i\leq 10^{-4}\times \max_{i\le J} \Pi_i$ and only update other coordinates.
+%To avoid numerical instability, we freeze coordinates $x_i$ that correspond to initial probabilities $\Pi_i\leq 10^{-4}\times \max_{i\le K} \Pi_i$ and only update other coordinates.
 %
 %\paragraph{Implementation details} 
 We have used Python 3.8.5. and PandaPower~2.2.2~\cite{pandapower.2018} on MacBook Pro (2.4GHz, 8-Core Intel i9, 64 GB RAM). %%In the experiments computational time for each of the cases for MD-Var method have not exceeded two minutes, which makes the solution applicable for the operational practice.
 
 \subsection{Test cases and numerical results}
 
-We evaluate our algorithms on multiple real (power grids) and simulated test cases. We estimate the probability of system overload, i.e. the probability that at least one of the realibility constraints fails. Assuming Gaussian fluctuations of output power of renewables, the  probability equals to the Gaussian volume of the reliability polytope's complement $\mathbb{R}^n\setminus P$.%, as it was shown earlier. 
-First, we conduct our experiments on the regular polytope, then we consider degenerate polytope. The latter is merely two parallel planes, one of them has a number of slightly shivered duplicates. This test assesses the stability of the algorithms and ability to handle joint geometry of the problem. Finally, we apply the proposed algorithms to various power grids. 
+We evaluate our algorithms on multiple real (power grids) and simulated test cases. We estimate the probability of system overload, i.e. the probability that at least one of the realibility constraints fails. Assuming Gaussian fluctuations of output power of renewables, the  probability equals to the Gaussian volume of the reliability polytope's complement $\mathbb{R}^n\setminus P$. First, we conduct our experiments on the regular polytope, then we consider degenerate polytope. The latter is merely two parallel planes, one of them has a number of slightly shivered duplicates. This test assesses the stability of the algorithms and ability to handle joint geometry of the problem. Finally, we apply the proposed algorithms to various power grids. 
 
 \paragraph{Regular polytope}
-We consider a regular 2 dimensional polytope with $J$ faces ($J\ge 3$) centered at zero, $
-    P = \{p \in \mathbb{R}^2: \omega_j^\top x \leq \tau, 1\le j \le J\},
+We consider a regular 2 dimensional polytope with $K$ faces ($K\ge 3$) centered at zero, $
+    P = \{p \in \mathbb{R}^2: \omega_k^\top x \leq \tau, 1\le k \le K\},
 $
-where $\omega_j = (\sin(2\pi j/J), \cos(2 \pi j/J))$. 
-We assume $p\sim\mathcal{N}(0, I_2)$, where $I_2$ is $2\times 2$ identity matrix. The probability $p\not\in P$ rapidly converges to $\exp(-\tau^2/2)$ as $J\to\infty$ \cite{owen2019importance}. %In Figure~\ref{fig:00} the probability of interest is the Gaussian volume of the white region's complement. 
+where $\omega_k = (\sin(2\pi k/K), \cos(2 \pi k/K))$. 
+We assume $p\sim\mathcal{N}(0, I_2)$, where $I_2$ is $2\times 2$ identity matrix. The probability $p\not\in P$ rapidly converges to $\exp(-\tau^2/2)$ as $K\to\infty$ \cite{owen2019importance}. %In Figure~\ref{fig:00} the probability of interest is the Gaussian volume of the white region's complement. 
 %\textcolor{magenta}{Dasha stopped here} 
-Figure~\ref{fig:01} compares performance of MC,  ALOE~\cite{owen2019importance}, mirror descent (Section~\ref{sampling:nm}) minimizing variance (MD-Var) and KL-divergence (MD-KL) and pmvnorm~\cite{genz2020package} methods for $\tau = 6$ and $J = 360$. Figure~\ref{fig:01} shows the histogram of $\hat \Pi/\Pi$ for 100 runs of the algorithms on a sample size of 1000. %  We ran all algorithms 100 times with the sample size of 1000 and plotted the histogram of $\hat \Pi/\Pi.$ %along the $x$-axis, and a number of times the estimate takes value $x$ on the $y$-axis. 
+Figure~\ref{fig:01} compares performance of MC,  ALOE~\cite{owen2019importance}, mirror descent (Section~\ref{sampling:nm}) minimizing variance (MD-Var) and KL-divergence (MD-KL) and pmvnorm~\cite{genz2020package} methods for $\tau = 6$ and $K = 360$. Figure~\ref{fig:01} shows the histogram of $\hat \Pi/\Pi$ for 100 runs of the algorithms on a sample size of 1000. %  We ran all algorithms 100 times with the sample size of 1000 and plotted the histogram of $\hat \Pi/\Pi.$ %along the $x$-axis, and a number of times the estimate takes value $x$ on the $y$-axis. 
  The MD-Var method demonstrates a slightly better performance then ALOE, while pmvnorm tends to significantly underestimate the probability of $p\not\in P$. Monte-Carlo sampling from the nominal distribution failed to generate any event $p\not\in P$ in $10^6$ tries, and estimated a overload probability $\Pi$ as zero.
 
 \begin{figure}[t!]
@@ -435,7 +434,7 @@ Figure~\ref{fig:01} compares performance of MC,  ALOE~\cite{owen2019importance},
 
 \paragraph{Degenerate polytope} Although ALOE is one of the best choices for a regular polytope, the algorithm does not take into account the joint geometry of various hyperplanes. 
 %
-As the second example we consider a degenerate polytope with $J=1500$ faces, where $\omega_1 = (0, 1)$  and $\omega_j = (\xi, -1 - \xi)$, $2\le j \le J$. We take $\xi \sim \mathcal{U}[-\varepsilon, \varepsilon]$ for small $\varepsilon = 10^{-6}$. Note that $\omega_j$ for $j\geq 2$ are almost identical. Hence probability $\Pi$ is quite close to $2\Phi(-\tau)$. In this experiment, ALOE puts a lot of efforts on sampling points in the area $\{p: (0, -1)^\top p \ge \tau\}$, while the set $\{p: \omega_1^\top p \ge \tau\}$ remains unexplored which leads to a higher variance of the sampler and a less efficient method compared to the proposed optimization approach. Figure~\ref{fig:01} illustrates the performance of ALOE in this case. 
+As the second example we consider a degenerate polytope with $K=1500$ faces, where $\omega_1 = (0, 1)$  and $\omega_k = (\xi, -1 - \xi)$, $2\le k \le K$. We take $\xi \sim \mathcal{U}[-\varepsilon, \varepsilon]$ for small $\varepsilon = 10^{-6}$. Note that $\omega_k$ for $k\geq 2$ are almost identical. Hence probability $\Pi$ is quite close to $2\Phi(-\tau)$. In this experiment, ALOE puts a lot of efforts on sampling points in the area $\{p: (0, -1)^\top p \ge \tau\}$, while the set $\{p: \omega_1^\top p \ge \tau\}$ remains unexplored which leads to a higher variance of the sampler and a less efficient method compared to the proposed optimization approach. Figure~\ref{fig:01} illustrates the performance of ALOE in this case. 
 
 \paragraph{Power Grid Cases} In this subsection we consider real-world polytopes corresponding to DC power grids (IEEE test cases) and Gaussian power injections.
 %
@@ -455,10 +454,11 @@ the true probability.
 \begin{table}[ht]
 \centering
 %\vspace{-4mm}
-\captionsetup{justification=centering}
+% \captionsetup{justification=centering}
 \caption{Number of samples to satisfy Ineq.~\eqref{eq:tk} 
  for Iceland118}
- \begin{tabular}{c|c|c|c|c} 
+ \begin{tabular}{|c|c|c|c|c|} 
+ \toprule
  \hspace{-2mm}Bound ${\bar\theta}_{ij}$, probability $\Pi$ & MC & ALOE & Pmvnorm & MD-Var\\
  % &&& \cite{genz2020package} & (Section \ref{sampling:nm})\\
  \hline
@@ -466,6 +466,7 @@ the true probability.
   \hspace{-2mm}$|{\theta}_{ij}| \le \pi/7$, $\Pi$ = 3.0e-02 & 5.1e+04 & 4.1e+02 & 1.1e+03 & \underline{3.5e+02}\\
   \hspace{-2mm}$|{\theta}_{ij}| \le \pi/6$, $\Pi$ = 2.5e-03  & 6.2e+06 & 4.5e+02 & 6.3e+03 & \underline{3.9e+02} \\
   \hspace{-2mm}$|{\theta}_{ij}| \le \pi/5$, $\Pi$ = 2.6e-05  & 8.9e+10 & 3.3e+02 & 1.4e+04 & \underline{2.1e+02}\\
+  \bottomrule
  \end{tabular}
  \vspace{-3mm}\label{tab:sample-compX}
 \end{table}
@@ -516,11 +517,11 @@ Pmvnorm~\cite{genz2020package} did not terminate on Polish 3120sp case after an 
 
 \begin{table}[t]
     \centering
-    \captionsetup{justification=centering}
+    % \captionsetup{justification=centering}
     \caption{Overload probability estimation for power grids.}
     \label{tab:emp}
-    {\scriptsize{
-    \begin{tabular}{l|l|l|l|l|l|l}
+    \begin{tabular}{|l|l|l|l|l|l|l|}
+    \toprule
           Estimate, $\hat\Pi$ & $\bar\theta$ & $\Pi$ &  \text{ALOE} & MD-Var & MD-KL & pmvnorm\\
           \hline
           \multicolumn{7}{c}{IEEE 30}\\
@@ -555,9 +556,9 @@ $\hat\Pi\times$ 1e+02 & $\pi/8$\hspace{-4mm}&1.5\!\! & 1.5 $\pm$ 0.1 & 1.5 $\pm$
 \hline
 $\hat\Pi\times$ 1e+13 & $\pi/2$\hspace{-4mm}&3.7\!\! & 3.7 $\pm$ 0.4 & 3.7 $\pm$ 0.0 & 3.7 $\pm$ 0.0 & N/A\\
 $\hat\Pi\times$ 1e+04 & $\pi/3$\hspace{-4mm}&1.2\!\! & 1.2 $\pm$ 0.1 & 1.2 $\pm$ 0.0 & 1.2 $\pm$ 0.0 & N/A\\
-$\hat\Pi\times$ 1e+02 & $\pi/4$\hspace{-4mm}&3.4\!\! & 3.4 $\pm$ 0.5 & 3.4 $\pm$ 0.3 & 3.4 $\pm$ 0.6 & N/A
-    \end{tabular}}
-    }
+$\hat\Pi\times$ 1e+02 & $\pi/4$\hspace{-4mm}&3.4\!\! & 3.4 $\pm$ 0.5 & 3.4 $\pm$ 0.3 & 3.4 $\pm$ 0.6 & N/A\\
+\bottomrule
+    \end{tabular}
     %\vspace{-4mm}
 \end{table}
 

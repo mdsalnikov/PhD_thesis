@@ -1,4 +1,7 @@
 \thispagestyle{empty}
+\begin{center}
+\thesisOrganizationEn
+\end{center}
 
 \noindent%
 \begin{tabularx}{\textwidth}{@{}lXr@{}}%
@@ -29,7 +32,7 @@
 \fi
 
 \vspace{0pt plus3fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
-\textbf{\large{ABSTRACT}}
+\textbf{\large{DISSERTATION ABSTRACT}}
 
 \vspace{0pt plus2fill}
 
@@ -42,7 +45,7 @@
 \newpage
 % оборотная сторона обложки
 \thispagestyle{empty}
-The dissertation was prepared at the {\thesisOrganizationEn}.
+The dissertation was prepared at the {\thesisOrganizationEnNonTitle}.
 
 \vspace{0.008\paperheight plus3fill}
 \noindent%
@@ -92,12 +95,12 @@ The dissertation was prepared at the {\thesisOrganizationEn}.
     % \fi
     % }%
     % \vspace{0.013\paperheight} \\
-    \ifdefined\leadingOrganizationTitleEn
-    \textbf{Leading organization:}    &
-    \ifnumequal{\value{showopplead}}{0}{\vspace{6\onelineskip plus1fill}}{%
-        \textbf{\leadingOrganizationTitleEn}
-    }%
-    \fi
+    % \ifdefined\leadingOrganizationTitleEn
+    % \textbf{Leading organization:}    &
+    % \ifnumequal{\value{showopplead}}{0}{\vspace{6\onelineskip plus1fill}}{%
+    %     \textbf{\leadingOrganizationTitleEn}
+    % }%
+    % \fi
 \end{tabularx}
 \vspace{0.008\paperheight plus3fill}
 
@@ -112,7 +115,7 @@ The dissertation can be found in the \synopsisLibraryEn.
 % \noindent Reviews of the synopsis should be sent in two copies, stamped by the organization, to \defenseCouncilAddressEn, to the secretary of the dissertation council~\defenseCouncilNumberEn.
 
 \vspace{0.008\paperheight plus3fill}
-{The abstract was sent on \synopsisDateEn.}
+{The abstract was sent out on \synopsisDateEn.}
 
 
 \vspace{0.008\paperheight plus9fill}
@@ -122,8 +125,9 @@ The dissertation can be found in the \synopsisLibraryEn.
 >{\centering\arraybackslash}X
 r
 @{}}
-    \small{\textbf{Scientific secretary}} \par \textbf{\small{of the 
-    Dissertation council}}
+    \small{\textbf{Academic secretary}} \par \textbf{\small{of the 
+    Dissertation council,}}\par
+    \textbf{\small{\defenseSecretaryRegaliaEn}}
     &
     \ifnumequal{\value{showsecrsign}}{0}{}{%
         \includegraphics[width=2cm]{secretary-signature.png}%

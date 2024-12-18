@@ -11,12 +11,12 @@ This chapter is devoted to the OPF problem: its objective, variables, constraint
 
 \section{Optimization problem}
 
-A general constrained optimization problem problem is formulated as follows {\cite{red} BT, introduction to optimization}:
+A general constrained optimization problem problem is formulated as follows \cite{polyak1987introduction}:
 
 \begin{equation}
     \begin{aligned}
         \min            & J(x, u)    \\
-        \texttt{s. t.}~ & g(x, u) = 0 \\
+        \texttt{s.t.}~ & g(x, u) = 0 \\
                         & h(x, u) \leq 0
     \end{aligned}
     \label{eq:constrained_opt}
@@ -92,28 +92,28 @@ Line rating, or line flow limits, are due to the wiring materials, components an
 
 \section{DC OPF Approximation}
 
-In high voltage ($380$ kV, \cite{crucitti2005locating}) power grids, that are decribing a power system on inter-city country level, a common practice is to use Direct-Current OPF (DC-OPF) approximation. It does not assume direct current instead of alternating one. In fact, it has the following set of assumptions, recalling that $Y_{ij} = \frac{1}{R_{ij} + i X_{ij}}$ for a line $ij \in \mathcal{L}$:
+In high voltage ($380$ kV, \cite{crucitti2005locating}) power grids, that are decribing a power system on inter-city country level, a common practice is to use Direct-Current OPF (DC-OPF) approximation. It does not assume direct current instead of alternating one. In fact, it has the following set of assumptions, recalling that $Y_{ij} = \frac{1}{R_{ij} + \rmi X_{ij}}$ for a line $ij \in \mathcal{L}$:
 \begin{enumerate}
-    \item Voltage magnitudes are given in per units and approximately equal to one: $V_i \approx 1 ~ \forall i \in \mathcal{B}$
+    \item Voltage magnitudes are given in per units and approximately equal to one: $V_i \approx 1, ~ \forall i \in \mathcal{B}$
     \item Voltage phases does not differ much between buses: $\theta{ij} \approx 0, ~\forall ij \in \mathcal{L}$
     \item Line resistance is negligible: $R_{ij} ~ \forall ij \in \mathcal{L}$
 \end{enumerate}
 
-This set of assumption allows one to rewrite the AC-OPF constraints. Firstly, let us note that elements of the admittance matrix under the assumption 3) will be as follows, recall that $Y = G = i B$:
+This set of assumption allows one to linearize the AC-OPF constraints. Firstly, let us note that elements of the admittance matrix under the assumption 3) will be as follows, recall that $Y = G + \rmi B$:
 \begin{equation}
-    Y_{ij} = \frac{1}{R_{ij} + i X_{ij}} \approx \frac{1}{iX_{ij}} \approx B_{ij}.
+    Y_{ij} = \frac{1}{R_{ij} + \rmi X_{ij}} \approx \frac{1}{\rmi X_{ij}} \approx B_{ij}.
     \label{eq:admittance matrix approx}
 \end{equation}
-Next, assumption 2) yield the following approximation for trigonometric functions over phase difference, recalling Taylor's formula,%{\color{red} matan reference}
+Next, assumption 2. yield the following approximation for trigonometric functions over phase difference, recalling Taylor's formula,%{\color{red} matan reference}
 \begin{equation}
     \begin{aligned}
-        \sin \theta_{ij} &= \theta_{ij} + o(\theta_{ij}) \underset{\theta_{ij} \to 0}{\to} \theta_{ij}    \\
-        \cos \theta_{ij} &= 1 - \theta^2_{ij} / 2 + o(\theta_{ij}^2) \underset{\theta_{ij} \to 0}{\to} 1    \\
+        \sin \theta_{ij} &= \theta_{ij} + o(\theta_{ij}) \overset{\theta_{ij} \to 0}{\longrightarrow} \theta_{ij}    \\
+        \cos \theta_{ij} &= 1 - \theta^2_{ij} / 2 + o(\theta_{ij}^2) \overset{\theta_{ij} \to 0}{\longrightarrow} 1    \\
     \end{aligned}
     \label{eq:phase diff approx}
 \end{equation}
 
-Finally, combining \eqref{eq:admittance matrix approx}, \eqref{eq:phase diff approx} with 1) ($V_i V_j \approx 1$) and considering power flow lines \eqref{eq:line_flow} one obtains:
+Finally, combining \eqref{eq:admittance matrix approx}, \eqref{eq:phase diff approx} with 1. ($V_i V_j \approx 1$) and considering power line flows \eqref{eq:line_flow} one obtains:
 \begin{equation}
     \begin{aligned}
         P_{ij} &\approx B_{ij} \sin \theta_{ij} , ~ij \in \mathcal{L} \\
@@ -129,7 +129,7 @@ Let us summarize the DC-OPF below:
 \begin{equation}
     \begin{aligned}
         \min_{P^G, \theta}  & \textit{cost}(P^G) \\
-        \textit{s.t. }      & P^G - P^D = B\theta
+        \texttt{s.t. }      & P^G - P^D = B\theta
                             & P_i^{min} \leq P_i^G \leq P_i^{max}, ~ i \in \mathcal{B} \\ 
                             & \sum_{i \in \mathcal{B}} P^G_i = \sum_{i \in \mathcal{B}} P^D_i \\
                             & |\theta_{ij}| \leq \bar{\theta}_{ij}, ~ ij \in \mathcal{L}
@@ -144,7 +144,7 @@ Dynamic DC-OPF setup consider several system snapshots bound with temporal ramp-
 Power systems fluctuations typically occur both on the generation and demand side and arise from the intermittency of renewable energy generation, unstable demand from the customers, and intra-day electricity trading. Often the distribution of such fluctuations can be recovered based on historical data \cite{roald2017chance,owen2019importance}. 
 Below we assume that the fluctuations are Gaussian with the mean and covariance recoverable from historical data \cite{anvari2016short,roald2017chance}. 
 The fluctuations are involved the power balance equation and typically managed through primary and secondary control \cite{machowski2020power}.
-Let us index a system time snapshot as $t = 0, 1, \dots, T$ and denote fluctuations from generation that lead to imbalance as $(\xi_i^G)^t$ and $(\xi_i^D)^t$ -- from demand.
+Let us index a system time snapshots with $t = 0, 1, \dots, T$ and denote fluctuations from generation that lead to imbalance as $(\xi_i^G)^t \sim \mathcal{N}(\mu_{G, i, t}, \sigma^2_{G,i, t})$ and $(\xi_i^D)^t \sim \mathcal{N}(\mu_{D, i, t}, \sigma^2_{D, i, t})$ -- from demand.
 A common strategy to mitigate power imbalance is adopting linear Automatic Generation Control (AGC). The generation and demand fluctuate as $(P_i^G)^t + (\xi_i^G)^t$ at bus $i=1, \dots, n_g$ and $P^D_i + (\xi_i^D)^t$ at node $i=1,\dots, n_d$ respectively. As we assume that the initial generation is balanced, i.e., $\sum_{i=1}^{n_g} (P^G_i)^0 = \sum_{i=1}^{n_d} P_i^D$, the purpose of AGC is to balance the aggregated uncertainty term $\xi^t = \sum_{i=1}^{n_g}(\xi^G_i)^t-\sum_{i=1}^{n_d}(\xi^D_i)^t,$ where $\xi^t$ is distributed as the sum of all the nodes' uncertainties. For example, if the uncertainties are independent and identically distributed (i.i.d) Gaussians with mean $\mu = 0$ and some variance $\sigma^2$, then $\xi^t$ follows a Gaussian distribution $\mathcal{N}\left(0, (n_g+n_d) \cdot \sigma^2 \right)$. Following \cite{roald2017chance,baros2021examining,mezghani2020stochastic},
 the AGC recourse brings the generation to a new setpoint $(P^G)^{t+1} = (P^G)^t + \alpha \xi^t$. In the latter the participation factors $\alpha \in \mathbb{R}^{n_g}$ satisfy $~\alpha \geq 0, ~ \boldsymbol{1}^\top \alpha = 1$. It is easy to check that if the system is initially balanced, then the new generation set-point also ensures a balanced system. The power mismatch at timestamp $t=1, \dots, T$ is given by:
 $$
@@ -160,7 +160,7 @@ Summing up, the dynamic DC-OPF formalizes as follows for a temporal snapshots $t
 \begin{equation}
     \begin{aligned}
         \min_{P^G, \theta}  & \sum_{t=1}^T\textit{cost}((P^G)^t) \\
-        \textit{s.t. }      & (P^G)^t - (P^D)^t = B\theta^t\\
+        \texttt{s.t. }      & (P^G)^t - (P^D)^t = B\theta^t\\
                             & P_i^{min} \leq (P_i^G)^t \leq P_i^{max}, ~ i \in \mathcal{B}, ~ t \in 0, \dots, T \\ 
                             & \sum_{i \in \mathcal{B}} (P^G_i)^t = \sum_{i \in \mathcal{B}} (P^D_i)^t, ~ t \in 0, \dots, T \\
                             & |\theta_{ij}^t| \leq \bar{\theta}_{ij}, ~ ij \in \mathcal{L}, ~ t \in 0, \dots, T \\

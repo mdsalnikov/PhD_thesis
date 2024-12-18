@@ -1,4 +1,7 @@
 \thispagestyle{empty}
+\begin{center}
+\thesisOrganization
+\end{center}
 
 \noindent%
 \begin{tabularx}{\textwidth}{@{}lXr@{}}%
@@ -42,7 +45,7 @@
 \newpage
 % оборотная сторона обложки
 \thispagestyle{empty}
-Работа выполнена в {\thesisInOrganization}.
+Работа выполнена в {\thesisOrganizationNonTitle}.
 
 \vspace{0.008\paperheight plus3fill}
 \noindent%
@@ -92,17 +95,17 @@
     % \fi
     % }%
     % \vspace{0.013\paperheight} \\
-    \ifdefined\leadingOrganizationTitle
-    \textbf{Ведущая организация:}    &
-    \ifnumequal{\value{showopplead}}{0}{\vspace{6\onelineskip plus1fill}}{%
-        \textbf{\leadingOrganizationTitle}
-    }%
-    \fi
+    % \ifdefined\leadingOrganizationTitle
+    % \textbf{Ведущая организация:}    &
+    % \ifnumequal{\value{showopplead}}{0}{\vspace{6\onelineskip plus1fill}}{%
+    %     \textbf{\leadingOrganizationTitle}
+    % }%
+    % \fi
 \end{tabularx}
 
 \vspace{0.008\paperheight plus3fill}
 
-Защита состоится \underline{\textbf{\defenseDate}} на заседании диссертационного совета \textbf{\defenseCouncilNumber}, созданного на базе федерального государственного автономного образовательного учреждения высшего образования <<Сколковский Инстиутут Науки и Технолгий>> (Сколтех)
+Защита состоится \underline{\textbf{\defenseDate}} на заседании диссертационного совета \textbf{\defenseCouncilNumber}, созданного на базе Автономной некоммерческой образовательной организации высшего образования <<Сколковский институт науки и технологий>> (Сколтех)
 
 \textbf{по адресу:} \defenseCouncilAddress.
 
@@ -124,7 +127,8 @@
 r
 @{}}
     \small{\textbf{Ученый секретарь}}\par
-    \textbf{\small{диссертационного совета}}
+    \textbf{\small{диссертационного совета,}}\par
+    \textbf{\small{\defenseSecretaryRegalia}}
     &
     \ifnumequal{\value{showsecrsign}}{0}{}{%
         \includegraphics[width=2cm]{secretary-signature.png}%

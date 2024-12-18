@@ -1,6 +1,6 @@
 \chapter{A-Priori Reduction of Scenario Approximation for Dynamic DC-OPF}
-This chapter is based on the publication \fullcite{lukashevich2023importance}. 
-\label{chap:dc_stochastic_approx}
+This chapter is based on the publication of the dissertation author: \fullcite{lukashevich2023importance}. 
+\label{chap:apriori_stochastic_approx}
 
 \section{Introduction}
 \label{sec:introduction}
@@ -13,7 +13,7 @@ The discrete-time dynamic chance-constrained OPF problem \cite{lou2019multi, cap
 
 
 
-While the chance-constrained extension enhances flexibility in modeling uncertainty, solving it for an arbitrary distribution and/or jointly for all technical limits becomes computationally infeasible~\cite{nemirovski2012safe, jia2021iterative}. To overcome this, data-driven (DD) approximations such as Scenario Approximation (SA) \cite{calafiore2006scenario} and Sample Average Approximation (SAA)~\cite{ahmed2008solving} have proven successful.
+While the chance-constrained extension enhances flexibility in modeling uncertainty, solving it for an arbitrary distribution and/or jointly for all technical limits becomes computationally infeasible~\cite{nemirovski2012safe, jia2021iterative}. To overcome this, Data-Driven (DD) approximations such as Scenario Approximation (SA) \cite{calafiore2006scenario} and Sample Average Approximation (SAA)~\cite{ahmed2008solving} have proven successful.
 
 Unfortunately, data-driven (scenario) approaches are often computationally prohibitive when a higher accuracy approximation is required. The latter motivates extensive scenario reduction studies.
 
@@ -22,12 +22,12 @@ Scenario reduction methods can be divided into two categories: a-posteriori and 
 
 The key difference between a-posteriori and a-priori reductions lies in the theoretical guarantees for SA solution feasibility for the original JCC problem. To the best of our knowledge, such guarantees are limited in the literature for a-priori methods. To fill this gap, we propose A-priori Reduced Scenario Approximation (AR-SA) - an approach for a-priori sample reduction methods linked with a data-driven Scenario Approximation (SA). The resulting SA requires significantly fewer samples to produce a reliable solution for JCC dynamic DC optimal power flow  and prove theoretical guarantees for such reduction methods in terms of feasibility for JCC DC-OPF.
 
-The contributions of this chapter are as follows. First, we analytically define a-priori conditions that determine sample redundancy for JCC dynamic optimal power flow with AGC and provide theoretical support for these conditions. Second, we analyze dataset size requirements for AR-SA data-driven approximation based on the reduced dataset, taking into account solution reliability. Third, we compare the performance of the AR-SA approach with SA constructed on reduced scenario sets. The scenario reduction methods used are Fast Forward (FF) \cite{dupavcova2003scenario}, Simultaneous Backward (SB) \cite{heitsch2003scenario}, and $K$-Means \cite{keutchayan2023problem}. We use standard SA as a baseline.For proposed AR-SA we observe nearly a twofold improvement in data efficiency compared to other scenario reduction techniques. We summarize the chapter's workflow in Figure \ref{fig:workflow}.
+The contributions of this chapter are as follows. First, we analytically define a-priori conditions that determine sample redundancy for JCC dynamic optimal power flow with AGC and provide theoretical support for these conditions. Second, we analyze dataset size requirements for AR-SA data-driven approximation based on the reduced dataset, taking into account solution reliability. Third, we compare the performance of the AR-SA approach with SA constructed on reduced scenario sets. The scenario reduction methods used are Fast Forward (FF) \cite{dupavcova2003scenario}, Simultaneous Backward (SB) \cite{heitsch2003scenario}, and $K$-Means \cite{keutchayan2023problem}. We use standard SA as a baseline.For proposed AR-SA we observe nearly a twofold improvement in data efficiency compared to other scenario reduction techniques. We summarize the chapter's workflow in Figure \ref{fig:workflow}. We compare the performance of AR-SA with other reduction techniques such as Fast Forward, Simultaneous Backward, and K-Means methods on Grid6-WW, Washington-14, and IEEE-30 grids.
 
 \begin{figure}
     \centering
-    \hspace{-2mm}\includegraphics[width=0.8\textwidth]{Dissertation/images/dynamic//scheme.png}
-    \caption{AR-SA workflow. We compare the performance of AR-SA with other reduction techniques such as Fast Forward, Simultaneous Backward, and K-Means methods on Grid6-WW, Washington-14, and IEEE-30 grids.}
+    \hspace{-2mm}\includegraphics[width=1.\textwidth]{Dissertation/images/dynamic//scheme.png}
+    \caption{AR-SA workflow.}
     \label{fig:workflow}
     \vspace{-1mm}
 \end{figure}
@@ -72,7 +72,35 @@ The fluctuations affect the power balance in the system and are typically manage
 The participation factors $\alpha$ for secondary control can slightly vary, enabling long-term grid stability and fast control~\cite{machowski2020power}. 
 
 
-The total system imbalance $\xi^{t}$ is a sum of power fluctuations caused by an intermittency of renewable generation, demand instability, and intra-day electricity trading. More specifically, if a power system has nodes $\mathcal{B}$, $\xi^t = \sum_{b \in \mathcal{B}} (\xi_b^d)^t - (\xi_b^g)^t$, where $(\xi_b^d)^t$ and $(\xi_b^g)^t$ are random variables that model fluctuations at bus $b$, at time stamp $t$ in demand and generation, respectively. Depending on the source, these random variables follow various distributions. For example, if a bus $b$ contains a PV generator, then $(\xi_b^g)^t$ follows beta distribution \cite{wang2010probabilistic}, if there is a wind farm, wind speed distribution is Weibull, however, power output can be vary from turbine to turbine \cite{dhople2012framework}. Nevertheless, $\xi^t$ is a sum of random variables and, due to the Lyapunov or Lindeberg-Feller Central Limit Theorem \cite{scholz2011central}, follows Gaussian distribution \cite{rouaud2013probability, draper2021practical}. We also checked the validity of this assumption by applying Shapiro-Wilk normality test \cite{shapiro1965analysis} on time series of load-renewable generation imbalance estimated from RTS-GLMC data \cite{barrows2019ieee}. The latter project incorporates time series for demand, hydro, rooftop PV, PV, wind farms generations. The Shapiro-Wilk testing revealed that, on significance level of $\alpha=0.05$, the $H_0$ hypothesis (the generation-demand imbalance is distributed normally) is rejected only for August and November. Thus, the assumption that $\xi^t$ is Gaussian is valid. We further consider stacked temporal uncertainty vector $\xi = (\xi^1, \dots, \xi^T) \sim \mathcal{\mu, \Sigma}$ and $\Sigma$ here models temporal correlations.
+The total system imbalance $\xi^{t}$ is a sum of power fluctuations caused by an intermittency of renewable generation, demand instability, and intra-day electricity trading. More specifically, if a power system has nodes $\mathcal{B}$, $\xi^t = \sum_{b \in \mathcal{B}} (\xi_b^d)^t - (\xi_b^g)^t$, where $(\xi_b^d)^t$ and $(\xi_b^g)^t$ are random variables that model fluctuations at bus $b$, at time stamp $t$ in demand and generation, respectively. Depending on the source, these random variables follow various distributions. For example, if a bus $b$ contains a PV generator, then $(\xi_b^g)^t$ follows beta distribution \cite{wang2010probabilistic}, if there is a wind farm, wind speed distribution is Weibull, however, power output can be vary from turbine to turbine \cite{dhople2012framework}. Nevertheless, $\xi^t$ is a sum of random variables and, due to the Lyapunov or Lindeberg-Feller Central Limit Theorem \cite{scholz2011central}, follows Gaussian distribution \cite{rouaud2013probability, draper2021practical}. We also checked the validity of this assumption by applying Shapiro-Wilk normality test \cite{shapiro1965analysis} on time series of load-renewable generation imbalance estimated from RTS-GLMC data \cite{barrows2019ieee}. The latter project incorporates time series for demand, hydro, rooftop PV, PV, wind farms generations. The Shapiro-Wilk testing revealed that, on significance level of $\alpha=0.05$, the $H_0$ hypothesis (the generation-demand imbalance is distributed normally) is rejected only for August and November. The testing results are monthly-wise and presented in Table \ref{tab:shapiro-wilk}. Thus, the assumption that $\xi^t$ is Gaussian is valid. We further consider stacked temporal uncertainty vector $\xi = (\xi^1, \dots, \xi^T) \sim \mathcal{\mu, \Sigma}$ and $\Sigma$ here models temporal correlations.
+
+Given the samples $X_1, \dots, X_{n_s}$, the Shapiro-Wilk test uses the following $H_0$ hypothesis: the samples are drawn from a normal distribution $\mathcal{N}(\mu_s, \sigma^2_s)$. The alternative $H_1$ is that the population is not normal. This test is one-tailed. The following statistic is applied: $W_{\textup{S-W}} = \frac{\left( \sum_{i=1}^{n_s} a_i X_{(i)} \right)^2}{\sum_{i=1}^{n_s} \left( X_i - \bar{X}\right)^2}$, where $\bar{X} = \frac{1}{n_s} \sum_{i=1}^{n_s} X_i$ and $X_{(i)}$ -- $i^{\textup{th}}$ order statistic. The coefficients $a_i$ are defined using samples $Z_1, \dots Z_{n_s} \sim \mathcal{N}(0, 1)$. Denote $V$ as the covariance matrix of the standard normal samples: $V_{ij} = \mathbb{E}\left[ (Z_{(i)} - m_i)(Z_{(j)} - m_j) \right]$, where $m = (m_1, \dots, m_{n_s})^\top$ is the vector of expected values of order statistics of $Z_{(1)}, \dots, Z_{(n_s)}$. Finally, $(a_1, \dots, a_{n_s})^\top = \frac{m^\top V^{-1}}{C}$ with $C = \left( m^\top V^{-1} V^{-1} m \right)^{1/2}$. Essentially, $W_{S-W}$ statistic is a relation between two empirical estimates of the $\sigma^2_s$. Thus, if the samples $X_1, \dots, X_{n_s}$ are drawn from normal distribution, $W$ is close to its maximum value of $1$, otherwise, it tends to its minimal value of $n_s a_1^2 / (n_s - 1)$ which is close to $0$ in practice \cite{shapiro1965analysis}.
+
+\begin{table}[t]
+\caption{$p$-values and Shapiro-Wilks (SW) Gaussianity test results on RTS-GLMC data. 
+    }
+    \centering
+        \begin{tabular}{|c|c|c|}
+        \toprule
+        Month & $p$-value & SW decision $\alpha=0.05$ \\
+\midrule
+January & 0.108 & Looks like Gaussian (fail to reject $H_0$) \\
+February & 0.167 & Looks like Gaussian (fail to reject $H_0$) \\
+March & 0.429 & Looks like Gaussian (fail to reject $H_0$) \\
+April & 0.178 & Looks like Gaussian (fail to reject $H_0$) \\
+May & 0.140 & Looks like Gaussian (fail to reject $H_0$) \\
+June & 0.162 & Looks like Gaussian (fail to reject $H_0$) \\
+July & 0.334 & Looks like Gaussian (fail to reject $H_0$) \\
+August & 0.000 & Does not looks like Gaussian (reject $H_0$) \\
+September & 0.056 & Looks like Gaussian (fail to reject $H_0$) \\
+October & 0.562 & Looks like Gaussian (fail to reject $H_0$) \\
+November & 0.023 & Does not looks like Gaussian (reject $H_0$) \\
+December & 0.173 & Looks like Gaussian (fail to reject $H_0$) \\
+\bottomrule
+        \end{tabular}
+    % }
+    \label{tab:shapiro-wilk}
+\end{table}
 
 Below we assume that the fluctuations are Gaussian with the mean and covariance recoverable from historical data~\cite{roald2017chance, owen2019importance}.
 We consider the system evolution driven by fluctuations and formulate an optimization problem to obtain an economically optimal control strategy and initial system setpoint that satisfy JCC on technical limits and demand.
@@ -83,15 +111,17 @@ Table~\ref{tab:notation} summarizes the chapter's notation. We use upper indices
 \begin{table}[t]
     \centering
     \caption{Chapter notation.}
-    \begin{tabular}{|p{0.35cm}|p{2.95cm}|p{0.95cm}|p{2.9cm}|}
+    \begin{tabularx}{\textwidth}{|m{1cm}|X|m{1.6cm}|X|}
+        \toprule 
         ${P}$ & DC-OPF feas. set & $P_{JCC}$ & JCC DC-OPF feas. set \\
         $p$ & vector of generation & $n_g$ & \# of controllable gen. \\
         $\alpha$ & participation factors & $J$ & \# of constraints in $P$ \\
         $T$ & \# of modeling timestamps & $\mathcal{N}(\mu, \Sigma)$ & Gaussian distribution \\  
         $\xi^t$  & power balance mismatch at timestamp $t$ & $\Phi$ & CDF of standard Gaussian r.v. \\
-        $I_n$ & identity matrix & $R$ & rampup/down limits \\
+        $I$ & identity matrix & $R$ & rampup/down limits \\
         $\mathcal{P}_r$ & theoretical redundancy set & $\hat{\mathcal{P}}_r$ & sufficient redundancy set\\
-    \end{tabular}
+        \bottomrule
+    \end{tabularx}
     \label{tab:notation}
     %\vspace{-4mm}
 \end{table}
@@ -321,12 +351,12 @@ Let $\mathcal{I} = \{1, \dots, N\}$. Scenarios indexed with $\mathcal{I}_r \subs
 \end{definition}
 
 %{\color{red} the definition is confusing (english), could not we tell in words that ``A subset of scenarious $I' \in I$ is redudant, iff the solutions of Problem (3) with scenarious $I$ and $I\setminus I'$ are the same''?}
-The redundancy concept is illustrated in Figure~\ref{fig:idea}. Our goal is to define conditions for a-priori identification of redundant scenarios. Consider a set $\mathcal{P}_r$ containing all redundant samples (scenarios indexed by $\mathcal{I}_{r}$ from Def.~\ref{def:redundant}). Keeping only these samples from $\mathcal{P}_r$ results in an infeasible solution for Problem \eqref{eq:optimal_control_2}. But keeping scenarios outside of $\mathcal{P}_r$ yields a feasible solution. Since it's challenging to analytically define $\mathcal{P}_r$, we aim to construct an inner approximation $\hat{\mathcal{P}}_r$. Such approximation provide a sufficient condition for identifying redundant samples. We derive the inner redundancy set $\hat{\mathcal{P}}_r$ for efficient scenario generation. Additionally, we employ a standard technical assumption \cite{campi2011sampling},  that ensures that problems with finitely many constraints are feasible% and non-binding from the practical standpoint
+The redundancy concept is illustrated in Figure~\ref{fig:idea}. All data samples can be divided into redundant and non-redundant, depending on whether they are inside or outside the set $\mathcal{P}_r$ with an unknown structure. In practice, one can derive inner approximations $\hat{\mathcal{P}}_r$ of $\mathcal{P}_r$. The latter can be used to classify data by redundancy in SA. Our goal is to define conditions for a-priori identification of redundant scenarios. Consider a set $\mathcal{P}_r$ containing all redundant samples (scenarios indexed by $\mathcal{I}_{r}$ from Def.~\ref{def:redundant}). Keeping only these samples from $\mathcal{P}_r$ results in an infeasible solution for Problem \eqref{eq:optimal_control_2}. But keeping scenarios outside of $\mathcal{P}_r$ yields a feasible solution. Since it's challenging to analytically define $\mathcal{P}_r$, we aim to construct an inner approximation $\hat{\mathcal{P}}_r$. Such approximation provides a sufficient condition for identifying redundant samples. We derive the inner redundancy set $\hat{\mathcal{P}}_r$ for efficient scenario generation. Additionally, we employ a standard technical assumption \cite{campi2011sampling},  that ensures that problems with finitely many constraints are feasible% and non-binding from the practical standpoint
 :
 \begin{assumption}\label{asmp:10}
 For all possible uncertainty realizations $\xi(1), \dots, \xi(N)$, optimization problem \eqref{eq:optimal_control_sampling_02} is either infeasible or has a unique optimal solution.
 \end{assumption}
-We provide an example that addressed the redundancy concept in Figure \ref{fig:idea} we present a simplified illustration of the concept. Our aim is to define conditions that give a-priori knowledge on a redundancy of a given data sample. Assume that unknown set $\mathcal{P}_r$ contains all redundant samples, i.e., scenarios indexed by $\mathcal{I}_{r}$ from Definiton \ref{def:redundant}. Notice that keeping only those samples from $\mathcal{P}_r$ would lead to a solution of the approximation that will be out of $P_{JCC}$, i.e., infeasible for Problem \eqref{eq:optimal_control_2}. On the other hand, keeping only those scenario that are outside of $\mathcal{P}_r$, i.e., indexed by $\mathcal{I} \setminus \mathcal{I}_r$, would lead to a feasible solution for Problem \eqref{eq:optimal_control_2}. In general it is not possible to analytically define $\mathcal{P}_r$, thus, we aim to construct an inner approximations for $\mathcal{P}_r$, namely, $\hat{\mathcal{P}}_r$. In other words, analytical definitions of $\hat{\mathcal{P}}_r$ allow one to obtain sufficient conditions on data sample redundancy based on its belonging to this set. We derive the inner redundancy set $\hat{\mathcal{P}}_r$ for proxy distribution that allows for efficient scenario generation. 
+We provide an example that addresses the redundancy concept in Figure \ref{fig:idea} we present a simplified illustration of the concept. Our aim is to define conditions that give a-priori knowledge on the redundancy of a given data sample. Assume that unknown set $\mathcal{P}_r$ contains all redundant samples, i.e., scenarios indexed by $\mathcal{I}_{r}$ from Definiton \ref{def:redundant}. Notice that keeping only those samples from $\mathcal{P}_r$ would lead to a solution of the approximation that will be out of $P_{JCC}$, i.e., infeasible for Problem \eqref{eq:optimal_control_2}. On the other hand, keeping only those scenario that are outside of $\mathcal{P}_r$, i.e., indexed by $\mathcal{I} \setminus \mathcal{I}_r$, would lead to a feasible solution for Problem \eqref{eq:optimal_control_2}. In general it is not possible to analytically define $\mathcal{P}_r$, thus, we aim to construct an inner approximations for $\mathcal{P}_r$, namely, $\hat{\mathcal{P}}_r$. In other words, analytical definitions of $\hat{\mathcal{P}}_r$ allow one to obtain sufficient conditions on data sample redundancy based on its belonging to this set. We derive the inner redundancy set $\hat{\mathcal{P}}_r$ for proxy distribution that allows for efficient scenario generation. 
 % \begin{assumption}\label{asmp:10}
 % Assume that for all possible uncertainty realizations $\xi(1), \dots, \xi(N)$, the optimization problem \eqref{eq:optimal_control_sampling_02} is either infeasible or, if feasible, it attains a unique optimal solution.
 % \end{assumption}
@@ -341,7 +371,7 @@ We provide an example that addressed the redundancy concept in Figure \ref{fig:i
 \begin{figure}
 \begin{minipage}{0.35\linewidth}
     \centering
-        \begin{tikzpicture}[scale=0.55, node distance={15mm}, thick, main/.style = {draw, scale=.5}] 
+        \begin{tikzpicture}[scale=0.7, node distance={15mm}, thick, main/.style = {draw, scale=.5}] 
         \clip (0,2) rectangle + (6,-7);
         
         \coordinate (x2) at (\xx2, \yx2);
@@ -460,7 +490,7 @@ We provide an example that addressed the redundancy concept in Figure \ref{fig:i
     \caption{%Let  $P$ and $P_{\textup{JCC}}$ be (non-convex) deterministic feasibility and JCC feasibility sets resp. 
     %The black dots represent potential setpoints achievable by the AGC due to fluctuations. 
     %Based on all data samples, one can solve SA and get a solution $(\hat{p}_{\mathcal{I}}, \hat{\alpha}_{\mathcal{I}})$. 
-    All data samples can be divided into redundant and non-redundant, depending on whether they are inside or outside the set $\mathcal{P}_r$ with an unknown structure. In practice, one can derive inner approximations $\hat{\mathcal{P}}_r$ of $\mathcal{P}_r$. The latter can be used to classify data by redundancy in SA.}
+    Illustration of redundancy polytope of an unknown structure and its approximation.}
     \label{fig:idea}
   %\vspace{-4mm}
 \end{figure}
@@ -564,7 +594,7 @@ Our next step is to derive an upper bound for the failure probability of a contr
 To get an analytical sufficient condition on the redundant scenarios, we derive a necessary condition for JCC feasibility converted to a sufficient condition of not being in the JCC feasibility set. Note that there is following bound on feasibility probability from \eqref{eq:optimal_control_2}:
 \begin{lemma}
     \label{lemma:bound_prob}
-     Let $\pi(p^0, \alpha) \geq 1 -\eta$, where $$\pi(p^0, \alpha) = \mathbb{P}\left\{ \cap_{i, \tau} (\omega^p_i)^\top p^0 + (E^\tau_i)^\top \xi \cdot(\omega^\alpha_i)^\top \alpha \leq \beta_i\right\}$$. Then 
+     Let $\pi(p^0, \alpha) \geq 1 -\eta$, where $$\pi(p^0, \alpha) = \mathbb{P}\left\{ \cap_{i, \tau} (\omega^p_i)^\top p^0 + (E^\tau_i)^\top \xi \cdot(\omega^\alpha_i)^\top \alpha \leq \beta_i\right\}.$$ Then 
     \vspace{-2mm}
     \[\max_{i, t} \mathbb{P} \left\{ (\omega^p_i)^\top p^0 + (E^\tau_i)^\top \xi \cdot (\omega^\alpha_i)^\top \alpha > \beta_i \right\} \leq 1-\pi(p^0, \alpha).\]
 \end{lemma}
@@ -574,7 +604,7 @@ To get an analytical sufficient condition on the redundant scenarios, we derive 
 Lemma \ref{lemma:bound_prob} provides a handful necessary condition:
 \begin{corollary}
     \label{lemma:corollary}
-    Let $(p^0, \alpha)$ be feasible to JCC in \eqref{eq:optimal_control_2}. Then $$\max_{i, t} \mathbb{P} \left\{ (\omega^p_i)^\top p^0 + (E^\tau_i)^\top \xi \cdot (\omega^\alpha_i)^\top \alpha > \beta_i \right\} \leq \eta$$.
+    Let $(p^0, \alpha)$ be feasible to JCC in \eqref{eq:optimal_control_2}. Then $$\max_{i, t} \mathbb{P} \left\{ (\omega^p_i)^\top p^0 + (E^\tau_i)^\top \xi \cdot (\omega^\alpha_i)^\top \alpha > \beta_i \right\} \leq \eta.$$
 \end{corollary}
 \begin{proof}
     Feasibility yields $\pi(p^0, \alpha) \geq 1 -\eta$ iff $1 - \pi(p^0, \alpha) \leq \eta$. Applying Lemma \ref{lemma:bound_prob} proves the corollary.
@@ -829,21 +859,17 @@ The code for this chapter is available on Github\footnote{https://github.com/vju
 %\vspace{-4mm}
 \subsection{Test Cases and Numerical Results}
 %\vspace{-1mm}
-We conducted two case studies to evaluate the performance of SA, AR-SA, and other scenario reduction methods under different scenarios.  The first study focused on the Grid-6WW and Washington-14, comparing the number of samples $N$ needed to achieve the $1-\rho=0.99$ reliability of $1-\eta$ feasible solution among 5 methods. 
-Notably, DD-DRO, which involves complex mixed-integer nonlinear programming \cite{chen2024data}, required a specific evaluation of execution time and data demands.
+We conducted three case studies to evaluate the performance of SA, AR-SA, and other scenario reduction methods under different scenarios.  The first study focuses on the Grid-6WW and Washington-14, comparing the number of samples $N$ needed to achieve the $1-\rho=0.99$ reliability of $1-\eta$ feasible solution among 5 methods. 
 The second study analyzed IEEE-30 bus system, which consist of 30 buses. 
-In this case, we compared the number of samples needed to achieve a solution reliability of $1-\rho=0.99$ and assessed the total execution time, including the scenario reduction step. We summarized the required number of samples in Table \ref{tab:summary_results}.
+In this case, we compared the number of samples needed to achieve a solution reliability of $1-\rho=0.99$ and assessed the total execution time, including the scenario reduction step. We summarized the required number of samples in Table \ref{tab:summary_results}. The value of $1-\eta$ is given by out-of-sample Monte Carlo; the empirical reliability is given by averaging over $L=100$ independent CC-OPF problem instances, as described in Algorithm~\ref{alg:estimate_delta}.
 %
 In all case studies, we model power generation and consumption fluctuations with a standard deviation of 0.01 of their nominal values, increasing cumulatively for each temporal snapshot. Thus, we expressed fluctuations as $\xi^t \sim \mathcal{N}(0, (\tilde{\sigma_t}^2))$, where $\tilde{\sigma_t}^2 = \tilde{\sigma}_0^2 \cdot t$. Simulations were carried out over $T=3$ temporal snapshots.% for each test case.
-We conduct two case studies: the first one compares SA, AR-SA and DD-DRO on Grid-6WW and the second one on two grids: Washington-14 and IEEE-30 bus systems, which have 14 and 30 buses, respectively. In all cases, we assumed that the power generation and consumption levels fluctuated with a standard deviation of 0.01 of their nominal values with cumulative increasing uncertainty for each temporal snapshot.
-%Thus, $\xi^t \sim \mathcal{N}(0, (\tilde{\sigma_t}^2))$, where $\tilde{\sigma_t}^2 = \tilde{\sigma}_0^2 \cdot t$. 
-%We simulated for $T=3$ snapshots for each test case.
-
-The first case study between SA, AR-SA, DD-DRO aims at a comparison of the number of samples $N$ required to obtain a solution with a reliability of $1-\rho$ (feasible for Problem \eqref{eq:optimal_control_2} with prob. $1-\rho$) and total execution time. Since DD-DRO is solved via complex mixed-integer non-linear programming \cite{chen2024data}, it is important to compare execution time together with amount of data required.
+The third one compares SA, AR-SA and DD-DRO on Grid-6WW by estimating produced solutions' reliability and execution time.
+The evaluation between SA, AR-SA, DD-DRO aims at a comparison of the number of samples $N$ required to obtain a solution with a reliability of $1-\rho$ (feasible for Problem \eqref{eq:optimal_control_2} with prob. $1-\rho$) and total execution time. Since DD-DRO is solved via complex mixed-integer non-linear programming \cite{chen2024data}, it is important to compare execution time together with amount of data required.
 The second case study seeks to compare AR-SA and classical SA in the number of samples $N$ required to obtain a solution with a reliability of $1-\rho$.% As explained in Section \ref{sec:chancecontrol}, $1 - \eta$ stands for the confidence threshold for linear constraints, and $1-\rho$ is the probability of the scenario approximation solution to be feasible for.
 
-\paragraph{Evaluation methodology}.
-To get an empirical estimation of the solution reliability $1-\hat{\rho}$, we independently construct $L=100$ different approximations for both  SA and reduced SA. Further, we shortname SA with scenarios reduced by FF, SB and K-Means and $\hat{\mathcal{P}}_r$ as SA-FF, SA-SB, SA-KMeans and AR-SA respectively. The data-driven approximation size $N$ starts with $3$ and increases until the corresponding scenario approximation problem reaches $1-\hat{\rho} > 0.99$. For each approximation, we obtain $L$ different solutions: $(x^*_N)_l, ~ l=1, \dots, L$. We estimate the confidence of each obtained solution by running out-of-sample validation. We use $10^4$ Monte-Carlo samples of $\xi$ to estimate of JCC feasibility constraint $(\hat{\mathbb{P}}_N)_l$, $l=1, \dots, L$. Finally, the solution reliability is given by $1 - \hat{\rho}$, which represents the fraction of $L$ solutions $(x^*_N)_l$ such that $(\hat{\mathbb{P}}_N)_l \geq 1 - \eta$. 
+\paragraph{Evaluation methodology.}
+To get an empirical estimation of the solution reliability $1-\hat{\rho}$, we independently construct $L=100$ different approximations for both  SA and reduced SA. Further, we shortname SA with scenarios reduced by FF, SB and K-Means and $\hat{\mathcal{P}}_r$ as SA-FF, SA-SB, SA-KMeans and AR-SA respectively. The data-driven approximation size $N$ starts with $3$ and increases until the corresponding scenario approximation problem reaches $1-\hat{\rho} > 0.99$. For each approximation, we obtain $L$ different solutions: $(x^*_N)_l, ~ l=1, \dots, L$. We estimate the confidence of each obtained solution by running a series of out-of-sample validations. We use $10^4$ Monte-Carlo samples of $\xi$ to estimate of JCC feasibility constraint $(\hat{\mathbb{P}}_N)_l$, $l=1, \dots, L$. Finally, the solution reliability is given by $1 - \hat{\rho}$. It represents the fraction of $L$ solutions $(x^*_N)_l$ such that $(\hat{\mathbb{P}}_N)_l \geq 1 - \eta$. 
 Alg.~\ref{alg:estimate_delta} summarizes the sequence of steps.
 
 \begin{algorithm}[ht]
@@ -860,7 +886,7 @@ $\hat{ \boldsymbol \delta}$ -- storage for $\hat{\delta}_N$\;
      $l \gets 1$\;
     \Do{$l \leq L$}{
         Obtain $(x^*_N)_l$ -- scenario approximation with $N$ samples (using SA-IS or SA) \;
-        Estimate constraint satisfaction probability $(\hat{\mathbb{P}}_N)_l$ using Monte Carlo samples.\; \label{alg:estimate_delta:phat_N_l}\;
+        Estimate constraint satisfaction probability $(\hat{\mathbb{P}}_N)_l$ using Monte Carlo samples.\label{alg:estimate_delta:phat_N_l}\;
         \uIf{$(\hat{\mathbb{P}}_N)_l \geq 1 - \eta$}{
             $C_N \gets C_N +1$
         }
@@ -873,16 +899,11 @@ $\hat{ \boldsymbol \delta}$ -- storage for $\hat{\delta}_N$\;
 \end{algorithm}
 
 \paragraph{Complexity and Execution Time}
-In addition to solving the SA optimization problem of type \eqref{eq:optimal_control_sampling_02}, selecting scenarios requires computational effort. The complexity of standard Monte Carlo-based SA (denoted as SA) does not require scenario reduction, unlike other methods, which need additional computations
+In addition to solving the SA optimization problem of type \eqref{eq:optimal_control_sampling_02}, selecting scenarios requires computational effort. The complexity of standard Monte Carlo-based SA (denoted as SA) does not require scenario reduction, unlike other methods, which need additional computations.
 
-The Fast Forward method adds scenarios one by one based on probabilistic metrics (2-Wasserstein distance) and redistributes probabilities after each addition. Simultaneous Backward, on the other hand, removes scenarios using the same process. Denoting $N_r$ as the target number of scenarios after reduction, the complexities of these methods are $O(N_r^3 + N_r N^2)$ and $O(N_r^3 + N^3)$, respectively \cite{heitsch2003scenario, rujeerapaiboon2022scenario}. The K-Means algorithm is based on iterative estimation of scenario cluster centers and requires estimation of $L_2$ distance between scenarios and cluster centers. This algorithm requires $O(N_rN^2)$ \cite{pakhira2014linear}. Contrary, in the proposed AR-SA the reduction step is conducted via checking if a current samples is within $\hat{\mathcal{P}}_r$, thus, the complexity is $O(N)$. The construction of $\hat{\mathcal{P}}_r$ itself grows linearly with the number of deterministic constraints under probability measure in JCC of \eqref{eq:optimal_control_2}. 
+The Fast Forward method adds scenarios one by one based on probabilistic metrics (2-Wasserstein distance) and redistributes probabilities after each addition. Simultaneous Backward, on the other hand, removes scenarios using the same process. Denoting $N_r$ as the target number of scenarios after reduction, the complexities of these methods are $O(N_r^3 + N_r N^2)$ and $O(N_r^3 + N^3)$, respectively \cite{heitsch2003scenario, rujeerapaiboon2022scenario}. The K-Means algorithm is based on iterative estimation of scenario cluster centers and requires estimation of $L_2$ distance between scenarios and cluster centers. This algorithm requires $O(N_rN^2)$ \cite{pakhira2014linear} operations. Contrary, in the proposed AR-SA the reduction step is conducted via checking if a current samples is within $\hat{\mathcal{P}}_r$, thus, the complexity is $O(N)$. The construction of $\hat{\mathcal{P}}_r$ itself grows linearly with the number of deterministic constraints under probability measure in JCC of \eqref{eq:optimal_control_2}. 
 
 We analyze the implications of the computational complexity by measuring total execution time: reduction and solving corresponding reduced scenario approximation. We conducted this experiment on IEEE-30 grid with target JCC feasibility level of $1-\eta=0.99$. The results are shown in Figure \ref{fig:ieee30time}. Here one can observe that the execution time almost similar for all the reduction methods with classical Monte-Carlo SA, except SA-SB. This indicates that the scenario reduction is computationally cheap operation, in comparison with solving optimization problem. Also, this experiment supports the proposed method in tractability.
-
-
-We assessed grid constraints to be met with a probability of $1-\eta = 0.9$. For DD-DRO, we set the parameters as follows: a Wasserstein ball radius of $r_W = 10^{-3}$ and a maximum function relaxation constant of $M = 10$. These parameters were selected to be minimally conservative for $\eta$ and maximally expansive for $r_W$, as smaller $\eta$ values and larger $r_W$ values led to an empty feasibility set, indicating excessive conservativeness of DD-DRO. In a non-strict reliability setup ($\eta=0.1$), we compared DD-DRO, SA, and the proposed AR-SA using an identical number of samples. For DD-DRO, we use the same sample set as for classical SA to prevent changes in the underlying data distribution that would affect the ambiguity set of DD-DRO when adopting the sample reduction strategy for AR-SA.
-
-We solve this problem over $L=100$ independently sampled datasets. Figures \ref{fig:grid6reliability-dd-dro} and \ref{fig:grid6time-dd-dro} illustrate the performance differences in reliability and execution time across methods. Notably, DD-DRO achieved higher reliability for the JCC Problem \ref{eq:optimal_control_2} even with just two data samples. But, its reliability boxplots were significantly more spread than those of SA and AR-SA, indicating instability. The average run time for DD-DRO is consistently 5x longer than that for SA and AR-SA, owing to the non-linear nature of the problem and the inclusion of binary variables. Indeed, in the Grid-6WW case with $N=100$ data samples, DD-DRO handle 205 variables, including 100 binary, and 16,302 constraints, while SA and AR-SA use only 4 continuous variables and 16,203 constraints.
 
 % We consider the grid constraints to be satisfied with probability $1-\eta = 0.9$. The parameters for DD-DRO are as follows: Wasserstein ball with radius $r_W = 10^{-3}$, maximum function relaxation constant $M = 10$. Such parameters are chosen as minimal for $\eta$ and maximal for $r_W$ as possible, since for smaller $\eta$ and larger $r_W$ feasibility set of the DD-DRO turned out to be empty which was reported by the solver. The latter hints on an excessive conservativeness of the DD-DRO approach. Within non-strict reliability setup ($\eta=0.1$) we compare three methods: DD-DRO, SA and proposed AR-SA. We used the same number of samples for these methods, DD-DRO was based on the same samples that were used for classical SA, since changing the removing samples as proposed for AR-SA ones changes the underlying distribution of data and corrupts ambiguity set of DD-DRO. We were solving the corresponding optimization problem for $L=100$ independently sampled datasets.
 %
@@ -892,10 +913,12 @@ Having conducted this analysis, we continue with SA and AR-SA and other reductio
 \vspace{-1mm}
 \paragraph{ SA Solution Reliability.}
 \begin{table}[t]
+\caption{The number of samples for AR-SA and SA required in CC-OPF with a confidence threshold of $1-\eta$ to get the empirical reliability of $1-\hat{\rho} = 0.99$. 
+    }
     \centering
-    \adjustbox{width=\linewidth}{
+    % \adjustbox{width=\linewidth}{
         % \begin{tabular}{lrr|lr|ll}
-        \begin{tabular}{lr|rlrll}
+        \begin{tabular}{|lr|rlrll|}
         \toprule
         Case & $\eta$ & SA & AR-SA & SA-FF & SA-SB & SA-KMeans \\
 \midrule
@@ -912,91 +935,81 @@ grid30 & 0.01 & 453 & 273 & 453 & 453 & 453 \\
   %           grid30 &    0.01 &    363 & 6.2e+03$\pm$4.5e-12 &       183 & 6.1e+03$\pm$4.5e-12 &     5.7e+03 \\
   %           \bottomrule
         \end{tabular}
-    }
-    \caption{The number of samples for AR-SA and SA required in CC-OPF with a confidence threshold of $1-\eta$ to get the empirical reliability of $1-\hat{\rho} = 0.99$. The value of $1-\eta$ is given by out-of-sample Monte Carlo; the empirical reliability is given by averaging over $L=100$ independent CC-OPF problem instances, as described in Algorithm~\ref{alg:estimate_delta}. 
-    }
+    % }
     \label{tab:summary_results}
 \end{table}
 Following this analysis, we evaluate methods on larger grids with high reliability requirements. % ($\eta = 0.05, ~0.01$) for the JCC optimization problem \eqref{eq:optimal_control_2}.
 %We analyse of numerical performance of classical SA and proposed AR-SA in more details over large test cases. 
 This experiment seeks to find the number of samples sufficient for a solution of data-driven approximation to be feasible for original JCC with high probability for different $\eta$.
 We estimate the number of samples required to reach confidence thresholds of $1-\eta = 0.95$ and $0.99$ with reliability of $0.99$ for AR-SA, SA, SA-FF, SA-SB and SA-KMeans in Table~\ref{tab:summary_results}, showing the number of samples required is 30-50\% less for AR-SA compared to classical SA and the advantage of AR-SA increases with the increase of $1-\eta$.
+
 \begin{figure}[hbt]
-% \vspace{-15mm}
-% \begin{minipage}[b]{.99\textwidth}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{-0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/washington14/1_beta_N_363_eta_0.01.png}
-  \caption{Empirical reliability %$(1-\hat{\rho})$ 
-  vs. $\#$ samples in CC-OPF for Washington 14 bus, $\eta = 0.01$.}
-  \label{fig:washington14conservatism}
-\end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{-0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/ieee30/1_beta_N_453_eta_0.01.png}
-  \caption{Empirical reliability %($1-\hat{\rho}$) 
-  vs $\#$ samples  in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.}
-  \label{fig:ieee30conservatism}
-\end{subfigure}\\
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/1_beta_N_102_eta_0.1.png}
-  \caption{Empirical reliability %($1-\hat{\rho}$) 
-  vs $\#$ samples  in CC-OPF for Grid6-WW 6 bus system, $\eta = 0.1$.}
-  \label{fig:grid6reliability}
-\end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/1_beta_N_102_eta_0.1.png}
-  \hspace{0mm}\caption{Empirical reliability %($1-\hat{\rho}$) 
-  vs $\#$ samples  in CC-OPF for Grid6-WW 6 bus system, $\eta = 0.1$.}
-  \label{fig:grid6reliability-dd-dro}
-\end{subfigure}
-% \begin{subfigure}{.32\textwidth}
-%   \centering
-%   % include first image
-%   \includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/washington14/boxplot_J_N_363_eta_0.01.png}~~~~~~\hfill
-%   \caption{Feasibility probability (spread) vs $\#$ samples, Washington 14, $\eta = 0.01$. %Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus number of samples $N$ in CC-OPF for IEEE 57 bus system, .
-%   }
-%   \label{fig:washington14reliability}
-% \end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include first image
-\hspace{10mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/ieee30/exec_time_N_453_eta_0.01.png}~~~~~~\hfill
-  \caption{Exec. time vs $\#$ samples, IEEE 30 bus, $\eta = 0.01$.%Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus the number $N$  of samples in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.
-  }
-  \label{fig:ieee30time}
-\end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include first image
-\hspace{10mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/exec_time_N_102_eta_0.1.png}~~~~~~\hfill
-  \caption{Exec. time vs $\#$ samples, Grid6-WW bus, $\eta = 0.1$.%Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus the number $N$  of samples in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.
-  }
-  \label{fig:grid6time-dd-dro}
-\end{subfigure}
-% \begin{subfigure}{.32\textwidth}
-%   \centering
-%   % include first image
-%   \includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/boxplot_J_N_102_eta_0.1.png}~~~~~~\hfill
-%   \caption{Feasibility probability (spread) vs $\#$ samples, Grid-6WW, $\eta = 0.1$. %Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus the number $N$ of samples in CC-OPF for the Washington case, $\eta = 0.01$.
-%   }
-%   \label{fig:grid6reliability}
-% \end{subfigure}
-% \end{minipage}
-\vspace{-7mm}
-% \begin{minipage}[b]{.9\textwidth}
-\caption{(a, b, d) Empirical reliability ($1-\hat{\rho}$). (e, c, f) Execution time for IEEE-30 and Grid6-WW. The empirical estimates are computed with $L = 200$ optimization instances (for $1-\hat{\rho}$), and $N_{MC}=10^4$ Monte-Carlo samples for each instance to determine constraint validation (for box-plot of $(\hat{\mathbb{P}}_N)_l$), as described in Algorithm~\ref{alg:estimate_delta}.  
-}
-% \end{minipage}
-\label{fig:dyn_ieee118}
-% \vspace{-8mm}
+    \centering
+    \begin{subfigure}{.9\textwidth}
+      \centering
+      % include second image
+      \hspace{-0mm}\includegraphics[width=0.99\linewidth]{Dissertation/images/dynamic/ieee30/1_beta_N_453_eta_0.01.png}
+      \caption{Empirical reliability %($1-\hat{\rho}$) 
+      vs $\#$ samples  in CC-OPF, $\eta = 0.01$.}
+      \label{fig:ieee30conservatism}
+    \end{subfigure}\\
+        
+    \begin{subfigure}{.9\textwidth}
+      \centering
+\hspace{10mm}\includegraphics[width=0.99\linewidth]{Dissertation/images/dynamic/ieee30/exec_time_N_453_eta_0.01.png}~~~~~~\hfill
+      \caption{Exec. time vs $\#$ samples, $\eta = 0.01$.
+      }
+      \label{fig:ieee30time}
+    \end{subfigure}
+    \caption{Numerical comparison of execution time and the reliability of reduced approximations' solution on IEEE 30 bus system.  
+    }
+\label{fig:ar-sa-ieee30}
 \end{figure}
+
+\begin{figure}[hbt]
+    \centering
+    \begin{subfigure}{.9\textwidth}
+      \centering
+      % include second image
+      \hspace{-0mm}\includegraphics[width=0.99\linewidth]{Dissertation/images/dynamic/washington14/1_beta_N_363_eta_0.01.png}
+      \caption{Washington 14 bus, $\eta = 0.01$.}
+      \label{fig:washington14conservatism}
+    \end{subfigure}
+    
+    \begin{subfigure}{.9\textwidth}
+      \centering
+      % include second image
+      \hspace{0mm}\includegraphics[width=0.99\linewidth]{Dissertation/images/dynamic/grid6/1_beta_N_102_eta_0.1.png}
+      \caption{Grid6-WW 6 bus system, $\eta = 0.1$.}
+      \label{fig:grid6reliability}
+    \end{subfigure}
+    \caption{Numerical comparison of reduced approximations' solution: empirical reliability ($1-\hat{\rho}$) vs $\#$ samples for CC-OPF.  
+    }
+\label{fig:ar-sa-wash14-grid6}
+\end{figure}
+
+\begin{figure}[hbt]
+    \centering
+    \begin{subfigure}{.9\textwidth}
+      \centering
+      % include second image
+      \hspace{0mm}\includegraphics[width=0.99\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/1_beta_N_102_eta_0.1.png}
+      \hspace{0mm}\caption{Empirical reliability %($1-\hat{\rho}$) 
+      vs $\#$ samples in CC-OPF, $\eta = 0.1$.}
+      \label{fig:grid6reliability-dd-dro}
+    \end{subfigure}
+    
+    \begin{subfigure}{.9\textwidth}
+      \centering \hspace{10mm}\includegraphics[width=0.99\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/exec_time_N_102_eta_0.1.png}~~~~~~\hfill
+      \caption{Exec. time vs $\#$ samples, $\eta = 0.1$.
+      }
+      \label{fig:grid6time-dd-dro}
+    \end{subfigure}
+    \caption{Numerical comparison of execution time and the reliability between classical MC based SA, AR-SA and DD-DRO on Grid6-WW 6 bus system.  
+    }
+\label{fig:ar-sa-vs-dd-dro}
+\end{figure}
+
 \begin{comment}
 \begin{figure*}[hbt]
 \vspace{-3mm}
@@ -1051,9 +1064,12 @@ Note that both in reliability and the IRQ of constraint feasibility, AR-SA requi
 \end{figure*}
 \end{comment}
 %To better illustrate the dependency between number of samples in the approximation $N$ and relibaility estimates $1 - \hat{\rho}$, we demonstrate Figure \ref{fig:ieee30reliability}.
-We illustrate the dependence between empirical reliability, $1-\hat{\rho}$, and the number of samples, $N$, for different values across the IEEE-30, Washington-14 and Grid6-WW systems in Figures \ref{fig:ieee30conservatism},  \ref{fig:washington14conservatism} and \ref{fig:grid6reliability}, respectively. We maintain a confidence threshold for JCC feasibility of $1-\eta = 0.99$. 
-Also we present box plots showing the spread of $(\hat{\mathbb{P}}_N)_l$—the empirically computed probability of constraint satisfaction using $10^4$ Monte Carlo samples as per Algorithm \ref{alg:estimate_delta}, see Eq.~\ref{alg:estimate_delta:phat_N_l}. 
-Notably, AR-SA achieves higher reliability levels ($1-\hat{\rho}$) with significantly fewer samples $N$. From Figures \ref{fig:ieee30conservatism},  \ref{fig:washington14conservatism} and \ref{fig:grid6reliability} one can observe that for Washington-14 and Grid6-WW AR-SA reaches high reliability levels with lower number of samples and in IEEE-30 case, though SA, SA-FF, SA-SB and SA-KMeans reach $1 - \rho = 0.9$ with less samples, the higher $1 - \rho =0.99$ reliability level is reach by AR-SA first. This observation is due to the problem specific redundancy set $\hat{\mathcal{P}}_r$ construction that is able to filter specifically those scenarios that are irrelevant for given problem.
+We illustrate the dependence between empirical reliability, $1-\hat{\rho}$, and the number of samples, $N$, for different values across the IEEE-30, Washington-14 and Grid6-WW systems in Figures \ref{fig:ar-sa-wash14-grid6} and \ref{fig:ar-sa-wash14-grid6}. Here, Figures \ref{fig:ieee30conservatism}, \ref{fig:washington14conservatism}, \ref{fig:grid6reliability} illustrate empirical reliability ($1-\hat{\rho}$), meanwhile Figures \ref{fig:ieee30time}, \ref{fig:grid6time-dd-dro} -- Execution time for various power grid test cases. The empirical estimates are computed with $L = 100$ optimization instances (for $1-\hat{\rho}$), and $N_{MC}=10^4$ Monte-Carlo samples for each instance to determine constraint validation (for box-plot of $(\hat{\mathbb{P}}_N)_l$), as described in Algorithm~\ref{alg:estimate_delta}. We maintain a confidence threshold for JCC feasibility of $1-\eta = 0.99$. 
+Also, we present box plots showing the spread of $(\hat{\mathbb{P}}_N)_l$—the empirically computed probability of constraint satisfaction using $10^4$ Monte Carlo samples as per Algorithm \ref{alg:estimate_delta}, see Eq.~\ref{alg:estimate_delta:phat_N_l}. 
+Notably, AR-SA achieves higher reliability levels ($1-\hat{\rho}$) with significantly fewer samples $N$. From Figures \ref{fig:ieee30conservatism},  \ref{fig:washington14conservatism} and \ref{fig:grid6reliability} one can observe that for Washington-14 and Grid6-WW AR-SA reaches high reliability levels with a lower number of samples and in IEEE-30 case, though SA, SA-FF, SA-SB, and SA-KMeans reach $1 - \rho = 0.9$ with less samples, the higher $1 - \rho =0.99$ reliability level is reached by AR-SA first. This observation is due to the problem-specific redundancy set $\hat{\mathcal{P}}_r$ construction that is able to filter specifically those scenarios that are irrelevant for the given problem.
+
+\paragraph{AR-SA and DD-DRO comparison.}
+We assessed grid constraints to be met with a probability of $1-\eta = 0.9$. For DD-DRO, we set the parameters as follows: a Wasserstein ball radius of $r_W = 10^{-3}$ and a maximum function relaxation constant of $M = 10$. These parameters were selected to be minimally conservative for $\eta$ and maximally expansive for $r_W$, as smaller $\eta$ values and larger $r_W$ values led to an empty feasibility set, indicating excessive conservativeness of DD-DRO. In a non-strict reliability setup ($\eta=0.1$), we compared DD-DRO, SA, and the proposed AR-SA using an identical number of samples. For DD-DRO, we use the same sample set as for classical SA to prevent changes in the underlying data distribution that would affect the ambiguity set of DD-DRO when adopting the sample reduction strategy for AR-SA. Figures \ref{fig:grid6reliability-dd-dro} and \ref{fig:grid6time-dd-dro} illustrate the performance differences in reliability and execution time across methods. Notably, DD-DRO achieved higher reliability for the JCC Problem \eqref{eq:optimal_control_2} even with just two data samples. But, its reliability boxplots were significantly more spread than those of SA and AR-SA, indicating instability. The average run time for DD-DRO is consistently 5x longer than that for SA and AR-SA, owing to the non-linear nature of the problem and the inclusion of binary variables. Indeed, in the Grid-6WW case with $N=100$ data samples, DD-DRO handle 205 variables, including 100 binary, and 16,302 constraints, while SA and AR-SA use only 4 continuous variables and 16,203 constraints.
 %The box plots reveal that AR-SA rapidly reduces the variance in the solutions’ chance-constraint feasibility, characterized by thinner box plots and fewer outliers, compared to SA.
 %We illustrate the dependence between empirical reliability $1-\hat{\rho}$ and $N$ over a range of values for the IEEE-30 (Washington-14) bus system in Fig.~ \ref{fig:ieee30reliability} (\ref{fig:washington14reliability}). Here, we keep a confidence threshold of joint chance constraint feasibility $1-\eta =0.99$. Moreover, we present box-plots for the spread of $(\hat{\mathbb{P}}_N)_l$ for different $N$, in Fig.~\ref{fig:ieee30conservatism} (\ref{fig:washington14conservatism}). We denote $(\hat{\mathbb{P}}_N)_l$ as the probability of constraint satisfaction, empirically computed using $10^4$ Monte Carlo samples of Algorithm \ref{alg:estimate_delta}, see Eq.~\ref{alg:estimate_delta:phat_N_l}. Note that AR-SA reaches a higher reliability level ($1-\hat{\rho}$) with a substantially fewer number of samples $N$. These boxplots indicate that the variance in the obtained solution's chance-constraint feasibility reduces faster for AR-SA, noted by thinner boxplots and lack of outliers, compared to SA.
 %\vspace{-3mm}
@@ -1069,8 +1085,8 @@ Notably, AR-SA achieves higher reliability levels ($1-\hat{\rho}$) with signific
 %\end{figure}
 
 %Figure~\ref{fig:summary grid 001} illustrates the superior sample efficiency of AR-SA.
-\vspace{-1mm}
+% \vspace{-1mm}
 \section{Conclusion}\label{sec:conclusion}
-\vspace{-1mm}
-Data-driven approximation are useful in chance-constrained stochastic programs with unknown uncertainty distribution and/or JCC setting. But the data requirements rapidly become infeasible with the increase of size and reliability requirements. To address this, we proposed a novel approach that allows to a-priorily identify and remove redundant scenarios in stochastic approximations for JCC dynamic multi-timestamp DC-OPF. We prove the validity of this approach theoretically and 
+% \vspace{-1mm}
+Data-driven approximations are useful in chance-constrained stochastic programs with unknown uncertainty distribution and/or JCC settings. However, the data requirements rapidly become infeasible with the increase in size and reliability requirements. To address this, we proposed a novel approach that allows us to a-priorily identify and remove redundant scenarios in stochastic approximations for JCC dynamic multi-timestamp DC-OPF. We prove the validity of this approach theoretically and 
 ensured its high empirical performance over various test cases. 

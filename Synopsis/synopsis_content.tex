@@ -1,10 +1,11 @@
 \section*{Contents of the dissertation}
 
 % Is there no way to pull the chapter numbers from the main document? 
-\textbf{The first chapter} introduces background and basic context, outlines the whole thesis. Section 1.1 discusses modern power system with renewable energy generation and its consequences for power grids. Section 1.2 discusses challenges in power system modeling and computing optimal regimes in presence of renewable generation. Section 1.3 states researches objectives, namely, development of advanced data efficient methods for estimation of regime's reliability and estimation of optimal regime. Section 1.4 highlights significance of the study, outlining scientific novelty and contributions of this thesis. Finally, Section 1.5 summarizes the first chapter
+\textbf{Introduction} presents the background and basic context, outlines the whole thesis. Specifically, it underscores the relevance of the conducted research: the proposed algorithms and approaches are widely applicable, including power systems operation due to the emerging renewable energy integration into the power grids. Next, it describes the current state of the field, explains the problem in current developed approaches and reveals the research gap. Further, it states the aims of the dissertation, shortly, this work aims at increasing efficiency of the data-driven algorithms in stochastic optimization setting applied to power systems context. The scientific novelty is covered by applying advanced statistical methods and novel approaches that increase an efficiency of existing data-driven approaches in stochastic optimization. Additionally, the introduction underscores practical and theoretical significance: current dissertation addressed the theoretical gap in methodologies for reduction of data usage, the practical significance is demonstrated by applicability of proposed methods for real world application - power systems operation. Finally, the introduction covers methodology, propositions for defence and approbation together with reliability.
+
 %introduces the necessary definitions and ideas of quantum computation. Section 1.1 introduces quantum states, unitary, Hermitian, and Pauli operators. Section 1.2 presents the key concepts of the quantum model of computation: quantum circuits, quantum gates, and measurements. Section 1.3 describes the formalism necessary to describe quantum states and their evolution in the presence of noise. Section 1.4 briefly presents the language of tensor networks. Finally, Section 1.5 reviews the complexity-theoretic aspects of quantum computing. We present the common complexity classes $\mathbf{P}, \mathbf{BPP}, \mathbf{NP}$ and their quantum counterparts $\mathbf{BQP}, \mathbf{QMA}$.
 
-\textbf{The second chapter} describes the main physical laws that lie behind the power systems and power transmission. The key delivery of this chapter is Power Flow Equations (PFEs) that are derived from Ohm's, Kichhoff laws and define power injections from voltage phasors:
+\textbf{The first chapter} describes the main physical laws that lie behind the power systems and power transmission. The key delivery of this chapter is Power Flow Equations (PFEs) that are derived from Ohm's, Kichhoff laws and define power injections from voltage phasors:
 % Specifically, it touches electrical power concept which has two important components in Section 2.1.  Active power $P$ (real part of the apparent power $S$) and reactive power $Q$ (imaginary part of the apparent power $S$):
 % \begin{equation}
 %         S  = P + i Q.        
@@ -56,11 +57,11 @@ These equations are the core of all optimization problem on power grids that are
 
 
 
-\textbf{The third chapter} considers Optimal Power Flow (OPF) - the main application problem for the proposed methods. Section 3.1 provides a brief historical background for the development of this model, mentions various applications and modifications of OPF for different time scales of modeling. 
-Section 3.2 recaps the general optimization problem concept and mathematical formulations.
-Section 3.3 recaps major components of constrained optimization problems - equality and inequality constraints. Within that section, the laws from the second chapter are put to their places in OPF.
+\textbf{The second chapter} considers Optimal Power Flow (OPF) - the main application problem for the proposed methods. Section 2.1 provides a brief historical background for the development of this model, mentions various applications and modifications of OPF for different time scales of modeling. 
+Section 2.2 recaps the general optimization problem concept and mathematical formulations.
+Section 2.3 recaps major components of constrained optimization problems - equality and inequality constraints. Within that section, the laws from the second chapter are put to their places in OPF.
 
-Section 3.4 describes Direct Current (DC) OPF approximation of the general OPF. This model is applicable for high voltage systems that are typically present for interactions on a scale of a region or a country. This model is formulated as follows:
+Section 2.4 describes Direct Current (DC) OPF approximation of the general OPF. This model is applicable for high voltage systems that are typically present for interactions on a scale of a region or a country. This model is formulated as follows:
 \begin{equation}
     \begin{aligned}
         \min_{P^G, \theta}  & \textit{cost}(P^G) \\
@@ -72,7 +73,7 @@ Section 3.4 describes Direct Current (DC) OPF approximation of the general OPF. 
     \label{eq:dc-opf}
 \end{equation}
 
-Section 3.5 describes the dynamic DC-OPF, where one seeks to find optimal generation schedule, provided temporal binding between timestamps via ramp-up and ramp-down constraints and specific control algorithm - Automated Generation Control (AGC), which ensures coordination between generators to meet the demand. 
+Section 2.5 describes the dynamic DC-OPF, where one seeks to find optimal generation schedule, provided temporal binding between timestamps via ramp-up and ramp-down constraints and specific control algorithm - Automated Generation Control (AGC), which ensures coordination between generators to meet the demand. 
 %The problem is formulated as follows:
 % \begin{equation}
 %     \begin{aligned}
@@ -86,9 +87,9 @@ Section 3.5 describes the dynamic DC-OPF, where one seeks to find optimal genera
 %     \label{eq:dyn-dc-opf}
 % \end{equation}
 
-\textbf{The fourth chapter} presents adaptive importance sampling algorithm for estimation of a reliability for a given power system state, considering Gaussian fluctuations. Section 4.1 discusses the important trends of renewable energy integration \cite{harjanne2019abandoning, golden2003senate}, next revises current existing approaches for computationally efficient estimation of Gaussian polyhedron volume such as Monte-Carlo (MC) sampling and Markov Chain MC \cite{su2005probabilistic,vittal2009steady,chen2008probabilistic, montecarlofeasibility}. Further, state of the apt methods such as pmvnorm algorithm \cite{genz2020package} and At Least One rare Event (ALOE) \cite{owen2019importance} importance sampling based estimator.
+\textbf{The third chapter} presents adaptive importance sampling algorithm for estimation of a reliability for a given power system state, considering Gaussian fluctuations. Section 3.1 discusses the important trends of renewable energy integration \cite{harjanne2019abandoning, golden2003senate}, next revises current existing approaches for computationally efficient estimation of Gaussian polyhedron volume such as Monte-Carlo (MC) sampling and Markov Chain MC \cite{su2005probabilistic,vittal2009steady,chen2008probabilistic, montecarlofeasibility}. Further, state of the apt methods such as pmvnorm algorithm \cite{genz2020package} and At Least One rare Event (ALOE) \cite{owen2019importance} importance sampling based estimator.
 
-Section 4.2 presents the reformulation of DC-OPF feasibility set as a polyhedron in terms of power generations $p$, providing a derivation of it and defining target probability.
+Section 3.2 presents the reformulation of DC-OPF feasibility set as a polyhedron in terms of power generations $p$, providing a derivation of it and defining target probability.
 %Let $B \in \mathbb{R}^{n \times n}$ be an admittance matrix of the system, $p = B\theta$. The components $B_{ij}$ are such that $B_{ij} \neq 0$ if there is a line between buses $i$ and $j$ and  for any node $B_{ii} = - \sum_{j\neq i} B_{ij}$, e.g., $B$ is a Laplacian matrix.  Let $B^{\dagger}$ be the pseudo-inverse of $B$, $\theta = B^{\dagger} p$. Next, consider the incidence matrix $A$, such that for any buses $i$ and $j$ with $i<j$ connected by an edge $k$, $A_{ki} = 1$, $A_{kj} = -1$ and all other elements in row $k$ are equal to zero. Then the phase angle constraints are $AB^{\dagger}p \le \bar\theta$, $-AB^{\dagger}p \le \bar\theta$.
 The following system of inequalities defines the reliability polytope, $P = \{p: Wp \le b\}$.
 % \begin{equation}
@@ -96,14 +97,14 @@ The following system of inequalities defines the reliability polytope, $P = \{p:
 % \label{eq:feasibility_ineqs}
 % \end{equation}
 % with $W = (AB^\dagger C, - A B^\dagger C, C, -C)^\top$, $b = (\bar\theta, \bar\theta, \overline{p}, \underline{p})^\top$\!\!\!. 
-Let $J = 2m + 2n$ be a number of constraints, e.g., rows in matrix $W$, then the reliability polytope $P$ is $\bigl\{p\!:\! \bigcap_{i=1}^J p^\top\!\!\omega^i \le b_i\bigr\}$.
+Let $K = 2m + 2n$ be a number of constraints, e.g., rows in matrix $W$, then the reliability polytope $P$ is $\bigl\{p\!:\! \bigcap_{i=1}^K p^\top\!\!\omega^i \le b_i\bigr\}$.
 % Finally, Namely, consider Gaussian fluctuations of power injections $p$ with known mean $\mu$ and covariance $\Sigma$ and aim at computing a constraint violation probability $\Pi$:
 % \begin{align}\label{eq:prob}
 %     \Pi = \mathbb{P}(p\not\in P) = \int_{\mathbb{R}^n} \upsilon(p) 1[p\not\in P] d p, \; p\sim \mathcal{N}(\mu, \Sigma), 
 % \end{align}
 % where $\mathbb{P}$ is a probability taken w.r.t. the normal pdf $\upsilon(p)$ of $p$.
 
-Section 4.3 discusses the sampling procedure. Starting with sampling a Gaussian random variable in a single plane's complement.%, one can employ Algorithm \ref{alg:sample1d}.
+Section 3.3 discusses the sampling procedure. Starting with sampling a Gaussian random variable in a single plane's complement.%, one can employ Algorithm \ref{alg:sample1d}.
 % \begin{algorithm}[H]
 %     \SetKwInOut{Input}{input}
 %     \SetKwInOut{Output}{output}
@@ -125,7 +126,7 @@ The importance sampling idea is to change the distribution one samples from and 
     \Pi  = \mathbb{P}(p\not\in P) & = \int_{\mathbb{R}^n} f(p) \upsilon(p) dp = \!\int_{\mathbb{R}^n}\!\! \frac{f(p)\upsilon(p)}{\upsilon_D(p,x)}\upsilon_D(p,x) dp%\\
     %& \approx \frac{1}{N}\sum_{i=1}^N \frac{f(p^i)\upsilon(p^i)}{\upsilon_D(p^i,x)}, p^i \sim %\upsilon_D(p,x),
 \end{align*}
-where we refer to $\upsilon(p)$ as \emph{nominal} distribution, and $\upsilon_D(p,x)$ as \emph{synthetic} distribution with parameter $x$,  $f(p) = 1[p\not\in P]$. The natural way is to employ mixture distribution, i.e., setup distribution $D = \sum_{i \le J} x_i D_i, \text{ with } \sum_{i\le J} x_i = 1, x_i \ge 0, \; 1\le i \le J,$ where $D_i$ is $\mathcal{N}(\mu,\Sigma)$ conditioned on $p^\top\omega^i > \!b_i$. The sampling algorithm consists of two steps. First, we choose a distribution $D_i$ with probability $x_i$. Second, we sample $p \sim D_i$, i.e. $p\sim \mathcal{N}(\mu,\Sigma)$ given $p^\top\omega^i>b_i$. 
+where we refer to $\upsilon(p)$ as \emph{nominal} distribution, and $\upsilon_D(p,x)$ as \emph{synthetic} distribution with parameter $x$,  $f(p) = 1[p\not\in P]$. The natural way is to employ mixture distribution, i.e., setup distribution $D = \sum_{i \le K} x_i D_i, \text{ with } \sum_{i\le K} x_i = 1, x_i \ge 0, \; 1\le i \le K,$ where $D_i$ is $\mathcal{N}(\mu,\Sigma)$ conditioned on $p^\top\omega^i > \!b_i$. The sampling algorithm consists of two steps. First, we choose a distribution $D_i$ with probability $x_i$. Second, we sample $p \sim D_i$, i.e. $p\sim \mathcal{N}(\mu,\Sigma)$ given $p^\top\omega^i>b_i$. 
 % The difference between samples generated from Monte-Carlo sampling from a distribution $\mathcal{N}(\mu, \Sigma)$ and the importance distribution, composed from the mixture of Gaussians $\mathcal{N}(\mu, \Sigma)$, conditioned on the planes of a polyhedron.% is illustrated in Figure \ref{fig:00}.
 % \begin{figure}
 %     \centering
@@ -141,7 +142,7 @@ where we refer to $\upsilon(p)$ as \emph{nominal} distribution, and $\upsilon_D(
 % The estimate is estimated as \begin{align}\label{eq:aloe}
 %     {\hat \Pi} = N^{-1}\sum_{i=1}^N \upsilon(p^i)/\upsilon_D(p^i, x^i), \quad p^i \sim D^{x^i},
 % \end{align}
-% where a distribution mixture $\{D_i\}_{i=1}^J$. The weights $\{x_i\}_{i=1}^J$ define the components of $D$, $p \sim \mathcal{N}(\mu, \Sigma)$ s.t. $p\not\in P$. The main idea is to find weights $x$ such that the estimate has the least variance. The iterative estimation process with updating weights $x^t_i, ~ i=1,\dots J, t=1, \dots k$ is given by
+% where a distribution mixture $\{D_i\}_{i=1}^K$. The weights $\{x_i\}_{i=1}^K$ define the components of $D$, $p \sim \mathcal{N}(\mu, \Sigma)$ s.t. $p\not\in P$. The main idea is to find weights $x$ such that the estimate has the least variance. The iterative estimation process with updating weights $x^t_i, ~ i=1,\dots K, t=1, \dots k$ is given by
 % \begin{align}
 %     \hat \Pi = \frac{1}{k}\sum_{t=1}^k \frac{\upsilon(p^t) f(p^t)}{\upsilon_D(p^t, x^t)}, \; p^t \sim \upsilon_D(\cdot, x^t), t\le k \label{eq:emp}
 % \end{align}
@@ -150,14 +151,14 @@ The last part of the section defines the optimization problem of finding a minim
 The variance minimization problem is
 \begin{align}
     \min_x \; & V(x), \; 
-    \text{s.t. } x_1 + \dots + x_J = 1, x_i \ge 0, 1\!\le\! i \!\le\! J\label{eq:var-min}
+    \text{s.t. } x_1 + \dots + x_K = 1, x_k \ge 0, 1\!\le\! k \!\le\! K\label{eq:var-min}
 \end{align}
-in $x$ for the mixture distribution $\upsilon_D(p,x) = \sum_{i=1}^J x_i \upsilon_i(p)$. %To improve numerical stability one may also add constraints $x_i \ge \varepsilon > 0$ that guarantee that the variance is bounded.
+in $x$ for the mixture distribution $\upsilon_D(p,x) = \sum_{i=1}^K x_i \upsilon_i(p)$. %To improve numerical stability one may also add constraints $x_i \ge \varepsilon > 0$ that guarantee that the variance is bounded.
 The section concludes with several theorems that establish the convexity of Problem \eqref{eq:var-min}, expression for its gradient, unbiasedness of the resulting estimate and expression for the estimate's variance.
 % \begin{theorem}\label{thm:var-convexity}
 % Problem~\eqref{eq:var-min} is convex in $x$, and for $x > 0$
 % \begin{align*}
-%     \nabla V(x) = \int_{\mathbb{R}^n} - f^2 (p)\upsilon^2(p)\upsilon_D^{-2}(p,x) (\upsilon_1(p), \dots, \upsilon_J(p))^\top dp.
+%     \nabla V(x) = \int_{\mathbb{R}^n} - f^2 (p)\upsilon^2(p)\upsilon_D^{-2}(p,x) (\upsilon_1(p), \dots, \upsilon_K(p))^\top dp.
 % \end{align*} 
 % \end{theorem}
 
@@ -171,51 +172,51 @@ The section concludes with several theorems that establish the convexity of Prob
 % Variance of $\hat\Pi$ equals $N^{-2}\sum_{k=1}^N V(x^k)$ if for all $k$ and $j,$ $1\le k < j \le N$, $x_k > 0$ and $x_k$ is independent of $x^j$ and~$p^j$.
 % \end{theorem}
 
-Section 4.3 setups the iterative scheme for updating weights $x^t$ using Mirror Descent with Bregman divergence based on negative entropy. The update is:
+Section 3.3 setups the iterative scheme for updating weights $x^t$ using Mirror Descent with Bregman divergence based on negative entropy. The update is:
 % \begin{align}\label{eq:md-upd}
 %     \!\!x^{k+1} = \argmin\limits_{x\in S}\left\{\eta^k \nabla V(x^k)^\top (x - x^k) + D_\omega(x, x^k)\right\}\!\!,
 % \end{align}
-% where $S =\{x \ge 0,x_1+\dots+ x_J = 1\}$, a step-size $\eta^k \!>\! 0$, 
+% where $S =\{x \ge 0,x_1+\dots+ x_K = 1\}$, a step-size $\eta^k \!>\! 0$, 
 % $D_\omega(x, x^k)$ is the Bregman divergence defined for any strongly convex and smooth (distance-generating) function~$\omega$~as
 % $
 %     D_\omega(x, x^k) = \omega(x) - \{\omega(x^k) + \nabla \omega(x^k)^\top (x^k - x)\}.
 % $
-% So as the distance generating function is strongly convex and smooth in $x,$ so is the Bregman divergence. When $\omega(x) = \|x\|_2^2/2,$ mirror descent step is the same as in the gradient descent method, $x^{k+1} = x_k - \eta^k \nabla V(x^k)$. However, the negative entropy, $\omega(x) = -\sum_{i=1}^n x_i \log x_i$, is known to be the optimal choice for simplex constrained optimization. For $k\ge 1$ and $1\le i \le J$, solving~Eq.~\eqref{eq:md-upd} in $x$ leads to an update 
+% So as the distance generating function is strongly convex and smooth in $x,$ so is the Bregman divergence. When $\omega(x) = \|x\|_2^2/2,$ mirror descent step is the same as in the gradient descent method, $x^{k+1} = x_k - \eta^k \nabla V(x^k)$. However, the negative entropy, $\omega(x) = -\sum_{i=1}^n x_i \log x_i$, is known to be the optimal choice for simplex constrained optimization. For $k\ge 1$ and $1\le i \le K$, solving~Eq.~\eqref{eq:md-upd} in $x$ leads to an update 
 \begin{align}
-\label{eq:_upd}x^{k+1}_i = x^k_i \frac{\exp(-\eta^k(\nabla V(x^k))_i)}{\sum_{j=1}^J x^k_j \exp(-\eta^k(\nabla V(x^k))_j)}, \eta^k > 0.
+\label{eq:_upd}x^{k+1}_i = x^k_i \frac{\exp(-\eta^k(\nabla V(x^k))_i)}{\sum_{j=1}^K x^k_j \exp(-\eta^k(\nabla V(x^k))_j)}, \eta^k > 0.
 \end{align}
 
 Next, the section presents the convergence properties
 % \begin{theorem}\label{thm:lan}
 %     For any function $V(x)$ that is $M$-Lipschitz in $\ell_1$ norm, i.e. $\|V(x) - V(y)\|_\infty \le M \|x-y\|_1 \forall x,y$, a constant step-size policy $\eta^k = \eta \le 1/M$, and 
-%     a sequence $\{x^k\}_{k\ge 1}$ generated by \eqref{eq:md-upd} with $\omega(x) = \sum_{i\le J} x_i\log x_i$, one has
+%     a sequence $\{x^k\}_{k\ge 1}$ generated by \eqref{eq:md-upd} with $\omega(x) = \sum_{i\le K} x_i\log x_i$, one has
 %     \begin{align*}
 %         N^{-1}\sum_{i=1}^N (V(x^i)  - V^*) \le 
-%         (\log J + (M^2 + \sigma^2) N \eta^2)/(N\eta),
+%         (\log K + (M^2 + \sigma^2) N \eta^2)/(N\eta),
 %     \end{align*}
 % with $\mathbb{E}_{\upsilon_D}\|g(p,x)- \nabla V(x)\|_\infty^2 \le \sigma^2$, $V_*$ is the optimum of~\eqref{eq:var-min}. 
 % \end{theorem}
 % To this end, according to Theorem~\ref{thm:lan} 
 with the optimal choice of 
-$\eta = M^{-1}\sqrt{\log J/(5N)},$ which yields almost dimension independent convergence rate stated in  Theorem~\ref{thm:md-c}. 
-\begin{theorem}\label{thm:md-c} Mirror descent with an update~\eqref{eq:_upd} and a step-size policy $\eta^k \!=\! \eta M^{-1}\!\sqrt{(\log J)/N}$,  $\eta \sqrt{(\log J)/N}\!\le\! 1$ yields
+$\eta = M^{-1}\sqrt{\log K/(5N)},$ which yields almost dimension independent convergence rate stated in  Theorem~\ref{thm:md-c}. 
+\begin{theorem}\label{thm:md-c} Mirror descent with an update~\eqref{eq:_upd} and a step-size policy $\eta^k \!=\! \eta M^{-1}\!\sqrt{(\log K)/N}$,  $\eta \sqrt{(\log K)/N}\!\le\! 1$ yields
 \begin{align*}
-    \mathbb{V}_{\upsilon_D} (\hat \Pi) = N^{-1}\sum_{k=1}^N V(x^k) < \frac{V^*}{N} +  \left(\frac{M}{\eta}+ \frac{5\eta}{M}\right)\frac{\sqrt{\log J}}{\eta N^{3/2}}, 
+    \mathbb{V}_{\upsilon_D} (\hat \Pi) = N^{-1}\sum_{k=1}^N V(x^k) < \frac{V^*}{N} +  \left(\frac{M}{\eta}+ \frac{5\eta}{M}\right)\frac{\sqrt{\log K}}{\eta N^{3/2}}, 
 \end{align*}
-with $M \!= \!\max_{i\le J}\varepsilon^{-2}\Pi_i^2$,  $x\!\ge\! \varepsilon$, $V^*$ be the optimum of~\eqref{eq:var-min}.
+with $M \!= \!\max_{i\le K}\varepsilon^{-2}\Pi_i^2$,  $x\!\ge\! \varepsilon$, $V^*$ be the optimum of~\eqref{eq:var-min}.
 \end{theorem}
 
-Compared to the earlier results of~\cite{owen2019importance}, the rate of convergence depends as $O(\sqrt{\log J})$ on the dimension $J$, while earlier results \cite{owen2019importance} claim linear at dependence. Thus, the proposed methods results in a substantial acceleration for large-scale problems.
+Compared to the earlier results of~\cite{owen2019importance}, the rate of convergence depends as $O(\sqrt{\log K})$ on the dimension $K$, while earlier results \cite{owen2019importance} claim linear dependence. Thus, the proposed methods results in a substantial acceleration for large-scale problems.
 
-Section 4.4 presents an extensive numerical comparison of the proposed method with state-of-the-art estimation algorithms for the Gaussian polyhedron volume: pmvnorm and ALOE. The most important empirical findings are that there are two simple cases where pmvnorm and ALOE fail. The first one is a degenerate polytope and the second one is just a simple regular polytope with 360 faces that approximates a circle. Both cases are 2 dimensional.
+Section 3.4 presents an extensive numerical comparison of the proposed method with state-of-the-art estimation algorithms for the Gaussian polyhedron volume: pmvnorm and ALOE. The most important empirical findings are that there are two simple cases where pmvnorm and ALOE fail. The first one is a degenerate polytope and the second one is just a simple regular polytope with 360 faces that approximates a circle. Both cases are 2 dimensional.
 
-% We consider a regular 2 dimensional polytope with $J$ faces ($J\ge 3$) centered at zero, $
-%     P = \{p \in \mathbb{R}^2: \omega_j^\top x \leq \tau, 1\le j \le J\},
+% We consider a regular 2 dimensional polytope with $K$ faces ($K\ge 3$) centered at zero, $
+%     P = \{p \in \mathbb{R}^2: \omega_j^\top x \leq \tau, 1\le j \le K\},
 % $
-% where $\omega_j = (\sin(2\pi j/J), \cos(2 \pi j/J))$. 
-% We assume $p\sim\mathcal{N}(0, I_2)$, where $I_2$ is $2\times 2$ identity matrix. The probability $p\not\in P$ rapidly converges to $\exp(-\tau^2/2)$ as $J\to\infty$ \cite{owen2019importance}
+% where $\omega_j = (\sin(2\pi j/K), \cos(2 \pi j/K))$. 
+% We assume $p\sim\mathcal{N}(0, I_2)$, where $I_2$ is $2\times 2$ identity matrix. The probability $p\not\in P$ rapidly converges to $\exp(-\tau^2/2)$ as $K\to\infty$ \cite{owen2019importance}
 
-% As the second example we consider a degenerate polytope with $J=1500$ faces, where $\omega_1 = (0, 1)$  and $\omega_j = (\xi, -1 - \xi)$, $2\le j \le J$. We take $\xi \sim \mathcal{U}[-\varepsilon, \varepsilon]$ for small $\varepsilon = 10^{-6}$. Note that $\omega_j$ for $j\geq 2$ are almost identical. Hence probability $\Pi$ is quite close to $2\Phi(-\tau)$.
+% As the second example we consider a degenerate polytope with $K=1500$ faces, where $\omega_1 = (0, 1)$  and $\omega_j = (\xi, -1 - \xi)$, $2\le j \le K$. We take $\xi \sim \mathcal{U}[-\varepsilon, \varepsilon]$ for small $\varepsilon = 10^{-6}$. Note that $\omega_j$ for $j\geq 2$ are almost identical. Hence probability $\Pi$ is quite close to $2\Phi(-\tau)$.
 % The results are shown in Figure \ref{fig:01}, showing stability of the proposed algorithm (MD-Var)
 
 % \begin{figure}[t!]
@@ -242,7 +243,8 @@ Section 4.4 presents an extensive numerical comparison of the proposed method wi
 
 For power grid test cases, we ran the algorithms on all the test cases accessible through PandaPower~\cite{pandapower.2018}. There were 27 cases with the number of buses varying from 4 to 9241. The proposed methods (MD-Var and MD-KL) took less than two minutes of computational time on a personal laptop for each of them. 
 %
-Table~\ref{tab:sample-compX} shows the minimal number of samples that are required by the algorithms to achieve $\Pi/2 \le \hat\Pi \pm s(\hat\Pi) \le 3\Pi/2, \label{eq:tk}$
+Table~\ref{tab:sample-compX} shows the minimal number of samples that are required by the algorithms to achieve \begin{align}    
+\Pi/2 \le \hat\Pi \pm s(\hat\Pi) \le 3\Pi/2, \label{eq:tk}\end{align}
 where $s(\hat\Pi)$ is the empirical standard deviation of the estimate. This ensures that not only the estimated value, but also its confidence interval is contained in $(\Pi/2, 3\Pi/2)$ and that the sum of the empirical estimate and its standard deviation are close to %of the same order as 
 the true probability. 
 
@@ -250,10 +252,10 @@ the true probability.
 \begin{table}[ht]
 \centering
 %\vspace{-4mm}
-\captionsetup{justification=centering}
+% \captionsetup{justification=centering}
 \caption{Number of samples to satisfy Ineq.~\eqref{eq:tk} 
  for Iceland118}
- \begin{tabular}{c|c|c|c|c} 
+ \begin{tabular}{|c|c|c|c|c|} 
  \hspace{-2mm}Bound ${\bar\theta}_{ij}$, probability $\Pi$ & MC & ALOE & Pmvnorm & MD-Var\\
  % &&& \cite{genz2020package} & (Section \ref{sampling:nm})\\
  \hline
@@ -261,6 +263,7 @@ the true probability.
   \hspace{-2mm}$|{\theta}_{ij}| \le \pi/7$, $\Pi$ = 3.0e-02 & 5.1e+04 & 4.1e+02 & 1.1e+03 & \underline{3.5e+02}\\
   \hspace{-2mm}$|{\theta}_{ij}| \le \pi/6$, $\Pi$ = 2.5e-03  & 6.2e+06 & 4.5e+02 & 6.3e+03 & \underline{3.9e+02} \\
   \hspace{-2mm}$|{\theta}_{ij}| \le \pi/5$, $\Pi$ = 2.6e-05  & 8.9e+10 & 3.3e+02 & 1.4e+04 & \underline{2.1e+02}\\
+  \bottomrule
  \end{tabular}
  \vspace{-0mm}\label{tab:sample-compX}
 \end{table}
@@ -271,12 +274,12 @@ the true probability.
 
 Finally, the chapter concludes. Importance sampling proves invaluable for promptly evaluating the reliability of power grids in real-time scenarios. Our proposed algorithm innovatively creates a mixture distribution tailored to the grid's physics, enhancing accuracy. Through convex optimization, we fine-tune the mixture weights, surpassing existing methods in both precision and speed. This advancement opens doors for its application in optimizing and controlling power grids, promising enhanced efficiency and reliability.
 
-\textbf{The fifth chapter} presents the approach for constructing scenario approximation for DC-OPF assuming additive Gaussian noise for generators. In other words, for linear program with additive Gaussian noise. 
+\textbf{The fourth chapter} presents the approach for constructing scenario approximation for DC-OPF assuming additive Gaussian noise for generators. In other words, for linear program with additive Gaussian noise. 
 
-The chapter starts with an introduction in Section 5.1 underscoring the industry need for efficient data-driven SA of Joint Chance Constrained (JCC) optimization problems for modeling optimal, reliable and non conservative generation regimes for high voltage power grids. 
+The chapter starts with an introduction in Section 4.1 underscoring the industry need for efficient data-driven SA of Joint Chance Constrained (JCC) optimization problems for modeling optimal, reliable and non conservative generation regimes for high voltage power grids. 
 %Next, this Section discusses recent advantages in this field and outlines the main problem: current ways of constructing SA are lead to extremely large linear optimization problems which are challenging to solve. Finally, it outlines the proposed solution - construct a proxy for redundant set of scenario and sample data using ALOE algorithm outside of that region.
 
-Section 5.2 introduces notation and recalls the polyhedron in generation vector $p$ as in Chapter 4. Next, it formulates the JCC optimization problem under consideration:
+Section 4.2 introduces notation and recalls the polyhedron in generation vector $p$ as in Chapter 3. Next, it formulates the JCC optimization problem under consideration:
 \begin{equation}\label{eq:JCC-OPF}
     \begin{aligned}
   \min_x & \;\mathbb{E}_{\xi\sim \mathcal{N}(0, \Sigma)} \textit{cost}(x,\xi)\\
@@ -293,7 +296,7 @@ Finally, it presents the SA for this JCC and recalls the number of data samples 
 \end{align}
 The key disadvantage of the scenario approximation \eqref{eq:sc-opf} is the number of constraints induced by adding scenarios $\xi^t$. A classical theory, developed by Calafiore and Campi \cite{calafiore2006scenario}, suggests to include a large number of scenarios $N$. This will allow the solution of \eqref{eq:sc-opf} to be feasible for original problem \eqref{eq:JCC-OPF} with high probability $1 - \delta$. However, the number of required scenarios $N$ is given by $N \geq 2 \left( \frac{\ln{1/\delta}}{\eta} + d + d\frac{\ln{1/\eta}}{\eta} \right)$, where $d$ is the number of control variable in the optimization problem. For example, with $\eta = 10^{-2}, \delta = 10^{-2}$, for  IEEE-57 case one would end up with $6.45 \cdot 10^3$ (6 generators, excluding slack one) constraints which is time- and memory-consuming to solve.
 
-Section 5.3 present the sketch of the proposed approach, formalizes it introduces the redundant region, applies importance sampling. Finally, it presents the theorems that prove the theoretical advantage in number of scenarios in SA.
+Section 4.3 present the sketch of the proposed approach, formalizes it introduces the redundant region, applies importance sampling. Finally, it presents the theorems that prove the theoretical advantage in number of scenarios in SA.
 
 It starts with the discussion of interrelations between original deterministic feasibility set under probability $\mathcal{P}$, and approximations of JCC feasibility sets. 
 
@@ -320,7 +323,7 @@ Finally, we sample scenarios outside of the polyhedron $\mathcal{P}_{\texttt{in}
 \def\shiftusefulsample{1.1}
 \begin{figure}
     \centering
-        \begin{tikzpicture}[scale=0.35, node distance={15mm}, thick, main/.style = {draw, scale=.9}] 
+        \begin{tikzpicture}[scale=0.75, node distance={15mm}, thick, main/.style = {draw, scale=.9}] 
         %x
         \coordinate (x) at (0, 0);
         \draw (x) circle (1pt);
@@ -596,13 +599,16 @@ where $d$ is a dimension of the problem and $\pi$ is a probability of a random s
 % \Return $\hat{ \boldsymbol \delta}$
 % \end{algorithm}
 
-The results of comparison are illustrated in Figures below and in Table \ref{tab:summary_results}
+The results of comparison are presented in Table \ref{tab:summary_results}. Additionally, the reliability analysis of approximations' solutions is presented in Figures \ref{fig:spreads}, \ref{fig:empiricals}, the latter illustrates empirical reliability ($1-\hat{\delta}$) and the former illustrates the spread of constraint feasibility $(\hat{\mathbb{P}}_N)_l$ for CC-OPF ($1-\eta =.99$) for IEEE 300 bus and IEEE 118 bus systems. The three cases correspond to samples in CC-OPF being drawn by SA, SA-IS and SA-O. The empirical estimates are computed with $L = 100$ optimization instances (for $1-\hat{\delta}$), and $N_{MC}=10^4$ Monte-Carlo samples for each instance to determine constraint validation (for box-plot of $(\hat{\mathbb{P}}_N)_l$). 
+Colored boxes stands for the 25\% -- 75\% interquantile range (IQR). Diamonds shows samples outside of the $\pm 1.5*\text{IQR}$. 
+Note that both in reliability, and the IRQ of constraint feasibility, SA-IS requires much less number of samples compared to SA or~SA-O. Finally, the execution time of the preprocessing step comparison is visualized in Figure \ref{fig:profile_generate_samples}. On the right Figure, vertical dashed lines indicate number of samples that are sufficient to reach $1-\hat{\delta}=0.99$ reliability level for $\eta=0.05$, see Table \ref{tab:summary_results}. Horizontal dot-dashed lines demonstrate the amount of time spent on average over 15 runs. From this figure, one can observe that ALOE is a more time consuming procedure. However, one can observe that the time required to solve scenario approximations together with preprocessing does not differ significantly for IS-SA and SA -- see Figure \ref{fig:profile_scenario_approx}. The latter figure also shows that the computational time required to obtain the same reliability level is five times less for SA-IS (the number of samples are taken from Table \ref{tab:summary_results}, case IEEE-30, $\eta=0.05$.)
 
-
+\begin{landscape}
 \begin{table*}[t]
+\caption{Number of SA-IS and SA samples required to reach reliability level $1-\hat{\delta} = 0.99$ in CC-OPF with confidence threshold $1-\eta$. The number of scenarios required for target reliability were obtained empirically, iterating over a predefined grid for $N$ with the step of $10$.
+    The confidence threshold $1-\eta$ is estimated using Monte Carlo samples (out of sample) and empirical reliability is computed by averaging over $L=100$ independent CC-OPF problem instances. The costs of solutions obtained are depicted alongside with the corresponding costs of deterministic DC-OPF solution. It is clear that SA-IS requires much less samples compared to SA, while maintaning the same reliability of the solution.}
     \centering
-    \adjustbox{width=.9\textwidth}{
-        \begin{tabular}{lrrll|rll|l}
+        \begin{tabular}{|lrrll|rll|l|}
         \toprule
            Case &  $\eta$ &  SA No &  SA Cost &   SA $(\mathbb{P}_N)$ &  IS-SA No & IS-SA Cost & IS-SA $(\mathbb{P}_N)$ & DC-OPF Cost \\
         \midrule
@@ -617,127 +623,97 @@ The results of comparison are illustrated in Figures below and in Table \ref{tab
         grid300 &    0.01 &   9000 & 4.72e+05 & 9.93e-01$\pm$8.42e-04 &      \textbf{4500} &   4.72e+05 &  9.92e-01$\pm$9.53e-04 &    4.71e+05 \\
         \bottomrule
         \end{tabular}
-    }
-    \caption{Number of SA-IS and SA samples required to reach reliability level $1-\hat{\delta} = 0.99$ in CC-OPF with confidence threshold $1-\eta$. The number of scenarios required for target reliability were obtained empirically, iterating over a predefined grid for $N$ with the step of $10$.
-    The confidence threshold $1-\eta$ is estimated using Monte Carlo samples (out of sample) and empirical reliability is computed by averaging over $L=100$ independent CC-OPF problem instances. The costs of solutions obtained are depicted alongside with the corresponding costs of deterministic DC-OPF solution. It is clear that SA-IS requires much less samples compared to SA, while maintaning the same reliability of the solution.}
-    
     \label{tab:summary_results}
 \end{table*}
-
+\end{landscape}
 \begin{figure*}[hbt]
-
-\begin{subfigure}{.48\textwidth}
+\centering
+\begin{subfigure}{.8\textwidth}
   \centering
   % include first image
-  \hspace{-4mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/case300/1_beta_N_12000_eta_001.png}~~~~~~\hfill
-  \caption{Empirical reliability ($1-\hat{\delta}$) versus number of samples in \\CC-OPF ($N$) for IEEE 300 bus system.}
+  \includegraphics[width=0.99\linewidth]{Dissertation/images/dc_stochastic_approx/case300/1_beta_N_12000_eta_001.png}~~~~~~\hfill
+  \caption{IEEE 300 bus system.}
   \label{fig:ieee300reliability}
 \end{subfigure}
-\begin{subfigure}{.48\textwidth}
-  \centering
-  % include second image
-  \hspace{-8mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/case300/boxplot_J_N_9000_eta_001.png}
-  \caption{Spread of probability of constraint feasibility ($(\hat{\mathbb{P}}_N)_l$) \\versus number of samples in CC-OPF ($N$) for IEEE 300 bus system.}
-  \label{fig:ieee300conservatism}
-\end{subfigure}
 
-\begin{subfigure}{.48\textwidth}
+\begin{subfigure}{.8\textwidth}
   \centering
   % include first image
-  \hspace{-4mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/ieee118/1_beta_N_7800_eta_001.png}~~~~~~\hfill
-  \caption{Empirical reliability ($1-\hat{\delta}$) versus number of samples in \\CC-OPF ($N$) for IEEE 118 bus system.}
+  \includegraphics[width=0.99\linewidth]{Dissertation/images/dc_stochastic_approx/ieee118/1_beta_N_7800_eta_001.png}~~~~~~\hfill
+  \caption{IEEE 118 bus system.}
   \label{fig:ieee118reliability}
 \end{subfigure}
-\begin{subfigure}{.48\textwidth}
-  \centering
-  % include second image
-  \hspace{-8mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/ieee118/boxplot_J_N_6600_eta_001.png}
-  \caption{Spread of probability of constraint feasibility ($(\hat{\mathbb{P}}_N)_l$) \\versus number of samples in CC-OPF ($N$) for IEEE 118 bus system.}
-  \label{fig:ieee118conservatism}
-\end{subfigure}
-% \begin{subfigure}{.48\textwidth}
-%   \centering
-%   % include second image
-%   \hspace{-1mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/ieee57/1_beta_N_2300_eta_001.png}~~~~~~\hfill
-%   \caption{Empirical reliability ($1-\hat{\delta}$) versus number of samples in \\CC-OPF ($N$) for IEEE 57 bus system.}
-%   \label{fig:ieee57conservatism}
-% \end{subfigure}
-% \begin{subfigure}{.48\textwidth}
-%   \centering
-%   % include first image
-%   \includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/ieee57/boxplot_J_N_1300_eta_001.png}~~~~~~\hfill
-%   \caption{Spread of probability of constraint feasibility ($(\hat{\mathbb{P}}_N)_l$) \\versus number of samples in CC-OPF ($N$) for IEEE 57 bus system.}
-%   \label{fig:ieee57reliability}
-% \end{subfigure}
-% \begin{subfigure}{.48\textwidth}
-%   \centering
-%   % include second image
-%   \hspace{-1mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/ieee30/1_beta_N_2300_eta_001.png}~~~~~~\hfill
-%   \caption{Empirical reliability ($1-\hat{\delta}$) versus number of samples in \\CC-OPF ($N$) for IEEE 30 bus system.}
-%   \label{fig:ieee30conservatism}
-% \end{subfigure}
-
-% \begin{subfigure}{.48\textwidth}
-%   \centering
-%   % include first image
-% ~~~\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/ieee30/boxplot_J_N_1050_eta_001.png}\hfill
-%   \caption{Spread of probability of constraint feasibility ($(\hat{\mathbb{P}}_N)_l$) \\versus number of samples in CC-OPF ($N$) for IEEE 30 bus system.}
-%   \label{fig:ieee30reliability}
-% \end{subfigure}
-
-\caption{(a, c) Empirical reliability ($1-\hat{\delta}$) and (b, d) The spread of constraint feasibility $(\hat{\mathbb{P}}_N)_l$ for CC-OPF ($1-\eta =.99$) in IEEE 300 bus (IEEE 118 bus, resp.) system. The three cases correspond to samples in CC-OPF being drawn by SA, SA-IS and SA-O. The empirical estimates are computed with $L = 100$ optimization instances (for $1-\hat{\delta}$), and $N_{MC}=10^4$ Monte-Carlo samples for each instance to determine constraint validation (for box-plot of $(\hat{\mathbb{P}}_N)_l$). 
-Colored boxes stands for the 25\% -- 75\% interquantile range (IQR). Diamonds shows samples outside of the $\pm 1.5*\text{IQR}$. 
-Note that both in reliability, and the IRQ of constraint feasibility, SA-IS requires much less number of samples compared to SA or~SA-O.}
-\label{fig:ieee118}
+\caption{Empirical reliability ($1-\hat{\delta}$) versus number of samples in \\CC-OPF ($N$).}
+\label{fig:empiricals}
 \end{figure*}
 
 \begin{figure*}[hbt]
-
-\begin{subfigure}{.48\textwidth}
-  \centering
-  % include first image
-  \hspace{-4mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/profiling_samplig.png}~~~~~~\hfill
-  \caption{Computational time required to complete the pre-processing step, that is sample required scenarios.}
-  \label{fig:profile_generate_samples}
-\end{subfigure}
-\begin{subfigure}{.48\textwidth}
+\centering
+\begin{subfigure}{.8\textwidth}
   \centering
   % include second image
-  \includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/profiling_approx_sol.png}
-  \caption{Exec. time required to prepare samples and solve scenario approximations formed for different $N$.}
-  \label{fig:profile_scenario_approx}
+  \includegraphics[width=0.99\linewidth]{Dissertation/images/dc_stochastic_approx/case300/boxplot_J_N_9000_eta_001.png}
+  \caption{IEEE 300 bus system.}
+  \label{fig:ieee300conservatism}
 \end{subfigure}
 
-\caption{Computational time required to complete prepocessing step \ref{fig:profile_generate_samples} and solve corresponding scenario approximations \ref{fig:profile_scenario_approx} for IEEE-30 case. On the right Figure, vertical dashed lines indicate number of samples that are sufficient to reach $1-\hat{\delta}=0.99$ reliability level for $\eta=0.05$, see Table \ref{tab:summary_results}. Horizontal dot-dashed lines demonstrate the amount of time spent on average over 15 runs.}
-\label{fig:profiling}
+\begin{subfigure}{.8\textwidth}
+  \centering
+  % include second image
+  \includegraphics[width=0.99\linewidth]{Dissertation/images/dc_stochastic_approx/ieee118/boxplot_J_N_6600_eta_001.png}
+  \caption{IEEE 118 bus system.}
+  \label{fig:ieee118conservatism}
+\end{subfigure}
+\caption{Spread of probability of constraint feasibility ($(\hat{\mathbb{P}}_N)_l$) versus number of samples in CC-OPF ($N$).}
+\label{fig:spreads}
+\end{figure*}
 
+\begin{figure*}[hbt]
+\centering
+\begin{subfigure}{.8\textwidth}
+  \centering
+  % include first image
+  \includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/profiling_samplig.png}~~~~~~\hfill
+  \caption{Sample generation.}
+  \label{fig:profile_generate_samples}
+\end{subfigure}
+\begin{subfigure}{.8\textwidth}
+  \centering
+  % include second image
+  \hspace{-10mm}\includegraphics[width=0.9\linewidth]{Dissertation/images/dc_stochastic_approx/profiling_approx_sol.png}
+  \caption{Samples preparation, assembling scenario approximation and solving the latter, formed for different $N$.}
+  \label{fig:profile_scenario_approx}
+\end{subfigure}
+\caption{Computational time required to complete prepocessing step \ref{fig:profile_generate_samples} and solve corresponding scenario approximations \ref{fig:profile_scenario_approx} for IEEE-30 case. }
+\label{fig:profiling}
 \end{figure*}
 The experiments were conducted on power system test cases and indicate the robustness and higher data efficiency of the proposed approach.
 
 Finally, the Chapter concludes. In this chapter, we explored scenario approximation for chance-constrained optimal power flow, demonstrating that importance sampling enhances accuracy and reduces numerical complexity for stochastic OPF.
 Our theoretical analysis highlights the advantages of using violative samples. Numerical experiments show a significant reduction in sample size needed for high reliability. This approach can also be extended to automated real-time control of bulk power systems.
 
-\textbf{The sixth chapter} presents a generalization for power grid with dynamics. The whole approached as called A-priori Reduced Scenario Approximation (AR-SA). Here the uncertainty is a total power mismatch between generation and demand which is a sum of different distributions included Weibull (wind), Beta (solar) and others. It is worth mentioning that here the uncertainty is multiplicative in contrast to the of additive one from the previous chapter.
+\textbf{The fifth chapter} presents a generalization for power grid with dynamics. The whole approached as called A-priori Reduced Scenario Approximation (AR-SA). Here the uncertainty is a total power mismatch between generation and demand which is a sum of different distributions included Weibull (wind), Beta (solar) and others. It is worth mentioning that here the uncertainty is multiplicative in contrast to the of additive one from the previous chapter.
 
-Section 6.1 presents the whole approach which is compactly summarized in Figure \ref{fig:workflow}.
+Section 5.1 presents the whole approach which is compactly summarized in Figure \ref{fig:workflow}. We compare the performance of AR-SA with other reduction techniques such as Fast Forward, Simultaneous Backward, and K-Means methods on Grid6-WW, Washington-14, and IEEE-30 grids.
 
 \begin{figure}
     \centering
-    \hspace{-2mm}\includegraphics[width=0.7\textwidth]{Dissertation/images/dynamic//scheme.png}
-    \caption{AR-SA workflow. We compare the performance of AR-SA with other reduction techniques such as Fast Forward, Simultaneous Backward, and K-Means methods on Grid6-WW, Washington-14, and IEEE-30 grids.}
+    \hspace{-2mm}\includegraphics[width=1.\textwidth]{Dissertation/images/dynamic//scheme.png}
+    \caption{AR-SA workflow.}
     \label{fig:workflow}
     \vspace{-1mm}
 \end{figure}
 
-Section 6.2 recalls the DC-OPF problem and discusses the source of uncertainty and Automated Generation Control (AGC) algorithm to balance the generation-demand mismatch. The AGC recourse adjusts the generation to a new setpoint $p^{t+1} = p^t + \alpha \xi^t$ \cite{roald2017chance,baros2021examining,mezghani2020stochastic} with $p^t \in \mathbb{R}^{n_g}$, $\alpha \in \mathbb{R}^{n_g}$, and $\xi^t \in \mathbb{R}$ representing the \emph{total} demand-generation imbalance.
+
+Section 5.2 recalls the DC-OPF problem and discusses the source of uncertainty and Automated Generation Control (AGC) algorithm to balance the generation-demand mismatch. The AGC recourse adjusts the generation to a new setpoint $p^{t+1} = p^t + \alpha \xi^t$ \cite{roald2017chance,baros2021examining,mezghani2020stochastic} with $p^t \in \mathbb{R}^{n_g}$, $\alpha \in \mathbb{R}^{n_g}$, and $\xi^t \in \mathbb{R}$ representing the \emph{total} demand-generation imbalance.
 The total system imbalance $\xi^{t}$ results from the combined power fluctuations due to renewable generation intermittency, demand instability, and intra-day electricity trading. Specifically, for a power system with nodes $\mathcal{B}$, the imbalance is given by $\xi^t = \sum_{b \in \mathcal{B}} (\xi_b^d)^t - (\xi_b^g)^t$, where $(\xi_b^d)^t$ and $(\xi_b^g)^t$ are random variables representing fluctuations in demand and generation at bus $b$ at time $t$, respectively. These random variables follow different distributions depending on their sources. For example, if bus $b$ has a PV generator, $(\xi_b^g)^t$ follows a beta distribution \cite{wang2010probabilistic}. For wind farms, the wind speed follows a Weibull distribution, although power output can vary among turbines \cite{dhople2012framework}. However, $\xi^t$, as the sum of random variables, follows a Gaussian distribution due to the Lyapunov or Lindeberg-Feller Central Limit Theorem \cite{scholz2011central}, \cite{rouaud2013probability, draper2021practical}.
 
 We validated this Gaussian assumption by applying the Shapiro-Wilk normality test \cite{shapiro1965analysis} to the time series of load-renewable generation imbalance estimated from RTS-GLMC data \cite{barrows2019ieee}. This project includes time series data for demand, hydro, rooftop PV, PV, and wind farm generations. The Shapiro-Wilk test indicated that, at a significance level of $\alpha=0.05$, the null hypothesis $H_0$ (the generation-demand imbalance is normally distributed) was rejected only for August and November. Therefore, the assumption that $\xi^t$ is Gaussian is valid.
 We further consider the stacked temporal uncertainty vector $\xi = (\xi^1, \dots, \xi^T) \sim \mathcal{N}(\mu, \Sigma)$, with $\Sigma$ modeling temporal correlations.
 
-Section 6.3 ensures that AGC keeps the system balances by checking sequential timestamps and power balance.
+Section 5.3 ensures that AGC keeps the system balances by checking sequential timestamps and power balance.
 
-Section 6.4 formalizes the JCC formulation for multistep DC-OPF with AGC:
+Section 5.4 formalizes the JCC formulation for multistep DC-OPF with AGC:
 \begin{align}
         & \hspace{32mm} \min_{p^t, \alpha} \mathbb{E} \sum_{t=1}^T c(p^t) \label{eq:optimal_control}, \qquad \texttt{s.t.:} 
         \\ 
@@ -775,7 +751,7 @@ Next, after simplifications for further analysis, grouping all of the constraint
 
 which is built on scenarios, or data samples, $\xi(j)$, $1\le j \le N$ incapsulated in matrices $E^\tau(j)$.
 
-Section 6.5 Discusses a-priori scenario redundancy which is illustrated in Figure \ref{fig:idea}:
+Section 5.5 Discusses a-priori scenario redundancy which is illustrated in Figure \ref{fig:idea}:
 
 \begin{definition}
 \label{def:redundant}
@@ -953,7 +929,7 @@ $%\end{align*}
  where $d$ is a dimension of the space of controllable generators and participation factors, i.e., $d = 2 n_g$, and $\nu$ is the probability of a random scenario $\xi \sim \mathcal{N}(0, \Sigma)$ to belong to $\hat{\mathcal{P}}_{r}$, and $\nu < 1$. 
 \end{theorem}
 
-Section 6.6 provides numerical experiments on power grids. It compares Data-Driven Distributionally Robust Optimization approach, other a-priori scenario reduction methods such as Simultaneous Backward, Fast Forward and K-Means Clustering methods with AR-SA. 
+Section 5.6 provides numerical experiments on power grids. It compares Data-Driven Distributionally Robust Optimization approach, other a-priori scenario reduction methods such as Simultaneous Backward, Fast Forward and K-Means Clustering methods with AR-SA. 
 %For estimating the reliability, it uses the same algorithm as in previous Chapter, i.e., Algorithm \ref{alg:estimate_delta} for $\rho$.
 We also compared the execution time of the algorithms empirically and compared asymptotic complexities.
 
@@ -963,10 +939,11 @@ The K-Means algorithm, which involves iterative estimation of scenario cluster c
 The empirical comparison is given in Figures below and in Table \ref{tab:dyn_summary_results}
 
 \begin{table}[t]
+\caption{The number of samples for AR-SA and SA required in CC-OPF with a confidence threshold of $1-\eta$ to get the empirical reliability of $1-\hat{\rho} = 0.99$. The value of $1-\eta$ is given by out-of-sample Monte Carlo; the empirical reliability is given by averaging over $L=100$ independent CC-OPF problem instances. 
+    }
     \centering
-    \adjustbox{width=0.5\linewidth}{
         % \begin{tabular}{lrr|lr|ll}
-        \begin{tabular}{lr|rlrll}
+        \begin{tabular}{|lr|rlrll|}
         \toprule
         Case & $\eta$ & SA & AR-SA & SA-FF & SA-SB & SA-KMeans \\
 \midrule
@@ -976,103 +953,85 @@ grid14 & 0.01 & 363 & 93 & 363 & 363 & 363 \\
 grid30 & 0.01 & 453 & 273 & 453 & 453 & 453 \\
 \bottomrule
         \end{tabular}
-    }
-    \caption{The number of samples for AR-SA and SA required in CC-OPF with a confidence threshold of $1-\eta$ to get the empirical reliability of $1-\hat{\rho} = 0.99$. The value of $1-\eta$ is given by out-of-sample Monte Carlo; the empirical reliability is given by averaging over $L=100$ independent CC-OPF problem instances. 
-    }
+    
+    
     \label{tab:dyn_summary_results}
 \end{table}
 
-\begin{figure}[hbt]
-% \vspace{-15mm}
-% \begin{minipage}[b]{.99\textwidth}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{-0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/washington14/1_beta_N_363_eta_0.01.png}
-  \caption{Empirical reliability %$(1-\hat{\rho})$ 
-  vs. $\#$ samples in CC-OPF for Washington 14 bus, $\eta = 0.01$.}
-  \label{fig:washington14conservatism}
-\end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{-0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/ieee30/1_beta_N_453_eta_0.01.png}
-  \caption{Empirical reliability %($1-\hat{\rho}$) 
-  vs $\#$ samples  in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.}
-  \label{fig:ieee30conservatism}
-\end{subfigure}\\
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/1_beta_N_102_eta_0.1.png}
-  \caption{Empirical reliability %($1-\hat{\rho}$) 
-  vs $\#$ samples  in CC-OPF for Grid6-WW 6 bus system, $\eta = 0.1$.}
-  \label{fig:grid6reliability}
-\end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include second image
-  \hspace{0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/1_beta_N_102_eta_0.1.png}
-  \hspace{0mm}\caption{Empirical reliability %($1-\hat{\rho}$) 
-  vs $\#$ samples  in CC-OPF for Grid6-WW 6 bus system, $\eta = 0.1$.}
-  \label{fig:grid6reliability-dd-dro}
-\end{subfigure}
-% \begin{subfigure}{.32\textwidth}
+% \begin{figure}[hbt]
+% % \vspace{-15mm}
+% % \begin{minipage}[b]{.99\textwidth}
+% \begin{subfigure}{.50\textwidth}
 %   \centering
-%   % include first image
-%   \includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/washington14/boxplot_J_N_363_eta_0.01.png}~~~~~~\hfill
-%   \caption{Feasibility probability (spread) vs $\#$ samples, Washington 14, $\eta = 0.01$. %Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus number of samples $N$ in CC-OPF for IEEE 57 bus system, .
-%   }
-%   \label{fig:washington14reliability}
+%   % include second image
+%   \hspace{-0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/washington14/1_beta_N_363_eta_0.01.png}
+%   \caption{Empirical reliability %$(1-\hat{\rho})$ 
+%   vs. $\#$ samples in CC-OPF for Washington 14 bus, $\eta = 0.01$.}
+%   \label{fig:washington14conservatism}
 % \end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include first image
-\hspace{10mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/ieee30/exec_time_N_453_eta_0.01.png}~~~~~~\hfill
-  \caption{Exec. time vs $\#$ samples, IEEE 30 bus, $\eta = 0.01$.%Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus the number $N$  of samples in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.
-  }
-  \label{fig:ieee30time}
-\end{subfigure}
-\begin{subfigure}{.50\textwidth}
-  \centering
-  % include first image
-\hspace{10mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/exec_time_N_102_eta_0.1.png}~~~~~~\hfill
-  \caption{Exec. time vs $\#$ samples, Grid6-WW bus, $\eta = 0.1$.%Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus the number $N$  of samples in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.
-  }
-  \label{fig:grid6time-dd-dro}
-\end{subfigure}
-% \begin{subfigure}{.32\textwidth}
+% \begin{subfigure}{.50\textwidth}
 %   \centering
-%   % include first image
-%   \includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/boxplot_J_N_102_eta_0.1.png}~~~~~~\hfill
-%   \caption{Feasibility probability (spread) vs $\#$ samples, Grid-6WW, $\eta = 0.1$. %Spread of the probability of constraint feasibility, $(\hat{\mathbb{P}}_N)_l$, versus the number $N$ of samples in CC-OPF for the Washington case, $\eta = 0.01$.
-%   }
+%   % include second image
+%   \hspace{-0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/ieee30/1_beta_N_453_eta_0.01.png}
+%   \caption{Empirical reliability %($1-\hat{\rho}$) 
+%   vs $\#$ samples  in CC-OPF for IEEE 30 bus system, $\eta = 0.01$.}
+%   \label{fig:ieee30conservatism}
+% \end{subfigure}\\
+% \begin{subfigure}{.50\textwidth}
+%   \centering
+%   % include second image
+%   \hspace{0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/1_beta_N_102_eta_0.1.png}
+%   \caption{Empirical reliability %($1-\hat{\rho}$) 
+%   vs $\#$ samples  in CC-OPF for Grid6-WW 6 bus system, $\eta = 0.1$.}
 %   \label{fig:grid6reliability}
 % \end{subfigure}
-% \end{minipage}
-\vspace{-7mm}
-% \begin{minipage}[b]{.9\textwidth}
-\caption{(a, b, d) Empirical reliability ($1-\hat{\rho}$). (e, c, f) Execution time for IEEE-30 and Grid6-WW. The empirical estimates are computed with $L = 200$ optimization instances (for $1-\hat{\rho}$), and $N_{MC}=10^4$ Monte-Carlo samples for each instance to determine constraint validation (for box-plot of $(\hat{\mathbb{P}}_N)_l$), as described in Algorithm~\ref{alg:estimate_delta}.  
-}
-% \end{minipage}
-\label{fig:dyn_ieee118}
-% \vspace{-8mm}
-\end{figure}
+% \begin{subfigure}{.50\textwidth}
+%   \centering
+%   % include second image
+%   \hspace{0mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/1_beta_N_102_eta_0.1.png}
+%   \hspace{0mm}\caption{Empirical reliability  
+%   vs $\#$ samples  in CC-OPF for Grid6-WW 6 bus system, $\eta = 0.1$.}
+%   \label{fig:grid6reliability-dd-dro}
+% \end{subfigure}
+
+% \begin{subfigure}{.50\textwidth}
+%   \centering
+%   % include first image
+% \hspace{10mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/ieee30/exec_time_N_453_eta_0.01.png}~~~~~~\hfill
+%   \caption{Exec. time vs $\#$ samples, IEEE 30 bus, $\eta = 0.01$.
+%   }
+%   \label{fig:ieee30time}
+% \end{subfigure}
+% \begin{subfigure}{.50\textwidth}
+%   \centering
+%   % include first image
+% \hspace{10mm}\includegraphics[width=0.95\linewidth]{Dissertation/images/dynamic/grid6/dd-dro/exec_time_N_102_eta_0.1.png}~~~~~~\hfill
+%   \caption{Exec. time vs $\#$ samples, Grid6-WW bus, $\eta = 0.1$.
+%   }
+%   \label{fig:grid6time-dd-dro}
+% \end{subfigure}
+
+% \vspace{-7mm}
+
+% \caption{(a, b, d) Empirical reliability ($1-\hat{\rho}$). (e, c, f) Execution time for IEEE-30 and Grid6-WW. The empirical estimates are computed with $L = 200$ optimization instances (for $1-\hat{\rho}$), and $N_{MC}=10^4$ Monte-Carlo samples for each instance to determine constraint validation (for box-plot of $(\hat{\mathbb{P}}_N)_l$).  
+% }
+% \label{fig:dyn_ieee118}
+% \end{figure}
 
 % \newpage
 
-Finally, the chapter concludes in Secion 6.7. Data-driven approximations are beneficial for chance-constrained stochastic programs with unknown uncertainty distributions or JCC settings. However, data demands can quickly become unmanageable with increasing size and reliability requirements. To address this, we proposed a novel method to identify and eliminate redundant scenarios in stochastic approximations for JCC dynamic multi-timestamp DC-OPF. We validate this approach theoretically and demonstrate its high empirical performance across various test cases.
+Finally, the chapter concludes in Secion 5.7. Data-driven approximations are beneficial for chance-constrained stochastic programs with unknown uncertainty distributions or JCC settings. However, data demands can quickly become unmanageable with increasing size and reliability requirements. To address this, we proposed a novel method to identify and eliminate redundant scenarios in stochastic approximations for JCC dynamic multi-timestamp DC-OPF. We validate this approach theoretically and demonstrate its high empirical performance across various test cases.
 
-The \textbf{conclusions chapter} summarizes the thesis consolidates the presented results and offers a concise summary of the investigation’s significance
-\section*{Main results of the dissertation}
+% The \textbf{conclusions chapter} summarizes the thesis consolidates the presented results and offers a concise summary of the investigation’s significance
+\section*{Conclusion}
 \begin{enumerate}
-    \item Applying adaptive importance sampling combined with mirror descent methods to power systems, especially in rare event scenarios
-\item Proving the algorithm's convergence and validity by stating and demonstrating a convergence theorem for optimizing the estimate's variance
-\item Highlighting the effectiveness and potential advantages of this novel approach by comparing its performance with practical algorithms, such as pmvnorm, in power systems
-\item Introducing a new, more efficient and accurate method for constructing scenario approximations
-\item Providing theoretical guarantees for the new construction method to ensure its mathematical soundness and reliability
-\item Demonstrating the performance of the new scenario approximation method in power systems, comparing it with classical Monte Carlo-based approaches to highlight its efficiency and accuracy
-\item Introducing an a priori approach to reduce scenario approximations for dynamic optimal power flow with automatic generation control (AGC), enhancing computational efficiency and accuracy, and studying the normality of generation-demand mismatch using real time series data from various sources of load and renewable generation
-\item Confirming the effectiveness and reliability of this a priori approach by providing rigorous proof of its validity in reducing scenario approximations for power systems with AGC
-\item Demonstrating the superior performance and practical applicability of this a priori approach by comparing it with other scenario reduction methods, incorporating data-driven distributional robust optimization
+    \item The adaptive importance sampling algorithm combined with the mirror descent optimization method for usage in power systems has been proposed. The use case is the estimation of the current generation regime's reliability against Gaussian perturbations.
+        The algorithm's convergence and validity have been proven theoretically by stating and demonstrating a convergence theorem for optimizing the estimate's variance. The theoretical result underscores algorithm efficiency with $O\left( \sqrt{\log J} \right)$ scaling for the number of constraints $J$.
+        The effectiveness and potential advantages of this novel approach have been demonstrated by providing an extensive comparison of its performance with practical algorithms, such as pmvnorm and ALOE, in power systems. Further development in this direction exists as well. The algorithm can be generalized to non-linear settings by using a sampling technique in the complement of convex sets (Grid Walk, Rejection Sampling) and using convex restrictions, see, e.g., \cite{lee2019convex}.
+        
+    \item A new, significantly more efficient method for constructing scenario approximations has been proposed in the case of Gaussian additive uncertainty with application to power systems optimization - OPF, which is a fundamental routine for operating a power grid. The theoretical guarantees for this new method have been proven. They ensure its mathematical soundness and reliability, indicating a sound reduction in data samples, i.e., scenario usage in scenario approximations in comparison to proven classical results. The performance of the new scenario approximation method in power systems has been demonstrated by comparing it with classical Monte Carlo-based approaches to highlight its data efficiency and accuracy in providing solutions for Joint Chance-Constrained (JCC) problems which are known to have no analytical formulation in general, requiring on average 2 times less data samples (scenarios) than classical approaches. Further prospects in this direction include generalization to non-linear settings, keeping uncertainties' additivity.
+    \item An a priori approach to reduce the size of scenario approximations for non-Gaussian multiplicative uncertainty in the setting of dynamic optimal power flow with automatic generation control (AGC) has been proposed. The proposed approach has greatly enhanced computational efficiency and accuracy of the resulting reduced scenario approximation. 
+    %Also, the normality of generation-demand mismatch using real time series data from various sources of load and renewable generation
+    The effectiveness and reliability of this a priori approach have been confirmed by proving formal statements on its validity in reducing scenario approximations.
+    The superior performance and practical applicability of this a priori approach have been demonstrated by comparing it with other scenario reduction methods, including data-driven distributional robust optimization. The experiments have shown that the proposed approach allows to reduce up to a half of scenarios without corrupting the scenario approximation and does not introduce additional exhaustive computations. The further developments can be applications and generalization to a non-linear setting for multiplicative uncertainty.
 \end{enumerate}

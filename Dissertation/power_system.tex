@@ -9,21 +9,21 @@ Power systems are built for transferring energy. This thesis considers electrica
 Phasor is a complex number that includes an amplitude, frequency and a phase shift. These complex numbers are used to describe alternating current, voltage and subsequent physical values that are used to compose a power system model. Specifically, for voltage $V(t)$ and current $I(t)$ the phasors are as follows:
 \begin{equation}
     \begin{aligned}
-        V(t) &= V_m e^{i(\omega t + \theta_v)}, \\
-        I(t) &= I_m e^{i(\omega t + \theta_i)}.
+        V(t) &= V_m e^{\rmi(\omega t + \theta_v)}, \\
+        I(t) &= I_m e^{\rmi(\omega t + \theta_i)}.
     \end{aligned}
     \label{chapter_power_system:phasors}
 \end{equation}
 Here $V_m \in \mathbb{R}, I_m \in \mathbb{R}$ are voltage and current amplitude, $\omega$ is the grid frequency, $\theta_v, \theta_i$ are phase shifts \cite{machowski2020power}.
 In Russia, Europe, Australia, Africa, Asia the grid frequency is $50$ Hz, while in American countries like Canada, USA, Mexico, Brazil the frequency is $60$ Hz. It is common that the are several harmonic signals in the grid with the same frequency, thus, it is convenient to denote a phasor in polar form, for voltage: $V(t)=V_m \angle\theta_v$, here temporal dependency is in the angle sign $\angle$. 
-There are also rectangular $V(t) = V_m \cos(\omega t + \theta_v) + i V_m \sin(\omega t + \theta_v)$.
+There are also rectangular $V(t) = V_m \cos(\omega t + \theta_v) + \rmi V_m \sin(\omega t + \theta_v)$.
 Such formulations are equivalent to each other and mean the same thing: a value of an alternating current or voltage at time step $t$. 
 
 Since the current and voltage are interconnected it is convenient to use to the following notation:
 \begin{equation}
     \begin{aligned}
-        V(t) &= V_m e^{i\omega t}, \\
-        I(t) &= I_m e^{i(\omega t - \phi)},
+        V(t) &= V_m e^{\rmi\omega t}, \\
+        I(t) &= I_m e^{\rmi(\omega t - \phi)},
     \end{aligned}
     \label{chapter_power_system:phasors_shift}
 \end{equation}
@@ -33,7 +33,7 @@ where $\phi = \theta_i - \theta_v$. Such notation is more convenient for further
 
 Electricity that is run through a circuit or a power system is typically expressed in terms of power in Watts (W) and describes the amount of energy (Joules, J) per time unit (second, s), thus, $[W] = \frac{[J]}{[s]}$. The amount of power consumer by a circuit element is calculated as a voltage drop: $S(t) = V(t) I(t)^*$, where $I(t)^*$ is a complex conjugate of voltage $I(t)$ \cite{el2008electric}. The power itself is a complex number, using \eqref{chapter_power_system:phasors_shift}:
 \begin{equation}
-        S(t) = V_m I_m e^{i\phi} = V_m I_m \cos \phi + i V_m I_m \sin \phi = P + i Q.        
+        S(t) = V_m I_m e^{\rmi\phi} = V_m I_m \cos \phi + \rmi V_m I_m \sin \phi = P + \rmi Q.        
     \label{chapter_power_system:apparent}
 \end{equation}
 The real part of the apparent power is called \emph{active power} (measured in Watts, W) and the imaginary part is called \emph{reactive power} (measured in Volt-Amperes, VAr). Active power is the part of total apparent power that can be used by consumers. On the other hand, the reactive power is the power that is exchanged between the electricity source and inductive or capacitive elements. 
@@ -57,11 +57,12 @@ $$
 Buses in power system, that are nodes in the grid graph $\mathcal{G}$, are classified depending on their purpose in a power grid. They can either be a generator, load or slack bus. The ones that are not classified in these three, i.e., a transmission bus, are treated as a load with zero demand \cite{machowski2020power}. 
 For a given power system state, a bus can be described using the complex voltage $V \in \mathbb{C}$ and the power injection $S \in \mathbb{C}$. The buses are classified based on the quantities of these complex numbers are known or must be defined using a power grid model. The classification is summarized in Table \ref{tab:bus_classif}
 \begin{table}
-\captionsetup{justification=centering}
+% \captionsetup{justification=centering}
 \caption{Bus classification in a power grid}
 \label{tab:bus_classif}
     \centering
-        \begin{tabular} {p{3.5cm}p{4cm}p{2cm}}
+        \begin{tabularx}{\textwidth}{|X|X|X|}
+        %{p{3.5cm}p{4cm}p{2cm}}
         \toprule
         Bus type & Known variables & Unknown variables  \\
         \midrule
@@ -72,7 +73,7 @@ For a given power system state, a bus can be described using the complex voltage
         Slack / swing & Voltage magnitude $V_m$, phase angle $\phi$  & Active power $P$, reactive power $Q$  \\
         
         \bottomrule
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \subsection{Power transmission lines}
@@ -84,10 +85,10 @@ Two buses that require a power transfer are connected with a power line. A trans
     \item Shunt susceptance $b^{sh}=\omega C$ due to an electric field between the wires, per unit length, $C$ here is the shut capacitance per unit length
 \end{enumerate}
 
-Thus, combining the series resistance and inductance one obtains a complex impedance $z = r + i x \in \mathcal{C}$. The shunt admittance is obtained via combination of conductance and capacitance $y = \frac{1}{z} = g + i b^{sh} \in \mathcal{C}$. Each of the components of these complex numbers represent a particular aspect of transmission line. The resistance $r$ represents the heating, in other words, Joule losses, the series impedance $L$ depends on the partial flux linkages between wire components and other nearby conductors. Next, the shunt conductance $g$ represents the corona loss and leakage currents on the insulators. Typically, $g$ is small for conductor lines and neglected. The shunt capacitance $C$ is due to the potential difference between the conductors, i.e., wires.
+Thus, combining the series resistance and inductance one obtains a complex impedance $z = r + \rmi x \in \mathcal{C}$. The shunt admittance is obtained via combination of conductance and capacitance $y = \frac{1}{z} = g + \rmi b^{sh} \in \mathcal{C}$. Each of the components of these complex numbers represent a particular aspect of transmission line. The resistance $r$ represents the heating, in other words, Joule losses, the series impedance $L$ depends on the partial flux linkages between wire components and other nearby conductors. Next, the shunt conductance $g$ represents the corona loss and leakage currents on the insulators. Typically, $g$ is small for conductor lines and neglected. The shunt capacitance $C$ is due to the potential difference between the conductors, i.e., wires.
 %page90
 
-A power line is modeled using a $\pi$-model in power system steady-state analysis. The variables to analyse here are $V_R, I_R, V_S$ and $I_s$ -- voltages and currents at receiving and sending terminals (ends) of a power line. The $\pi$-model is illustrated in Figure \ref{fig:pi_model}. Here $Z_L$ is the total line impedance composed of resistance and reactance, in other words, $Z_L = (r + i x)l$, where $l$ is the line length, $Y_L$ is the shunt admittance where conductance component is neglected, i.e., $Y_L =i b^{sh} l$, where $l$ is the line length.
+A power line is modeled using a $\pi$-model in power system steady-state analysis. The variables to analyse here are $V_R, I_R, V_S$ and $I_s$ -- voltages and currents at receiving and sending terminals (ends) of a power line. The $\pi$-model is illustrated in Figure \ref{fig:pi_model}. Here $Z_L$ is the total line impedance composed of resistance and reactance, in other words, $Z_L = (r + \rmi x)l$, where $l$ is the line length, $Y_L$ is the shunt admittance where conductance component is neglected, i.e., $Y_L =\rmi b^{sh} l$, where $l$ is the line length.
 
 \begin{figure}
     \centering
@@ -144,7 +145,7 @@ $$
 Y_{ij} = 
 \begin{cases}
 \sum_{j \in \textit{Adj}(i)} y^{sh}_{ij} + y_{ij},& ~ i = j \\
--y_ij,& ~ i \neq j, ~ (i,j) \in \mathcal{L} \\
+-y_{ij},& ~ i \neq j, ~ (i,j) \in \mathcal{L} \\
 0, & ~ \textit{otherwise}.
 \end{cases}
 $$
@@ -161,7 +162,7 @@ Next, combining all bus current and voltages into corresponding vectors: $\bolds
     \label{eq:KCL_matrix}
 \end{equation}
 
-Note that the complex-valued admittance matrix can be represented as $Y = G + i B$, where $G$ and $B$ are real-valued matrices.
+Note that the complex-valued admittance matrix can be represented as $Y = G + \rmi B$, where $G$ and $B$ are real-valued matrices.
 
 \section{Power Flow Equations}
 \label{sec:PFE}
@@ -169,9 +170,9 @@ The Power Flow Equations (PFEs) are describing the power injections -- the amoun
 It can be described in terms of voltage, phases and admittance matrix. 
 The apparent power $S_i = \overline{V}_i \overline{I}_i^*$ can be written as follows, denote $\theta_{ij} = \phi_i - \phi_j$ - voltage phase angle difference between nodes $i$ and $j$ and using $i^{\textit{th}}$ equation in \eqref{eq:KCL_matrix}:
 $$
-S_i = \sum_{j=1}^{|\mathcal{B}|} |V_i||V_j| e^{j\theta_{ij}} (G_{ij} - j B_{ij}).
+S_i = \sum_{j=1}^{|\mathcal{B}|} |V_i||V_j| e^{j\theta_{ij}} (G_{ij} - \rmi B_{ij}).
 $$
-Recalling that $S_i = P_i + iQ_i$ and expanding the exponent, one gets the real and imaginary parts: real and reactive power injections:
+Recalling that $S_i = P_i + \rmi Q_i$ and expanding the exponent, one gets the real and imaginary parts: real and reactive power injections:
 \begin{equation}
     \begin{aligned}
         P_i &= \sum_{i\neq j} |V_i||V_j| \left[ B_{ij} \sin(\theta_{ij}) + G_{ij} \cos(\theta_{ij}) \right] + V_i^2 G_{ii} \\ 

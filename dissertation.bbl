@@ -19,536 +19,670 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{lukashevich2021importance}{article}{useauthor=false}
-      \name{author}{5}{}{%
-        {{hash=00309652b9cdac6cdf2d8cc569fdde08}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=ee859105170e6a5f1867b9fa86e168e4}{%
-           family={Gorchakov},
+    \entry{geng2019data}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c62454f98e991ccf280ea3348af1c343}{%
+           family={Geng},
            familyi={G\bibinitperiod},
-           given={Vyacheslav},
-           giveni={V\bibinitperiod}}}%
-        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
-           family={Vorobev},
-           familyi={V\bibinitperiod},
-           given={Petr},
-           giveni={P\bibinitperiod}}}%
-        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
-           family={Deka},
-           familyi={D\bibinitperiod},
-           given={Deepjyoti},
-           giveni={D\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
+           given={Xinbo},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c5138fd7e935e1642e0df81c672a51b7}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Le},
+           giveni={L\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {IEEE}%
+        {Elsevier}%
       }
-      \strng{authorbibnamehash}{8489e6a2e27ad3148b9b88c542a42f11}
-      \strng{authornamehash}{8489e6a2e27ad3148b9b88c542a42f11}
-      \strng{authorfullhash}{2c598942c79a0b7a82dca4cbf7905875}
+      \strng{namehash}{6b1b55b452ba075bb22d26bd10e029e6}
+      \strng{fullhash}{6b1b55b452ba075bb22d26bd10e029e6}
+      \strng{bibnamehash}{6b1b55b452ba075bb22d26bd10e029e6}
+      \strng{authorbibnamehash}{6b1b55b452ba075bb22d26bd10e029e6}
+      \strng{authornamehash}{6b1b55b452ba075bb22d26bd10e029e6}
+      \strng{authorfullhash}{6b1b55b452ba075bb22d26bd10e029e6}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Tr. on Control of Network Systems}
-      \field{title}{Importance sampling approach to chance-constrained {DC} optimal power flow}
-      \field{year}{2023}
+      \field{internalsortvolume}{47}
+      \field{journaltitle}{Ann. rev. in control}
+      \field{title}{Data-driven decision making in power systems with probabilistic guarantees: Theory and applications of chance-con- strained optimization}
+      \field{year}{2019}
+      \field{pages}{341\bibrangedash 363}
+      \range{pages}{23}
+      \field{volume}{47}
+      \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{lukashevich2021power}{article}{}
+    \entry{nemirovski2007convex}{article}{}
       \name{author}{2}{}{%
-        {{hash=00309652b9cdac6cdf2d8cc569fdde08}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksander},
+        {{hash=b7bb695716d8b9e139e5d51d5dfd3567}{%
+           family={Nemirovski},
+           familyi={N\bibinitperiod},
+           given={Arkadi},
            giveni={A\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
+        {{hash=79b4f8b2eec1f0cce98adc8a524fc774}{%
+           family={Shapiro},
+           familyi={S\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {IEEE}%
+        {SIAM}%
       }
-      \strng{namehash}{f7e8b2986c6a03547217feebe7da168c}
-      \strng{fullhash}{f7e8b2986c6a03547217feebe7da168c}
-      \strng{bibnamehash}{f7e8b2986c6a03547217feebe7da168c}
-      \strng{authorbibnamehash}{f7e8b2986c6a03547217feebe7da168c}
-      \strng{authornamehash}{f7e8b2986c6a03547217feebe7da168c}
-      \strng{authorfullhash}{f7e8b2986c6a03547217feebe7da168c}
+      \strng{namehash}{24c5e0505f2ce154b2166a03ba659819}
+      \strng{fullhash}{24c5e0505f2ce154b2166a03ba659819}
+      \strng{bibnamehash}{24c5e0505f2ce154b2166a03ba659819}
+      \strng{authorbibnamehash}{24c5e0505f2ce154b2166a03ba659819}
+      \strng{authornamehash}{24c5e0505f2ce154b2166a03ba659819}
+      \strng{authorfullhash}{24c5e0505f2ce154b2166a03ba659819}
+      \field{extraname}{1}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{internalsortvolume}{6}
-      \field{journaltitle}{IEEE Control Systems Letters}
-      \field{title}{Power grid reliability estimation via adaptive importance sampling}
-      \field{year}{2021}
-      \field{pages}{1010\bibrangedash 1015}
-      \range{pages}{6}
-      \field{volume}{6}
+      \field{internalsortvolume}{17}
+      \field{journaltitle}{SIAM J. on Optimization}
+      \field{title}{Convex approximations of chance constrained programs}
+      \field{year}{2007}
+      \field{number}{4}
+      \range{number}{1}
+      \field{pages}{969\bibrangedash 996}
+      \range{pages}{28}
+      \field{volume}{17}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{lukashevich2023importance}{article}{}
+    \entry{charnes1958cost}{article}{}
       \name{author}{3}{}{%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
+        {{hash=b913840a5109dfb94a287477baba2497}{%
+           family={Charnes},
+           familyi={C\bibinitperiod},
+           given={Abraham},
            giveni={A\bibinitperiod}}}%
-        {{hash=a4c4813729c1a643bd1f0e8ec5d7de8e}{%
-           family={Bulkin},
-           familyi={B\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
+        {{hash=0ef0b785c6e5c7ba1c991d09e3d92918}{%
+           family={Cooper},
+           familyi={C\bibinitperiod},
+           given={William\bibnamedelima W},
+           giveni={W\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=3fd42886fa69ef28caf39bd7da5a1d10}{%
+           family={Symonds},
+           familyi={S\bibinitperiod},
+           given={Gifford\bibnamedelima H},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {IEEE}%
+        {INFORMS}%
       }
-      \strng{namehash}{256c548cd22bb16c1029874728e316f3}
-      \strng{fullhash}{256c548cd22bb16c1029874728e316f3}
-      \strng{bibnamehash}{256c548cd22bb16c1029874728e316f3}
-      \strng{authorbibnamehash}{256c548cd22bb16c1029874728e316f3}
-      \strng{authornamehash}{256c548cd22bb16c1029874728e316f3}
-      \strng{authorfullhash}{256c548cd22bb16c1029874728e316f3}
+      \strng{namehash}{91fe72e46d15634cc337b0d7cfcea499}
+      \strng{fullhash}{91fe72e46d15634cc337b0d7cfcea499}
+      \strng{bibnamehash}{91fe72e46d15634cc337b0d7cfcea499}
+      \strng{authorbibnamehash}{91fe72e46d15634cc337b0d7cfcea499}
+      \strng{authornamehash}{91fe72e46d15634cc337b0d7cfcea499}
+      \strng{authorfullhash}{91fe72e46d15634cc337b0d7cfcea499}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{IEEE Control Systems Letters}
-      \field{title}{A-Priori Reduction of Scenario Approximation for Automated Generation Control in High-Voltage Power Grids With Renewable Energy}
-      \field{year}{2024}
+      \field{internalsortvolume}{4}
+      \field{journaltitle}{Management science}
+      \field{title}{Cost horizons and certainty equivalents: an approach to stochastic programming of heating oil}
+      \field{year}{1958}
+      \field{number}{3}
+      \range{number}{1}
+      \field{pages}{235\bibrangedash 263}
+      \range{pages}{29}
+      \field{volume}{4}
+      \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{shevchenko2023climate}{misc}{useauthor=false}
-      \name{author}{9}{}{%
-        {{hash=a89283c2d9584b4fade3f6f45f87bea4}{%
-           family={Shevchenko},
-           familyi={S\bibinitperiod},
-           given={Valeriy},
-           giveni={V\bibinitperiod}}}%
-        {{hash=00309652b9cdac6cdf2d8cc569fdde08}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=a4c4813729c1a643bd1f0e8ec5d7de8e}{%
-           family={Bulkin},
-           familyi={B\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=b9ca95b697a32935e706c16abb34c396}{%
-           family={Grinis},
-           familyi={G\bibinitperiod},
-           given={Roland},
-           giveni={R\bibinitperiod}}}%
-        {{hash=0bb483de68db3836181a7bc6258f2430}{%
-           family={Kovalev},
-           familyi={K\bibinitperiod},
-           given={Kirill},
-           giveni={K\bibinitperiod}}}%
-        {{hash=751b796c438be848cf20be07c161cfc9}{%
-           family={Narozhnaia},
-           familyi={N\bibinitperiod},
-           given={Veronika},
-           giveni={V\bibinitperiod}}}%
-        {{hash=dfe514154ec1a5e020a97195febcbc10}{%
-           family={Sotiriadi},
-           familyi={S\bibinitperiod},
-           given={Nazar},
-           giveni={N\bibinitperiod}}}%
-        {{hash=adf6180fbeea73e8702d6c0dcec3310b}{%
-           family={Krenke},
-           familyi={K\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
+    \entry{yaari1965uncertain}{article}{}
+      \name{author}{1}{}{%
+        {{hash=83af32d9ee09acb9cf7408a1dc90dbcd}{%
+           family={Yaari},
+           familyi={Y\bibinitperiod},
+           given={Menahem\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{0b119331ab95769799e5cc3c17539189}
-      \strng{authornamehash}{0b119331ab95769799e5cc3c17539189}
-      \strng{authorfullhash}{dab326420755963eedada8d3f776cf9d}
+      \list{publisher}{1}{%
+        {Wiley-Blackwell}%
+      }
+      \strng{namehash}{83af32d9ee09acb9cf7408a1dc90dbcd}
+      \strng{fullhash}{83af32d9ee09acb9cf7408a1dc90dbcd}
+      \strng{bibnamehash}{83af32d9ee09acb9cf7408a1dc90dbcd}
+      \strng{authorbibnamehash}{83af32d9ee09acb9cf7408a1dc90dbcd}
+      \strng{authornamehash}{83af32d9ee09acb9cf7408a1dc90dbcd}
+      \strng{authorfullhash}{83af32d9ee09acb9cf7408a1dc90dbcd}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{IEEE Access}
-      \field{title}{Climate Change Impact on Agricultural Land Suitability: A Machine Learning-Based Eurasia Case Study}
-      \field{year}{2024}
+      \field{internalsortvolume}{32}
+      \field{journaltitle}{The Review of Economic Studies}
+      \field{title}{Uncertain lifetime, life insurance, and the theory of the consumer}
+      \field{year}{1965}
+      \field{number}{2}
+      \range{number}{1}
+      \field{pages}{137\bibrangedash 150}
+      \range{pages}{14}
+      \field{volume}{32}
+      \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{morozov2023cmip}{misc}{useauthor=false}
-      \name{author}{5}{}{%
-        {{hash=c8b59e0c63b4c1427f754fb3285b5127}{%
-           family={Morozov},
-           familyi={M\bibinitperiod},
-           given={Vsevolod},
-           giveni={V\bibinitperiod}}}%
-        {{hash=bd73f473a221799ccf75682981372451}{%
-           family={Gabidullin},
-           familyi={G\bibinitperiod},
-           given={Artem},
-           giveni={A\bibinitperiod}}}%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=ae0a1d3ecf3574a91d110abbf0eeee49}{%
-           family={Kurdukova},
-           familyi={K\bibinitperiod},
-           given={Antonina},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
+    \entry{calafiore2006scenario}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7b7ae067bb46a94946ba87ae3667790e}{%
+           family={Calafiore},
+           familyi={C\bibinitperiod},
+           given={Giuseppe\bibnamedelima C},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4c9a958969dbc2f561c7ce20a98ad9b8}{%
+           family={Campi},
+           familyi={C\bibinitperiod},
+           given={Marco\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{b509397366d6f91db507e6dd9437053b}
-      \strng{authornamehash}{b509397366d6f91db507e6dd9437053b}
-      \strng{authorfullhash}{cc4bb848a328c5f6764fb59d405eb53c}
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{a771945040af0e9622cea65e5b51e03d}
+      \strng{fullhash}{a771945040af0e9622cea65e5b51e03d}
+      \strng{bibnamehash}{a771945040af0e9622cea65e5b51e03d}
+      \strng{authorbibnamehash}{a771945040af0e9622cea65e5b51e03d}
+      \strng{authornamehash}{a771945040af0e9622cea65e5b51e03d}
+      \strng{authorfullhash}{a771945040af0e9622cea65e5b51e03d}
+      \field{extraname}{1}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{In Review}
-      \field{title}{CMIP X-MOS: Improving Climate Models with Extreme Model Output Statistics}
-      \field{year}{2023}
+      \field{internalsortvolume}{51}
+      \field{journaltitle}{IEEE Tr. on automatic control}
+      \field{title}{The scenario approach to robust control design}
+      \field{year}{2006}
+      \field{number}{5}
+      \range{number}{1}
+      \field{pages}{742\bibrangedash 753}
+      \range{pages}{12}
+      \field{volume}{51}
+      \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{mitrovic2023gp}{article}{useauthor=false}
-      \name{author}{8}{}{%
-        {{hash=9ab6bf22f2f986bed9f90bd0bfe512ec}{%
-           family={Mitrovic},
-           familyi={M\bibinitperiod},
-           given={Mile},
-           giveni={M\bibinitperiod}}}%
-        {{hash=912efe62ccbaf9f1d39b099f501a2544}{%
-           family={Kundacina},
-           familyi={K\bibinitperiod},
-           given={Ognjen},
-           giveni={O\bibinitperiod}}}%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=44fcbf28c055144cdf5d39e2a1d04299}{%
-           family={Budennyy},
-           familyi={B\bibinitperiod},
-           given={Semen},
-           giveni={S\bibinitperiod}}}%
-        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
-           family={Vorobev},
-           familyi={V\bibinitperiod},
-           given={Petr},
-           giveni={P\bibinitperiod}}}%
-        {{hash=7907336a712ceb06751ca8d440240694}{%
-           family={Terzija},
-           familyi={T\bibinitperiod},
-           given={Vladimir},
-           giveni={V\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
-           family={Deka},
-           familyi={D\bibinitperiod},
-           given={Deepjyoti},
-           giveni={D\bibinitperiod}}}%
+    \entry{sahinidis2004optimization}{article}{}
+      \name{author}{1}{}{%
+        {{hash=79205641d71085e7e4cddeee22235517}{%
+           family={Sahinidis},
+           familyi={S\bibinitperiod},
+           given={Nikolaos\bibnamedelima V},
+           giveni={N\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
       }
-      \strng{authorbibnamehash}{2e49cc2379ec6ebe68c17e749daf9994}
-      \strng{authornamehash}{2e49cc2379ec6ebe68c17e749daf9994}
-      \strng{authorfullhash}{990218f730805e7deb91b94b2ccfcdb8}
+      \strng{namehash}{79205641d71085e7e4cddeee22235517}
+      \strng{fullhash}{79205641d71085e7e4cddeee22235517}
+      \strng{bibnamehash}{79205641d71085e7e4cddeee22235517}
+      \strng{authorbibnamehash}{79205641d71085e7e4cddeee22235517}
+      \strng{authornamehash}{79205641d71085e7e4cddeee22235517}
+      \strng{authorfullhash}{79205641d71085e7e4cddeee22235517}
       \field{sortinit}{6}
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{internalsortvolume}{16}
-      \field{journaltitle}{Software Impacts}
-      \field{title}{{GP CC-OPF}: Gaussian Process based optimization tool for Chance-Constrained Optimal Power Flow}
-      \field{year}{2023}
-      \field{pages}{100489}
-      \range{pages}{1}
-      \field{volume}{16}
+      \field{internalsortvolume}{28}
+      \field{journaltitle}{Computers \& chemical engineering}
+      \field{title}{Optimization under uncertainty: state-of-the-art and opportunities}
+      \field{year}{2004}
+      \field{number}{6\bibrangedash 7}
+      \range{number}{2}
+      \field{pages}{971\bibrangedash 983}
+      \range{pages}{13}
+      \field{volume}{28}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{mitrovic2023fast}{inproceedings}{useauthor=false}
-      \name{author}{6}{}{%
-        {{hash=9ab6bf22f2f986bed9f90bd0bfe512ec}{%
-           family={Mitrovic},
-           familyi={M\bibinitperiod},
-           given={Mile},
-           giveni={M\bibinitperiod}}}%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
-           family={Vorobev},
-           familyi={V\bibinitperiod},
-           given={Petr},
-           giveni={P\bibinitperiod}}}%
-        {{hash=7907336a712ceb06751ca8d440240694}{%
-           family={Terzija},
-           familyi={T\bibinitperiod},
-           given={Vladimir},
-           giveni={V\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
-           family={Deka},
-           familyi={D\bibinitperiod},
-           given={Deepjyoti},
+    \entry{bertsimas2018robust}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5b57425178d5ae2d2835ef44cb330e42}{%
+           family={Bertsimas},
+           familyi={B\bibinitperiod},
+           given={Dimitris},
            giveni={D\bibinitperiod}}}%
+        {{hash=91e105fa60887e252869bd6fd2cdd66c}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Vishal},
+           giveni={V\bibinitperiod}}}%
+        {{hash=2db96cc54afe3fe8c684be53af54a7bf}{%
+           family={Kallus},
+           familyi={K\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
       }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{authorbibnamehash}{2e49cc2379ec6ebe68c17e749daf9994}
-      \strng{authornamehash}{2e49cc2379ec6ebe68c17e749daf9994}
-      \strng{authorfullhash}{a4f240411961c34ccee394a2bb781100}
+      \strng{namehash}{5df1ec2832099d8a5ebd6dcb03b41d6b}
+      \strng{fullhash}{5df1ec2832099d8a5ebd6dcb03b41d6b}
+      \strng{bibnamehash}{5df1ec2832099d8a5ebd6dcb03b41d6b}
+      \strng{authorbibnamehash}{5df1ec2832099d8a5ebd6dcb03b41d6b}
+      \strng{authornamehash}{5df1ec2832099d8a5ebd6dcb03b41d6b}
+      \strng{authorfullhash}{5df1ec2832099d8a5ebd6dcb03b41d6b}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2023 IEEE Belgrade PowerTech}
-      \field{title}{Fast Data-Driven Chance Constrained AC-OPF Using Hybrid Sparse Gaussian Processes}
-      \field{year}{2023}
-      \field{pages}{1\bibrangedash 7}
-      \range{pages}{7}
+      \field{internalsortvolume}{171}
+      \field{journaltitle}{Mathematical Programming}
+      \field{title}{Robust sample average approximation}
+      \field{year}{2018}
+      \field{number}{1}
+      \range{number}{1}
+      \field{pages}{217\bibrangedash 282}
+      \range{pages}{66}
+      \field{volume}{171}
+      \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{mitrovic2023data}{article}{useauthor=false}
-      \name{author}{7}{}{%
-        {{hash=9ab6bf22f2f986bed9f90bd0bfe512ec}{%
-           family={Mitrovic},
+    \entry{caramanis2011robust}{article}{}
+      \name{author}{3}{}{%
+        {{hash=e169bbd07da9c1a8d887fd7796a05d51}{%
+           family={Caramanis},
+           familyi={C\bibinitperiod},
+           given={Constantine},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cb41e7e037f839138136e53088340de0}{%
+           family={Mannor},
            familyi={M\bibinitperiod},
-           given={Mile},
-           giveni={M\bibinitperiod}}}%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
-           family={Vorobev},
-           familyi={V\bibinitperiod},
-           given={Petr},
-           giveni={P\bibinitperiod}}}%
-        {{hash=7907336a712ceb06751ca8d440240694}{%
-           family={Terzija},
-           familyi={T\bibinitperiod},
-           given={Vladimir},
-           giveni={V\bibinitperiod}}}%
-        {{hash=44fcbf28c055144cdf5d39e2a1d04299}{%
-           family={Budennyy},
-           familyi={B\bibinitperiod},
-           given={Semen},
+           given={Shie},
            giveni={S\bibinitperiod}}}%
-        {{hash=1096837473487d32463432ebb2d67276}{%
-           family={Maximov},
-           familyi={M\bibinitperiod},
-           given={Yury},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
-           family={Deka},
-           familyi={D\bibinitperiod},
-           given={Deepjyoti},
-           giveni={D\bibinitperiod}}}%
+        {{hash=88071e54da3d8ece2821dcc1ec6d84d6}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Huan},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{4af9faa696d1ac26e1abbe14994235d1}
+      \strng{fullhash}{4af9faa696d1ac26e1abbe14994235d1}
+      \strng{bibnamehash}{4af9faa696d1ac26e1abbe14994235d1}
+      \strng{authorbibnamehash}{4af9faa696d1ac26e1abbe14994235d1}
+      \strng{authornamehash}{4af9faa696d1ac26e1abbe14994235d1}
+      \strng{authorfullhash}{4af9faa696d1ac26e1abbe14994235d1}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Robust optimization in machine learning}
+      \field{year}{2011}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{nemirovski2012safe}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b7bb695716d8b9e139e5d51d5dfd3567}{%
+           family={Nemirovski},
+           familyi={N\bibinitperiod},
+           given={Arkadi},
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
       }
-      \strng{authorbibnamehash}{2e49cc2379ec6ebe68c17e749daf9994}
-      \strng{authornamehash}{2e49cc2379ec6ebe68c17e749daf9994}
-      \strng{authorfullhash}{e0bfda390592b7910adfaf41fec23df8}
+      \strng{namehash}{b7bb695716d8b9e139e5d51d5dfd3567}
+      \strng{fullhash}{b7bb695716d8b9e139e5d51d5dfd3567}
+      \strng{bibnamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
+      \strng{authorbibnamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
+      \strng{authornamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
+      \strng{authorfullhash}{b7bb695716d8b9e139e5d51d5dfd3567}
+      \field{extraname}{1}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{internalsortvolume}{152}
-      \field{journaltitle}{International Journal of Electrical Power \& Energy Systems}
-      \field{title}{Data-driven stochastic AC-OPF using Gaussian process regression}
-      \field{year}{2023}
-      \field{pages}{109249}
-      \range{pages}{1}
-      \field{volume}{152}
+      \field{internalsortvolume}{219}
+      \field{journaltitle}{European J. of Oper. Res.}
+      \field{title}{On safe tractable approximations of chance constraints}
+      \field{year}{2012}
+      \field{number}{3}
+      \range{number}{1}
+      \field{pages}{707\bibrangedash 718}
+      \range{pages}{12}
+      \field{volume}{219}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{dvurechensky2022hyperfast}{article}{useauthor=false}
-      \name{author}{7}{}{%
-        {{hash=61ac864dbbd67311582368939f9aeb25}{%
-           family={Dvurechensky},
-           familyi={D\bibinitperiod},
-           given={Pavel},
-           giveni={P\bibinitperiod}}}%
-        {{hash=8dc94512b42cd090082cb35ba6561222}{%
-           family={Kamzolov},
-           familyi={K\bibinitperiod},
-           given={Dmitry},
+    \entry{ben2009robust}{book}{}
+      \name{author}{3}{}{%
+        {{hash=b4f10717c86d56d33bf7c4dadf066084}{%
+           family={Ben-Tal},
+           familyi={B\bibinithyphendelim T\bibinitperiod},
+           given={Aharon},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2d16a1cf6a87303c6b4c8b88caf885de}{%
+           family={El\bibnamedelima Ghaoui},
+           familyi={E\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b7bb695716d8b9e139e5d51d5dfd3567}{%
+           family={Nemirovski},
+           familyi={N\bibinitperiod},
+           given={Arkadi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton university press}%
+      }
+      \strng{namehash}{88ae4a8e10b774bcfe2fd40048e2c278}
+      \strng{fullhash}{88ae4a8e10b774bcfe2fd40048e2c278}
+      \strng{bibnamehash}{88ae4a8e10b774bcfe2fd40048e2c278}
+      \strng{authorbibnamehash}{88ae4a8e10b774bcfe2fd40048e2c278}
+      \strng{authornamehash}{88ae4a8e10b774bcfe2fd40048e2c278}
+      \strng{authorfullhash}{88ae4a8e10b774bcfe2fd40048e2c278}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{28}
+      \field{title}{Robust optimization}
+      \field{year}{2009}
+      \field{volume}{28}
+      \range{volume}{1}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{bertsimas2011theory}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5b57425178d5ae2d2835ef44cb330e42}{%
+           family={Bertsimas},
+           familyi={B\bibinitperiod},
+           given={Dimitris},
            giveni={D\bibinitperiod}}}%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=a36015ec9a4a8d7b5bc27e26ff43daa2}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={Soomin},
+        {{hash=c8a396519088d5fb03fd8abbf99f1acf}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelima B},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=e169bbd07da9c1a8d887fd7796a05d51}{%
+           family={Caramanis},
+           familyi={C\bibinitperiod},
+           given={Constantine},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {SIAM}%
+      }
+      \strng{namehash}{368f80fdc0a00b02c0a4dfcade977ff9}
+      \strng{fullhash}{368f80fdc0a00b02c0a4dfcade977ff9}
+      \strng{bibnamehash}{368f80fdc0a00b02c0a4dfcade977ff9}
+      \strng{authorbibnamehash}{368f80fdc0a00b02c0a4dfcade977ff9}
+      \strng{authornamehash}{368f80fdc0a00b02c0a4dfcade977ff9}
+      \strng{authorfullhash}{368f80fdc0a00b02c0a4dfcade977ff9}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{53}
+      \field{journaltitle}{SIAM review}
+      \field{title}{Theory and applications of robust optimization}
+      \field{year}{2011}
+      \field{number}{3}
+      \range{number}{1}
+      \field{pages}{464\bibrangedash 501}
+      \range{pages}{38}
+      \field{volume}{53}
+      \range{volume}{1}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{sen1992relaxations}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b92a8fda6f6d160bfb50a17f9b0beede}{%
+           family={Sen},
+           familyi={S\bibinitperiod},
+           given={Suvrajeet},
            giveni={S\bibinitperiod}}}%
-        {{hash=5acd01a1746a10926633b9efea7326db}{%
-           family={Ordentlich},
-           familyi={O\bibinitperiod},
-           given={Erik},
-           giveni={E\bibinitperiod}}}%
-        {{hash=a965d4995fe9c18a38e401dd1cded2de}{%
-           family={Uribe},
-           familyi={U\bibinitperiod},
-           given={César\bibnamedelima A},
-           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=d67c5bf3b7cc0ec3f084a82a52a3c802}{%
-           family={Gasnikov},
-           familyi={G\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Elsevier}%
       }
-      \strng{authorbibnamehash}{b55c4e7e98c0bf4806afb3961931e929}
-      \strng{authornamehash}{b55c4e7e98c0bf4806afb3961931e929}
-      \strng{authorfullhash}{fd9d1bbe4c3defc3a24ee2dcd133dda2}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \strng{namehash}{b92a8fda6f6d160bfb50a17f9b0beede}
+      \strng{fullhash}{b92a8fda6f6d160bfb50a17f9b0beede}
+      \strng{bibnamehash}{b92a8fda6f6d160bfb50a17f9b0beede}
+      \strng{authorbibnamehash}{b92a8fda6f6d160bfb50a17f9b0beede}
+      \strng{authornamehash}{b92a8fda6f6d160bfb50a17f9b0beede}
+      \strng{authorfullhash}{b92a8fda6f6d160bfb50a17f9b0beede}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{internalsortvolume}{10}
-      \field{journaltitle}{EURO Journal on Computational Optimization}
-      \field{title}{Hyperfast second-order local solvers for efficient statistically preconditioned distributed optimization}
-      \field{year}{2022}
-      \field{pages}{100045}
-      \range{pages}{1}
-      \field{volume}{10}
+      \field{internalsortvolume}{11}
+      \field{journaltitle}{Operations Research Letters}
+      \field{title}{Relaxations for probabilistically constrained programs with discrete random variables}
+      \field{year}{1992}
+      \field{number}{2}
+      \range{number}{1}
+      \field{pages}{81\bibrangedash 86}
+      \range{pages}{6}
+      \field{volume}{11}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{agafonov2021accelerated}{inproceedings}{useauthor=false}
-      \name{author}{7}{}{%
-        {{hash=b97d6038edce34457250c277a92a6ef0}{%
-           family={Agafonov},
+    \entry{ahmed2008solving}{incollection}{}
+      \name{author}{2}{}{%
+        {{hash=f3e9f4082e3ae4e155660e803be71262}{%
+           family={Ahmed},
            familyi={A\bibinitperiod},
-           given={Artem},
-           giveni={A\bibinitperiod}}}%
-        {{hash=61ac864dbbd67311582368939f9aeb25}{%
-           family={Dvurechensky},
-           familyi={D\bibinitperiod},
-           given={Pavel},
-           giveni={P\bibinitperiod}}}%
-        {{hash=964afcaffedeb95ef0d5a9912f4d24b8}{%
-           family={Scutari},
+           given={Shabbir},
+           giveni={S\bibinitperiod}}}%
+        {{hash=79b4f8b2eec1f0cce98adc8a524fc774}{%
+           family={Shapiro},
            familyi={S\bibinitperiod},
-           given={Gesualdo},
-           giveni={G\bibinitperiod}}}%
-        {{hash=d67c5bf3b7cc0ec3f084a82a52a3c802}{%
-           family={Gasnikov},
-           familyi={G\bibinitperiod},
            given={Alexander},
            giveni={A\bibinitperiod}}}%
-        {{hash=8dc94512b42cd090082cb35ba6561222}{%
-           family={Kamzolov},
-           familyi={K\bibinitperiod},
-           given={Dmitry},
-           giveni={D\bibinitperiod}}}%
-        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksandr},
-           giveni={A\bibinitperiod}}}%
-        {{hash=56e4aae364c8fdd44b0dd7c29164eb8d}{%
-           family={Daneshmand},
-           familyi={D\bibinitperiod},
-           given={Amir},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {IEEE}%
-      }
-      \strng{authorbibnamehash}{4ae99eb51e794d6bfba903d2183c224e}
-      \strng{authornamehash}{4ae99eb51e794d6bfba903d2183c224e}
-      \strng{authorfullhash}{c99168057a46fb645ac2e4d6aa9af78d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2021 60th IEEE Conference on Decision and Control (CDC)}
-      \field{title}{An accelerated second-order method for distributed stochastic optimization}
-      \field{year}{2021}
-      \field{pages}{2407\bibrangedash 2413}
-      \range{pages}{7}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{tanuishkina2024scirep}{article}{useauthor=false}
-      \name{author}{4}{}{%
-        {{hash=26bfee9f020732ae50a7729e8d482782}{%
-           family={Taniushkina},
-           familyi={T\bibinitperiod},
-           given={Daria},
-           giveni={D\bibinitperiod}}}%
-        {{hash=00309652b9cdac6cdf2d8cc569fdde08}{%
-           family={Lukashevich},
-           familyi={L\bibinitperiod},
-           given={Aleksander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=a89283c2d9584b4fade3f6f45f87bea4}{%
-           family={Shevchenko},
-           familyi={S\bibinitperiod},
-           given={Valeriy},
-           giveni={V\bibinitperiod}}}%
-        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
-           family={al},
-           familyi={a\bibinitperiod},
-           prefix={et},
-           prefixi={e\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Nature Portfolio}%
+        {Informs}%
       }
-      \strng{authorbibnamehash}{6c72146fdad9455e3754e6c895db45f8}
-      \strng{authornamehash}{6c72146fdad9455e3754e6c895db45f8}
-      \strng{authorfullhash}{b9a10881947872f33d37c96b7aaaf74c}
+      \strng{namehash}{a979d48cc407b2aa24740303b4b85c31}
+      \strng{fullhash}{a979d48cc407b2aa24740303b4b85c31}
+      \strng{bibnamehash}{a979d48cc407b2aa24740303b4b85c31}
+      \strng{authorbibnamehash}{a979d48cc407b2aa24740303b4b85c31}
+      \strng{authornamehash}{a979d48cc407b2aa24740303b4b85c31}
+      \strng{authorfullhash}{a979d48cc407b2aa24740303b4b85c31}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Scientific Reports (in press)}
-      \field{title}{Case Study on Climate Change Effects and Food Security in Southeast Asia}
-      \field{year}{2024}
-      \field{pages}{0}
-      \range{pages}{-1}
+      \field{booktitle}{State-of-the-art decision-making tools in the information-intensive age}
+      \field{title}{Solving chance-constrained stochastic programs via sampling and integer programming}
+      \field{year}{2008}
+      \field{pages}{261\bibrangedash 269}
+      \range{pages}{9}
       \keyw{,bibliofull}
-      \warn{\item Range field 'pages' in entry 'tanuishkina2024scirep' is malformed, falling back to literal}
+    \endentry
+    \entry{calafiore2005uncertain}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1624eff182f8d9302409e9d2c60d6dba}{%
+           family={Calafiore},
+           familyi={C\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4c9a958969dbc2f561c7ce20a98ad9b8}{%
+           family={Campi},
+           familyi={C\bibinitperiod},
+           given={Marco\bibnamedelima C},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a1dd07fb240c6105a22b089282d5c0a1}
+      \strng{fullhash}{a1dd07fb240c6105a22b089282d5c0a1}
+      \strng{bibnamehash}{a1dd07fb240c6105a22b089282d5c0a1}
+      \strng{authorbibnamehash}{a1dd07fb240c6105a22b089282d5c0a1}
+      \strng{authornamehash}{a1dd07fb240c6105a22b089282d5c0a1}
+      \strng{authorfullhash}{a1dd07fb240c6105a22b089282d5c0a1}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{102}
+      \field{journaltitle}{Mathematical Programming}
+      \field{title}{Uncertain convex programs: randomized solutions and confidence levels}
+      \field{year}{2005}
+      \field{pages}{25\bibrangedash 46}
+      \range{pages}{22}
+      \field{volume}{102}
+      \range{volume}{1}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{koutsoyiannis2016unavoidable}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=09a8509162663d81e279a00a12a99608}{%
+           family={Koutsoyiannis},
+           familyi={K\bibinitperiod},
+           given={Demetris},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{09a8509162663d81e279a00a12a99608}
+      \strng{fullhash}{09a8509162663d81e279a00a12a99608}
+      \strng{bibnamehash}{09a8509162663d81e279a00a12a99608}
+      \strng{authorbibnamehash}{09a8509162663d81e279a00a12a99608}
+      \strng{authornamehash}{09a8509162663d81e279a00a12a99608}
+      \strng{authorfullhash}{09a8509162663d81e279a00a12a99608}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the EGU General Assembly Conference, Vienna, Austria}
+      \field{title}{The unavoidable uncertainty of renewable energy and its management}
+      \field{year}{2016}
+      \field{pages}{17\bibrangedash 22}
+      \range{pages}{6}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{harjanne2019abandoning}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a0433aa3ff33eb5b43e3efd86dd889c2}{%
+           family={Harjanne},
+           familyi={H\bibinitperiod},
+           given={Atte},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5f184ecb8f96a1c1d38daef3994f229d}{%
+           family={Korhonen},
+           familyi={K\bibinitperiod},
+           given={Janne\bibnamedelima M},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd4688ce1e50e6117b0b669466387356}
+      \strng{fullhash}{dd4688ce1e50e6117b0b669466387356}
+      \strng{bibnamehash}{dd4688ce1e50e6117b0b669466387356}
+      \strng{authorbibnamehash}{dd4688ce1e50e6117b0b669466387356}
+      \strng{authornamehash}{dd4688ce1e50e6117b0b669466387356}
+      \strng{authorfullhash}{dd4688ce1e50e6117b0b669466387356}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{127}
+      \field{journaltitle}{Energy policy}
+      \field{title}{Abandoning the concept of renewable energy}
+      \field{year}{2019}
+      \field{pages}{330\bibrangedash 340}
+      \range{pages}{11}
+      \field{volume}{127}
+      \range{volume}{1}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{iea2024electricity}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=18fdbec513c87989c7580f31bb7f03ab}{%
+           family={IEA},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{18fdbec513c87989c7580f31bb7f03ab}
+      \strng{fullhash}{18fdbec513c87989c7580f31bb7f03ab}
+      \strng{bibnamehash}{18fdbec513c87989c7580f31bb7f03ab}
+      \strng{authorbibnamehash}{18fdbec513c87989c7580f31bb7f03ab}
+      \strng{authornamehash}{18fdbec513c87989c7580f31bb7f03ab}
+      \strng{authorfullhash}{18fdbec513c87989c7580f31bb7f03ab}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Electricity}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.iea.org/reports/electricity-2024
+      \endverb
+      \verb{url}
+      \verb https://www.iea.org/reports/electricity-2024
+      \endverb
+      \keyw{,bibliofull}
+    \endentry
+    \entry{chen2008probabilistic}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=b75425cf5c25eb36fbdf8f59f0188424}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Peiyuan},
+           giveni={P\bibinitperiod}}}%
+        {{hash=03bd7d5826bc7b1c11f8759ff9a0573c}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhe},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=1e0283e86ed8685f9876951980eb5b44}{%
+           family={Bak-Jensen},
+           familyi={B\bibinithyphendelim J\bibinitperiod},
+           given={Birgitte},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
+      \strng{fullhash}{a96d2fb0826653f32b8e7e2ea7bd1539}
+      \strng{bibnamehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
+      \strng{authorbibnamehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
+      \strng{authornamehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
+      \strng{authorfullhash}{a96d2fb0826653f32b8e7e2ea7bd1539}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Third International Conference on Electric Utility Deregulation and Restructuring and Power Technologies}
+      \field{title}{Probabilistic load flow: A review}
+      \field{year}{2008}
+      \field{pages}{1586\bibrangedash 1591}
+      \range{pages}{6}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{stott2012optimal}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=ea4abf08cea760899580ccfb5c261a31}{%
+           family={Stott},
+           familyi={S\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d4107d7b3923b9ce0bfc2a75518bb04a}{%
+           family={Alsaç},
+           familyi={A\bibinitperiod},
+           given={Ongun},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{d0bb962c855b0f007beb807b75671d33}
+      \strng{fullhash}{d0bb962c855b0f007beb807b75671d33}
+      \strng{bibnamehash}{d0bb962c855b0f007beb807b75671d33}
+      \strng{authorbibnamehash}{d0bb962c855b0f007beb807b75671d33}
+      \strng{authornamehash}{d0bb962c855b0f007beb807b75671d33}
+      \strng{authorfullhash}{d0bb962c855b0f007beb807b75671d33}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{SEPOPE XII Symposium, Rio de Janeiro, Brazil}
+      \field{internalsortvolume}{11}
+      \field{title}{Optimal power flow: Basic requirements for real-life problems and their solutions}
+      \field{year}{2012}
+      \field{pages}{1\bibrangedash 10}
+      \range{pages}{10}
+      \field{volume}{11}
+      \range{volume}{1}
+      \keyw{,bibliofull}
     \endentry
     \entry{machowski2020power}{book}{useauthor=false}
       \name{author}{4}{}{%
@@ -630,8 +764,8 @@
       \strng{authorbibnamehash}{3c905b5ec30c53450abad40c2e649633}
       \strng{authornamehash}{3c905b5ec30c53450abad40c2e649633}
       \strng{authorfullhash}{3c905b5ec30c53450abad40c2e649633}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Student’s Book}
@@ -656,8 +790,8 @@
       \strng{authorbibnamehash}{11d1101292d2c414be103ff433d0f03c}
       \strng{authornamehash}{11d1101292d2c414be103ff433d0f03c}
       \strng{authorfullhash}{11d1101292d2c414be103ff433d0f03c}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{148}
@@ -686,8 +820,8 @@
       \strng{authorbibnamehash}{b2b9fe49826d108284f38fabebc76da6}
       \strng{authornamehash}{b2b9fe49826d108284f38fabebc76da6}
       \strng{authorfullhash}{b2b9fe49826d108284f38fabebc76da6}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{3}
@@ -853,6 +987,31 @@
       \range{pages}{7}
       \keyw{,bibliofull}
     \endentry
+    \entry{polyak1987introduction}{article}{}
+      \name{author}{1}{}{%
+        {{hash=83cb78217e5046c7c8c8da6fc9d263df}{%
+           family={Polyak},
+           familyi={P\bibinitperiod},
+           given={Boris\bibnamedelima T},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {New York, Optimization Software,}%
+      }
+      \strng{namehash}{83cb78217e5046c7c8c8da6fc9d263df}
+      \strng{fullhash}{83cb78217e5046c7c8c8da6fc9d263df}
+      \strng{bibnamehash}{83cb78217e5046c7c8c8da6fc9d263df}
+      \strng{authorbibnamehash}{83cb78217e5046c7c8c8da6fc9d263df}
+      \strng{authornamehash}{83cb78217e5046c7c8c8da6fc9d263df}
+      \strng{authorfullhash}{83cb78217e5046c7c8c8da6fc9d263df}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to optimization}
+      \field{year}{1987}
+      \keyw{,bibliofull}
+    \endentry
     \entry{fernandez2016review}{article}{useauthor=false}
       \name{author}{5}{}{%
         {{hash=49ff17618671e2eabefac13cb6720ac1}{%
@@ -927,8 +1086,8 @@
       \strng{authorbibnamehash}{4e5e522cf552bc328df251859e59f211}
       \strng{authornamehash}{4e5e522cf552bc328df251859e59f211}
       \strng{authorfullhash}{4e5e522cf552bc328df251859e59f211}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{5}
@@ -982,8 +1141,8 @@
       \strng{authorbibnamehash}{0196359cc4e8a870695ff4ff04340223}
       \strng{authornamehash}{0196359cc4e8a870695ff4ff04340223}
       \strng{authorfullhash}{44861daaefc65324cbb1d33e45c0ecd8}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{booktitle}{2019 IEEE Power \& Energy Society General Meeting (PESGM)}
       \field{title}{Multi-stage Security Constrained OPF Using Dynamic Thermal Rating}
@@ -1014,8 +1173,8 @@
       \strng{authorbibnamehash}{3cb7205ccbe3d5325fccb2e68116ed42}
       \strng{authornamehash}{3cb7205ccbe3d5325fccb2e68116ed42}
       \strng{authorfullhash}{3cb7205ccbe3d5325fccb2e68116ed42}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{33}
@@ -1058,8 +1217,8 @@
       \strng{authorbibnamehash}{1da228e520a1c2546174d6786c9fd73d}
       \strng{authornamehash}{1da228e520a1c2546174d6786c9fd73d}
       \strng{authorfullhash}{1da228e520a1c2546174d6786c9fd73d}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{13}
@@ -1123,8 +1282,8 @@
       \strng{authorbibnamehash}{e89b3aa6ac3a60c1472c4806167f21c2}
       \strng{authornamehash}{e89b3aa6ac3a60c1472c4806167f21c2}
       \strng{authorfullhash}{0b7b6f87dd0047a663bb82b3978f232a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{18}
       \field{journaltitle}{New J. of Phys.}
@@ -1222,36 +1381,36 @@
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
-    \entry{harjanne2019abandoning}{article}{}
+    \entry{lukashevich2021power}{article}{}
       \name{author}{2}{}{%
-        {{hash=a0433aa3ff33eb5b43e3efd86dd889c2}{%
-           family={Harjanne},
-           familyi={H\bibinitperiod},
-           given={Atte},
+        {{hash=00309652b9cdac6cdf2d8cc569fdde08}{%
+           family={Lukashevich},
+           familyi={L\bibinitperiod},
+           given={Aleksander},
            giveni={A\bibinitperiod}}}%
-        {{hash=5f184ecb8f96a1c1d38daef3994f229d}{%
-           family={Korhonen},
-           familyi={K\bibinitperiod},
-           given={Janne\bibnamedelima M},
-           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1096837473487d32463432ebb2d67276}{%
+           family={Maximov},
+           familyi={M\bibinitperiod},
+           given={Yury},
+           giveni={Y\bibinitperiod}}}%
       }
-      \strng{namehash}{dd4688ce1e50e6117b0b669466387356}
-      \strng{fullhash}{dd4688ce1e50e6117b0b669466387356}
-      \strng{bibnamehash}{dd4688ce1e50e6117b0b669466387356}
-      \strng{authorbibnamehash}{dd4688ce1e50e6117b0b669466387356}
-      \strng{authornamehash}{dd4688ce1e50e6117b0b669466387356}
-      \strng{authorfullhash}{dd4688ce1e50e6117b0b669466387356}
+      \strng{namehash}{f7e8b2986c6a03547217feebe7da168c}
+      \strng{fullhash}{f7e8b2986c6a03547217feebe7da168c}
+      \strng{bibnamehash}{f7e8b2986c6a03547217feebe7da168c}
+      \strng{authorbibnamehash}{f7e8b2986c6a03547217feebe7da168c}
+      \strng{authornamehash}{f7e8b2986c6a03547217feebe7da168c}
+      \strng{authorfullhash}{f7e8b2986c6a03547217feebe7da168c}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{internalsortvolume}{127}
-      \field{journaltitle}{Energy policy}
-      \field{title}{Abandoning the concept of renewable energy}
-      \field{year}{2019}
-      \field{pages}{330\bibrangedash 340}
-      \range{pages}{11}
-      \field{volume}{127}
+      \field{internalsortvolume}{6}
+      \field{journaltitle}{IEEE Control Systems Letters}
+      \field{title}{Power Grid Reliability Estimation via Adaptive Importance Sampling}
+      \field{year}{2021}
+      \field{pages}{1010\bibrangedash 1015}
+      \range{pages}{6}
+      \field{volume}{6}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
@@ -1358,8 +1517,8 @@
       \strng{authorbibnamehash}{d04f90ab399cc92b4bd84ff638b859bf}
       \strng{authornamehash}{d04f90ab399cc92b4bd84ff638b859bf}
       \strng{authorfullhash}{71eb8a18670dcd942e756f67ba5b9886}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{6}
       \field{journaltitle}{IEEE Access}
@@ -1368,45 +1527,6 @@
       \field{pages}{7675\bibrangedash 7686}
       \range{pages}{12}
       \field{volume}{6}
-      \range{volume}{1}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{nemirovski2007convex}{article}{}
-      \name{author}{2}{}{%
-        {{hash=b7bb695716d8b9e139e5d51d5dfd3567}{%
-           family={Nemirovski},
-           familyi={N\bibinitperiod},
-           given={Arkadi},
-           giveni={A\bibinitperiod}}}%
-        {{hash=79b4f8b2eec1f0cce98adc8a524fc774}{%
-           family={Shapiro},
-           familyi={S\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {SIAM}%
-      }
-      \strng{namehash}{24c5e0505f2ce154b2166a03ba659819}
-      \strng{fullhash}{24c5e0505f2ce154b2166a03ba659819}
-      \strng{bibnamehash}{24c5e0505f2ce154b2166a03ba659819}
-      \strng{authorbibnamehash}{24c5e0505f2ce154b2166a03ba659819}
-      \strng{authornamehash}{24c5e0505f2ce154b2166a03ba659819}
-      \strng{authorfullhash}{24c5e0505f2ce154b2166a03ba659819}
-      \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{internalsortvolume}{17}
-      \field{journaltitle}{SIAM J. on Optimization}
-      \field{title}{Convex approximations of chance constrained programs}
-      \field{year}{2007}
-      \field{number}{4}
-      \range{number}{1}
-      \field{pages}{969\bibrangedash 996}
-      \range{pages}{28}
-      \field{volume}{17}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
@@ -1427,8 +1547,8 @@
       \strng{authorbibnamehash}{6491abeeff2faf6892387cef147624ca}
       \strng{authornamehash}{6491abeeff2faf6892387cef147624ca}
       \strng{authorfullhash}{6491abeeff2faf6892387cef147624ca}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{20}
@@ -1470,8 +1590,8 @@
       \strng{authorbibnamehash}{9fcbd56a4e7b9170625dad7309ffddd3}
       \strng{authornamehash}{9fcbd56a4e7b9170625dad7309ffddd3}
       \strng{authorfullhash}{9fcbd56a4e7b9170625dad7309ffddd3}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{25}
@@ -1484,41 +1604,6 @@
       \range{pages}{10}
       \field{volume}{25}
       \range{volume}{1}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{chen2008probabilistic}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=b75425cf5c25eb36fbdf8f59f0188424}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Peiyuan},
-           giveni={P\bibinitperiod}}}%
-        {{hash=03bd7d5826bc7b1c11f8759ff9a0573c}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhe},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=1e0283e86ed8685f9876951980eb5b44}{%
-           family={Bak-Jensen},
-           familyi={B\bibinithyphendelim J\bibinitperiod},
-           given={Birgitte},
-           giveni={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
-      \strng{fullhash}{a96d2fb0826653f32b8e7e2ea7bd1539}
-      \strng{bibnamehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
-      \strng{authorbibnamehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
-      \strng{authornamehash}{a96d2fb0826653f32b8e7e2ea7bd1539}
-      \strng{authorfullhash}{a96d2fb0826653f32b8e7e2ea7bd1539}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Third International Conference on Electric Utility Deregulation and Restructuring and Power Technologies}
-      \field{title}{Probabilistic load flow: A review}
-      \field{year}{2008}
-      \field{pages}{1586\bibrangedash 1591}
-      \range{pages}{6}
       \keyw{,bibliofull}
     \endentry
     \entry{montecarlofeasibility}{article}{}
@@ -1540,8 +1625,8 @@
       \strng{authorbibnamehash}{f726fadf7a08198b83db5b646040a2c4}
       \strng{authornamehash}{f726fadf7a08198b83db5b646040a2c4}
       \strng{authorfullhash}{f726fadf7a08198b83db5b646040a2c4}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Applied Sciences, 11: 300-307}
@@ -1641,8 +1726,8 @@
       \strng{authorbibnamehash}{5f417c2cc28840865a6ce9660e78df13}
       \strng{authornamehash}{5f417c2cc28840865a6ce9660e78df13}
       \strng{authorfullhash}{5f417c2cc28840865a6ce9660e78df13}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:1412.4845}
@@ -1684,8 +1769,8 @@
       \strng{authorbibnamehash}{376e23a4138aced68680ca74a31e3b7e}
       \strng{authornamehash}{376e23a4138aced68680ca74a31e3b7e}
       \strng{authorfullhash}{a3591a45e65e0dada62fb6193fe5a88a}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{18}
       \field{journaltitle}{Statistics and Computing}
@@ -1714,8 +1799,8 @@
       \strng{authornamehash}{7d6ca3a3603ef97b277a325606ead178}
       \strng{authorfullhash}{7d6ca3a3603ef97b277a325606ead178}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{44}
@@ -1752,8 +1837,8 @@
       \strng{authorbibnamehash}{ff599b2ba09f5adb1a8f576647ce7e98}
       \strng{authornamehash}{ff599b2ba09f5adb1a8f576647ce7e98}
       \strng{authorfullhash}{ff599b2ba09f5adb1a8f576647ce7e98}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Monte Carlo and Quasi-Monte Carlo Methods 2008}
@@ -1821,8 +1906,8 @@
       \strng{authorbibnamehash}{775230a39f44f535164fa9b7cabb0ba6}
       \strng{authornamehash}{775230a39f44f535164fa9b7cabb0ba6}
       \strng{authorfullhash}{775230a39f44f535164fa9b7cabb0ba6}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{First-order and Stochastic Optimization Methods for Machine Learning}
@@ -1952,100 +2037,6 @@
       \field{title}{Inventory of US greenhouse gas emissions and sinks}
       \field{type}{techreport}
       \field{year}{2018}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{koutsoyiannis2016unavoidable}{inproceedings}{}
-      \name{author}{1}{}{%
-        {{hash=09a8509162663d81e279a00a12a99608}{%
-           family={Koutsoyiannis},
-           familyi={K\bibinitperiod},
-           given={Demetris},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{09a8509162663d81e279a00a12a99608}
-      \strng{fullhash}{09a8509162663d81e279a00a12a99608}
-      \strng{bibnamehash}{09a8509162663d81e279a00a12a99608}
-      \strng{authorbibnamehash}{09a8509162663d81e279a00a12a99608}
-      \strng{authornamehash}{09a8509162663d81e279a00a12a99608}
-      \strng{authorfullhash}{09a8509162663d81e279a00a12a99608}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the EGU General Assembly Conference, Vienna, Austria}
-      \field{title}{The unavoidable uncertainty of renewable energy and its management}
-      \field{year}{2016}
-      \field{pages}{17\bibrangedash 22}
-      \range{pages}{6}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{stott2012optimal}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=ea4abf08cea760899580ccfb5c261a31}{%
-           family={Stott},
-           familyi={S\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod}}}%
-        {{hash=d4107d7b3923b9ce0bfc2a75518bb04a}{%
-           family={Alsaç},
-           familyi={A\bibinitperiod},
-           given={Ongun},
-           giveni={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{d0bb962c855b0f007beb807b75671d33}
-      \strng{fullhash}{d0bb962c855b0f007beb807b75671d33}
-      \strng{bibnamehash}{d0bb962c855b0f007beb807b75671d33}
-      \strng{authorbibnamehash}{d0bb962c855b0f007beb807b75671d33}
-      \strng{authornamehash}{d0bb962c855b0f007beb807b75671d33}
-      \strng{authorfullhash}{d0bb962c855b0f007beb807b75671d33}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{SEPOPE XII Symposium, Rio de Janeiro, Brazil}
-      \field{internalsortvolume}{11}
-      \field{title}{Optimal power flow: Basic requirements for real-life problems and their solutions}
-      \field{year}{2012}
-      \field{pages}{1\bibrangedash 10}
-      \range{pages}{10}
-      \field{volume}{11}
-      \range{volume}{1}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{geng2019data}{article}{}
-      \name{author}{2}{}{%
-        {{hash=c62454f98e991ccf280ea3348af1c343}{%
-           family={Geng},
-           familyi={G\bibinitperiod},
-           given={Xinbo},
-           giveni={X\bibinitperiod}}}%
-        {{hash=c5138fd7e935e1642e0df81c672a51b7}{%
-           family={Xie},
-           familyi={X\bibinitperiod},
-           given={Le},
-           giveni={L\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{6b1b55b452ba075bb22d26bd10e029e6}
-      \strng{fullhash}{6b1b55b452ba075bb22d26bd10e029e6}
-      \strng{bibnamehash}{6b1b55b452ba075bb22d26bd10e029e6}
-      \strng{authorbibnamehash}{6b1b55b452ba075bb22d26bd10e029e6}
-      \strng{authornamehash}{6b1b55b452ba075bb22d26bd10e029e6}
-      \strng{authorfullhash}{6b1b55b452ba075bb22d26bd10e029e6}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{internalsortvolume}{47}
-      \field{journaltitle}{Ann. rev. in control}
-      \field{title}{Data-driven decision making in power systems with probabilistic guarantees: Theory and applications of chance-con- strained optimization}
-      \field{year}{2019}
-      \field{pages}{341\bibrangedash 363}
-      \range{pages}{23}
-      \field{volume}{47}
-      \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
     \entry{ben2002robust}{article}{}
@@ -2298,6 +2289,125 @@
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
+    \entry{mitrovic2023gp}{article}{useauthor=false}
+      \name{author}{8}{}{%
+        {{hash=9ab6bf22f2f986bed9f90bd0bfe512ec}{%
+           family={Mitrovic},
+           familyi={M\bibinitperiod},
+           given={Mile},
+           giveni={M\bibinitperiod}}}%
+        {{hash=912efe62ccbaf9f1d39b099f501a2544}{%
+           family={Kundacina},
+           familyi={K\bibinitperiod},
+           given={Ognjen},
+           giveni={O\bibinitperiod}}}%
+        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
+           family={Lukashevich},
+           familyi={L\bibinitperiod},
+           given={Aleksandr},
+           giveni={A\bibinitperiod}}}%
+        {{hash=44fcbf28c055144cdf5d39e2a1d04299}{%
+           family={Budennyy},
+           familyi={B\bibinitperiod},
+           given={Semen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
+           family={Vorobev},
+           familyi={V\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7907336a712ceb06751ca8d440240694}{%
+           family={Terzija},
+           familyi={T\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1096837473487d32463432ebb2d67276}{%
+           family={Maximov},
+           familyi={M\bibinitperiod},
+           given={Yury},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
+           family={Deka},
+           familyi={D\bibinitperiod},
+           given={Deepjyoti},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{authorbibnamehash}{2e49cc2379ec6ebe68c17e749daf9994}
+      \strng{authornamehash}{2e49cc2379ec6ebe68c17e749daf9994}
+      \strng{authorfullhash}{990218f730805e7deb91b94b2ccfcdb8}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{16}
+      \field{journaltitle}{Software Impacts}
+      \field{title}{{GP CC-OPF}: Gaussian Process based optimization tool for Chance-Constrained Optimal Power Flow}
+      \field{year}{2023}
+      \field{pages}{100489}
+      \range{pages}{1}
+      \field{volume}{16}
+      \range{volume}{1}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{mitrovic2023data}{article}{useauthor=false}
+      \name{author}{7}{}{%
+        {{hash=9ab6bf22f2f986bed9f90bd0bfe512ec}{%
+           family={Mitrovic},
+           familyi={M\bibinitperiod},
+           given={Mile},
+           giveni={M\bibinitperiod}}}%
+        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
+           family={Lukashevich},
+           familyi={L\bibinitperiod},
+           given={Aleksandr},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
+           family={Vorobev},
+           familyi={V\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7907336a712ceb06751ca8d440240694}{%
+           family={Terzija},
+           familyi={T\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=44fcbf28c055144cdf5d39e2a1d04299}{%
+           family={Budennyy},
+           familyi={B\bibinitperiod},
+           given={Semen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1096837473487d32463432ebb2d67276}{%
+           family={Maximov},
+           familyi={M\bibinitperiod},
+           given={Yury},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
+           family={Deka},
+           familyi={D\bibinitperiod},
+           given={Deepjyoti},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{authorbibnamehash}{2e49cc2379ec6ebe68c17e749daf9994}
+      \strng{authornamehash}{2e49cc2379ec6ebe68c17e749daf9994}
+      \strng{authorfullhash}{e0bfda390592b7910adfaf41fec23df8}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{152}
+      \field{journaltitle}{International Journal of Electrical Power \& Energy Systems}
+      \field{title}{Data-driven stochastic AC-OPF using Gaussian process regression}
+      \field{year}{2023}
+      \field{pages}{109249}
+      \range{pages}{1}
+      \field{volume}{152}
+      \range{volume}{1}
+      \keyw{,bibliofull}
+    \endentry
     \entry{cousins2014cubic}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=18d55db9250a49ffa531ad951c5abee2}{%
@@ -2320,8 +2430,8 @@
       \strng{authorbibnamehash}{c58ce903a4255ee75046547b4f6792bd}
       \strng{authornamehash}{c58ce903a4255ee75046547b4f6792bd}
       \strng{authorfullhash}{c58ce903a4255ee75046547b4f6792bd}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the twenty-fifth annual {ACM-SIAM} symposium on discrete algorithms}
@@ -2349,8 +2459,8 @@
       \strng{authornamehash}{04bc6e318c9ead1595fc9f143e83c261}
       \strng{authorfullhash}{04bc6e318c9ead1595fc9f143e83c261}
       \field{extraname}{2}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{New trends in discrete and computational geometry}
@@ -2383,8 +2493,8 @@
       \strng{authornamehash}{24c5e0505f2ce154b2166a03ba659819}
       \strng{authorfullhash}{24c5e0505f2ce154b2166a03ba659819}
       \field{extraname}{2}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Probabilistic and randomized methods for design under uncertainty}
@@ -2411,9 +2521,9 @@
       \strng{authorbibnamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
       \strng{authornamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
       \strng{authorfullhash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{42nd IEEE International Conference on Decision and Control (IEEE Cat. No. 03CH37475)}
@@ -2448,8 +2558,8 @@
       \strng{authorbibnamehash}{dddc3f7e66d1261819e561399e02f486}
       \strng{authornamehash}{dddc3f7e66d1261819e561399e02f486}
       \strng{authorfullhash}{dddc3f7e66d1261819e561399e02f486}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 38th IEEE Conference on Decision and Control (Cat. No. 99CH36304)}
@@ -2459,44 +2569,6 @@
       \field{pages}{5016\bibrangedash 5021}
       \range{pages}{6}
       \field{volume}{5}
-      \range{volume}{1}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{calafiore2006scenario}{article}{}
-      \name{author}{2}{}{%
-        {{hash=7b7ae067bb46a94946ba87ae3667790e}{%
-           family={Calafiore},
-           familyi={C\bibinitperiod},
-           given={Giuseppe\bibnamedelima C},
-           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=4c9a958969dbc2f561c7ce20a98ad9b8}{%
-           family={Campi},
-           familyi={C\bibinitperiod},
-           given={Marco\bibnamedelima C},
-           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{a771945040af0e9622cea65e5b51e03d}
-      \strng{fullhash}{a771945040af0e9622cea65e5b51e03d}
-      \strng{bibnamehash}{a771945040af0e9622cea65e5b51e03d}
-      \strng{authorbibnamehash}{a771945040af0e9622cea65e5b51e03d}
-      \strng{authornamehash}{a771945040af0e9622cea65e5b51e03d}
-      \strng{authorfullhash}{a771945040af0e9622cea65e5b51e03d}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{internalsortvolume}{51}
-      \field{journaltitle}{IEEE Tr. on automatic control}
-      \field{title}{The scenario approach to robust control design}
-      \field{year}{2006}
-      \field{number}{5}
-      \range{number}{1}
-      \field{pages}{742\bibrangedash 753}
-      \range{pages}{12}
-      \field{volume}{51}
       \range{volume}{1}
       \keyw{,bibliofull}
     \endentry
@@ -2522,8 +2594,8 @@
       \strng{authorbibnamehash}{72894c4550d80629d994db762fb57ad9}
       \strng{authornamehash}{72894c4550d80629d994db762fb57ad9}
       \strng{authorfullhash}{72894c4550d80629d994db762fb57ad9}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Mathematical Programming}
@@ -2562,8 +2634,8 @@
       \strng{authorbibnamehash}{dfc33fabed8b28bcb79a591defc7567f}
       \strng{authornamehash}{dfc33fabed8b28bcb79a591defc7567f}
       \strng{authorfullhash}{7f00ae8e5bf9a2d5eaa2393ee0bc3f11}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{28}
       \field{journaltitle}{IEEE Transactions on Power Systems}
@@ -2599,8 +2671,8 @@
       \strng{authorbibnamehash}{16dc8a5d9709f1aa48be90a479a7ab0f}
       \strng{authornamehash}{16dc8a5d9709f1aa48be90a479a7ab0f}
       \strng{authorfullhash}{16dc8a5d9709f1aa48be90a479a7ab0f}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2020 International Conference on Probabilistic Methods Applied to Power Systems (PMAPS)}
@@ -3094,6 +3166,47 @@
       \field{title}{{GLPK (GNU} Linear Programming Kit)}
       \keyw{,bibliofull}
     \endentry
+    \entry{lukashevich2023importance}{article}{}
+      \name{author}{3}{}{%
+        {{hash=438e234e297a6fdbb9a7f33eb58faf49}{%
+           family={Lukashevich},
+           familyi={L\bibinitperiod},
+           given={Aleksandr},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a4c4813729c1a643bd1f0e8ec5d7de8e}{%
+           family={Bulkin},
+           familyi={B\bibinitperiod},
+           given={Aleksandr},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1096837473487d32463432ebb2d67276}{%
+           family={Maximov},
+           familyi={M\bibinitperiod},
+           given={Yury},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{256c548cd22bb16c1029874728e316f3}
+      \strng{fullhash}{256c548cd22bb16c1029874728e316f3}
+      \strng{bibnamehash}{256c548cd22bb16c1029874728e316f3}
+      \strng{authorbibnamehash}{256c548cd22bb16c1029874728e316f3}
+      \strng{authornamehash}{256c548cd22bb16c1029874728e316f3}
+      \strng{authorfullhash}{256c548cd22bb16c1029874728e316f3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{8}
+      \field{journaltitle}{IEEE Control Systems Letters}
+      \field{title}{A-Priori Reduction of Scenario Approximation for Automated Generation Control in High-Voltage Power Grids With Renewable Energy}
+      \field{year}{2024}
+      \field{pages}{1613\bibrangedash 1618}
+      \range{pages}{6}
+      \field{volume}{8}
+      \range{volume}{1}
+      \verb{doi}
+      \verb 10.1109/LCSYS.2024.3413367
+      \endverb
+      \keyw{,bibliofull}
+    \endentry
     \entry{capitanescu2007improving}{article}{}
       \name{author}{2}{}{%
         {{hash=f399a5bbd78b7c75c6518fdace03fd25}{%
@@ -3257,40 +3370,6 @@
       \range{pages}{6}
       \keyw{,bibliofull}
     \endentry
-    \entry{nemirovski2012safe}{article}{}
-      \name{author}{1}{}{%
-        {{hash=b7bb695716d8b9e139e5d51d5dfd3567}{%
-           family={Nemirovski},
-           familyi={N\bibinitperiod},
-           given={Arkadi},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \strng{fullhash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \strng{bibnamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \strng{authorbibnamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \strng{authornamehash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \strng{authorfullhash}{b7bb695716d8b9e139e5d51d5dfd3567}
-      \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{internalsortvolume}{219}
-      \field{journaltitle}{European J. of Oper. Res.}
-      \field{title}{On safe tractable approximations of chance constraints}
-      \field{year}{2012}
-      \field{number}{3}
-      \range{number}{1}
-      \field{pages}{707\bibrangedash 718}
-      \range{pages}{12}
-      \field{volume}{219}
-      \range{volume}{1}
-      \keyw{,bibliofull}
-    \endentry
     \entry{jia2021iterative}{article}{}
       \name{author}{3}{}{%
         {{hash=874fdde8e9bc57192471e9ae802985b5}{%
@@ -3332,39 +3411,6 @@
       \range{pages}{4}
       \field{volume}{36}
       \range{volume}{1}
-      \keyw{,bibliofull}
-    \endentry
-    \entry{ahmed2008solving}{incollection}{}
-      \name{author}{2}{}{%
-        {{hash=f3e9f4082e3ae4e155660e803be71262}{%
-           family={Ahmed},
-           familyi={A\bibinitperiod},
-           given={Shabbir},
-           giveni={S\bibinitperiod}}}%
-        {{hash=79b4f8b2eec1f0cce98adc8a524fc774}{%
-           family={Shapiro},
-           familyi={S\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Informs}%
-      }
-      \strng{namehash}{a979d48cc407b2aa24740303b4b85c31}
-      \strng{fullhash}{a979d48cc407b2aa24740303b4b85c31}
-      \strng{bibnamehash}{a979d48cc407b2aa24740303b4b85c31}
-      \strng{authorbibnamehash}{a979d48cc407b2aa24740303b4b85c31}
-      \strng{authornamehash}{a979d48cc407b2aa24740303b4b85c31}
-      \strng{authorfullhash}{a979d48cc407b2aa24740303b4b85c31}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{State-of-the-art decision-making tools in the information-intensive age}
-      \field{title}{Solving chance-constrained stochastic programs via sampling and integer programming}
-      \field{year}{2008}
-      \field{pages}{261\bibrangedash 269}
-      \range{pages}{9}
       \keyw{,bibliofull}
     \endentry
     \entry{campi2011sampling}{article}{}
@@ -3669,6 +3715,55 @@
       \field{labeltitlesource}{title}
       \field{title}{Power generation, operation, and control}
       \field{year}{2013}
+      \keyw{,bibliofull}
+    \endentry
+    \entry{lukashevich2021importance}{article}{useauthor=false}
+      \name{author}{5}{}{%
+        {{hash=00309652b9cdac6cdf2d8cc569fdde08}{%
+           family={Lukashevich},
+           familyi={L\bibinitperiod},
+           given={Aleksander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ee859105170e6a5f1867b9fa86e168e4}{%
+           family={Gorchakov},
+           familyi={G\bibinitperiod},
+           given={Vyacheslav},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1ee0199ca7e52f0f19b4d1b73ff5ebbb}{%
+           family={Vorobev},
+           familyi={V\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=00e79e4640e03ccf93b26e7e93bed15d}{%
+           family={Deka},
+           familyi={D\bibinitperiod},
+           given={Deepjyoti},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1096837473487d32463432ebb2d67276}{%
+           family={Maximov},
+           familyi={M\bibinitperiod},
+           given={Yury},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{8489e6a2e27ad3148b9b88c542a42f11}
+      \strng{authornamehash}{8489e6a2e27ad3148b9b88c542a42f11}
+      \strng{authorfullhash}{2c598942c79a0b7a82dca4cbf7905875}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{11}
+      \field{journaltitle}{IEEE Transactions on Control of Network Systems}
+      \field{title}{Importance Sampling Approach to Chance-Constrained DC Optimal Power Flow}
+      \field{year}{2023}
+      \field{number}{2}
+      \range{number}{1}
+      \field{pages}{928\bibrangedash 937}
+      \range{pages}{10}
+      \field{volume}{11}
+      \range{volume}{1}
+      \verb{doi}
+      \verb 10.1109/TCNS.2023.3330232
+      \endverb
       \keyw{,bibliofull}
     \endentry
     \entry{wang2010probabilistic}{article}{}
@@ -4230,7 +4325,6 @@
       \keyw{,bibliofull}
     \endentry
   \enddatalist
-  \missing{red}
 \endrefsection
 \endinput
 

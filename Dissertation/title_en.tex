@@ -35,20 +35,26 @@ As a manuscript
 \textbf {\large %\MakeUppercase
 \thesisTitleEn}
 
-\vspace{0pt plus2fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
-{%\small
-Speciality \thesisSpecialtyNumber\ ---
+\vspace{0pt plus1fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+{\large \textbf{Speciality: \thesisSpecialtyNumber.~\thesisSpecialtyTitleEn}}
 
-<<\thesisSpecialtyTitleEn>>
-}
-
-\ifdefined\thesisSpecialtyTwoNumber
-{%\small
-Специальность \thesisSpecialtyTwoNumber\ ---
-
-<<\thesisSpecialtyTwoTitle>>
-}
+\ifdefined\thesisSpecialtyTwoNumberEn
+{\large Speciality \thesisSpecialtyTwoNumberEn\ "---\par <<\thesisSpecialtyTwoTitleEn>>}
 \fi
+% \vspace{0pt plus2fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
+% {%\small
+% Speciality \thesisSpecialtyNumber\ ---
+
+% <<\thesisSpecialtyTitleEn>>
+% }
+
+% \ifdefined\thesisSpecialtyTwoNumber
+% {%\small
+% Специальность \thesisSpecialtyTwoNumber\ ---
+
+% <<\thesisSpecialtyTwoTitle>>
+% }
+% \fi
 
 \vspace{0pt plus2fill} %число перед fill = кратность относительно некоторого расстояния fill, кусками которого заполнены пустые места
 Dissertation for a degree of
