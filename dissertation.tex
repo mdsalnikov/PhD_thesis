@@ -77,11 +77,19 @@
 }{\counterwithin{figure}{chapter}}
 \ifnumequal{\value{contnumtab}}{1}{\counterwithout{table}{chapter}
 }{\counterwithin{table}{chapter}}
-\include{Dissertation/power_system}
-\include{Dissertation/opf}
-\include{Dissertation/sampling}
-\include{Dissertation/dc_stochastic_approx}
-\include{Dissertation/dynamic_stochastic_approx}
+
+
+
+%%% Core Research Chapters
+\include{Dissertation/chapter_3_foundations}
+\include{Dissertation/chapter_4_reranking}
+\include{Dissertation/chapter_5_shortpathqa}
+\include{Dissertation/chapter_6_type_selection}
+\include{Dissertation/chapter_7_comparative_qa}
+\include{Dissertation/chapter_8_demo}
+\include{Dissertation/chapter_9_evaluation}
+
+
 \include{Dissertation/conclusions}      % Заключение
 \include{Dissertation/acronyms}        % Список сокращений и условных обозначений
 % \include{Dissertation/dictionary}      % Словарь терминов

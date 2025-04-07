@@ -1,0 +1,46 @@
+# LaTeX specific temporary files
+*.aux
+*.blg
+*.idx
+*.ind
+*.ilg
+*.lof
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.synctex
+*.fls
+*.fdb_latexmk
+*.log
+*.vrb
+*.snm
+*.nav
+*.xdv
+*.dvi
+*.ps
+
+
+# Minted package cache
+_minted*
+
+# PDF files (uncomment the ! line if you want to track the final dissertation PDF)
+*.pdf
+# !dissertation.pdf 
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor backups
+*~
+*.swp
+*.swo
+.#*
+*.bak
+*.tmp 
