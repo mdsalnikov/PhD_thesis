@@ -66,39 +66,49 @@
 
 %%% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
 \include{Dissertation/title}           % Титульный лист
-\ifnumequal{\value{englishthesis}}{1}{\include{Dissertation/title_en}}{}   % En titlepage
+\ifnumequal{\value{englishthesis}}{1}{
+    \include{Dissertation/title_en}
+}{}
 \include{Dissertation/abstract}
 \include{Dissertation/abstract_en}
 \include{Dissertation/contents}        % Оглавление
 \ifnumequal{\value{contnumfig}}{1}{}{\counterwithout{figure}{chapter}}
 \ifnumequal{\value{contnumtab}}{1}{}{\counterwithout{table}{chapter}}
-\include{Dissertation/intro}    % Введение
-\ifnumequal{\value{contnumfig}}{1}{\counterwithout{figure}{chapter}
-}{\counterwithin{figure}{chapter}}
-\ifnumequal{\value{contnumtab}}{1}{\counterwithout{table}{chapter}
-}{\counterwithin{table}{chapter}}
+% \include{Dissertation/intro}    % Введение
+% \ifnumequal{\value{contnumfig}}{1}{\counterwithout{figure}{chapter}
+% }{\counterwithin{figure}{chapter}}
+% \ifnumequal{\value{contnumtab}}{1}{\counterwithout{table}{chapter}
+% }{\counterwithin{table}{chapter}}
 
 
 
-%%% Core Research Chapters
-\include{Dissertation/chapter_3_foundations}
-\include{Dissertation/chapter_4_reranking}
-\include{Dissertation/chapter_5_shortpathqa}
-\include{Dissertation/chapter_6_type_selection}
-\include{Dissertation/chapter_7_comparative_qa}
-\include{Dissertation/chapter_8_demo}
-\include{Dissertation/chapter_9_evaluation}
+%%% Thesis Chapters based on new structure
+\ifnumequal{\value{contnumfig}}{1}{\counterwithout{figure}{chapter}}{\counterwithin{figure}{chapter}}
+\ifnumequal{\value{contnumtab}}{1}{\counterwithout{table}{chapter}}{\counterwithin{table}{chapter}}
 
+\include{Dissertation/chapter_1_introduction}    % Chapter 1: Introduction (Replaces old intro.tex)
+\include{Dissertation/chapter_2_related_work}    % Chapter 2: Background and Related Work
+\include{Dissertation/chapter_3_methods}         % Chapter 3: Methods (Previously foundations, now incorporates type selection and reranking/path fusion)
+\include{Dissertation/chapter_4_shortpathqa_benchmark} % Chapter 4: ShortPathQA Benchmark (Previously chapter_5)
+\include{Dissertation/chapter_5_system_demos}      % Chapter 5: System Demos (Previously chapter_8)
+\include{Dissertation/chapter_6_lora_limits}       % Chapter 6: LoRA Limits (New chapter)
+% \include{Dissertation/chapter_7_comparative_qa} % Deleted - content integrated elsewhere
+% \include{Dissertation/chapter_9_evaluation}   % Deleted - content integrated elsewhere
 
-\include{Dissertation/conclusions}      % Заключение
-\include{Dissertation/acronyms}        % Список сокращений и условных обозначений
-% \include{Dissertation/dictionary}      % Словарь терминов
-\include{Dissertation/references}      % Список литературы
-\include{Dissertation/lists}           % Списки таблиц и изображений (иллюстративный материал)
+% Note: chapter_3_subsection_type_selection.tex and chapter_3_subsection_kg_path_fusion.tex
+% should be \input{}'ed inside chapter_3_methods.tex where appropriate.
 
-\setcounter{totalchapter}{\value{chapter}} % Подсчёт количества глав
+\include{Dissertation/chapter_7_conclusion}      % Chapter 7: Conclusion (New chapter, replaces old conclusions.tex)
+% \include{Dissertation/conclusions}      % Old conclusions include - replaced by chapter_7_conclusion
 
-%%% Настройки для приложений
+\include{Dissertation/acronyms}        % List of Acronyms
+% \include{Dissertation/dictionary}      % Dictionary of Terms (Optional)
+\include{Dissertation/references}      % Bibliography
+\include{Dissertation/lists}           % List of Tables and Figures
+
+\setcounter{totalchapter}{\value{chapter}} % Count chapters
+
+%%% Appendices Setup
 \appendix
 % Оформление заголовков приложений ближе к ГОСТ:
 \setlength{\midchapskip}{20pt}

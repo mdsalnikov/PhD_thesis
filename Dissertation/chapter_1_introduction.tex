@@ -1,0 +1,132 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+% 1.1 The Rise of LLMs and the Factuality Challenge
+\section{The Rise of LLMs and the Factuality Challenge}
+\label{sec:intro_factuality_challenge}
+% Comment: Start by establishing the context: the power and widespread use of LLMs. 
+% Then, critically introduce the central problem your thesis addresses – the inherent 
+% limitations of LLMs regarding factual accuracy, consistency, and tendency to 
+% hallucinate, particularly in knowledge-intensive tasks like Question Answering (QA). 
+% Briefly motivate why this is a critical research area.
+
+Large Language Models~(LLMs), such as ChatGPT~\cite{DBLP:conf/nips/Ouyang0JAWMZASR22} and Mistral~\cite{DBLP:journals/corr/abs-2310-06825-mistral}, represent significant progress in natural language processing. Their ability to generate fluent and contextually relevant text has led to wide adoption across many applications, from content creation to sophisticated dialogue systems. However, despite this success, a major challenge remains: LLMs often produce factually incorrect statements, commonly referred to as \textit{hallucinations}~\cite{DBLP:journals/natmi/AugensteinBCCCCDFHHHJMM24}.
+
+This issue of factuality is particularly critical in knowledge-intensive tasks like Question Answering~(QA). Users expect QA systems to provide accurate and reliable information. Yet, LLMs can generate plausible-sounding but false answers, potentially misleading users~\cite{lin-etal-2022-truthfulqa}. This tendency arises partly because models are trained on vast web data, which may contain noise and human misconceptions~\cite{lin-etal-2022-truthfulqa}. The risk of spreading misinformation, especially in sensitive areas like health or finance, makes improving LLM factuality an urgent research priority~\cite{DBLP:journals/natmi/AugensteinBCCCCDFHHHJMM24}. Early work in building practical QA systems, such as multilingual simple question answering demonstrators~\cite{DBLP:conf/acl/RazzhigaevSMBP23}, further highlighted the practical need for robust mechanisms to ensure answer correctness.
+
+The challenge lies not only in the generation of incorrect information but also in its detection. Recent research explores methods for evaluating and identifying hallucinations, such as sampling-based checks~\cite{manakul-etal-2023-selfcheckgpt}, cross-examination between models~\cite{cohen-etal-2023-lm}, and fine-grained atomic fact scoring~\cite{min-etal-2023-factscore}. These studies reveal that even state-of-the-art models struggle with factuality (e.g.,~\cite{min-etal-2023-factscore} report around 58\% accuracy for ChatGPT biographies). Interestingly, research like~\cite{lin-etal-2022-truthfulqa} suggests that simply scaling up model size does not guarantee improved truthfulness and may even worsen it, indicating that alternative strategies beyond scale are necessary.
+
+This thesis is motivated by this central problem of LLM factuality in QA. We argue that integrating external, structured knowledge sources, specifically Knowledge Graphs~(KGs), offers a promising direction. Early explorations focused on using KG structure to constrain LLM outputs, for instance, by guiding answer candidate type selection~\cite{DBLP:journals/corr/abs-2310-07008}. Subsequent work investigated more direct fusion methods, using KG path information to provide explicit factual grounding for LLM reasoning processes~\cite{DBLP:journals/corr/abs-2310-02166}. Addressing the factuality gap through such KG-LLM integration forms the core investigation of this work.
+
+% 1.2 Knowledge Graphs as External Grounding for LLMs
+\section{Knowledge Graphs as External Grounding for LLMs}
+\label{sec:intro_kg_grounding}
+% Comment: Introduce Knowledge Graphs (KGs) as structured, reliable sources of factual 
+% knowledge. Argue why leveraging KGs is a promising approach to mitigate the 
+% factuality issues identified in 1.1. Explain the core idea of using KGs to *ground* 
+% LLM responses or guide their generation process.
+
+% Introduce KGs: structured, reliable knowledge; contrast with unstructured data.
+% Based on general KG concepts and motivation common in KGQA literature e.g., \cite{DBLP:journals/aiopen/ZhangLFZ21}.
+To address the factuality limitations of LLMs outlined in Section~\ref{sec:intro_factuality_challenge}, we turn to external knowledge sources. Knowledge Graphs~(KGs), such as DBpedia~\cite{dbpedia} and Wikidata~\cite{wikidata}, represent factual information in a structured format, as triples (subject, predicate, object). Unlike the vast, often noisy, unstructured text data used to train LLMs, KGs are usually curated or semi-automatically constructed with a focus on accuracy and consistency~\cite{singhal2012introducing}. This structured nature makes KGs a more reliable source for verifiable facts, offering a way to explicitly ground LLM outputs.
+
+% Why KGs are suitable for grounding: Explicit facts, reduced ambiguity, verifiability.
+% Motivation derived from the core problem statement and the need for reliable facts discussed in user's papers.
+The core idea is that leveraging these external, structured facts can mitigate LLM hallucinations. Instead of relying solely on the model's internal, parametric knowledge (which can be incomplete or incorrect), we can provide the LLM with access to or guidance from verified KG facts during its generation process. This explicit grounding helps ensure that the generated text aligns with established factual knowledge, reducing the chance of fabricating information. Even simple QA systems benefit from this structured knowledge, as demonstrated in early multilingual QA demonstrators using KGs~\cite{DBLP:conf/acl/RazzhigaevSMBP23}.
+
+% How KGs ground LLMs: Overview of approaches.
+% General overview of KG+LLM integration methods, e.g., surveyed in \cite{DBLP:journals/tkde/PanLWCWW24}.
+Several approaches have emerged for integrating KGs with LLMs to enhance factuality. These methods vary in how and when the KG knowledge is utilized:
+\begin{itemize}
+    % RAG Approach: Definition and citation.
+    % Based on standard RAG definition \cite{DBLP:conf/nips/LewisPPPKGKLYR020-rag}.
+    \item \textbf{Retrieval-Augmented Generation~(RAG)}: In this paradigm, relevant facts or subgraphs are retrieved from the KG based on the input query during inference. This retrieved information is then used as context to condition the LLM's output generation~\cite{DBLP:conf/nips/LewisPPPKGKLYR020-rag}.
+    % KG-Enhanced Training/Fine-tuning: Definition.
+    % General concept, no specific single citation, but related to knowledge injection ideas.
+    \item \textbf{KG-Enhanced Training}: Structured knowledge from KGs can be incorporated during the pre-training or fine-tuning phases of the LLM. This aims to embed factual knowledge more directly into the model's parameters.
+    % KG Prompting: Definition and examples (MindMap).
+    % Based on MindMap paper \cite{wen-etal-2024-mindmap}.
+    \item \textbf{KG Prompting}: Specific prompts are designed to guide the LLM to utilize provided KG context effectively, sometimes revealing the reasoning path, as explored in methods like MindMap~\cite{wen-etal-2024-mindmap}.
+    % Path-based Fusion: Definition and examples (KELP, User's work).
+    % Based on KELP \cite{liu-etal-2024-knowledge-graph} and user's paper \cite{DBLP:journals/corr/abs-2310-02166}.
+    \item \textbf{Path-based Fusion}: Knowledge is extracted and integrated by selecting relevant paths in the KG, potentially matching latent semantics between the input text and KG paths~\cite{liu-etal-2024-knowledge-graph}. Our own work explores using explicit KG path information to provide factual evidence for the LLM during QA~\cite{DBLP:journals/corr/abs-2310-02166}.
+    % KG Constrained Generation: Definition and user's work.
+    % Based on user's paper \cite{DBLP:journals/corr/abs-2310-07008}.
+    \item \textbf{KG Constrained Generation}: Information from the KG, such as expected answer types derived from the query entities and relations, can be used to constrain the LLM's generation process, reducing the space of possible (and potentially incorrect) outputs~\cite{DBLP:journals/corr/abs-2310-07008}.
+\end{itemize}
+
+% Connect to thesis goal: This work focuses on specific fusion/grounding methods.
+% Links the general discussion back to the specific focus of the thesis, based on user's contributions.
+This thesis focuses specifically on methods for controllable fusion of LLMs with KGs, primarily leveraging KG path information and structural constraints (as explored in~\cite{DBLP:journals/corr/abs-2310-07008, DBLP:journals/corr/abs-2310-02166}) to improve factual accuracy in Question Answering. The subsequent chapters will detail these methods and evaluate their effectiveness in grounding LLM responses.
+
+% 1.3 Research Questions and Objectives
+\section{Research Questions and Objectives}
+\label{sec:intro_research_questions}
+% Comment: Formulate the specific, answerable research questions that drive your thesis. 
+% Examples: "How can KG path information be effectively integrated with LLMs to improve 
+% factoid QA accuracy?", "How can we design datasets and benchmarks to specifically 
+% evaluate controllable KG-LLM fusion?", "What are the practical considerations for 
+% building systems that leverage KG-LLM integration?". Clearly state the objectives 
+% your work aims to achieve.
+
+% Introduction to RQs and Objectives based on the identified gap.
+Based on the identified challenges of LLM factuality (Section~\ref{sec:intro_factuality_challenge}) and the potential of KGs as a grounding mechanism (Section~\ref{sec:intro_kg_grounding}), this thesis aims to investigate how the integration of KGs can enhance the factual accuracy and controllability of LLMs, particularly for Question Answering tasks. To guide this investigation, we formulate the following research questions~(RQs):
+
+\begin{enumerate}
+    % RQ1: How can KG structural information (e.g., types) constrain LLMs?
+    % Derived from paper DBLP:journals/corr/abs-2310-07008 (Answer Type Selection).
+    \item[RQ1:] How can structural information derived from KGs, such as answer entity types, be effectively utilized to constrain the generation process of LLMs and reduce the likelihood of factual errors in closed-book QA?
+    
+    % RQ2: How can explicit KG path information be fused with LLMs for factoid QA?
+    % Derived from paper DBLP:journals/corr/abs-2310-02166 (LLM+KG Fusion) and ShortPathQA concept.
+    \item[RQ2:] What are effective mechanisms for fusing explicit Knowledge Graph path information with Large Language Models to provide verifiable evidence and improve factual accuracy for factoid Question Answering?
+    
+    % RQ3: How to evaluate the controllability of KG-LLM integration and verify that factoid question answers are correct?
+    % Derived from evaluation criteria in the ShortPathQA papers (NLDB___ShortpathQA.pdf, 2024.lrec-main.238.pdf) and the TextGraphs shared task (2024.textgraphs-1.9.pdf).
+    \item[RQ3:] How can specialized benchmarks and evaluation protocols be designed to assess whether the controllability of KG-LLM fusion approaches effectively ensures the correctness of factoid question responses?
+
+    % RQ4: Practical considerations for building KG-LLM QA systems?
+    % Derived from system demo paper DBLP:conf/acl/RazzhigaevSMBP23 and potentially comparative QA system DBLP:conf/coling/ShalloufHSVMPBN24.
+    \item[RQ4:] What are the key architectural considerations and practical challenges in developing end-to-end Question Answering systems that effectively leverage KG-LLM integration, including aspects like multilingual support or handling complex question types?
+\end{enumerate}
+
+% Objectives aligned with RQs.
+To address these research questions, this thesis pursues the following objectives:
+
+\begin{enumerate}
+    % Objective 1: Develop and evaluate KG-constrained LLM methods (Answer Type Selection).
+    % Corresponds to RQ1 and paper DBLP:journals/corr/abs-2310-07008.
+    \item[O1:] To develop and evaluate methods that leverage KG structure, specifically answer type prediction, to constrain LLM generation for improved factuality in QA settings~\cite{DBLP:journals/corr/abs-2310-07008}.
+    
+    % Objective 2: Design and evaluate KG path fusion mechanisms.
+    % Corresponds to RQ2 and paper DBLP:journals/corr/abs-2310-02166.
+    \item[O2:] To design, implement, and experimentally validate novel fusion techniques that integrate explicit KG path representations directly into the LLM reasoning process for factoid QA~\cite{DBLP:journals/corr/abs-2310-02166}.
+    
+    % Objective 3: Create the ShortPathQA benchmark.
+    % Corresponds to RQ3 and ShortPathQA dataset/TextGraphs work.
+    \item[O3:] To construct and release a benchmark dataset (ShortPathQA) specifically designed for the task of controllable KG-LLM fusion in QA, facilitating standardized evaluation and comparison of methods~\cite{sakhovskiy-etal-2024-textgraphs}. % TODO: Add citation for ShortPathQA dataset paper when available
+
+    % Objective 4: Demonstrate feasibility through system prototypes.
+    % Corresponds to RQ4 and system papers DBLP:conf/acl/RazzhigaevSMBP23, DBLP:conf/coling/ShalloufHSVMPBN24.
+    \item[O4:] To demonstrate the practical applicability of the proposed KG-LLM integration approaches through the development and analysis of prototype QA systems~\cite{DBLP:conf/acl/RazzhigaevSMBP23, DBLP:conf/coling/ShalloufHSVMPBN24}.
+\end{enumerate}
+
+% Comment: Add RQ5/O5 related to LoRA paper (2502.14502v3.pdf) if desired, perhaps focusing on comparing internal vs. external knowledge integration effectiveness.
+
+% 1.4 Summary of Contributions
+\section{Summary of Contributions}
+\label{sec:intro_contributions}
+% Comment: Provide a high-level overview of your main contributions, referencing the key 
+% papers. Highlight the development of novel KG-LLM fusion methods (from "Answer 
+% Candidate Type Selection...", "Large Language Models Meet KGs...", extended in 
+% "ShortPathQA..."), the creation of the "ShortPathQA" dataset and its role in the 
+% TextGraphs shared task, insights from system building ("A System for Answering Simple 
+% Questions..."), and potentially findings from related explorations ("How Much 
+% Knowledge Can You Pack...", "CAM 2.0..."). Emphasize the novelty and 
+% significance of your work.
+
+
+% 1.5 Thesis Outline
+\section{Thesis Outline}
+\label{sec:intro_outline}
+% Comment: Briefly guide the reader through the structure of the subsequent chapters. 
