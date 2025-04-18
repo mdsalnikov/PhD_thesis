@@ -68,7 +68,7 @@
 \makeatletter
 \@ifundefined{c@mediadisplay}{
   \newcounter{mediadisplay}
-  \setcounter{mediadisplay}{3}   % 0 --- не делать ничего; надписи [Текст] и
+  \setcounter{mediadisplay}{1}   % 0 --- не делать ничего; надписи [Текст] и
                                  %       [Эл. ресурс] будут выводиться только в ссылках с
                                  %       заполненным полем `media`;
                                  % 1 --- автоматически добавлять надпись [Текст] к ссылкам с
@@ -88,7 +88,7 @@
 \makeatletter
 \@ifundefined{c@imgprecompile}{
   \newcounter{imgprecompile}
-  \setcounter{imgprecompile}{0}   % 0 --- без предкомпиляции;
+  \setcounter{imgprecompile}{1}   % 0 --- без предкомпиляции;
                                   % 1 --- пользоваться предварительно
                                   %       скомпилированными pdf вместо генерации
                                   %       заново из tikz
