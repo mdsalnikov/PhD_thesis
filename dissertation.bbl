@@ -2311,8 +2311,8 @@
       \strng{authornamehash}{8cdb850bd8fe53038095520e066b2e57}
       \strng{authorfullhash}{8cdb850bd8fe53038095520e066b2e57}
       \strng{authorfullhashraw}{8cdb850bd8fe53038095520e066b2e57}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{1}
@@ -2788,8 +2788,8 @@
       \strng{authornamehash}{07b677797f2f761de27121ff4ec8b078}
       \strng{authorfullhash}{ffb9d3b81040fde7532166a51129fc75}
       \strng{authorfullhashraw}{ffb9d3b81040fde7532166a51129fc75}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{media}{text}
       \field{title}{The pagerank citation ranking: Bringing order to the web}
@@ -3459,6 +3459,257 @@
       \endverb
       \verb{url}
       \verb https://aclanthology.org/2022.coling-1.506
+      \endverb
+      \keyw{,bibliofull}
+    \endentry
+    \entry{DBLP:journals/jifs/FigueroaPP20}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=b029f6b5d466b065a2baba3be89a2372}{%
+           family={Figueroa},
+           familyi={F\bibinitperiod},
+           given={Juan\bibnamedelima Huetle},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=0d6335048badedfeebecdbc1fc2b4a5f}{%
+           family={Pérez{-}Téllez},
+           familyi={P\bibinitperiod},
+           given={Fernando},
+           giveni={F\bibinitperiod}}}%
+        {{hash=77ad2c2272bc10a350ff9da5d9e136f0}{%
+           family={Pinto},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{793d048d363840fb381172883078ff74}
+      \strng{fullhash}{793d048d363840fb381172883078ff74}
+      \strng{fullhashraw}{793d048d363840fb381172883078ff74}
+      \strng{bibnamehash}{793d048d363840fb381172883078ff74}
+      \strng{authorbibnamehash}{793d048d363840fb381172883078ff74}
+      \strng{authornamehash}{793d048d363840fb381172883078ff74}
+      \strng{authorfullhash}{793d048d363840fb381172883078ff74}
+      \strng{authorfullhashraw}{793d048d363840fb381172883078ff74}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{39}
+      \field{journaltitle}{J. Intell. Fuzzy Syst.}
+      \field{media}{text}
+      \field{title}{Measuring semantic similarity of documents with weighted cosine and fuzzy logic}
+      \field{year}{2020}
+      \field{number}{2}
+      \range{number}{1}
+      \field{pages}{2263\bibrangedash 2278}
+      \range{pages}{16}
+      \field{volume}{39}
+      \range{volume}{1}
+      \verb{doi}
+      \verb 10.3233/JIFS-179889
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3233/JIFS-179889
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3233/JIFS-179889
+      \endverb
+      \keyw{,bibliofull}
+    \endentry
+    \entry{DBLP:journals/corr/HendersonASSLGK17}{article}{useauthor=false}{}
+      \name{author}{9}{}{%
+        {{hash=fa8951a087b6ef272c4068f3cca5ebe3}{%
+           family={Henderson},
+           familyi={H\bibinitperiod},
+           given={Matthew\bibnamedelima L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=6fdea7728f40679d54135ffed015aec3}{%
+           family={Al{-}Rfou},
+           familyi={A\bibinitperiod},
+           given={Rami},
+           giveni={R\bibinitperiod}}}%
+        {{hash=61083c3888f790053cbb1787aff8bc64}{%
+           family={Strope},
+           familyi={S\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=70c1773d78d28313ed822a258ea54a7b}{%
+           family={Sung},
+           familyi={S\bibinitperiod},
+           given={Yun{-}Hsuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a878f37638e94136cb5ae4b02cd4e89d}{%
+           family={Lukács},
+           familyi={L\bibinitperiod},
+           given={László},
+           giveni={L\bibinitperiod}}}%
+        {{hash=bc4269d24ee8552dd7805db9a057ef60}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Ruiqi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=3b0b77d59993d2550f1dac0336347c8a}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Sanjiv},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a374b65ec331d634a9ae7f71669e6283}{%
+           family={Miklos},
+           familyi={M\bibinitperiod},
+           given={Balint},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0adc9b7df5d54aca253a97676a4f9ee3}{%
+           family={Kurzweil},
+           familyi={K\bibinitperiod},
+           given={Ray},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{08608ba1e9d23574dda80be329c0a07e}
+      \strng{authornamehash}{08608ba1e9d23574dda80be329c0a07e}
+      \strng{authorfullhash}{f55c887ba223e5cb9f09f8d2d543098e}
+      \strng{authorfullhashraw}{f55c887ba223e5cb9f09f8d2d543098e}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{internalsortvolume}{abs/1705}
+      \field{journaltitle}{CoRR}
+      \field{media}{text}
+      \field{title}{Efficient Natural Language Response Suggestion for Smart Reply}
+      \field{year}{2017}
+      \field{volume}{abs/1705.00652}
+      \range{volume}{-1}
+      \verb{eprint}
+      \verb 1705.00652
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1705.00652
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1705.00652
+      \endverb
+      \keyw{,bibliofull}
+    \endentry
+    \entry{DBLP:conf/nips/ProkhorenkovaGV18-catboost}{inproceedings}{useauthor=false,useeditor=false}{}
+      \name{author}{5}{}{%
+        {{hash=86565f4f9ad917d453238a0ca1972ccb}{%
+           family={Prokhorenkova},
+           familyi={P\bibinitperiod},
+           given={Liudmila\bibnamedelima Ostroumova},
+           giveni={L\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=d99ea4ed468e2d3f8bc4082b7d308161}{%
+           family={Gusev},
+           familyi={G\bibinitperiod},
+           given={Gleb},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4eea157d768ad9f7d675c1cb1624b822}{%
+           family={Vorobev},
+           familyi={V\bibinitperiod},
+           given={Aleksandr},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a2bbc57c5fa93135342ee3c846b63db3}{%
+           family={Dorogush},
+           familyi={D\bibinitperiod},
+           given={Anna\bibnamedelima Veronika},
+           giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=b0bbfa15913cf76eff37e68538d3927e}{%
+           family={Gulin},
+           familyi={G\bibinitperiod},
+           given={Andrey},
+           giveni={A\bibinitperiod}}}%
+      }
+      \name{editor}{6}{}{%
+        {{hash=02404a92b0be3f52ec5ac08e41c13445}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Samy},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8e1e7fe0ffce349db319207a99e10487}{%
+           family={Wallach},
+           familyi={W\bibinitperiod},
+           given={Hanna\bibnamedelima M.},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=42a970b0a0f1ed24b23064370cc9392f}{%
+           family={Larochelle},
+           familyi={L\bibinitperiod},
+           given={Hugo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f67e08fa64fd602c4ec562da14d65216}{%
+           family={Grauman},
+           familyi={G\bibinitperiod},
+           given={Kristen},
+           giveni={K\bibinitperiod}}}%
+        {{hash=4de530030244169e16641806ebdfde2b}{%
+           family={Cesa{-}Bianchi},
+           familyi={C\bibinitperiod},
+           given={Nicolò},
+           giveni={N\bibinitperiod}}}%
+        {{hash=eaf84e3fe4f887967dc3d793d28b9e94}{%
+           family={Garnett},
+           familyi={G\bibinitperiod},
+           given={Roman},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{25a949db10e0b59df23b6648f6ecb1e4}
+      \strng{authornamehash}{25a949db10e0b59df23b6648f6ecb1e4}
+      \strng{authorfullhash}{7cc7663eb1187e8958128c0cd355ef3e}
+      \strng{authorfullhashraw}{7cc7663eb1187e8958128c0cd355ef3e}
+      \strng{editorbibnamehash}{a7107fc44d58e0d53178f67bb2ce15f8}
+      \strng{editornamehash}{a7107fc44d58e0d53178f67bb2ce15f8}
+      \strng{editorfullhash}{6d461cf527e8a2344e08990ad60323f4}
+      \strng{editorfullhashraw}{6d461cf527e8a2344e08990ad60323f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems 31: Annual Conference on Neural Information Processing Systems 2018, NeurIPS 2018, December 3-8, 2018, Montréal, Canada}
+      \field{media}{text}
+      \field{title}{CatBoost: unbiased boosting with categorical features}
+      \field{year}{2018}
+      \field{pages}{6639\bibrangedash 6649}
+      \range{pages}{11}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2018/hash/14491b756b3a51daac41c24863285549-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2018/hash/14491b756b3a51daac41c24863285549-Abstract.html
+      \endverb
+      \keyw{,bibliofull}
+    \endentry
+    \entry{DBLP:conf/iclr/LoshchilovH19-adamw}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=1241b8181104f1917578d4c7f9b323b6}{%
+           family={Loshchilov},
+           familyi={L\bibinitperiod},
+           given={Ilya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=528d4af87fd2ecf5fb8a22db913ce088}{%
+           family={Hutter},
+           familyi={H\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OpenReview.net}%
+      }
+      \strng{namehash}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{fullhash}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{fullhashraw}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{bibnamehash}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{authorbibnamehash}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{authornamehash}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{authorfullhash}{b308ccb07134a06ec3735828ac4f15e2}
+      \strng{authorfullhashraw}{b308ccb07134a06ec3735828ac4f15e2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{7th International Conference on Learning Representations, {ICLR} 2019, New Orleans, LA, USA, May 6-9, 2019}
+      \field{media}{text}
+      \field{title}{Decoupled Weight Decay Regularization}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://openreview.net/forum?id=Bkg6RiCqY7
+      \endverb
+      \verb{url}
+      \verb https://openreview.net/forum?id=Bkg6RiCqY7
       \endverb
       \keyw{,bibliofull}
     \endentry
