@@ -1,4 +1,4 @@
-\chapter{Controllable Fusion using Knowledge Graph Paths}
+\chapter{Controllable Fusion Large Language Models and Knowledge Graphs}
 \label{chap:controllable_fusion}
 
 % Comment: This chapter focuses on the methodology for controllable fusion using KG paths
@@ -237,53 +237,56 @@ Referencing the subgraph extraction protocol discussed in~\ref{sec:controllable_
 \subsection{Text Embeddings} \label{mpnet_explain}
 Some features derived from the extracted subgraphs are in their natural language form (answer candidates for semantic ranker, Graph2Text sequences, and text features). Therefore, we use these features for our reranking objectives based on the MPNet embedding model~\cite{DBLP:conf/nips/Song0QLL20}. In Performance Sentence Embeddings (evaluation of the quality of the embedded sentence) and Performance Semantic Search (evaluation of the quality of the embedded search queries \& paragraph), the MPNet Embedding model outperforms 37 other sentence transformer models~\cite{reimers-2019-sentence-bert}. These models were compared by averaging the Performance Sentence Embeddings and Performance Semantic Search while considering the speed and the model size. In addition to the highest embedding performance, MPNet is relatively small while fast in training time. Moreover, this model is very popular within the HuggingFace community \footnote{\url{https://huggingface.co/sentence-transformers/all-mpnet-base-v2}}. Utilizing a well-known and widespread embedding model would enhance the aim of formulating our approach as a reranking problem motivated by end-user requirements. 
 
-% TODO <---
-
 \subsection{Graph2Text with Highlight \& Context} \label{hl_context}
 As mentioned in~\ref{sec:controllable_fusion:g2t_seq}, we focus on different text representations of the subgraphs to rank the respective answer candidates. 
-% According to our previous study, using \texttt{Graphomer}, the raw subgraph itself was ineffective as we could not encode the question to the subgraph \cite{DBLP:conf/paclic/SalnikovLRNBMP23-originalpaper}. Thus, with the linearised version of the subgraph byitself, Graphormer struggled to identify the subgraph with the correct answer candidate. 
 We employ context for linearised text representation of the subgraph. This addition is a simple concatenation between the question and the linearised sequence, separated by a special token $<$/s$>$ to emphasize the question in the question-answer pairing. Moreover, the study showcased the effectiveness of highlighting~(HL) the answer candidate within the linearised sequence of the concatenation. 
 The context is motivated by the assumption that the subgraph alone does not provide the necessary information to answer the question. In other words, the model cannot answer the question without it. Similarly, it is difficult to rank the answers if the model has no idea which entities in the subgraph are potential answer candidates.
 % With this highlighting scheme, we increased the {Hits@1} by $2\%$, from $0.36 \rightarrow 0.38$ \cite{DBLP:conf/paclic/SalnikovLRNBMP23-originalpaper}. 
 An example of such concatenation, the rank by MPNet to achieve the current state-of-the-art, is shown below:  
 
-% \begin{blockquote}
-\textbf{Question}: Which actor was the star of Titanic and was born in Los Angeles, California?
-
-\textbf{Answer}: Leonardo DiCaprio
-\vskip 0.15in
-% \textbf{Original Deterministic Sequence with HL and Context\cite{DBLP:conf/paclic/SalnikovLRNBMP23-originalpaper}}:
-\textbf{Sequence with HL and Context}:
-
-Which actor was the star of Titanic and was born in Los Angeles, California? $<$/s$>$ [unused1]Leonardo DiCaprio[unused2], place of birth, Los Angeles, Titanic, cast member, [unused1]Leonardo DiCaprio[unused2]
-% \end{blockquote}
+\begin{itemize}
+    \item \textbf{Question}: Which actor was the star of Titanic and was born in Los Angeles, California?
+    \item \textbf{Answer}: Leonardo DiCaprio
+    \item \textbf{Sequence with HL and Context}: Which actor was the star of Titanic and was born in Los Angeles, California? $<$/s$>$ [unused1]Leonardo DiCaprio[unused2], place of birth, Los Angeles, Titanic, cast member, [unused1]Leonardo DiCaprio[unused2]
+\end{itemize}
 
 \noindent We employ a similar \textbf{HL} and \textbf{context} protocol to our three Graph2Text sequences. The objective is to assist the model in understanding the question-answer pair and the Graph2Text sequence. An example of such processing for the three sequences can be seen below:
 
-% \begin{blockquote}
-\textbf{Question}: Which actor was the star of Titanic and was born in Los Angeles, California?
-
-\textbf{Answer}: Leonardo DiCaprio
-\vskip 0.15in
-\textbf{Graph2Text Deterministic}: Which actor was the star of Titanic and was born in Los Angeles, California? $<$/s$>$ [unused1]Leonardo DiCaprio[unused2], place of birth, Los Angeles, Titanic, cast member, [unused1]Leonardo DiCaprio[unused2]
-\vskip 0.1in
-\textbf{Graph2Text T5}: Which actor was the star of Titanic and was born in Los Angeles, California?$<$/s$>$ Los Angeles born [unused1]Leonardo DiCaprio [unused2], who played the role of Jack Sparrow in the film Titanic, was born in the United States.
-\vskip 0.1in
-\textbf{Graph2Text GAP}: Which actor was the star of Titanic and was born in Los Angeles, California?$<$/s$>$Born in Los Angeles, the actor, [unused1]Leonardo DiCaprio [unused2], was a member of the crew of the Titanic.
-% \end{blockquote}
+\begin{itemize}
+    \item \textbf{Question}: Which actor was the star of Titanic and was born in Los Angeles, California?
+    \item \textbf{Answer}: Leonardo DiCaprio
+    \item \textbf{Graph2Text Deterministic}: Which actor was the star of Titanic and was born in Los Angeles, California? $<$/s$>$ [unused1]Leonardo DiCaprio[unused2], place of birth, Los Angeles, Titanic, cast member, [unused1]Leonardo DiCaprio[unused2]
+    \item \textbf{Graph2Text T5}: Which actor was the star of Titanic and was born in Los Angeles, California?$<$/s$>$ Los Angeles born [unused1]Leonardo DiCaprio [unused2], who played the role of Jack Sparrow in the film Titanic, was born in the United States.
+    \item \textbf{Graph2Text GAP}: Which actor was the star of Titanic and was born in Los Angeles, California?$<$/s$>$Born in Los Angeles, the actor, [unused1]Leonardo DiCaprio [unused2], was a member of the crew of the Titanic.
+\end{itemize}
 
 \noindent It is important to note that we employ the \textbf{context} and \textbf{HL} approaches only for the MPNet approach, discussed in Section~\ref{sec:controllable_fusion:ranker}. Sensibly, the transformer-based model trained on sentences and paragraphs is adept at extracting useful information from natural texts. Thus, unlike our other proposed approaches, the MPNet approach classically only handles text embedding as input. Therefore, we utilize \textbf{context} and \textbf{HL} to give the model the best chance at extracting useful information to rank answer candidates. Other approaches, such as regression-based and gradient boosting, have various other features (i.e., graph, text, and sequence). Thus, we choose not to employ \textbf{context} and \textbf{HL} transformation for Graph2Text sequences for regression-based and gradient-boosting rankers. We discuss the pipeline for each ranker in more detail in Section~\ref{sec:controllable_fusion:experimental_pipeline}.
 
-
 \subsection{Experimental Pipeline} \label{sec:controllable_fusion:experimental_pipeline}
-With our two objectives of observing the effects of 1) different combinations of feature sets and 2) different reranking approaches in varying complexity, we devise our experiments for each answer candidate source (from either T5-Large-SSM, T5-XL-SSM, Mistral, or Mixtral)  as the following: 
-\begin{itemize}
-    \item Apply each feature set extracted from the subgraphs (from the least to most complex) to each proposed ranker (from the least to most complex). The feature sets $A, B, C$ are ranked from least to most complex. We feed $A$, then $B$, then $C$ to each ranker. The goal is to observe the performance of varying complexity feature sets with varying complexity rankers. 
-    \item Add/Combine different feature sets (from the least to most complex) to each proposed ranker (from the least to most complex). The feature sets $A, B, C$ are ranked from least to most complex. We feed $A$, then $A+B$, then $A+B+C$ to each ranker. The goal is to observe how adding more complex feature sets affects the performance of each ranker. 
-\end{itemize}
-With the above experimental pipeline, we seek to provide an exhaustive case study on reranking LLM's answer candidates with rankers and feature sets of varying complexity. 
 
+With our two objectives of observing the effects of (1) different combinations of feature sets and (2) different reranking approaches in varying complexity, we devise our experiments for each answer candidate source (from either T5-Large-SSM, T5-XL-SSM, Mistral, or Mixtral)  as the following: 
+\begin{itemize}
+    \item Firstly, we will systematically evaluate each feature set derived from the extracted subgraphs. These feature sets are categorized and applied in an order of increasing complexity (let us denote them as $A, B, C$, where $A$ is the least complex and $C$ is the most complex). Each of these feature sets ($A$, then $B$, then $C$) will be provided as input to every proposed reranking model, which are also arranged from the simplest to the most sophisticated. The primary aim of this experimental stage is to meticulously observe and quantify the performance variations that arise when feature sets of escalating complexity are paired with reranking models of correspondingly increasing complexity. This will help us understand the interplay between the intricacy of features and the sophistication of the ranker.
+    \item Secondly, we will investigate the effect of incrementally combining these feature sets. Again, starting with the least complex feature set and progressing to the most complex, we will supply these combinations to each reranking model (also ordered by complexity). Specifically, each ranker will first receive feature set $A$, then the combination $A+B$, and finally the comprehensive combination $A+B+C$. The purpose of this experimental branch is to ascertain how the progressive addition of more complex feature information influences the overall performance capabilities of each distinct reranking approach. We want to see if more information always leads to better results, or if there is a point of diminishing returns or even negative impact.
+\end{itemize}
+Through the execution of this detailed experimental pipeline, our overarching goal is to furnish a comprehensive and in-depth case study. This study will focus on the task of reranking answer candidates generated by Large Language Models, specifically examining how different reranking algorithms and feature sets, varying in their inherent complexity, contribute to the final outcome. We believe this will provide valuable insights into optimizing such reranking systems.
 
 \subsection{Evaluation} \label{sec:controllable_fusion:evaluation}
-As outlined in~\ref{sec:controllable_fusion:experimental_pipeline}, we experiment with numerous feature sets and rankers. Leveraging the limited amount of answer candidates, the primary objective is to determine whether selecting a final answer from this set is appropriate for our question-answering task. We evaluate using the {Hits@N} metric for all experiments discussed. Even if the top answer (Hits@1) is incorrect, this metric {Hits@N} allows us to understand the potential effectiveness of the respective ranker. For example, let us define two QA systems that can provide dozens of possible answers. These two systems generate the correct answer at the second and tenth positions. From an end-user point of view, the system that provides the correct answer at the second position or earlier in the sequence of answers will be much more beneficial. With that being said, as our research's main focus is the reranking task, Hits@N will provide us with valuable insights into each feature set and ranker.   
- 
+
+As outlined in the experimental design described in Section~\ref{sec:controllable_fusion:experimental_pipeline}, our research involves conducting experiments with a diverse array of feature sets and various reranking models. Given that our methodology operates with a relatively small and pre-defined set of answer candidates for each question (typically generated by base Language Models), the primary evaluation objective is to rigorously assess our ability to identify the single correct answer from within this constrained list. This assessment is fundamental to determining the practical effectiveness of our reranking approach in the context of the overall question-answering task.
+
+For the evaluation of all experiments discussed here, we consistently employ the {Hits@N} metric. The {Hits@N} metric is particularly insightful because, even in instances where the top-ranked answer (i.e., Hits@1) is not the correct one, it still enables a comprehensive understanding of the potential effectiveness of the applied reranker. Specifically, it quantifies whether the correct answer is successfully positioned within the top N candidates, thereby offering a measure of the reranker's ability to bring relevant answers closer to the forefront.
+
+Formally, for a given question $q$ and its corresponding set of candidate answers $C = \{c_1, c_2, ..., c_n\}$, where $c_i$ represents the $i$-th candidate answer, the Hits@K metric is defined as:
+
+\begin{equation}
+    \text{Hits@K} = \frac{1}{|Q|} \sum_{q \in Q} \mathbb{I}(\text{rank}(c^*) \leq K)
+\end{equation}
+
+where $Q$ is the set of all questions, $c^*$ is the correct answer for question $q$, $\text{rank}(c^*)$ is the position of the correct answer in the ranked list of candidates, and $\mathbb{I}(\cdot)$ is the indicator function that returns 1 if the condition is true and 0 otherwise. This metric effectively measures the proportion of questions for which the correct answer appears within the top K positions of the ranked candidate list.
+
+To illustrate this point, consider a hypothetical scenario involving two distinct Question Answering (QA) systems, each capable of generating a list of, say, several dozen potential answers for a given query. If System A ranks the correct answer at the second position, while System B ranks it at the tenth position, the perceived utility for an end-user differs substantially. From an end-user's perspective, the system that presents the correct answer closer to the beginning of the ranked list (e.g., at the second position) is unequivocally more beneficial and user-friendly.
+
+Consequently, given that the central focus of our research is specifically the task of reranking a pre-existing list of answer candidates, the {Hits@N} metric is an invaluable tool. It furnishes us with crucial insights into the performance nuances of each distinct feature set and reranking model, particularly in their capacity to elevate the correct answer's rank within the candidate list.
+
+% TODO <---
