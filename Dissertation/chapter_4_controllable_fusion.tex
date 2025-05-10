@@ -193,6 +193,56 @@ The main idea of GAP is a fully graph-aware encoding combined with the coverage 
 Applying the work of GAP, we first linearize the input graph into a text string by creating a sequence of all triples in the KG, interleaved with tokens that separate each triple and the triple's components (head, relation, and tail). Then, we use a transformer encoder to obtain vector representations. The first module in each transformer layer acts as a Global Attention and captures the semantic relationships between all tokens. Moreover, we use a Graph-aware Attention module to capture the sparse nature of adjustment in a graph and apply it to entity and relation vectors from word vectors. By proposing this flexible framework, where graph-aware components can be interchanged, the current architecture aims to generate coherent and representative text descriptions of the KG. Like the Graph2Text T5 approach, we pretrain the model on the WebNLG~2.0 dataset and get the final predictions through the fine-tuned model. 
 % For finetuning the Graph2text GAP approach, we use the following hyperparameters: \textit{learning rate}: $2e^{-5}$, \textit{batch size}: 16; \textit{beam size}: 5, \textit{Adam Optimizer}, 50 \textit{nodes}, and 60 \textit{relations}.
 
+
+In this research, we introduce the more complex neural-based graph-to-text approach to explore further the reranking capabilities of the textual representation of our extracted subgraphs. The initial rudimentary text linearization approach has already achieved state-of-the-art Hits@1. We look for a more complete case study on reranking the text linearization with these two neural-based linearization approaches. To better understand the differences between these methods, we present several illustrative examples that demonstrate how T5 and GAP handle different types of knowledge graph structures.
+
+Let us examine four representative examples that highlight the key differences in how these models process and represent graph information presented in on Figures~\ref{fig:controllable_fusion:g2t_example1},~\ref{fig:controllable_fusion:g2t_example2},~\ref{fig:controllable_fusion:g2t_example3}, and~\ref{fig:controllable_fusion:g2t_example4}:
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{kg_path_fusion/g2t_examples/g2t_e1.png}
+    \caption{Example 1: Simple location relationship between Mount Rainier and North America. The T5 model correctly states ``Mount Rainier is located in North America,'' while GAP introduces an incorrect inference by stating ``The summit of North America is called Mount Rainier.''}
+    \label{fig:controllable_fusion:g2t_example1}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kg_path_fusion/g2t_examples/g2t_e2.png}
+    \caption{Example 2: Gender information for two authors. The T5 model accurately states ``Louisa May Alcott and Ramona Quimby are both females,'' while GAP makes a significant error by stating they are ``both men,'' demonstrating a critical failure in preserving factual information.}
+    \label{fig:controllable_fusion:g2t_example2}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kg_path_fusion/g2t_examples/g2t_e3.png}
+    \caption{Example 3: Complex relationships involving the United States and its institutions. The T5 model provides a clear and accurate description: ``The United States of America is the location of the National Statuary Hall and the office of the President of the United States.'' In contrast, GAP generates a more verbose and less precise description, introducing unnecessary information about Congress and creating redundant statements about the presidency.}
+    \label{fig:controllable_fusion:g2t_example3}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{kg_path_fusion/g2t_examples/g2t_e4.png}
+    \caption{Example 4: Language information for Harry Potter works. The T5 model correctly states ``The Harry Potter prequel is written in English, as is the Harry Potter book,'' while GAP makes an error by referring to ``the English book'' instead of ``the Harry Potter book,'' demonstrating a tendency to lose specific entity information.}
+    \label{fig:controllable_fusion:g2t_example4}
+\end{figure}
+
+These examples reveal several important patterns in how the two models handle graph-to-text conversion:
+
+\begin{enumerate}
+    \item \textbf{Factual Accuracy}: T5 consistently maintains higher factual accuracy, while GAP occasionally introduces incorrect inferences or loses specific entity information.
+    
+    \item \textbf{Information Preservation}: T5 better preserves the specific details from the knowledge graph, whereas GAP tends to generalize or introduce unnecessary information.
+    
+    \item \textbf{Conciseness}: T5 generates more concise and focused descriptions, while GAP often produces more verbose output with redundant information.
+    
+    \item \textbf{Entity Handling}: T5 demonstrates better handling of entity relationships, while GAP sometimes confuses or misrepresents entity attributes.
+\end{enumerate}
+
+These observations align with our quantitative findings presented in Table~\ref{tab:controllable_fusion:g2t_accuracy}, where T5 shows superior performance in preserving both question and answer entities. The examples particularly highlight GAP's tendency to introduce hallucinations and lose specific entity information, which explains its lower accuracy scores in our evaluation.
+
+% All three variations of Graph2Text Sequence features are further encoded with the MPNet embedding model~\cite{DBLP:conf/nips/Song0QLL20}, discussed more in \ref{appx:detailed_results}. Moreover, motivated by our previous research, we employ context and highlight these Graph2Text sequences, discussed further in \ref{hl_context}.
+
+
 \section{Rank LLM answer candidates using subgraphs} \label{sec:controllable_fusion:ranker}
 With the subgraphs and their extracted features discussed above, we devise several reranking approaches to maximize the performance of the base large language models. As the focal point of the research is the reranking scope, we employ reranking methodologies from least to most complex. The hypothesis is a positive trend in performance as we apply more complex models and features.
 
@@ -277,16 +327,467 @@ As outlined in the experimental design described in Section~\ref{sec:controllabl
 
 For the evaluation of all experiments discussed here, we consistently employ the {Hits@N} metric. The {Hits@N} metric is particularly insightful because, even in instances where the top-ranked answer (i.e., Hits@1) is not the correct one, it still enables a comprehensive understanding of the potential effectiveness of the applied reranker. Specifically, it quantifies whether the correct answer is successfully positioned within the top N candidates, thereby offering a measure of the reranker's ability to bring relevant answers closer to the forefront.
 
-Formally, for a given question $q$ and its corresponding set of candidate answers $C = \{c_1, c_2, ..., c_n\}$, where $c_i$ represents the $i$-th candidate answer, the Hits@K metric is defined as:
+Formally, for a given question $q$ and its corresponding set of candidate answers $C = \{c_1, c_2, ..., c_n\}$, where $c_i$ represents the $i$-th candidate answer, the Hits@N metric is defined as:
 
 \begin{equation}
-    \text{Hits@K} = \frac{1}{|Q|} \sum_{q \in Q} \mathbb{I}(\text{rank}(c^*) \leq K)
+    \text{Hits@N} = \frac{1}{|Q|} \sum_{q \in Q} \mathbb{I}(\text{rank}(c^*) \leq N)
 \end{equation}
 
-where $Q$ is the set of all questions, $c^*$ is the correct answer for question $q$, $\text{rank}(c^*)$ is the position of the correct answer in the ranked list of candidates, and $\mathbb{I}(\cdot)$ is the indicator function that returns 1 if the condition is true and 0 otherwise. This metric effectively measures the proportion of questions for which the correct answer appears within the top K positions of the ranked candidate list.
+where $Q$ is the set of all questions, $c^*$ is the correct answer for question $q$, $\text{rank}(c^*)$ is the position of the correct answer in the ranked list of candidates, and $\mathbb{I}(\cdot)$ is the indicator function that returns 1 if the condition is true and 0 otherwise. This metric effectively measures the proportion of questions for which the correct answer appears within the top~N positions of the ranked candidate list.
 
 To illustrate this point, consider a hypothetical scenario involving two distinct Question Answering (QA) systems, each capable of generating a list of, say, several dozen potential answers for a given query. If System A ranks the correct answer at the second position, while System B ranks it at the tenth position, the perceived utility for an end-user differs substantially. From an end-user's perspective, the system that presents the correct answer closer to the beginning of the ranked list (e.g., at the second position) is unequivocally more beneficial and user-friendly.
 
 Consequently, given that the central focus of our research is specifically the task of reranking a pre-existing list of answer candidates, the {Hits@N} metric is an invaluable tool. It furnishes us with crucial insights into the performance nuances of each distinct feature set and reranking model, particularly in their capacity to elevate the correct answer's rank within the candidate list.
 
-% TODO <---
+\section{Results \& Discussion}
+
+This section provides comprehensive results and analysis showcasing the effectiveness of (1) different combinations of feature sets and (2) different ranking methods. Table \ref{tab:controllable_fusion:features_importance} shows the final Hits@1 results for all rankers with different answer candidates sources and various feature sets as input. We can observe several trends within this table. Firstly, for each feature set, the Hits@1 increases as the answer candidate source model gets more complex. For instance, for all rankers with text features as input, the Hits@1 increases gradually as we move from T5-Large-SSM $\rightarrow$ T5-XL-SSM $\rightarrow$ Mistral  $\rightarrow$ Mixtral. This behavior is observable in any feature set. This is, of course, a sensible trend as the model increases in tunable parameters and size. Furthermore, the experiment results demonstrate the importance of text features, including initial questions, which is a logical conclusion for all answer candidates' sources. 
+
+
+\begin{table}[htbp]
+\caption{Hits@1 performance of different feature sets (Text, Graph, and Graph2Text variants) across various reranking models (Linear Regression, Logistic Regression, CatBoost, and MPNet). Results are shown for different answer source models (T5-Large-SSM, T5-XL-SSM, Mistral, and Mixtral). All models were fine-tuned on the Mintaka training set using identical hyperparameters. The dash (--) indicates that the feature type is not applicable for the given model.}
+\label{tab:controllable_fusion:features_importance}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{c|l|c|c|c|c}
+        \toprule
+        \textbf{\makecell{Answers\\Source}}                & \textbf{Features} & \textbf{\makecell{Linear\\Regression}} & \textbf{\makecell{Logistic\\Regression}} & \textbf{CatBoost}     & \textbf{MPNet}        \\
+        \midrule
+        \multirow{5}{*}{\textbf{\begin{turn}{45}\makecell{T5-Large\\SSM}\end{turn}}} & Text & 0,2695 & 0,2605 & 0,2458 & 0,2620 \\ 
+                                        & Graph & 0,2338 & 0,2335 & 0,1935 & -- \\ 
+                                        & Graph2Text (Determ Lin) & 0,2550 & 0,2440 & 0,2405 & 0,3398 \\ 
+                                        & Graph2Text (T5) & 0,2505 & 0,2313 & 0,2398 & 0,3493 \\ 
+                                        & Graph2Text (GAP) & 0,2393 & 0,2925 & 0,2395 & 0,3395 \\ \hline
+        \multirow{5}{*}{\textbf{\begin{turn}{45}\makecell{T5-XL\\SSM}\end{turn}}} & Text & 0,2955 & 0,2850 & 0,2593 & 0,3418 \\ 
+                                        & Graph & 0,2550 & 0,2613 & 0,2760 & -- \\ 
+                                        & Graph2Text (Determ Lin) & 0,2640 & 0,2598 & 0,2580 & 0,3923 \\ 
+                                        & Graph2Text (T5) & 0,2593 & 0,2538 & 0,2485 & 0,3905 \\ 
+                                        & Graph2Text (GAP) & 0,2563 & 0,2503 & 0,2590 & 0,3573 \\ \hline
+        \multirow{5}{*}{\textbf{\begin{turn}{45}Mistral\end{turn}}} & Text & 0,4760 & 0,4730 & 0,3917 & 0,5115 \\ 
+                                        & Graph & 0,3575 & 0,3558 & 0,3632 & -- \\ 
+                                        & Graph2Text (Determ Lin) & 0,3960 & 0,3970 & 0,3862 & 0,5007 \\ 
+                                        & Graph2Text (T5) & 0,4013 & 0,3985 & 0,4012 & 0,4965 \\ 
+                                        & Graph2Text (GAP) & 0,3885 & 0,3850 & 0,3787 & 0,4917 \\ \hline
+        \multirow{5}{*}{\textbf{\begin{turn}{45}Mixtral\end{turn}}} & Text & 0,4883 & 0,4853 & 0,4040 & 0,5237 \\ 
+                                        & Graph & 0,3698 & 0,3680 & 0,3755 & -- \\ 
+                                        & Graph2Text (Determ Lin) & 0,4083 & 0,4093 & 0,3985 & 0,5130 \\ 
+                                        & Graph2Text (T5) & 0,4135 & 0,4108 & 0,3940 & 0,5087 \\ 
+                                        & Graph2Text (GAP) & 0,4008 & 0,3973 & 0,3910 & 0,5040 \\ 
+        \bottomrule
+        \end{tabular}%
+    }
+\end{table}
+    
+Additionally, we can observe an interesting performance difference between Graph2Text T5 and GAP sequences. The counterintuitive high-quality results from these Graph2Text sequences indicate that the T5 performs better than the GAP on the downstream task. However, as discussed in Section~\ref{sec:controllable_fusion:g2t_seq}, the GAP model shows better results on the WebNLG~2.0 dataset. This finding motivates us to explore further the quality of Graph2Text models on the Mintaka dataset. To do so, we calculate the accuracy of the entity label represented from the subgraph in the generated text for our Mintaka subgraph dataset. 
+
+This simple exploration reveals that GAP tends to omit some entities from the provided subgraph, as shown in Table~\ref{tab:controllable_fusion:g2t_accuracy}. 
+Moreover, based on our subjective human assessment, GAP generates more hallucinations in the Graph2Text task, shown on Figures~\ref{fig:controllable_fusion:g2t_example1},~\ref{fig:controllable_fusion:g2t_example2},~\ref{fig:controllable_fusion:g2t_example3}, and~\ref{fig:controllable_fusion:g2t_example4}.
+
+\begin{table}[ht]
+    \caption{Graph2Text Accuracy of label generation for entities in texts generated from subgraphs.}
+    \label{tab:controllable_fusion:g2t_accuracy}
+    % \resizebox{\textwidth}{!}{
+        \centering
+        \begin{tabular}{llcc}
+        \toprule
+        \textbf{Answers Source} & \textbf{Dataset} &
+        \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}Question Entities\\ Accuracy\end{tabular}} &
+        \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}Answer Entities\\ Accuracy\end{tabular}} \\
+        \midrule
+        \multicolumn{4}{c}{Graph2Text (T5)} \\
+        \midrule
+        \multirow{2}{*}{T5-Large-SSM} & TRAIN & 0,995 & 0,833        \\
+                                    & TEST  & 0,954 & \textbf{0,835} \\
+        \hline
+        \multirow{2}{*}{T5-XL-SSM}    & TRAIN & 0,955 & 0,827        \\
+                                    & TEST  & 0,955 & 0,829          \\
+        \midrule
+        \multicolumn{4}{c}{Graph2Text (GAP)}                         \\
+        \midrule
+        \multirow{2}{*}{T5-Large-SSM} & TRAIN & 0,922 & 0,773        \\
+                                    & TEST  & 0,923 & 0,776          \\
+        \hline
+        \multirow{2}{*}{T5-XL-SSM}    & TRAIN & 0,924 & 0,767        \\
+                                    & TEST  & 0,926 & 0,77           \\
+        \bottomrule
+        \end{tabular}
+    % }
+\end{table}
+
+\subsection{Features Importance}
+
+In addition to analyzing the performance of neural Graph2Text sequences and the positive correlation between Hits@1 and the complexity of answer candidate LLMs, we conducted a comprehensive investigation into the effectiveness of various features extracted from the subgraphs. This analysis is particularly crucial for understanding which aspects of the knowledge graph structure contribute most significantly to the reranking process.
+
+Firstly, we prepare graph features and MPNet embeddings of the text and G2T sequence features for the regression-based rankers as input. Without the embedding-like features, these regression-based rankers fail to achieve sufficient performance while solely on graph features, seen in table \ref{tab:controllable_fusion:features_importance}. Due to the nature of Logistic and Linear Regression, we split up the embedding-like features into individual values of separate columns. Thus, there are no trivial ways to assess the importance of the overall embeddings. Therefore, we hone in on the importance of the graph features for each answer candidate source.
+
+For the regression-based rankers, we prepared two distinct types of input features:
+\begin{enumerate}
+    \item Graph-based features, which capture the structural properties of the subgraphs
+    \item MPNet embeddings of text and Graph2Text sequence features, which encode the semantic information
+\end{enumerate}
+
+Our preliminary analysis revealed that regression-based rankers struggle to achieve satisfactory performance when relying solely on graph features, as evidenced in Table~\ref{tab:controllable_fusion:features_importance}. This limitation stems from the inherent nature of Logistic and Linear Regression models, which require us to split the embedding-like features into individual columns. This transformation makes it challenging to assess the importance of the embeddings as cohesive units. Therefore, we focused our analysis on quantifying the importance of graph features for each answer candidate source.
+
+To ensure robust results, we conducted the permutation importance analysis with 10 repetitions, providing a more reliable estimate of each feature's effectiveness. The results are presented in two separate figures: Figure~\ref{fig:controllable_fusion:feature_importance_t5_large_xl} shows the analysis for T5-Large-SSM and T5-XL-SSM models, while Figure~\ref{fig:controllable_fusion:feature_importance_mistral_mixtral} presents the results for Mistral and Mixtral models.
+
+The analysis revealed several significant patterns:
+
+\begin{enumerate}
+    \item \textbf{PageRank Dominance}: The PageRank feature emerged as the most influential factor across all models, suggesting its crucial role in determining the importance of nodes within the knowledge graph structure. This finding strongly supports the continued use of PageRank in both classical graph classification and Knowledge Graph Question Answering (KGQA) applications.
+    
+    \item \textbf{Structural Features}: Several other graph features demonstrated notable importance:
+    \begin{itemize}
+        \item Number of bridges, which indicates critical connections in the graph
+        \item Node and edge counts, reflecting the complexity of the subgraph
+        \item Average shortest path length between question entities and answer candidates
+    \end{itemize}
+    
+    \item \textbf{Model-Specific Variations}: The importance of features varied significantly between the T5-based models (T5-Large-SSM and T5-XL-SSM) and the more recent models (Mistral and Mixtral). This variation suggests that different language models may benefit from different feature combinations, highlighting the need for model-specific feature selection strategies.
+\end{enumerate}
+
+These findings have important implications for future research and practical applications. The strong performance of PageRank suggests that it should be a standard component in graph-based reranking systems. Additionally, the varying importance of features across different models indicates that feature selection should be tailored to the specific characteristics of the underlying language model.
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=\textwidth]{kg_path_fusion/feature_importance_t5_large_xl.png}
+   \caption{Permutation importance of graph features for Linear and Logistic Regression rankers on answer candidates generated by T5-Large-SSM and T5-XL-SSM. The analysis reveals the relative contribution of each feature to the model's performance.}
+   \label{fig:controllable_fusion:feature_importance_t5_large_xl}
+\end{figure}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=\textwidth]{kg_path_fusion/feature_importance_mistral_mixtral.png}
+   \caption{Permutation importance of graph features for Linear and Logistic Regression rankers on answer candidates generated by Mistral and Mixtral. The results show how different features contribute to the ranking performance for these state-of-the-art models.}
+   \label{fig:controllable_fusion:feature_importance_mistral_mixtral}
+\end{figure}
+
+Lastly, we conducted a comprehensive analysis of feature importance for our gradient-boosting rankers, specifically focusing on the CatBoost implementation. This analysis is particularly interesting because CatBoost offers unique capabilities in handling diverse feature types. Unlike traditional regression-based rankers, CatBoost natively supports a wide range of feature formats:
+
+\begin{enumerate}
+    \item Numerical features, which represent continuous values
+    \item Categorical features, which represent discrete categories
+    \item Text features, which contain natural language content
+    \item Embedding features, which capture semantic information in vector form
+\end{enumerate}
+
+This versatility in feature handling is particularly advantageous for our task, as it allows us to process embedding features without the need to split them into individual components, unlike the regression-based approaches discussed earlier. This capability makes it possible to assess the importance of both graph-based features and embedding-like features simultaneously, providing a more holistic view of feature contributions.
+
+However, we encountered a limitation in CatBoost's native embedding support. The framework uses order target encodings for embedding features, which introduces ambiguity in the interpretation of results. Additionally, this embedding algorithm is not widely adopted in the natural language processing community, making it less suitable for our specific use case. Given our focus on end-user requirements and practical applicability, we decided to exclude this component from our analysis.
+
+The results of our feature importance analysis for CatBoost rankers are presented in two figures: Figure~\ref{fig:controllable_fusion:feature_importance_t5_large_xl_catboost} shows the analysis for T5-Large-SSM and T5-XL-SSM models, while Figure~\ref{fig:controllable_fusion:feature_importance_mis_mix_catboost} presents the results for Mistral and Mixtral models.
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=\textwidth]{kg_path_fusion/t5xl_large_catboost.png}
+   \caption{Permutation importance of graph, text, and Graph2Text features for CatBoost rankers on answer candidates generated by T5-Large-SSM and T5-XL-SSM. The analysis reveals the relative contribution of different feature types to the model's performance.}
+   \label{fig:controllable_fusion:feature_importance_t5_large_xl_catboost}
+\end{figure}
+
+\begin{figure}[htb]
+   \centering
+   \includegraphics[width=\textwidth]{kg_path_fusion/mistral_mixtral_catboost.png}
+   \caption{Permutation importance of graph, text, and Graph2Text features for CatBoost rankers on answer candidates generated by Mistral and Mixtral. The results demonstrate how different feature types contribute to the ranking performance for these state-of-the-art models.}
+   \label{fig:controllable_fusion:feature_importance_mis_mix_catboost}
+\end{figure}
+
+A detailed examination of the results reveals several significant patterns:
+
+\begin{enumerate}
+    \item \textbf{Dominance of Text Features}: The Graph2Text sequence and text features consistently demonstrate the highest importance across all models. This finding strongly supports our earlier observations about the effectiveness of text-based features in the reranking process. The inclusion of initial questions in the feature set appears to be particularly crucial for the ranker's performance.
+    
+    \item \textbf{Graph Feature Importance}: Among the graph-based features, PageRank emerges as a consistently important factor for both T5-based models and the more recent Mistral/Mixtral models. This observation reinforces the value of PageRank in both classical graph classification tasks and Knowledge Graph Question Answering (KGQA) applications. Other notable graph features include:
+    \begin{itemize}
+        \item Graph density, which measures the connectivity of the subgraph
+        \item Katz centrality, which captures the influence of nodes in the graph
+        \item Average shortest path length between question entities and answer candidates
+    \end{itemize}
+    
+    \item \textbf{Model-Specific Variations}: The importance of features varies between different model types, with some features showing higher importance for T5-based models compared to Mistral/Mixtral, and vice versa. This variation suggests that different language models may benefit from different feature combinations.
+\end{enumerate}
+
+These findings have important implications for the design of future reranking systems. The strong performance of text-based features suggests that they should be a core component of any reranking system, while the varying importance of graph features across different models indicates that feature selection should be tailored to the specific characteristics of the underlying language model.
+
+\subsection{Hits@N Evaluation Results}
+
+While Hits@1 provides a valuable metric for assessing the top-ranked answer, it offers only a partial view of the reranking approaches' effectiveness. As discussed in Section~\ref{sec:controllable_fusion:evaluation}, we employ the Hits@N metric to conduct a comprehensive analysis of all rankers and feature sets. This broader evaluation allows us to understand how the reranking process affects the entire sequence of candidate answers, not just the top prediction.
+
+In this subsection, we present a detailed analysis of answer sequences both before and after reranking. Our evaluation encompasses:
+
+\begin{enumerate}
+    \item \textbf{Comprehensive Testing}: All proposed methods have been evaluated across different feature combinations and model configurations to ensure robust results.
+    
+    \item \textbf{Multiple N Values}: We calculate Hits@N for various values of N (specifically N=1, 2, and 3) to capture the performance improvements at the top of the ranked list. This approach helps us understand:
+    \begin{itemize}
+        \item How quickly the correct answer appears in the ranked list
+        \item The distribution of correct answers across different positions
+        \item The overall effectiveness of the reranking process
+    \end{itemize}
+    
+    \item \textbf{Model Comparisons}: We analyze the performance of different reranking approaches, including:
+    \begin{itemize}
+        \item Initial predictions from the base language models
+        \item Baseline reranking methods
+        \item Our proposed approaches with various feature combinations
+    \end{itemize}
+\end{enumerate}
+
+The detailed results for all combinations of answer candidate sources (T5-Large-SSM, T5-XL-SSM, Mistral, and Mixtral), reranking models, and feature sets are presented in Tables~\ref{tab:controllable_fusion:t5_large_ssm_all_results}, \ref{tab:controllable_fusion:t5_xl_ssm_all_results}, \ref{tab:controllable_fusion:mistral_all_results}, and~\ref{tab:controllable_fusion:mixtral_all_results}. These tables provide a granular view of the Hits@1, Hits@2, and Hits@3 scores, demonstrating the potential of utilizing subgraphs to rerank LLM responses. Moreover, these results underscore the importance of accurately transferring all relevant information from the subgraph to the reranking model. Consequently, the outcomes of this process significantly depend on the quality of the Graph2Text process.
+
+Figure~\ref{fig:controllable_fusion:hit_at_n_plot_all} presents a visual summary of the most significant findings from our comprehensive evaluation, illustrating the overall trends. The results demonstrate several key patterns:
+
+\begin{enumerate}
+    \item \textbf{MPNet Superiority}: The reranking approach using MPNet with text and Graph2Text features consistently outperforms both the initial predictions and baseline models. This improvement is particularly notable in the critical Hits@1 metric, where the correct answer appears as the top prediction more frequently.
+    
+    \item \textbf{Size-Independent Improvement}: The quality enhancement in Hits@1 answers is observed consistently across different language model sizes. This suggests that our reranking approach is robust and effective regardless of the underlying model's complexity.
+    
+    \item \textbf{Progressive Enhancement}: The improvements in performance are not limited to the top-ranked answer. The reranking process enhances the overall quality of the answer sequence, making it more likely for correct answers to appear in higher positions, as evidenced by the Hits@2 and Hits@3 scores.
+\end{enumerate}
+
+These findings underscore the effectiveness of our proposed reranking approach and highlight the importance of considering the entire answer sequence when evaluating question-answering systems. The consistent improvements across different model sizes and the enhanced quality of the top-ranked answers demonstrate the practical value of our methodology.
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[width=0.99\textwidth]{kg_path_fusion/hit_at_n_plot_all.pdf}
+   \caption{Comparison of Hits@N performance across different reranking approaches on the Mintaka dataset. The plot shows the cumulative accuracy (Hits@N) for various values of N, demonstrating the effectiveness of different feature combinations and reranking models. The MPNet-based approach with text and Graph2Text features shows consistent improvement over baseline models and initial predictions, particularly in the critical Hits@1 metric. Results are shown for answers generated using Diverse Beam Search across different language model sizes.}
+   \label{fig:controllable_fusion:hit_at_n_plot_all}
+\end{figure}
+
+\begin{table}[htbp]
+    \caption{Hit@1-3 for all proposed reranking approaches and features after reranking the T5-Large-SSM generated answer candidates.}
+    \label{tab:controllable_fusion:t5_large_ssm_all_results}
+    \fontsize{9pt}{11pt}\selectfont
+    \centering
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{l p{5cm} c c c}
+        \toprule
+        \textbf{Reranking Model} & \textbf{Features} & \textbf{Hit@1} & \textbf{Hit@2} & \textbf{Hit@3} \\
+        \midrule
+        Without reranking & & 0.2395 & 0.3580 & 0.4020 \\
+        \cmidrule(lr){1-5}
+        Full random & & 0.0278 & 0.0562 & 0.0828 \\
+        \cmidrule(lr){1-5}
+        Semantic reranking & Text & 0.0298 & 0.0647 & 0.0965 \\
+        \cmidrule(lr){1-5}
+        \multirow{9}{*}{Linear Regression} & Text & 0.2695 & 0.4502 & 0.5400 \\
+        & Graph & 0.2338 & 0.4007 & 0.5000 \\
+        & Text + Graph & 0.2953 & 0.4697 & 0.5558 \\
+        & G2T (Det. Lin.) & 0.2550 & 0.4262 & 0.5230 \\
+        & G2T (T5) & 0.2505 & 0.4230 & 0.5193 \\
+        & G2T (GAP) & 0.2393 & 0.4133 & 0.5123 \\
+        & Text + Graph + G2T (Det. Lin.) & \textbf{0.3065} & 0.4873 & 0.5755 \\
+        & Text + Graph + G2T (T5) & 0.3070 & 0.4835 & 0.5710 \\
+        & Text + Graph + G2T (GAP) & 0.3033 & 0.4870 & 0.5728 \\
+        \midrule
+        \multirow{12}{*}{Logistic Regression} & Text & 0.2605 & 0.4353 & 0.5360 \\
+        & Graph & 0.2335 & 0.4040 & 0.4980 \\
+        & Text + Graph & 0.2470 & 0.4240 & 0.5218 \\
+        & G2T (Det. Lin.) & 0.2440 & 0.4203 & 0.5163 \\
+        & G2T (T5) & 0.2313 & 0.4068 & 0.5028 \\
+        & G2T (GAP) & 0.2925 & 0.4688 & 0.5625 \\
+        & Text + Graph + G2T (Det. Lin.) & \textbf{0.3060} & 0.4873 & 0.5745 \\
+        & Text + Graph + G2T (T5) & 0.2794 & 0.4780 & 0.5668 \\
+        & Text + Graph + G2T (GAP) & 0.2925 & 0.4688 & 0.5625 \\
+        \midrule
+        \multirow{12}{*}{CatBoost} & Text & 0.2458 & 0.3753 & 0.4525 \\
+        & Graph & 0.1935 & 0.3353 & 0.4238 \\
+        & Text + Graph & 0.1975 & 0.3463 & 0.4510 \\
+        & G2T (Det. Lin.) & 0.2405 & 0.4178 & 0.5068 \\
+        & G2T (T5) & 0.2398 & 0.4025 & 0.4868 \\
+        & G2T (GAP) & 0.2395 & 0.3975 & 0.4873 \\
+        & Text + Graph + G2T (Det. Lin.) & 0.1808 & 0.3208 & 0.4120 \\
+        & Text + Graph + G2T (T5) & 0.1888 & 0.3318 & 0.4233 \\
+        & Text + Graph + G2T (GAP) & 0.1915 & 0.3350 & 0.4268 \\
+        \midrule
+        \multirow{10}{*}{MPNet} & Text & 0.2620 & 0.4380 & 0.5345 \\
+        & Text + G2T (Det. Lin.) & 0.3399 & 0.5095 & 0.5900 \\
+        & Text + G2T (Det. Lin.) + HL & 0.3105 & 0.4853 & 0.5735 \\
+        & Text + G2T (T5) & \textbf{0.3493} & 0.5203 & 0.5945 \\
+        & Text + G2T (T5) + HL & 0.3468 & 0.5178 & 0.5938 \\
+        & Text + G2T (GAP) & 0.3395 & 0.5080 & 0.5890 \\
+        & Text + G2T (GAP) + HL & 0.3435 & 0.5170 & 0.5973 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \setlength{\tabcolsep}{3pt}
+    \caption{Hit@1-3 for all proposed reranking approaches and features after reranking the T5-XL-SSM generated answer candidates.}
+    \label{tab:controllable_fusion:t5_xl_ssm_all_results}
+    \fontsize{9pt}{11pt}\selectfont
+    \centering
+    \begin{tabular}{l p{5cm} c c c}
+        \toprule
+        \textbf{Reranking Model} & \textbf{Features} & \textbf{Hit@1} & \textbf{Hit@2} & \textbf{Hit@3} \\
+        \midrule
+        Without reranking & & 0.3042 & 0.4298 & 0.4688 \\
+        \cmidrule(lr){1-5}
+        Full random & & 0.0235 & 0.0473 & 0.0723 \\
+        \cmidrule(lr){1-5}
+        Semantic reranking & Text & 0.0245 & 0.0545 & 0.0830 \\
+        \cmidrule(lr){1-5}
+        \multirow{9}{*}{Linear Regression} & Text & 0.2955 & 0.4763 & 0.4763 \\
+        & Graph & 0.2550 & 0.4353 & 0.5285 \\
+        & Text + Graph & 0.3003 & 0.4825 & 0.5693 \\
+        & G2T (Det. Lin.) & 0.2640 & 0.4480 & 0.5375 \\
+        & G2T (T5) & 0.2593 & 0.4438 & 0.5333 \\
+        & G2T (GAP) & 0.2563 & 0.4320 & 0.5215 \\
+        & Text + Graph + G2T (Det. Lin.) & \textbf{0.3220} & 0.5073 & 0.5915 \\
+        & Text + Graph + G2T (T5) & 0.3170 & 0.5035 & 0.5818 \\
+        & Text + Graph + G2T (GAP) & 0.3153 & 0.5023 & 0.5793 \\
+        \midrule
+        \multirow{12}{*}{Logistic Regression} & Text & 0.2850 & 0.4683 & 0.5603 \\
+        & Graph & 0.2613 & 0.4385 & 0.5283 \\
+        & Text + Graph & 0.3003 & 0.4825 & 0.5693 \\
+        & G2T (Det. Lin.) & 0.2598 & 0.4420 & 0.5423 \\
+        & G2T (T5) & 0.2538 & 0.4393 & 0.5315 \\
+        & G2T (GAP) & 0.2503 & 0.4310 & 0.5218 \\
+        & Text + Graph + G2T (Det. Lin.) & \textbf{0.3210} & 0.5025 & 0.5885 \\
+        & Text + Graph + G2T (T5) & 0.3080 & 0.4955 & 0.5778 \\
+        & Text + Graph + G2T (GAP) & 0.3043 & 0.4908 & 0.5815 \\
+        \midrule
+        \multirow{12}{*}{CatBoost} & Text & 0.2593 & 0.3985 & 0.4720 \\
+        & Graph & 0.2760 & 0.4573 & 0.5433 \\
+        & Text + Graph & 0.1950 & 0.3370 & 0.4298 \\
+        & G2T (Det. Lin.) & 0.2580 & 0.4218 & 0.5130 \\
+        & G2T (T5) & 0.2485 & 0.4158 & 0.5025 \\
+        & G2T (GAP) & 0.2590 & 0.4390 & 0.5258 \\
+        & Text + Graph + G2T (Det. Lin.) & 0.1738 & 0.3160 & 0.4065 \\
+        & Text + Graph + G2T (T5) & 0.1670 & 0.3168 & 0.4048 \\
+        & Text + Graph + G2T (GAP) & 0.1660 & 0.3093 & 0.4048 \\
+        \midrule
+        \multirow{10}{*}{MPNet} & Text & 0.3418 & 0.5185 & 0.5960 \\
+        & Text + G2T (Det. Lin.) & \textbf{0.3923} & 0.5648 & 0.6260 \\
+        & Text + G2T (Det. Lin.) + HL & 0.3628 & 0.5453 & 0.6175 \\
+        & Text + G2T (T5) & 0.3905 & 0.5610 & 0.6183 \\
+        & Text + G2T (T5) + HL & 0.3760 & 0.5490 & 0.6160 \\
+        & Text + G2T (GAP) & 0.3573 & 0.5315 & 0.6040 \\
+        & Text + G2T (GAP) + HL & 0.3675 & 0.5528 & 0.6165 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \setlength{\tabcolsep}{3pt}
+    \caption{Hit@1-3 for all proposed reranking approaches and features after reranking the Mistral generated answer candidates.}
+    \label{tab:controllable_fusion:mistral_all_results}
+    \fontsize{9pt}{11pt}\selectfont
+    \centering
+    \begin{tabular}{l p{5cm} c c c}
+        \toprule
+        \textbf{Reranking Model} & \textbf{Features} & \textbf{Hit@1} & \textbf{Hit@2} & \textbf{Hit@3} \\
+        \midrule
+        Without reranking & & 0.4655 & 0.5313 & 0.5590 \\
+        \cmidrule(lr){1-5}
+        Full random & & 0.0920 & 0.1585 & 0.2165 \\
+        \cmidrule(lr){1-5}
+        Semantic reranking & Text & 0.0858 & 0.1393 & 0.1790 \\
+        \cmidrule(lr){1-5}
+        \multirow{9}{*}{Linear Regression} & Text & 0.4760 & 0.5818 & 0.6173 \\
+        & Graph & 0.3575 & 0.4918 & 0.5653 \\
+        & Text + Graph & 0.4810 & 0.5848 & 0.6193 \\
+        & G2T (Det. Lin.) & 0.3960 & 0.5298 & 0.5898 \\
+        & G2T (T5) & 0.4013 & 0.5295 & 0.5910 \\
+        & G2T (GAP) & 0.3885 & 0.5220 & 0.5845 \\
+        & Text + G2T (Det. Lin.) & 0.4860 & 0.5875 & 0.6198 \\
+        & Text + G2T (T5) & 0.4825 & 0.5845 & 0.6200 \\
+        & Text + G2T (GAP) & 0.4770 & 0.5798 & 0.6180 \\
+        \midrule
+        \multirow{12}{*}{Logistic Regression} & Text & 0.4730 & 0.5795 & 0.6148 \\
+        & Graph & 0.3558 & 0.4925 & 0.5645 \\
+        & Text + Graph & 0.4745 & 0.5833 & 0.6200 \\
+        & G2T (Det. Lin.) & 0.3970 & 0.5260 & 0.5960 \\
+        & G2T (T5) & 0.3985 & 0.5305 & 0.5933 \\
+        & G2T (GAP) & 0.3850 & 0.5195 & 0.5878 \\
+        & Text + G2T (Det. Lin.) & 0.4790 & 0.5833 & 0.6210 \\
+        & Text + G2T (T5) & 0.4745 & 0.5838 & 0.6205 \\
+        & Text + G2T (GAP) & 0.4728 & 0.5785 & 0.6183 \\
+        \midrule
+        \multirow{12}{*}{CatBoost} & Text & 0.3918 & 0.5070 & 0.5708 \\
+        & Graph & 0.3633 & 0.4995 & 0.5715 \\
+        & Text + Graph & 0.3128 & 0.4443 & 0.5295 \\
+        & G2T (Det. Lin.) & 0.3863 & 0.5078 & 0.5770 \\
+        & G2T (T5) & 0.4013 & 0.5295 & 0.5910 \\
+        & G2T (GAP) & 0.3788 & 0.5098 & 0.5775 \\
+        & Text + G2T (Det. Lin.) & 0.2883 & 0.4208 & 0.5163 \\
+        & Text + G2T (T5) & 0.2568 & 0.3843 & 0.4958 \\
+        & Text + G2T (GAP) & 0.3013 & 0.4393 & 0.5265 \\
+        \midrule
+        \multirow{10}{*}{MPNet} & Text & 0.5115 & 0.6035 & 0.6273 \\
+        & Text + G2T (Det. Lin.) & 0.5008 & 0.5913 & 0.6225 \\
+        & Text + G2T (Det. Lin.) + HL & 0.5140 & 0.6013 & 0.6288 \\
+        & Text + G2T (T5) & 0.4965 & 0.5913 & 0.6230 \\
+        & Text + G2T (T5) + HL & 0.5148 & 0.6003 & 0.6253 \\
+        & Text + G2T (GAP) & 0.4918 & 0.5880 & 0.6205 \\
+        & Text + G2T (GAP) + HL & 0.5073 & 0.5988 & 0.6250 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \setlength{\tabcolsep}{3pt}
+    \caption{Hit@1-3 for all proposed reranking approaches and features after reranking the Mixtral generated answer candidates.}
+    \label{tab:controllable_fusion:mixtral_all_results}
+    \fontsize{9pt}{11pt}\selectfont
+    \centering
+    \begin{tabular}{l p{5cm} c c c}
+        \toprule
+        \textbf{Reranking Model} & \textbf{Features} & \textbf{Hit@1} & \textbf{Hit@2} & \textbf{Hit@3} \\
+        \midrule
+        Without reranking & & 0.5173 & 0.5628 & 0.5735 \\
+        \cmidrule(lr){1-5}
+        Full random & & 0.0580 & 0.1090 & 0.1455 \\
+        \cmidrule(lr){1-5}
+        Semantic re-anking & Text & 0.0303 & 0.0550 & 0.0715 \\
+        \cmidrule(lr){1-5}
+        \multirow{9}{*}{Linear Regression} & Text & 0.4883 & 0.5883 & 0.6188 \\
+        & Graph & 0.3698 & 0.4983 & 0.5668 \\
+        & Text + Graph & 0.4933 & 0.5913 & 0.6208 \\
+        & G2T (Det. Lin.) & 0.4083 & 0.5363 & 0.5913 \\
+        & G2T (T5) & 0.4135 & 0.5360 & 0.5925 \\
+        & G2T (GAP) & 0.4008 & 0.5285 & 0.5860 \\
+        & Text + G2T (Det. Lin.) & 0.4983 & 0.5940 & 0.6213 \\
+        & Text + G2T (T5) & 0.4948 & 0.5910 & 0.6215 \\
+        & Text + G2T (GAP) & 0.4850 & 0.5850 & 0.6198 \\
+        \midrule
+        \multirow{12}{*}{Logistic Regression} & Text & 0.4853 & 0.5860 & 0.6163 \\
+        & Graph & 0.3680 & 0.4990 & 0.5660 \\
+        & Text + Graph & 0.4868 & 0.5898 & 0.6215 \\
+        & G2T (Det. Lin.) & 0.4093 & 0.5325 & 0.5975 \\
+        & G2T (T5) & 0.4108 & 0.5370 & 0.5948 \\
+        & G2T (GAP) & 0.3973 & 0.5260 & 0.5893 \\
+        & Text + G2T (Det. Lin.) & 0.4913 & 0.5898 & 0.6225 \\
+        & Text + G2T (T5) & 0.4868 & 0.5903 & 0.6220 \\
+        & Text + G2T (GAP) & 0.4850 & 0.5850 & 0.6198 \\
+        \midrule
+        \multirow{12}{*}{CatBoost} & Text & 0.4040 & 0.5135 & 0.5723 \\
+        & Graph & 0.3755 & 0.5060 & 0.5730 \\
+        & Text + Graph & 0.3250 & 0.4508 & 0.5310 \\
+        & G2T (Det. Lin.) & 0.3985 & 0.5143 & 0.5785 \\
+        & G2T (T5) & 0.3940 & 0.5143 & 0.5793 \\
+        & G2T (GAP) & 0.3910 & 0.5163 & 0.5790 \\
+        & Text + G2T (Det. Lin.) & 0.3005 & 0.4273 & 0.5178 \\
+        & Text + G2T (T5) & 0.2690 & 0.3908 & 0.4973 \\
+        & Text + G2T (GAP) & 0.3135 & 0.4458 & 0.5280 \\
+        \midrule
+        \multirow{10}{*}{MPNet} & Text & 0.5238 & 0.6100 & 0.6288 \\
+        & Text + G2T (Det. Lin.) & 0.5130 & 0.5978 & 0.6240 \\
+        & Text + G2T (Det. Lin.) + HL & 0.5263 & 0.6078 & 0.6303 \\
+        & Text + G2T (T5) & 0.5088 & 0.5978 & 0.6245 \\
+        & Text + G2T (T5) + HL & 0.5270 & 0.6068 & 0.6268 \\
+        & Text + G2T (GAP) & 0.5040 & 0.5945 & 0.6220 \\
+        & Text + G2T (GAP) + HL & 0.5195 & 0.6053 & 0.6265 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The results highlight that combinations involving textual representations of subgraphs (Graph2Text sequences) and direct text features, especially when processed by neural rankers like MPNet, are particularly effective. For instance, the MPNet model leveraging ``Text + G2T (T5)'' or ``Text + G2T (Det. Lin.)'' features frequently achieves top performance. Furthermore, even simpler regression-based models show notable gains when provided with richer feature sets combining text, graph, and Graph2Text information, often surpassing the initial LLM performance. This underscores the value of integrating structured knowledge from KGs into the reranking pipeline, leading to more accurate and reliable answer selection in question-answering systems. The consistent uplift in performance, irrespective of the base LLM's scale, further reinforces the general applicability and benefit of these subgraph-based reranking techniques.
+
+\section{Chapter Conclusion}
+\label{sec:controllable_fusion:chapter_conclusion}
+
+This chapter has presented a comprehensive investigation into leveraging Knowledge Graph (KG) subgraphs for the reranking of answers generated by Large Language Models (LLMs) in the context of Question Answering (QA). We introduced a methodology centered on extracting pertinent subgraphs connecting question entities to candidate answers, followed by the derivation of diverse feature sets—spanning graph-based metrics, textual features, and various Graph2Text (G2T) sequence representations (Deterministic, T5, and GAP).
+
+A systematic evaluation was conducted, employing a range of reranking models from simpler regression-based approaches and CatBoost to more sophisticated neural architectures like MPNet. The empirical results, detailed through extensive Hits@N analyses (Tables~\ref{tab:controllable_fusion:t5_large_ssm_all_results}-\ref{tab:controllable_fusion:mixtral_all_results} and Figure~\ref{fig:controllable_fusion:hit_at_n_plot_all}), consistently demonstrated that the integration of subgraph-derived features significantly enhances answer selection accuracy across various base LLMs (T5-Large-SSM, T5-XL-SSM, Mistral, and Mixtral).
+
+Key findings from this chapter include the superior performance of neural rankers, particularly MPNet, when utilizing textual representations of subgraphs, such as G2T sequences combined with the original question context. The feature importance analysis further illuminated the consistent contribution of certain graph metrics like PageRank, while also highlighting the overall dominance of text-based features. Moreover, the study underscored the nuanced performance differences between G2T techniques like T5 and GAP, linking these to their ability to preserve entity information and avoid hallucinations, which directly impacts downstream reranking efficacy.
+
+In essence, this chapter contributes a robust framework for controllable fusion, showcasing how the explicit relational structure of KGs can be effectively harnessed to improve the factuality and reliability of LLM-generated answers. The detailed exploration of feature engineering and model performance provides valuable insights for developing more accurate and interpretable KGQA systems, emphasizing a synergistic relationship between large-scale neural models and structured knowledge.
