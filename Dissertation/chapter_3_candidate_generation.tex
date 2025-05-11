@@ -1,5 +1,5 @@
 \chapter{Answer Candidate Type Selection}
-\label{chap:candidate_generation}
+\label{chap:act_selection}
 
 % Comment: This chapter details your core methodological contribution for answer candidate generation
 
@@ -10,8 +10,8 @@ Several approaches exist for this fusion. Some methods focus on encoding graph s
 This chapter focuses specifically on methods developed throughout our research that fall primarily within the category of generating high-quality answer candidates. We introduce the Answer Candidate Type (ACT) Selection~\cite{DBLP:journals/corr/abs-2310-07008} technique, which uses the LLM's understanding of semantic types combined with KG constraints to improve candidate generation. This method forms the foundation for the work detailed in the subsequent chapters, aiming to create more controllable and factually reliable QA systems.
 
 
-\section{Answer Candidate Type Selection}
-\label{sec:candidate_generation_type_selection}
+\section{Methodology}
+\label{sec:act_selection:methodology}
 
 While Large Language Models (LLMs) demonstrate impressive capabilities in various natural language tasks, their application to factoid Question Answering (QA) in a closed-book setting is often marred by factual inaccuracies and hallucinations \cite{DBLP:conf/emnlp/RobertsRS20, lin-etal-2022-truthfulqa}. Interestingly, however, even when an LLM fails to produce the correct factual answer, it often exhibits an understanding of the question's underlying intent and the semantic \textbf{type} of the expected answer. For instance, when asked "What is the official language of Brazil?", an LLM might incorrectly respond "Spanish" but correctly identify that the answer should be a \textbf{language}. Similarly, for "Who directed the movie Inception?", it might hallucinate a director's name but still understand the answer should be a \textbf{person} (specifically, a film director).
 
@@ -19,14 +19,14 @@ This observation suggests a potential avenue for improving factuality. If we can
 
 This section presents our proposed approach, Answer Candidate Type~(ACT) Selection. We propose a universal approach to selecting the correct answer in the KGQA task by using any pre-trained large language model to generate answer candidates and to infer the type of expected answer. The answer candidate type selection pipeline shown in Figures~\ref{fig:act_selection:pipeline} and \ref{fig:act_selection:pipeline_example}.
 
-\begin{figure}[]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.85\textwidth]{act_selection/pipeline.png}
     \caption{ACT Selection Pipeline: (1) Put question to sequence to sequence language model to generate answer candidates, (2) Extract type from candidates, (3) Extract entities from the questions and query one-hop neighbors of the entities in the KG, (4) Filter candidates by type, (5) Select the best candidate.}
     \label{fig:act_selection:pipeline}
 \end{figure}
 
-\begin{figure}[]
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.95\textwidth]{act_selection/pipeline_example.png}
     \caption{The Answer Candidate Type (ACT) Selection pipeline for Knowledge Graph Question Answering (KGQA). The process combines a sequence-to-sequence model with knowledge graph-based entity linking and scoring to identify the correct answer, "Konami," as the publisher of "Neo Contra."}
@@ -34,7 +34,7 @@ This section presents our proposed approach, Answer Candidate Type~(ACT) Selecti
 \end{figure}
 
 \section{Initial Answer Candidate Generation}
-\label{sec:candidate_generation:initial_answer_candidate_generation}
+\label{sec:act_selection:initial_answer_candidate_generation}
 When using \texttt{Classical Beam Search}, the output is often minor variations of a single sequence, which may not generate enough unique answer candidates for the Question Answering task. We use Diverse Beam Search~\cite{DBLP:journals/corr/VijayakumarCSSL16-diverse-beam-search} to generate an initial list of answer candidates.
 
 The formula~\ref{eq:candidate_generation:diverse_beam_search} involves splitting the set of beams at time $t$ into $g$ disjointed subsets $Y_{[t]}^g$, and then selecting the candidate with the highest diversity penalty, which is calculated as the sum of a diversity penalty function $\Theta(y_{b,[t]}^g)$ over all candidates in the subset. Additionally, a dissimilarity term is included, which is calculated as the sum of a dissimilarity function $\Delta(y_{b,[t]}^g, Y_{[t]}^h)$ over all previous subsets $Y_{[t]}^h$ up to time $g-1$. The dissimilarity term is weighted by a parameter $\lambda_g$. This formula is used to optimize the selection of answer candidates in a computationally efficient manner.
@@ -44,12 +44,12 @@ The formula~\ref{eq:candidate_generation:diverse_beam_search} involves splitting
         Y_{[t]}^g = \quad & \underset{y_1^{g}, \dots, y_{B\prime}^g \in Y_t^g} {\text{argmax}} \quad \underbrace{\sum_{b \in [B\prime]} \Theta(y_{b, [t]}^g)}_{\text{diversity penalty}} \\ 
         & + \underbrace{\sum_{h=1}^{g-1} \lambda_g \Delta(y_{b,[t]}^g, Y_{[t]}^h)}_{\text{dissimilarity term}},
     \end{aligned} 
-    \label{eq:candidate_generation:diverse_beam_search}
+    \label{eq:act_selection:diverse_beam_search}
 \end{equation}
 
 Using Diverse Beam Search instead of Greedy Search often leads to a better exploration of the search space by ensuring that alternative answers are considered.  We define the types of entities using the Wikidata property \texttt{instance\_of}~(P31). Note that an entity can be of multiple types. Finally, the initial list of answer candidates is used in the Answer Candidate Typing and the Candidate Scorer with the mined candidates. 
 
-\subsection{Answer Candidate Typing} \label{act}
+\subsection{Answer Candidate Typing} \label{sec:act_selection:act_typing}
 We rank all types by their frequency in the initial list of answer candidates. 
 After that, we merge the top-$K$ most frequent types and similar types to the final list $T$.
 Types similarity is calculated as cosine similarity between Sentence-BERT~\cite{reimers-2019-sentence-bert} embeddings of respective labels. The final types are defined as the ones where similarity is greater than a threshold.
@@ -83,13 +83,100 @@ The four scores are calculated for each entity and then are combined to generate
 $$S_\textrm{final} = S_\textrm{type} + S_\textrm{neighbour} + S_\textrm{t2t} + S_\textrm{property}.$$
 
 \section{Experimental Design and Baselines}
-\label{sec:candidate_generation_experimental_design}
-% Comment: Describe the experimental setup used to evaluate the methods
+\label{sec:act_selection:experimental_design}
+
+For our experimental setup, we fine-tuned both the Text-to-Text models and the spaCy NER models. This fine-tuning process utilized the entire training portion of their respective datasets, ensuring comprehensive exposure to the data, and involved fitting each model for eight epochs—a duration chosen to balance learning effectiveness with computational resources. To generate the initial pool of answer candidates, we employed Diverse Beam Search. This search was configured with 200 beams to ensure a wide exploration of potential candidates and a diversity penalty of 0.1 to encourage variation among the generated sequences, thus preventing the candidates from being too similar to each other. Subsequently, our Answer Candidate Typing module processed these candidates by considering the top-3 most frequent types identified within the candidate list and applying a similarity threshold of 0.6. This threshold was used for merging semantically similar types, based on Sentence-BERT embeddings, to consolidate related concepts into a coherent set of answer types.
+
+\subsection{Datasets}
+To assess the efficacy of the ACT Selection method, our evaluations were conducted on three distinct Wikidata-based datasets. A key characteristic of these datasets is their focus on 'one-hop' questions, where the answer entity is directly connected to a question entity within the Knowledge Graph by a single relational link. The specific datasets employed in our study are detailed below:
+\begin{itemize}
+    \item \textbf{SimpleQuestions-Wikidata (SQWD)}~\cite{SQ_WD}: This dataset is an adaptation of the original SimpleQuestions~collection~\cite{simplequestions} (which was initially developed for the now-deprecated Freebase KG~\cite{bollacker2008freebase}) for the Wikidata knowledge base. It comprises 21,957 questions.
+    \item \textbf{RuBQ}~\cite{korablinov2020rubq,rybin2021rubq}: A Knowledge Graph Question Answering (KGQA) dataset that features 2,910 questions in Russian, covering a variety of types. For our experiments, their provided English translations were utilized.
+    \item \textbf{Mintaka}~\cite{DBLP:conf/coling/SenAS22-mintaka}: This is a larger, multilingual KGQA dataset containing 20,000 questions of diverse types. For the purpose of our experiments, we specifically focused on its subset of \emph{generic} questions. These are questions where entities are indeed one hop away from the answer entities in Wikidata, which resulted in a working set of 1,757 English questions from this dataset.
+\end{itemize}
+
+\subsection{Evaluation}
+
+For the evaluation of all experiments discussed in this chapter, we consistently employ the {Hits@1} metric. This metric directly measures the proportion of questions for which the top-ranked answer candidate is indeed the correct one. It serves as a primary indicator of the system's accuracy in providing the single best answer.
+
+Formally, for a given question $q$ and its corresponding ranked list of candidate answers, where $c_1$ is the top-ranked candidate, the Hits@1 metric is defined as:
+
+\begin{equation}
+    \text{Hits@1} = \frac{1}{|Q|} \sum_{q \in Q} \mathbb{I}(c_1 = c^*)
+    \label{eq:act_selection:hits_at_1}
+\end{equation}
+
+where $Q$ is the set of all questions, $c^*$ is the correct answer for question $q$, $c_1$ is the first (top-ranked) candidate answer provided by the system for question $q$, and $\mathbb{I}(\cdot)$ is the indicator function that returns 1 if the condition ($c_1 = c^*$) is true, and 0 otherwise. This metric thus quantifies the percentage of questions for which the system's top prediction is the correct answer.
+
+Our core hypothesis is that even when a closed-book Question Answering (QA) text-to-text model fails to provide the factually correct answer, it often successfully identifies the semantic type of the expected answer. To validate this, the present study meticulously extracted answer types from the outputs generated by Text-to-Text models. These extracted types were then systematically compared against the ground-truth answer types available in the SQWD dataset. Our experimental findings are quite revealing: the fine-tuned T5-Large-SSM model, when augmented with our ACT~Selection mechanism, demonstrated an ability to accurately predict the correct answer type in an impressive \textbf{94\%} of instances. This stands in stark contrast to the baseline scenario where only \textbf{61\%} of the raw candidate answers generated by the model (without ACT Selection) shared the same type as the correct answer. This significant improvement in type prediction accuracy strongly underscored the potential of this type information, providing a clear impetus to leverage it as a critical component in enhancing the overall question-answering process.
+   
+
+% We evaluate the ACT~Selection using the Hits@1 metric. Answer Candidate Type Selection: A universal approach works with any generative Text-to-Text model. 
+
+In our evaluations, we specifically focused on two prevalent Text-to-Text model architectures: T5 and BART. Our proposed ACT Selection approach consistently leads to improved performance across the diverse datasets previously mentioned, as indicated by the mean Hits@1 scores. The Text-to-Text models underwent a fine-tuning phase using the training splits of the SQWD dataset and the complete training split of the Mintaka dataset. Following this, their performance was rigorously evaluated on the respective test splits of SQWD, RuBQ, and Mintaka, utilizing these specifically tuned model versions.
+
+The comprehensive results, detailed in Table~\ref{tab:act_selection:full_results}, further substantiate that the ACT Selection method consistently elevates the quality of Knowledge Graph Question Answering (KGQA) across a spectrum of Text-to-Text models. Importantly, our experiments also confirmed the versatility of our method, demonstrating its effective application even in a zero-shot learning context—that is, with Text-to-Text models that have not undergone any specific fine-tuning for the QA task. The advantages conferred by ACT Selection, particularly in terms of quality uplift, are especially pronounced when applied to smaller model architectures. For instance, the T5-large model, which contains 737 million parameters, when integrated with ACT Selection, achieves a level of performance comparable to that of the significantly larger T5-11b model, boasting 11 billion parameters. This finding is particularly noteworthy as it suggests that ACT Selection can serve as a resource-efficient strategy to substantially boost performance, an important consideration when access to extremely large-scale models or extensive computational resources for fine-tuning is constrained.
+
+
+\begin{table*}[ht]
+    \caption{Evaluation results on three one-hop KGQA datasets (Hits@1 scores): comparing Text-To-Text Language Model with and without our proposed ACT Selection approach in zero-shot (without tuning for QA) or tuned on SQWD or Mintaka.}
+    \label{tab:act_selection:full_results}
+    \centering
+    \resizebox{0.99\textwidth}{!}{
+    \begin{tabular}{lrrrrrrrrr}
+    \hline
+                 & \multicolumn{3}{c}{\textit{SimpleQuestions-Wikidata}}                                                                                                                                                           & \multicolumn{3}{c}{\textit{RuBQ (English)}}                                                                                                                                                                    & \multicolumn{3}{c}{\textit{Mintaka (one-hop, English)}}                                                                                                                                                         \\ 
+                           Tuned on $\rightarrow$ & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} \\ \hline
+    BART-base              & 0                                                                      & 16.54                                                            & 7.08                                                                & 0                                                                      & 5.93                                                             & 3.72                                                                & 0                                                                      & 2.06                                                             & 9.12                                                                \\ 
+    Ours       & 30.38                                                                  & \textbf{42.60}                                                   & 30.70                                                               & 9.50                                                                   & 11.65                                                            & \textbf{11.72}                                                      & 4.70                                                                   & 5.88                                                             & \textbf{10.29}                                                      \\ \hline
+    BART-large             & 0                                                                      & 16.97                                                            & 3.02                                                                & 0                                                                      & 4.07                                                             & 4.86                                                                & 0                                                                      & 1.76                                                             & 12.65                                                               \\ 
+    Ours      & 30.42                                                                  & \textbf{42.64}                                                   & 31.39                                                               & 9.50                                                                   & 12.15                                                            & \textbf{12.79}                                                      & 4.41                                                                   & 5.29                                                             & \textbf{15.29}                                                      \\ \hline
+    T5-base                & 0                                                                      & 21.26                                                            & 6.19                                                                & 0                                                                      & 6.22                                                             & 6.93                                                                & 0                                                                      & 4.41                                                             & 8.24                                                                \\
+    Ours        & 30.47                                                                  & \textbf{43.13}                                                   & 34.60                                                               & 9.44                                                                   & 14.44                                                            & \textbf{16.58}                                                      & 4.71                                                                   & 8.53                                                             & \textbf{10.59}                                                      \\ \hline
+    T5-large               & 0                                                                      & 22.36                                                            & 9.43                                                                & 0                                                                      & 11.15                                                            & 12.15                                                               & 0                                                                      & 7.06                                                             & 14.41                                                               \\ 
+    Ours       & 29.88                                                                  & \textbf{43.05}                                                   & 36.89                                                               & 9.44                                                                   & 18.94                                                            & \textbf{20.51}                                                      & 4.71                                                                   & 10.00                                                            & \textbf{15.88}                                                      \\ \hline
+    T5-large-ssm           & 0.57                                                                   & 23.66                                                            & 5.92                                                                & 0.42                                                                   & 21.44                                                            & 23.87                                                               & 0.50                                                                   & 19.71                                                            & 27.65                                                               \\ 
+    Ours    & 23.39                                                                  & \textbf{47.42}                                                   & 36.54                                                               & 9.72                                                                   & 26.02                                                            & \textbf{27.88}                                                      & 6.76                                                                   & 18.53                                                            & \textbf{28.24}                                                      \\ \hline
+    T5-large-ssm-nq        & 5.12                                                                   & 22.52                                                            & 4.34                                                                & 18.87                                                                  & 17.80                                                            & 19.23                                                               & 17.65                                                                  & 14.12                                                            & 23.24                                                               \\ 
+    Ours & 35.09                                                                  & \textbf{43.88}                                                   & 36.39                                                               & \textbf{27.52}                                                         & 25.38                                                            & 26.38                                                               & 22.94                                                                  & 14.12                                                            & \textbf{25.59}                                                      \\ \hline
+    T5-11b-ssm             & 1.81                                                                   & ---                                                              & ---                                                                 & 14.09                                                                  & ---                                                              & ---                                                                 & 20.88                                                                  & ---                                                              & ---                                                                 \\ 
+    Ours      & \textbf{25.84}                                                         & ---                                                              & ---                                                                 & \textbf{20.94}                                                         & ---                                                              & ---                                                                 & \textbf{24.71}                                                         & ---                                                              & ---                                                                 \\ \hline
+    T5-11b-ssm-nq          & 10.94                                                                  & ---                                                              & ---                                                                 & 33.38                                                                  & ---                                                              & ---                                                                 & 41.76                                                                  & ---                                                              & ---                                                                 \\ 
+    Ours  & \textbf{38.51}                                                         & ---                                                              & ---                                                                 & \textbf{38.31}                                                         & ---                                                              & ---                                                                 & \textbf{45.00}                                                         & ---                                                              & ---                                                                 \\ \hline
+    \end{tabular}
+    }
+\end{table*}
+
+
+Consistent with general observations in the field, larger models typically demonstrate superior performance. Within our experiments, T5 models, when enhanced by our suggested method, generally outperformed their BART counterparts. Crucially, however, across all evaluated T5 and BART models, the integration of ACT Selection resulted in a marked and consistent enhancement of the foundational Text-to-Text model's performance.
+
+Finally, Table~\ref{tab:act_selection:comparsion_hits1_sqwd} showcases a performance comparison between our suggested method and prominent KGQA systems. These include QAnswer~\cite{diefenbach2020towards}, a multilingual system that operates by transforming natural language questions into SPARQL queries; KEQA~\cite{Huang2019KnowledgeGE}, which leverages 200-dimensional TransE embeddings trained on Wikidata via the Pytorch-BigGraph (PTBG) framework~\cite{pbg}; and ChatGPT,\footnote{\url{https://openai.com/blog/chatgpt}} the widely recognized conversational AI model launched in late 2022 which has garnered significant global attention.
+% Further details about evaluating ChatGPT and other generative models through entity-linked predictions can be found in appendix~\ref{sec:appendix:eval_gen_model}.
+
+\begin{table}
+\caption{Comparsion of the ACT Selection with KGQA baselines in terms of Hits@1 for SimpleQuestion-Wikidata (SQWD) with T5-Large-ssm fine-tuned on its training part and T5-11b-ssm-nq in zero-shot mode.}
+\label{tab:act_selection:comparsion_hits1_sqwd}
+\centering
+    \begin{tabular}{lcc}
+    \hline
+    Model & SQWD & RuBQ en \\
+    \hline
+    QAnswer & 33.31 & 32.30 \\
+    KEQA TransE PTBG & \textbf{48.89} & 33.80 \\
+    % MEKER TransE PTBQ & 53.50 & 49.50 \\
+    ChatGPT & 15.32 & 36.53 \\ \hline
+    T5-Large-ssm (fine-tuned) & 23.66 & 21.44 \\ 
+    \text{Ours}: T5-Large-ssm (fine-tuned) & 47.42 & 26.02 \\ \hline 
+    T5-11b-ssm-nq (zero-shot) & 10.94 & 33.38 \\
+    \text{Ours}: T5-11b-ssm-nq (zero-shot) & 38.51 & \textbf{38.31} \\
+    \hline
+    \end{tabular}
+\end{table}
 
 \section{Results and Analysis: Demonstrating Factuality Improvements}
-\label{sec:candidate_generation_results}
+\label{sec:act_selection:results}
 % Comment: Present the quantitative results comparing your methods against baselines.
 
 \section{Chapter Summary}
-\label{sec:candidate_generation_summary}
+\label{sec:act_selection:summary}
 % Summary of answer candidate generation methods 
