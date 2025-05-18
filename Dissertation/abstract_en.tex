@@ -1,2 +1,10 @@
 \chapter*{Abstract}
-...
+The combination of Large Language Models (LLMs) and Knowledge Graphs (KGs) for Question Answering (KGQA) seeks to use LLM language skills and KG factual accuracy. However, LLMs often produce "hallucinations" (incorrect information) and their reasoning is not clear. This dissertation addresses these problems by offering and testing new methods for solid LLM-KG fusion to improve KGQA system accuracy, dependability, and control.
+
+Two main contributions are made. The first is Answer Candidate Type (ACT) Selection. This method improves answer generation by using an LLM's ability to predict an answer's semantic type, even if the initial factual answer is wrong. This type information, with KG type rules (like Wikidata's P31 'instance of'), helps filter and re-rank candidates. Experiments on datasets such as SimpleQuestions-Wikidata, RuBQ, and Mintaka show consistent Hits@1 gains for various LLMs (T5, BART), often beating standard models.
+
+The second key contribution is a system for controllable fusion using subgraph reranking. This method improves the factual correctness of LLM-generated answers by checking multiple candidates against evidence from KG subgraphs. These subgraphs link question entities to the candidates. The process includes extracting subgraphs, creating features from them (graph metrics, text features, Graph-to-Text versions), and using different ranking models. This consistently improves answer choice. To aid research in this area, the ShortPathQA dataset was created, offering questions with pre-made KG subgraphs.
+
+Practical systems, with API endpoints and a subgraph visualization tool, show these methods can be used in real applications. They serve as examples and tools for researchers.
+
+In summary, this dissertation provides new understanding of LLM-KG teamwork. It offers methods for more accurate, trustworthy, and understandable KGQA systems. These techniques improve factual grounding and support more controllable AI.

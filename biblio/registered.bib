@@ -168,10 +168,6 @@
     abstract = "Recent work in Graph-to-Text generation has achieved impressive results, but it still suffers from hallucinations in some cases, despite extensive pretraining stages and various methods for working with graph data. While the commonly used metrics for evaluating the quality of Graph-to-Text models show almost perfect results, it makes it challenging to compare different approaches. This paper demonstrates the challenges of recent Graph-to-Text systems in terms of hallucinations and proposes a simple yet effective approach to using a general LLM, which has shown state-of-the-art results and reduced the number of factual hallucinations. We provide step-by-step instructions on how to develop prompts for language models and a detailed analysis of potential factual errors in the generated text."
 }
 
-% The wollofing papers still need to be added cause of bibtex not ready (Papers accepted but not bublished):
-% * **ShortPathQA: A Dataset for Controllable Fusion of Large Language Models with Knowledge Graphs**
-% * *How Much Knowledge Can You Pack into a LoRA Adapter without Harming LLM?** 
-
 @inproceedings{DBLP:conf/nldb/SalnikovSPQA25,
   author       = {Mikhail Salnikov and
                   Andrey Sakhovskiy and
@@ -193,4 +189,26 @@
                   {NLDB} 2025, Turin, Italy, June 24-26, 2025, Proceedings, Part {II}},
   series       = {Lecture Notes in Computer Science},
   year         = {2025}
+}
+@inproceedings{pletenev-etal-2025-much,
+    title = "How Much Knowledge Can You Pack into a {L}o{RA} Adapter without Harming {LLM}?",
+    author = "Pletenev, Sergey  and
+      Marina, Maria  and
+      Moskovskiy, Daniil  and
+      Konovalov, Vasily  and
+      Braslavski, Pavel  and
+      Panchenko, Alexander  and
+      Salnikov, Mikhail",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Findings of the Association for Computational Linguistics: NAACL 2025",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-naacl.243/",
+    pages = "4309--4322",
+    ISBN = "979-8-89176-195-7",
+    abstract = "The performance of Large Language Models (LLMs) on many tasks is greatly limited by the knowledge learned during pre-training and stored in the model`s parameters. Low-rank adaptation (LoRA) is a popular and efficient training technique for updating or domain-specific adaptation of LLMs. In this study, we investigate how new facts can be incorporated into the LLM using LoRA without compromising the previously learned knowledge. We fine-tuned Llama-3.1-8B-instruct using LoRA with varying amounts of new knowledge. Our experiments have shown that the best results are obtained when the training data contains a mixture of known and new facts. However, this approach is still potentially harmful because the model`s performance on external question-answering benchmarks declines after such fine-tuning. When the training data is biased towards certain entities, the model tends to regress to few overrepresented answers. In addition, we found that the model becomes more confident and refuses to provide an answer in only few cases. These findings highlight the potential pitfalls of LoRA-based LLM updates and underscore the importance of training data composition and tuning parameters to balance new knowledge integration and general model capabilities."
 }

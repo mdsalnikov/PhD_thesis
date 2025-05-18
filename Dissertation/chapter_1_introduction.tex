@@ -1,132 +1,123 @@
 \chapter{Introduction}
 \label{chap:introduction}
 
-% 1.1 The Rise of LLMs and the Factuality Challenge
-\section{The Rise of LLMs and the Factuality Challenge}
-\label{sec:intro_factuality_challenge}
-% Comment: Start by establishing the context: the power and widespread use of LLMs. 
-% Then, critically introduce the central problem your thesis addresses – the inherent 
-% limitations of LLMs regarding factual accuracy, consistency, and tendency to 
-% hallucinate, particularly in knowledge-intensive tasks like Question Answering (QA). 
-% Briefly motivate why this is a critical research area.
+\section{Background and Relevance of the Work}
+\label{sec:intro:background}
+For a long time, a key goal in artificial intelligence has been to make machines that can understand and answer human questions using large collections of structured knowledge. Knowledge Graphs (KGs) are good for this because they can show how facts are connected, which helps give exact answers. The arrival of Large Language Models (LLMs) has changed this area a lot. LLMs are trained on huge amounts of text and are very good at understanding and creating language. They also store a lot of factual knowledge inside themselves. However, when we use LLMs for Knowledge Graph Question Answering (KGQA), they have some problems. A big problem is that they can create answers that sound good but are wrong. This is often called hallucination~\cite{lin-etal-2022-truthfulqa, DBLP:conf/emnlp/RobertsRS20, DBLP:journals/csur/JiLFYSXIBMF23, DBLP:journals/corr/abs-2401-01313}. Also, it is hard to understand how LLMs come up with their answers, so it's difficult to check if the answers are based on facts.
 
-Large Language Models~(LLMs), such as ChatGPT~\cite{DBLP:conf/nips/Ouyang0JAWMZASR22} and Mistral~\cite{DBLP:journals/corr/abs-2310-06825-mistral}, represent significant progress in natural language processing. Their ability to generate fluent and contextually relevant text has led to wide adoption across many applications, from content creation to sophisticated dialogue systems. However, despite this success, a major challenge remains: LLMs often produce factually incorrect statements, commonly referred to as \textit{hallucinations}~\cite{DBLP:journals/natmi/AugensteinBCCCCDFHHHJMM24}.
+Now that LLMs are used so much, KGs are even more important as a source of true, organized knowledge. LLMs are good at creating natural text and understanding general meanings. But they are not so good at handling facts that change often. They also have trouble adding new information without messing up the knowledge they already have. For example, LLMs alone often cannot answer comparative questions correctly if they do not have access to structured information, as shown in our work on the CAM 2.0 system~\cite{DBLP:conf/coling/ShalloufHSVMPBN24}. Our research in~\cite{pletenev-etal-2025-much} looked at the problems of adding new facts into LLMs using Low-rank Adaptation (LoRA). This study showed that using LoRA to add new knowledge can be harmful. The LLM might become worse at general question answering. This happens especially if the new knowledge is mostly about certain things. The LLM might then often give those overrepresented answers and be less likely to say when it's not sure. These results show that we really need good ways to combine the text-making skills of LLMs with the facts from KGs. We should not just try to update the LLM's own knowledge. This dissertation works on this problem. It offers and tests new methods for mixing LLMs and KGs better, to make KGQA systems more accurate and trustworthy.
 
-This issue of factuality is particularly critical in knowledge-intensive tasks like Question Answering~(QA). Users expect QA systems to provide accurate and reliable information. Yet, LLMs can generate plausible-sounding but false answers, potentially misleading users~\cite{lin-etal-2022-truthfulqa}. This tendency arises partly because models are trained on vast web data, which may contain noise and human misconceptions~\cite{lin-etal-2022-truthfulqa}. The risk of spreading misinformation, especially in sensitive areas like health or finance, makes improving LLM factuality an urgent research priority~\cite{DBLP:journals/natmi/AugensteinBCCCCDFHHHJMM24}. Early work in building practical QA systems, such as multilingual simple question answering demonstrators~\cite{DBLP:conf/acl/RazzhigaevSMBP23}, further highlighted the practical need for robust mechanisms to ensure answer correctness.
-
-The challenge lies not only in the generation of incorrect information but also in its detection. Recent research explores methods for evaluating and identifying hallucinations, such as sampling-based checks~\cite{manakul-etal-2023-selfcheckgpt}, cross-examination between models~\cite{cohen-etal-2023-lm}, and fine-grained atomic fact scoring~\cite{min-etal-2023-factscore}. These studies reveal that even state-of-the-art models struggle with factuality (e.g.,~\cite{min-etal-2023-factscore} report around 58\% accuracy for ChatGPT biographies). Interestingly, research like~\cite{lin-etal-2022-truthfulqa} suggests that simply scaling up model size does not guarantee improved truthfulness and may even worsen it, indicating that alternative strategies beyond scale are necessary.
-
-This thesis is motivated by this central problem of LLM factuality in QA. We argue that integrating external, structured knowledge sources, specifically Knowledge Graphs~(KGs), offers a promising direction. Early explorations focused on using KG structure to constrain LLM outputs, for instance, by guiding answer candidate type selection~\cite{DBLP:journals/corr/abs-2310-07008}. Subsequent work investigated more direct fusion methods, using KG path information to provide explicit factual grounding for LLM reasoning processes~\cite{DBLP:journals/corr/abs-2310-02166}. Addressing the factuality gap through such KG-LLM integration forms the core investigation of this work.
-
-% 1.2 Knowledge Graphs as External Grounding for LLMs
-\section{Knowledge Graphs as External Grounding for LLMs}
-\label{sec:intro_kg_grounding}
-% Comment: Introduce Knowledge Graphs (KGs) as structured, reliable sources of factual 
-% knowledge. Argue why leveraging KGs is a promising approach to mitigate the 
-% factuality issues identified in 1.1. Explain the core idea of using KGs to *ground* 
-% LLM responses or guide their generation process.
-
-% Introduce KGs: structured, reliable knowledge; contrast with unstructured data.
-% Based on general KG concepts and motivation common in KGQA literature e.g., \cite{DBLP:journals/aiopen/ZhangLFZ21}.
-To address the factuality limitations of LLMs outlined in Section~\ref{sec:intro_factuality_challenge}, we turn to external knowledge sources. Knowledge Graphs~(KGs), such as DBpedia~\cite{dbpedia} and Wikidata~\cite{wikidata}, represent factual information in a structured format, as triples (subject, predicate, object). Unlike the vast, often noisy, unstructured text data used to train LLMs, KGs are usually curated or semi-automatically constructed with a focus on accuracy and consistency~\cite{singhal2012introducing}. This structured nature makes KGs a more reliable source for verifiable facts, offering a way to explicitly ground LLM outputs.
-
-% Why KGs are suitable for grounding: Explicit facts, reduced ambiguity, verifiability.
-% Motivation derived from the core problem statement and the need for reliable facts discussed in user's papers.
-The core idea is that leveraging these external, structured facts can mitigate LLM hallucinations. Instead of relying solely on the model's internal, parametric knowledge (which can be incomplete or incorrect), we can provide the LLM with access to or guidance from verified KG facts during its generation process. This explicit grounding helps ensure that the generated text aligns with established factual knowledge, reducing the chance of fabricating information. Even simple QA systems benefit from this structured knowledge, as demonstrated in early multilingual QA demonstrators using KGs~\cite{DBLP:conf/acl/RazzhigaevSMBP23}.
-
-% How KGs ground LLMs: Overview of approaches.
-% General overview of KG+LLM integration methods, e.g., surveyed in \cite{DBLP:journals/tkde/PanLWCWW24}.
-Several approaches have emerged for integrating KGs with LLMs to enhance factuality. These methods vary in how and when the KG knowledge is utilized:
+\section{Dissertation Objectives}
+\label{sec:intro:objectives}
+This dissertation wants to create and test new ways to combine Large Language Models with Knowledge Graphs. The goal is to make Question Answering systems that are more accurate, dependable, and controllable. The main objectives are:
 \begin{itemize}
-    % RAG Approach: Definition and citation.
-    % Based on standard RAG definition \cite{DBLP:conf/nips/LewisPPPKGKLYR020-rag}.
-    \item \textbf{Retrieval-Augmented Generation~(RAG)}: In this paradigm, relevant facts or subgraphs are retrieved from the KG based on the input query during inference. This retrieved information is then used as context to condition the LLM's output generation~\cite{DBLP:conf/nips/LewisPPPKGKLYR020-rag}.
-    % KG-Enhanced Training/Fine-tuning: Definition.
-    % General concept, no specific single citation, but related to knowledge injection ideas.
-    \item \textbf{KG-Enhanced Training}: Structured knowledge from KGs can be incorporated during the pre-training or fine-tuning phases of the LLM. This aims to embed factual knowledge more directly into the model's parameters.
-    % KG Prompting: Definition and examples (MindMap).
-    % Based on MindMap paper \cite{wen-etal-2024-mindmap}.
-    \item \textbf{KG Prompting}: Specific prompts are designed to guide the LLM to utilize provided KG context effectively, sometimes revealing the reasoning path, as explored in methods like MindMap~\cite{wen-etal-2024-mindmap}.
-    % Path-based Fusion: Definition and examples (KELP, User's work).
-    % Based on KELP \cite{liu-etal-2024-knowledge-graph} and user's paper \cite{DBLP:journals/corr/abs-2310-02166}.
-    \item \textbf{Path-based Fusion}: Knowledge is extracted and integrated by selecting relevant paths in the KG, potentially matching latent semantics between the input text and KG paths~\cite{liu-etal-2024-knowledge-graph}. Our own work explores using explicit KG path information to provide factual evidence for the LLM during QA~\cite{DBLP:journals/corr/abs-2310-02166}.
-    % KG Constrained Generation: Definition and user's work.
-    % Based on user's paper \cite{DBLP:journals/corr/abs-2310-07008}.
-    \item \textbf{KG Constrained Generation}: Information from the KG, such as expected answer types derived from the query entities and relations, can be used to constrain the LLM's generation process, reducing the space of possible (and potentially incorrect) outputs~\cite{DBLP:journals/corr/abs-2310-07008}.
+    \item To make better answer candidates in KGQA. We can do this by using the LLMs' ability to understand meaning, together with specific type rules from KGs. This includes creating a method called Answer Candidate Type (ACT) Selection. This method predicts the likely semantic type of an answer. It then uses this type to filter and improve candidate answers (Chapter~\ref{chap:act_selection} has more details).
+    \item To facilitate controllable and standardized community research on the fusion of Knowledge Graphs (KGs) and Large Language Models (LLMs) for KGQA, through the development and public release of the \texttt{ShortPathQA} dataset. This resource provides pre-computed KG subgraphs, allowing researchers to concentrate on fusion methodologies rather than complex KG processing tasks (as introduced in Chapter~\ref{sec:controllable_fusion:dataset}).
+    \item To make LLM-generated answers more factually correct and controllable. We can do this by creating a system to re-rank candidate answers. This system uses structural proof from KG subgraphs. This includes finding important subgraphs that connect question entities to LLM-generated candidates. It also includes getting different features from these subgraphs and using various rankers to choose candidates that have stronger KG-based proof (Chapter~\ref{chap:controllable_fusion} has more details).
 \end{itemize}
 
-% Connect to thesis goal: This work focuses on specific fusion/grounding methods.
-% Links the general discussion back to the specific focus of the thesis, based on user's contributions.
-This thesis focuses specifically on methods for controllable fusion of LLMs with KGs, primarily leveraging KG path information and structural constraints (as explored in~\cite{DBLP:journals/corr/abs-2310-07008, DBLP:journals/corr/abs-2310-02166}) to improve factual accuracy in Question Answering. The subsequent chapters will detail these methods and evaluate their effectiveness in grounding LLM responses.
-
-% 1.3 Research Questions and Objectives
-\section{Research Questions and Objectives}
-\label{sec:intro_research_questions}
-% Comment: Formulate the specific, answerable research questions that drive your thesis. 
-% Examples: "How can KG path information be effectively integrated with LLMs to improve 
-% factoid QA accuracy?", "How can we design datasets and benchmarks to specifically 
-% evaluate controllable KG-LLM fusion?", "What are the practical considerations for 
-% building systems that leverage KG-LLM integration?". Clearly state the objectives 
-% your work aims to achieve.
-
-% Introduction to RQs and Objectives based on the identified gap.
-Based on the identified challenges of LLM factuality (Section~\ref{sec:intro_factuality_challenge}) and the potential of KGs as a grounding mechanism (Section~\ref{sec:intro_kg_grounding}), this thesis aims to investigate how the integration of KGs can enhance the factual accuracy and controllability of LLMs, particularly for Question Answering tasks. To guide this investigation, we formulate the following research questions~(RQs):
-
+\section{Scientific Novelty}
+\label{sec:intro:novelty}
+The new scientific ideas in this dissertation are in creating and testing new ways to mix LLMs and KGs. These ways help solve important problems in KGQA:
 \begin{enumerate}
-    % RQ1: How can KG structural information (e.g., types) constrain LLMs?
-    % Derived from paper DBLP:journals/corr/abs-2310-07008 (Answer Type Selection).
-    \item[RQ1:] How can structural information derived from KGs, such as answer entity types, be effectively utilized to constrain the generation process of LLMs and reduce the likelihood of factual errors in closed-book QA?
-    
-    % RQ2: How can explicit KG path information be fused with LLMs for factoid QA?
-    % Derived from paper DBLP:journals/corr/abs-2310-02166 (LLM+KG Fusion) and ShortPathQA concept.
-    \item[RQ2:] What are effective mechanisms for fusing explicit Knowledge Graph path information with Large Language Models to provide verifiable evidence and improve factual accuracy for factoid Question Answering?
-    
-    % RQ3: How to evaluate the controllability of KG-LLM integration and verify that factoid question answers are correct?
-    % Derived from evaluation criteria in the ShortPathQA papers (NLDB___ShortpathQA.pdf, 2024.lrec-main.238.pdf) and the TextGraphs shared task (2024.textgraphs-1.9.pdf).
-    \item[RQ3:] How can specialized benchmarks and evaluation protocols be designed to assess whether the controllability of KG-LLM fusion approaches effectively ensures the correctness of factoid question responses?
-
-    % RQ4: Practical considerations for building KG-LLM QA systems?
-    % Derived from system demo paper DBLP:conf/acl/RazzhigaevSMBP23 and potentially comparative QA system DBLP:conf/coling/ShalloufHSVMPBN24.
-    \item[RQ4:] What are the key architectural considerations and practical challenges in developing end-to-end Question Answering systems that effectively leverage KG-LLM integration, including aspects like multilingual support or handling complex question types?
+    \item \textbf{New Answer Candidate Typing and Selection:} The Answer Candidate Type~(ACT) Selection method (Chapter~\ref{chap:act_selection}, \cite{DBLP:journals/corr/abs-2310-07008}) is a new way to improve KGQA. It is special because it combines an LLM's skill to guess the semantic type of an answer with the clear type information from a KG (for example, Wikidata's P31 `instance of' property). This type-based checking of LLM-generated candidates works like a strong filter and scoring tool. It greatly improves the quality of candidate answers, even if the LLM first gives the wrong answer but gets its type right.
+    \item \textbf{Controllable Fusion via Subgraph Reranking:} This work proposes a novel framework for improving the factuality of LLM outputs by reranking answer candidates based on structural evidence from KG subgraphs (Chapter~\ref{chap:controllable_fusion}, \cite{DBLP:journals/corr/abs-2310-02166}). The novelty lies in:
+    \begin{itemize}
+        \item The systematic extraction of relevant KG subgraphs connecting question entities to multiple LLM-generated answer candidates.
+        \item The comprehensive feature engineering from these subgraphs, encompassing graph-theoretic metrics (e.g., PageRank, Katz centrality, density), textual features (question-answer concatenation), and various Graph2Text (G2T) sequence representations (Deterministic, T5-based, and GAP-based).
+        \item The application and comparative analysis of diverse ranking models (from simple regression to neural rankers like MPNet) to effectively utilize these multi-modal subgraph features for promoting factually grounded answers.
+    \end{itemize}
+    \item \textbf{Creation of a Specialized Evaluation Resource (ShortPathQA):} The development and publication of the \texttt{ShortPathQA} dataset (Chapter~\ref{sec:controllable_fusion:dataset}, \cite{DBLP:conf/nldb/SalnikovSPQA25}) is a significant novel contribution. This dataset directly supports the research on Controllable Fusion via Subgraph Reranking presented in this dissertation and aims to foster further community exploration of such methods. As the first QA resource offering pre-computed KG subgraphs, \texttt{ShortPathQA} allows researchers to focus on the core tasks of subgraph reasoning and reranking. This isolates these tasks from the complexities of upstream entity linking and large-scale KG processing, thereby facilitating more targeted evaluation and development of controllable fusion techniques.
 \end{enumerate}
 
-% Objectives aligned with RQs.
-To address these research questions, this thesis pursues the following objectives:
+\section{Theoretical and Practical Significance}
+\label{sec:intro:significance}
+The research presented in this dissertation holds both theoretical and practical significance for the fields of Natural Language Processing and Artificial Intelligence, particularly in the domain of Knowledge Graph Question Answering.
 
+Theoretically, this work contributes to a deeper understanding of how the complementary strengths of LLMs (which are good at semantic understanding and fluency) and KGs (which provide structured factual knowledge and verifiability) can be synergistically combined. It explores specific mechanisms for this fusion, moving beyond simple retrieval augmentation towards more nuanced methods of candidate refinement and evidence-based reranking. The investigation into type-based filtering (ACT Selection) sheds light on the implicit semantic knowledge captured by LLMs and how it can be explicitly leveraged in conjunction with KG schema for improved reasoning. The study of subgraph-based reranking contributes to theories of evidence-based reasoning in QA, demonstrating how structural path information in KGs can serve as a robust signal for factuality and control in LLM outputs. Furthermore, the creation of the \texttt{ShortPathQA} dataset facilitates more focused theoretical explorations into subgraph reasoning by providing a standardized benchmark.
+
+Practically, the methodologies developed, particularly ACT Selection and subgraph-based reranking, offer practical pathways to improve the factual accuracy and reliability of QA systems. This is crucial for real-world applications where incorrect information can have significant consequences. By making LLM outputs more controllable and grounded in verifiable KG facts, this research contributes to building more trustworthy AI systems. The ability to trace an answer back to KG evidence, as facilitated by subgraph analysis, enhances interpretability. The ACT Selection method offers a resource-efficient strategy to boost the performance of even smaller LLMs, making high-quality KGQA more accessible when computational resources are constrained. The \texttt{ShortPathQA} dataset provides a valuable, ready-to-use resource for other researchers and practitioners, lowering the barrier to entry for developing and evaluating LLM-KG fusion techniques without the need for extensive KG infrastructure setup. Finally, the system demonstrations (Chapter~\ref{chap:system_demos}), including API endpoints and visualization tools, provide tangible proofs-of-concept and reusable components for building advanced KGQA applications.
+
+\section{Research Methodology}
+\label{sec:intro:methodology}
+The research in this dissertation employs a multifaceted methodology combining theoretical development with empirical experimentation and system implementation.
 \begin{enumerate}
-    % Objective 1: Develop and evaluate KG-constrained LLM methods (Answer Type Selection).
-    % Corresponds to RQ1 and paper DBLP:journals/corr/abs-2310-07008.
-    \item[O1:] To develop and evaluate methods that leverage KG structure, specifically answer type prediction, to constrain LLM generation for improved factuality in QA settings~\cite{DBLP:journals/corr/abs-2310-07008}.
-    
-    % Objective 2: Design and evaluate KG path fusion mechanisms.
-    % Corresponds to RQ2 and paper DBLP:journals/corr/abs-2310-02166.
-    \item[O2:] To design, implement, and experimentally validate novel fusion techniques that integrate explicit KG path representations directly into the LLM reasoning process for factoid QA~\cite{DBLP:journals/corr/abs-2310-02166}.
-    
-    % Objective 3: Create the ShortPathQA benchmark.
-    % Corresponds to RQ3 and ShortPathQA dataset/TextGraphs work.
-    \item[O3:] To construct and release a benchmark dataset (ShortPathQA) specifically designed for the task of controllable KG-LLM fusion in QA, facilitating standardized evaluation and comparison of methods~\cite{sakhovskiy-etal-2024-textgraphs}. % TODO: Add citation for ShortPathQA dataset paper when available
-
-    % Objective 4: Demonstrate feasibility through system prototypes.
-    % Corresponds to RQ4 and system papers DBLP:conf/acl/RazzhigaevSMBP23, DBLP:conf/coling/ShalloufHSVMPBN24.
-    \item[O4:] To demonstrate the practical applicability of the proposed KG-LLM integration approaches through the development and analysis of prototype QA systems~\cite{DBLP:conf/acl/RazzhigaevSMBP23, DBLP:conf/coling/ShalloufHSVMPBN24}.
+    \item \textbf{Literature Review and Problem Formulation:} The work begins with a comprehensive review of existing research in KGQA, LLMs, and LLM-KG fusion strategies (Chapter~\ref{chap:related_work}) to identify gaps and formulate precise research questions.
+    \item \textbf{Method Development - ACT Selection (Chapter~\ref{chap:act_selection}):}
+    \begin{itemize}
+        \item Observation of LLM behavior regarding answer type prediction, even in cases of factual error.
+        \item Design of a pipeline that:
+            \item Generates initial answer candidates using LLMs (e.g., T5, BART with Diverse Beam Search).
+            \item Employs multilingual entity linking (e.g., mGENRE) to connect question and candidate entities to Wikidata.
+            \item Infers the expected answer type using the LLM and aggregates type information from KG `instance-of` relations.
+            \item Ranks candidates using a weighted scoring mechanism incorporating type scores, KG neighborhood scores, LLM generation scores, and question-property similarity.
+    \end{itemize}
+    \item \textbf{Method Development - Controllable Fusion via Subgraph Reranking (Chapter~\ref{chap:controllable_fusion}):}
+    \begin{itemize}
+        \item Hypothesis that KG path-based evidence can improve LLM answer factuality.
+        \item Design of a reranking pipeline that:
+            \item Generates multiple answer candidates from LLMs using Diverse Beam Search.
+            \item Extracts KG subgraphs (shortest paths) connecting question entities to each candidate answer using Wikidata.
+            \item Engineers diverse features from these subgraphs:
+                \item Graph features: number of nodes/edges, cycles, bridges, average shortest path, density, Katz centrality, PageRank.
+                \item Text features: concatenation of question and answer, encoded with MPNet.
+                \item Graph2Text (G2T) features: using Deterministic linearization, T5-based G2T, and GAP-based G2T models, often with question context and answer highlighting.
+            \item Employs and compares various reranking models: semantic (MPNet cosine similarity), regression (Linear, Logistic), gradient boosting (CatBoost), and neural (MPNet with regression head).
+    \end{itemize}
+    \item \textbf{Dataset Creation (ShortPathQA - Chapter~\ref{chap:controllable_fusion}):}
+    \begin{itemize}
+        \item Addressing the need for a focused benchmark for subgraph-based reasoning.
+        \item Collection of questions from Mintaka (filtered for entity answers) and manual curation of new complex questions.
+        \item Generation of answer candidates using LLMs.
+        \item Unified shortest path subgraph extraction from Wikidata for all question-candidate pairs.
+        \item Publication of the dataset with questions, candidates, and pre-computed subgraphs.
+    \end{itemize}
+    \item \textbf{Experimental Evaluation:}
+    \begin{itemize}
+        \item Utilization of established KGQA datasets (SQWD, RuBQ, Mintaka) and the newly created ShortPathQA.
+        \item Fine-tuning of LLMs (T5, BART, spaCy NER models) on relevant training splits.
+        \item Evaluation metrics appropriate for the tasks: Hits@1 for factoid accuracy in ACT Selection and ShortPathQA classification; Hits@N (N=1,2,3) and F1-score for reranking performance in controllable fusion and ShortPathQA.
+        \item Ablation studies to assess the contribution of individual components and feature sets.
+        \item Error analysis to understand model behavior and the corrective capabilities of the proposed methods.
+        \item Comparison against strong baselines, including standalone LLMs (e.g., ChatGPT) and existing KGQA systems.
+    \end{itemize}
+    \item \textbf{System Implementation and Demonstration (Chapter~\ref{chap:system_demos}):}
+    \begin{itemize}
+        \item Development of practical system pipelines (baseline Seq2Seq, M3M, ACT Selection) using Python, FastAPI, PyTorch, HuggingFace Transformers, spaCy, etc.
+        \item Creation of a subgraph visualization tool using web technologies (HTML, JavaScript, D3.js) to support research and provide interactive exploration.
+    \end{itemize}
 \end{enumerate}
 
-% Comment: Add RQ5/O5 related to LoRA paper (2502.14502v3.pdf) if desired, perhaps focusing on comparing internal vs. external knowledge integration effectiveness.
+\section{Validation of Research Results and Reliability}
+\label{sec:intro:validation}
+The research findings presented in this dissertation are validated through rigorous empirical evaluation on multiple standard benchmark datasets and newly created resources. The reliability of the results is ensured by:
+\begin{itemize}
+    \item \textbf{Standardized Datasets and Metrics:} For the ACT Selection method (Chapter~\ref{chap:act_selection}), evaluations were performed on three Wikidata-based one-hop KGQA datasets: SimpleQuestions-Wikidata (SQWD), RuBQ (English translations), and a subset of Mintaka (one-hop English questions). The primary metric was Hits@1, which directly measures the accuracy of the top-ranked answer.
+    \item For the controllable fusion methods (Chapter~\ref{chap:controllable_fusion}), experiments were conducted on the Mintaka dataset (excluding count and yes/no questions) and the newly introduced ShortPathQA dataset. Evaluation metrics included Hits@N (N=1, 2, 3) to assess the reranker's ability to position the correct answer within the top N candidates, and F1-score for binary classification tasks on ShortPathQA.
+    \item \textbf{Comparison with Baselines:} The performance of the proposed methods was consistently compared against various baselines.
+        \item In ACT Selection, comparisons included the base Text-to-Text models (T5 and BART variants, both zero-shot and fine-tuned) without ACT, specialized KGQA systems like QAnswer and KEQA, and large conversational models like ChatGPT.
+        \item In controllable fusion, baselines included initial LLM predictions (T5-Large-SSM, T5-XL-SSM, Mistral, Mixtral), random ranking, semantic reranking, and simpler regression-based models before evaluating more complex neural rankers. For ShortPathQA, comparisons included zero-shot LLMs (GPT-4o, LLaMA3-8b-Instruct) and supervised models (MPNet, fine-tuned LLaMA3-8b-Instruct).
+    \item \textbf{Ablation Studies:} Comprehensive ablation studies were conducted (e.g., Table~\ref{tab:act_selection:ablation_study} for ACT Selection, and analyses in Chapter~\ref{chap:controllable_fusion} for feature set combinations) to assess the individual contributions of different components of the proposed frameworks (e.g., different scoring mechanisms, feature types). This helps to isolate the impact of novel elements.
+    \item \textbf{Error Analysis:} Qualitative error analysis was performed (e.g., in Chapter~\ref{chap:act_selection} and for G2T methods in Chapter~\ref{chap:controllable_fusion}) to understand specific instances where the proposed methods succeed or fail, providing deeper insights beyond aggregate metrics. For example, ACT Selection demonstrated an ability to predict correct answer types in 94\% of instances for T5-Large-SSM on SQWD, a significant improvement over the 61\% baseline. The G2T analysis highlighted T5's superior factual accuracy over GAP in preserving entity information.
+    \item \textbf{Cross-Model and Cross-Dataset Evaluation:} The proposed methods were evaluated across different LLM architectures (T5, BART, Mistral, Mixtral) and sizes, and across multiple datasets with varying characteristics, demonstrating the robustness and generalizability of the findings. For example, ACT Selection consistently improved performance across all tested base models and datasets. The subgraph reranking methods also showed consistent Hits@1 improvements across different LLMs.
+    \item \textbf{Statistical Significance and Reproducibility:} While not always explicitly stated as statistical significance tests, the consistent and considerable margins of improvement over baselines across multiple setups suggest meaningful results. The publication of code (e.g., M3M pipeline, ShortPathQA dataset and code) and detailed experimental setups (hyperparameters, model versions) supports reproducibility. For the \texttt{ShortPathQA} dataset, a manual test set was curated with multiple annotators, achieving a Cohen's kappa of 0.81 for question type and an average quality score of 4.81/5, ensuring data quality.
+\end{itemize}
+These measures collectively ensure that the conclusions drawn are well-supported by empirical evidence and that the proposed methods offer reliable improvements in KGQA.
 
-% 1.4 Summary of Contributions
-\section{Summary of Contributions}
-\label{sec:intro_contributions}
-% Comment: Provide a high-level overview of your main contributions, referencing the key 
-% papers. Highlight the development of novel KG-LLM fusion methods (from "Answer 
-% Candidate Type Selection...", "Large Language Models Meet KGs...", extended in 
-% "ShortPathQA..."), the creation of the "ShortPathQA" dataset and its role in the 
-% TextGraphs shared task, insights from system building ("A System for Answering Simple 
-% Questions..."), and potentially findings from related explorations ("How Much 
-% Knowledge Can You Pack...", "CAM 2.0..."). Emphasize the novelty and 
-% significance of your work.
+\section{Approbation of the Work and Publications}
+\label{sec:intro:approbation}
+The research presented in this dissertation has been disseminated through peer-reviewed publications in international conferences and journals, and through participation in shared tasks and system demonstrations. The key contributions have been presented to and validated by the scientific community.
 
+The publications by the author that form the basis of or are related to this dissertation are:
+\begin{itemize}
+    \item Anton Razzhigaev*, \textbf{Mikhail Salnikov*}, Valentin Malykh, Pavel Braslavski, and Alexander Panchenko. (2023). A System for Answering Simple Questions in Multiple Languages. \textit{Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics: System Demonstrations}.
+    \item \textbf{Mikhail Salnikov}, Maria Lysyuk, Pavel Braslavski, Anton Razzhigaev, Valentin Malykh, and Alexander Panchenko. (2023). Answer Candidate Type Selection: Text-to-Text Language Model for Closed Book Question Answering Meets Knowledge Graphs. \textit{arXiv preprint arXiv:2310.07008}.
+    \item \textbf{Mikhail Salnikov}, Hai Le, Prateek Rajput, Irina Nikishina, Pavel Braslavski, Valentin Malykh, and Alexander Panchenko. (2023). Large Language Models Meet Knowledge Graphs to Answer Factoid Questions. \textit{arXiv preprint arXiv:2310.02166}.
+    \item Andrey Sakhovskiy*, \textbf{Mikhail Salnikov*}, Irina Nikishina, Aida Usmanova, Angelie Kraft, Cedric Möller, Debayan Banerjee, Junbo Huang, Longquan Jiang, Rana Abdullah, Xi Yan, Dmitry Ustalov, Elena Tutubalina, Ricardo Usbeck, and Alexander Panchenko. (2024). TextGraphs 2024 Shared Task on Text-Graph Representations for Knowledge Graph Question Answering. \textit{Proceedings of TextGraphs-17: Graph-based Methods for Natural Language Processing}.
+    \item \textbf{Mikhail Salnikov*}, Andrey Sakhovskiy*, Irina Nikishina, Aida Usmanova, Angelie Kraft, Cedric Möller, Debayan Banerjee, Junbo Huang, Longquan Jiang, Rana Abdullah, Xi Yan, Elena Tutubalina, Ricardo Usbeck, and Alexander Panchenko. (2025). ShortPathQA: A Dataset for Controllable Fusion of Large Language Models with Knowledge Graphs. In \textit{Natural Language Processing and Information Systems - 30th International Conference on Applications of Natural Language to Information Systems, NLDB 2025}.
+    \item Ahmad Shallouf*, Hanna Herasimchyk*, \textbf{Mikhail Salnikov*}, Rudy Alexandro Garrido Veliz*, Natia Mestvirishvili*, Alexander Panchenko, Chris Biemann, and Irina Nikishina. (2024). CAM 2.0: End-to-End Open Domain Comparative Question Answering System. \textit{Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation}.
+    \item Maria Lysyuk, \textbf{Mikhail Salnikov}, Pavel Braslavski, and Alexander Panchenko. (2024). Konstruktor: A Strong Baseline for Simple Knowledge Graph Question Answering. \textit{arXiv preprint arXiv:2409.15902}.
+    \item Dmitrii Iarosh, Alexander Panchenko, and \textbf{Mikhail Salnikov}. (2025). On Reducing Factual Hallucinations in Graph-to-Text Generation Using Large Language Models. In \textit{Proceedings of the Workshop on Generative AI and Knowledge Graphs (GenAIK)}.
+    \item Sergey Pletenev, Maria Marina, Daniil Moskovskiy, Vasily Konovalov, Pavel Braslavski, Alexander Panchenko, and \textbf{Mikhail Salnikov}. (2025). How Much Knowledge Can You Pack into a LoRA Adapter without Harming LLM?. In \textit{Findings of the Association for Computational Linguistics: NAACL 2025}.
+\end{itemize}
 
-% 1.5 Thesis Outline
-\section{Thesis Outline}
-\label{sec:intro_outline}
-% Comment: Briefly guide the reader through the structure of the subsequent chapters. 
