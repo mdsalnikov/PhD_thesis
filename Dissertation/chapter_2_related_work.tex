@@ -1,48 +1,149 @@
 \chapter{Background and Related Work}
 \label{chap:related_work}
 
-% 2.1 Large Language Models for Question Answering
-\section{Large Language Models for Question Answering}
-\label{sec:rw_llms_qa}
-% Comment: Provide necessary background on LLMs (architectures like Transformers, 
-% pre-training/fine-tuning paradigms) and their application to various QA formats 
-% (e.g., extractive, abstractive, open-domain, closed-book). Discuss limitations 
-% relevant to factuality.
+Knowledge Graph Question Answering (KGQA) is a research area in artificial intelligence that focuses on enabling systems to answer natural language questions using structured knowledge bases. This has been a long-standing goal in AI. Knowledge Graphs (KGs), with their richly interconnected factual data, provide a solid foundation for delivering precise answers to a wide range of queries. The advent of Large Language Models (LLMs) has significantly transformed the KGQA landscape. These models, pre-trained on large volumes of text, demonstrate significant capabilities in language understanding and generation, and implicitly store substantial factual knowledge within their parameters. However, the effective use of LLMs for KGQA requires addressing their inherent limitations, such as a tendency to generate factually incorrect information ("hallucinations") and their often opaque reasoning processes.
 
+This dissertation investigates novel methods for integrating LLMs with KGs to develop KGQA systems with improved accuracy, reliability, and controllability. Specifically, our research proceeds in two main directions: (1) enhancing answer candidate generation by combining an LLM's understanding of semantic types with explicit type constraints from KGs (detailed in Chapter~\ref{chap:act_selection}), and (2) improving answer factuality by reranking LLM-generated candidates using features derived from KG subgraphs that represent relational paths between question entities and potential answers (detailed in Chapter~\ref{chap:controllable_fusion}). Furthermore, to support research in the latter area, this work introduces the \texttt{ShortPathQA} dataset, designed for the focused evaluation of subgraph-based reasoning and reranking techniques.
 
-% 2.2 Knowledge Graphs and Semantic Technologies
-\section{Knowledge Graphs and Semantic Technologies}
-\label{sec:rw_kgs}
-% Comment: Explain foundational concepts of KGs (nodes, edges, triples), 
-% representation standards (RDF, OWL), query languages (SPARQL), and prominent public 
-% KGs (Wikidata, DBpedia).
+This chapter provides a comprehensive overview of the research areas relevant to these contributions. We begin by defining Knowledge Graphs and discussing their importance, with a particular focus on Wikidata, the primary KG used in our research (Section~\ref{sec:rw_kg_fundamentals}). Next, we introduce Large Language Models, outlining their architecture, capabilities, and limitations relevant to QA (Section~\ref{sec:rw_llm_fundamentals_qa}). We then survey traditional KGQA methodologies (Section~\ref{sec:rw_traditional_kgqa}). A significant portion of this chapter is dedicated to the key area of LLM-KG fusion (Section~\ref{sec:rw_fusion_strategies}), where we analyze existing approaches and position the novel methods developed in this thesis. We also discuss specialized QA contexts important for our work: factoid questions and multilingual KGQA (Section~\ref{sec:rw_specialized_kgqa}). Finally, we review existing KGQA datasets and explain the need for specialized resources like our proposed \texttt{ShortPathQA} dataset (Section~\ref{sec:rw_datasets_shortpathqa}).
 
+\section{Knowledge Graph}
+\label{sec:rw_kg_fundamentals}
 
-% 2.3 Knowledge Graph Question Answering (KGQA)
-\section{Knowledge Graph Question Answering (KGQA)}
-\label{sec:rw_kgqa}
-% Comment: Review traditional KGQA methods that predate heavy LLM integration (e.g., 
-% semantic parsing to SPARQL, embedding-based methods). You could briefly mention 
-% "Konstruktor" here as an example of a simple baseline KGQA system, positioning it 
-% relative to the more complex LLM-integrated approaches you focus on later.
+Knowledge Graphs (KGs) are data structures for organizing, representing, and querying structured knowledge, thereby enabling a wide range of intelligent applications. A KG formally represents factual information as a collection of interconnected entities and their relationships. Entities represent real-world objects (e.g., "Paris," "Leonardo da Vinci"), abstract concepts (e.g., "democracy," "love"), or events. Relationships (also called predicates or properties) describe how these entities are connected (e.g., "capital of," "directed by"). KGs can also include attributes, which are properties describing entities (e.g., the population of a city).
 
+The basic unit of a KG is typically a triple, expressed as (subject, predicate, object), or (head entity, relation, tail entity). For example, the fact "Paris is the capital of France" can be represented as the triple (\texttt{Paris}, \texttt{isCapitalOf}, \texttt{France}). These triples form a directed, labeled graph where entities are nodes and relations are typed edges. The set of all unique predicates, along with rules governing how entities and relations can be combined (e.g., type constraints for subjects and objects of a particular predicate), constitutes the KG's schema or ontology. Common formalisms for representing KGs include the Resource Description Framework (RDF), and SPARQL is a standard query language for RDF-based KGs.
 
-% 2.4 Integrating Large Language Models and Knowledge Graphs
-\section{Integrating Large Language Models and Knowledge Graphs}
-\label{sec:rw_llm_kg_integration}
-% Comment: This is a key section. Survey the existing literature on combining LLMs and 
-% KGs. Categorize different approaches (e.g., KG-augmented retrieval, using LLMs to 
-% generate KG queries, using KGs to verify/rerank LLM outputs, joint modeling). 
-% Position your work within this landscape, highlighting how your methods (especially 
-% the controllable fusion approach) differ from or improve upon prior work. Mention 
-% the "How Much Knowledge Can You Pack..." paper here to contrast external KG 
-% integration with internal knowledge packing via adapters like LoRA.
+The conceptual origins of KGs can be traced to earlier formalisms like semantic networks and ontologies. The modern development of KGs was significantly driven by initiatives such as Google's Knowledge Graph, introduced in 2012. This initiative improved search capabilities by understanding the context and relationships between entities, shifting from keyword-based to entity-based search paradigms~\cite{singhal2012introducing}. While proprietary KGs like Google's are not publicly accessible for research, their success has spurred the development and adoption of open KGs.
 
+Several notable open KGs serve as crucial resources for research and applications:
+\begin{itemize}
+    \item \textbf{DBpedia}: Launched as a community-driven effort, DBpedia extracts structured information from Wikipedia infoboxes and other content, representing it as an RDF graph~\cite{DBLP:journals/ws/BizerLKABCH09, DBLP:conf/semweb/AuerBKLCI07}.
+    \item \textbf{Wikidata}: Initiated by the Wikimedia Foundation, Wikidata serves as a free, collaborative, and multilingual knowledge base that supports Wikipedia, its sister projects, and the broader public~\cite{DBLP:journals/cacm/VrandecicK14}. Wikidata is a vast, general-purpose KG, encompassing millions of items (entities) and a diverse range of properties and attributes. Its multilingual nature (supporting hundreds of languages for labels, descriptions, and aliases), rich schema (e.g., property P31 "instance of" for typing), and comprehensive coverage make it an invaluable resource for global information access and KGQA research.
+\end{itemize}
 
-% 2.5 Related QA Tasks: Multilingual and Comparative QA
-\section{Related QA Tasks: Multilingual and Comparative QA}
-\label{sec:rw_related_qa}
-% Comment: Briefly discuss related work specifically in multilingual QA (context for "A 
-% System for Answering Simple Questions...") and comparative QA (context for "CAM 
-% 2.0..."). Explain how insights or techniques from these areas relate to your core 
-% focus on factoid QA with KGs. 
+This thesis primarily uses \textbf{Wikidata} due to its extensive coverage, multilingual support, open accessibility, and rich semantic structure (e.g., widespread use of "instance of" relations for entity typing). The inherent complexity, richness of schema, irregularities (e.g., evolving schema, varying data quality), and sheer size of large-scale KGs like Wikidata present significant challenges for KGQA systems~\cite{DBLP:conf/akbc/0016P0022}. These challenges include handling schema diversity (many entity and relation types), addressing data incompleteness and inconsistencies, and efficiently querying and reasoning over massive graph structures. Understanding these characteristics is crucial for developing robust and scalable KGQA solutions, which is a core aspect of the research presented in subsequent chapters.
+
+\section{Large Language Models: Role in Question Answering}
+\label{sec:rw_llm_fundamentals_qa}
+
+Large Language Models (LLMs) are a class of artificial intelligence models that have demonstrated significant capabilities in understanding, generating, and manipulating human language. They are typically based on the Transformer architecture~\cite{DBLP:conf/nips/VaswaniSPUJGKP17}, which uses self-attention mechanisms to process sequences of text, allowing the model to weigh the importance of different words when interpreting or generating language.
+
+LLMs are "large" due to two main factors: the immense size of the datasets they are trained on (often encompassing a significant portion of publicly available internet text, books, and other sources) and the vast number of parameters they contain (ranging from hundreds of millions to trillions). The training process usually involves two main stages:
+\begin{itemize}
+    \item \textbf{Pre-training}: In this stage, the model learns general language patterns, grammar, factual knowledge, and some reasoning capabilities by being trained on a self-supervised task, such as predicting the next word in a sentence or filling in masked words. This computationally intensive phase provides the LLM with a broad, implicit understanding of language and the world. The knowledge acquired during pre-training is stored parametrically within the model's weights.
+    \item \textbf{Fine-tuning}: After pre-training, LLMs can be adapted for specific downstream tasks (e.g., question answering, text summarization, translation) by further training them on smaller, task-specific datasets. This process refines the model's capabilities for the target application. Instruction tuning, a form of fine-tuning where models are trained on examples of instructions and their desired outputs, has become particularly popular for enhancing LLM controllability and performance on diverse tasks~\cite{DBLP:journals/corr/abs-2210-11416}.
+\end{itemize}
+
+LLMs possess several strengths that make them powerful tools for Natural Language Processing (NLP):
+\begin{itemize}
+    \item \textbf{Language Understanding and Generation}: They exhibit a sophisticated grasp of syntax, semantics, and context, enabling them to generate coherent, fluent, and contextually relevant text.
+    \item \textbf{Implicit Knowledge Storage}: Through pre-training, LLMs memorize a vast amount of factual information present in their training data, effectively acting as implicit knowledge bases~\cite{petroni-etal-2019-language}. Early research indicated that even relatively smaller Pre-trained Language Models (PLMs) like BERT capture relational knowledge without explicit QA fine-tuning~\cite{petroni-etal-2019-language}.~\cite{DBLP:conf/emnlp/RobertsRS20} (further detailed in~\cite{DBLP:journals/jmlr/RaffelSRLNMZLL20-t5ssm}) extensively explored using the T5 model~\cite{DBLP:journals/corr/abs-1910-10683} as a closed-book, open-domain QA system, where the LLM generates answers given only the question, without external knowledge at inference. Techniques such as "salient span masking" (SSM)~\cite{DBLP:journals/corr/abs-1910-10683} were used to promote factual memorization.
+    \item \textbf{Few-shot/Zero-shot Learning}: Larger LLMs can often perform new tasks with very few examples (few-shot) or even no examples (zero-shot), simply by being prompted with a description of the task~\cite{DBLP:conf/nips/BrownMRSKDNSSAA20}.
+    \item \textbf{Direct Answer Generation}: The Text-to-Text framework, popularized by models like T5~\cite{DBLP:journals/corr/abs-1910-10683} and BART~\cite{DBLP:conf/acl/bart}, treats QA as generating answer text from question text. T5 and BART variants have been successfully applied for this purpose~\cite{DBLP:conf/emnlp/RobertsRS20, DBLP:conf/eacl/IzacardG21, DBLP:conf/acl/CaoSPNX0LHZ22}. More recent powerful LLMs (e.g., GPT series, FLAN-T5~\cite{DBLP:journals/corr/abs-2210-11416}) show impressive QA capabilities but often lag behind specialized KGQA systems on benchmarks~\cite{tan2023evaluation}.
+\end{itemize}
+
+Despite their strengths, LLMs also have significant limitations, particularly relevant in the context of factual QA:
+\begin{itemize}
+    \item \textbf{Hallucinations and Factual Accuracy}: A critical limitation of LLMs is their tendency to generate text that is plausible-sounding but factually incorrect, nonsensical, or disconnected from reality~\cite{DBLP:journals/csur/JiLFYSXIBMF23, lin-etal-2022-truthfulqa, DBLP:journals/corr/abs-2401-01313}. This phenomenon, known as "hallucination," severely undermines their reliability, especially for fact-critical applications. Hallucinations can stem from biases in training data, an architectural focus on fluency over factuality, and limited access to up-to-date information. The knowledge stored parametrically is static (based on the training data cutoff) and can be outdated. LLMs may also perform poorly with less common facts (long-tail entities) compared to frequently mentioned ones~\cite{DBLP:conf/acl/MallenAZDKH23}.
+    \item \textbf{Opacity and Lack of Interpretability}: LLM reasoning processes are often "black boxes," making it difficult to understand how they arrive at an answer or to verify the factual basis of their generations.
+    \item \textbf{Sensitivity to Prompting}: The output of an LLM can be highly sensitive to the exact phrasing and structure of the input prompt.
+\end{itemize}
+Mitigating these limitations, particularly hallucinations, is a major research focus. Approaches include fact-checking mechanisms that verify LLM claims against external sources~\cite{cohen-etal-2023-lm, min-etal-2023-factscore}, confidence estimation techniques, retrieval augmentation to ground LLM responses in retrieved factual evidence, and instruction tuning with human feedback to align LLM outputs with truthfulness expectations~\cite{DBLP:conf/nips/Ouyang0JAWMZASR22}. These limitations strongly motivate the combination of LLM generative strengths with the structured, verifiable knowledge of KGs, a central theme of this dissertation.
+
+\section{Traditional Knowledge Graph Question Answering Methods}
+\label{sec:rw_traditional_kgqa}
+
+The goal of Knowledge Graph Question Answering (KGQA) is to provide accurate answers to natural language questions by leveraging the factual information stored within KGs. KGQA systems bridge the gap between human language and structured data, enabling users to query complex information without needing to learn formal query languages. Traditional KGQA methods can be broadly categorized into two main paradigms: semantic parsing-based approaches and information retrieval-based approaches~\cite{DBLP:journals/aiopen/ZhangLFZ21}.
+
+\subsection{Semantic Parsing-based KGQA}
+Semantic parsing (SP) techniques focus on translating a natural language question into a formal, executable query (e.g., SPARQL) that can be directly run against the KG to retrieve the answer~\cite{DBLP:conf/emnlp/SemanticParsing}. The core challenge is to accurately map linguistic structures to their corresponding semantic representations within the KG schema.~\cite{DBLP:conf/akbc/0016P0022} provide a comprehensive survey of semantic parsing methods in KGQA.
+
+Despite their conceptual clarity, SP methods face several significant hurdles, especially with large KGs like Wikidata:
+\begin{itemize}
+    \item \textbf{Schema Complexity and Lexical Gap}: Mapping natural language to diverse KG schemas and bridging vocabulary mismatches is difficult.
+    \item \textbf{Irregularity and Incompleteness}: Real-world KGs are often incomplete or contain noisy data, leading to brittle queries.
+    \item \textbf{Scalability}: Generating and executing complex queries over massive KGs can be inefficient.
+\end{itemize}
+
+\subsection{Information Retrieval-based KGQA}
+Information Retrieval (IR)-based approaches treat KGQA as a search problem. They aim to find the answer entity (or entities) within the KG that is most relevant to the input question. This often involves identifying candidate entities in the question, retrieving a relevant subgraph, and then ranking potential answer entities.
+
+Early IR methods relied on lexical matching~\cite{DBLP:series/irs/Balog18}. A significant advancement came with embedding-based methods, which embed questions and KG components into a shared vector space~\cite{DBLP:conf/emnlp/BordesCW14}. This line of research explored various embedding techniques and scoring functions~\cite{DBLP:conf/acl/DaiLX16, DBLP:conf/www/LukovnikovFLA17, Huang2019KnowledgeGE}. More recent IR-based KGQA benefits from pre-trained Knowledge Graph Embeddings (KGEs) like TransE and ComplEx~\cite{wang2017knowledge}, and Pre-trained Language Models (PLMs) like BERT~\cite{DBLP:conf/naacl/DevlinCLT19} for richer representations.
+
+While IR-based methods can be more robust to KG variations than SP techniques, they also face challenges, such as computationally intensive similarity searches and effectively combining question semantics with graph structure. Comprehensive overviews can be found in recent surveys~\cite{chakraborty2021introduction, complex_kbqa} and a monograph~\cite{roy-anand-2021}.
+
+\section{LLM-KG Fusion Strategies}
+\label{sec:rw_fusion_strategies}
+
+Recognizing the complementary strengths and weaknesses of Large Language Models (LLMs; see Section~\ref{sec:rw_llm_fundamentals_qa}) and Knowledge Graphs (KGs; see Section~\ref{sec:rw_kg_fundamentals}) has motivated significant research into methods for their effective fusion. LLMs offer fluency and parametric knowledge but struggle with factual accuracy and operate as black boxes. KGs provide structured, verifiable non-parametric knowledge and explicit reasoning but are hard to query naturally and may lack common-sense breadth~\cite{DBLP:conf/acl/MallenAZDKH23}. LLM-KG fusion aims for synergistic systems that are both knowledgeable and articulate, primarily by mitigating LLM hallucinations by grounding outputs in factual KG structures~\cite{DBLP:journals/tkde/PanLWCWW24, DBLP:conf/ijcai/0001LW0S0Y24}.
+
+Several fusion strategies have emerged, some of which are directly relevant to the contributions of this dissertation:
+
+\subsection{Retrieval-Augmented Generation (RAG) with KGs for Context Augmentation}
+Retrieval-Augmented Generation (RAG)~\cite{DBLP:conf/nips/LewisPPPKGKLYR020-rag} conditions an LLM's generation on information retrieved from an external source. With KGs, this involves retrieving relevant facts or subgraphs and providing them as context to the LLM, often via prompting~\cite{DBLP:conf/emnlp/KnowledgeAugmented}. Specialized retrievers like G-Retriever~\cite{DBLP:conf/nips/He0SC0LBH24} and SubGraphRAG~\cite{DBLP:conf/iclr/Li0025} optimize KG context retrieval. This approach broadly aims to improve factual grounding, an objective shared by the methods in this thesis.
+
+\subsection{Integrating Graph Structure and Knowledge into LLM Architectures}
+Other methods aim for tighter integration of KG structure or knowledge directly into LLM frameworks:
+\begin{itemize}
+    \item \textbf{Graph-Aware Encoders/Architectures}: Early work used Graph Convolutional Networks (GCNs) for graph-to-text generation. However, LLMs with appropriate prompting or fine-tuning can often outperform specialized architectures~\cite{iarosh-etal-2025-reducing, DBLP:conf/ijcai/0001LW0S0Y24}. Research continues on inherently graph-aware LLMs~\cite{liu-etal-2024-knowledge-graph, wen-etal-2024-mindmap}.
+    \item \textbf{Knowledge Injection/Infusion}: Methods like K-Adapter~\cite{DBLP:journals/corr/abs-2002-01808} use small, trainable modules to instill KG facts into the parametric memory of LLMs.
+    \item \textbf{Joint Reasoning over Text and KG Subgraphs}: Systems like QA-GNN~\cite{DBLP:conf/naacl/YasunagaRBLL21} perform joint LM-KG reasoning over subgraphs, though effective subgraph representation for LLM consumption remains an open challenge.
+\end{itemize}
+
+\subsection{Leveraging KGs for Refining LLM-Generated Answer Candidates}
+A key focus of this dissertation is using KGs not just as a source for direct answer retrieval or RAG context, but as a means to scrutinize and refine candidate answers produced by LLMs. Two main strategies are explored, forming the core technical contributions of this work:
+
+\textbf{Answer Candidate Type (ACT) Selection with KGs for Type-Based Filtering.}
+\label{chap:related_work:act_selection_fusion}
+As detailed in Chapter~\ref{chap:act_selection} of this thesis and our prior work~\cite{DBLP:conf/konvens/SalnikovLBRMP23-actselection}, even when an LLM fails to produce the correct factual answer, it often correctly identifies the expected semantic type of the answer (e.g., `person', `city', `language'). This predicted type information, when combined with the KG's explicit type system (e.g., Wikidata's P31 `instance of' property), can serve as a powerful filter or scoring component. This approach involves using the LLM's semantic understanding to predict an answer type, then leveraging this prediction to constrain or rank candidate answers retrieved from or validated against the KG. This dissertation develops and evaluates a pipeline, ACT Selection, that embodies this principle, demonstrating its effectiveness in improving candidate generation quality.
+
+\textbf{Reranking LLM Outputs with KG Subgraphs for Structural Evidence.}
+\label{chap:related_work:reranking_fusion}
+Another promising direction, and a central contribution detailed in Chapter~\ref{chap:controllable_fusion} of this thesis (building on initial explorations in~\cite{DBLP:conf/paclic/SalnikovLRNBMP23-originalpaper} and~\cite{DBLP:journals/corr/abs-2310-02166}), is to use KG subgraphs to rerank a list of candidate answers generated by an LLM. LLMs, especially with diverse beam search~\cite{DBLP:journals/corr/VijayakumarCSSL16-diverse-beam-search}, can produce multiple potential answers. The correct answer, even if not top-ranked by the LLM, might be identifiable if it has stronger structural support within the KG.
+
+This thesis investigates methods to:
+\begin{itemize}
+    \item Extract relevant subgraphs connecting question entities to LLM-generated answer candidates.
+    \item Derive diverse features from these subgraphs, including graph-theoretic metrics (e.g., path length, node centrality measures like PageRank~\cite{page1999pagerank} or Katz centrality~\cite{katz1953new}) and textual representations of paths/subgraphs (via Graph-to-Text techniques).
+    \item Employ various rankers (e.g., regression models, CatBoost~\cite{DBLP:conf/nips/ProkhorenkovaGV18-catboost}, neural rankers such as MPNet~\cite{DBLP:conf/nips/Song0QLL20}) trained on these features to re-order the LLM's candidates, thereby promoting those with stronger KG evidence.
+\end{itemize}
+This approach aims to improve the factuality and controllability of LLM outputs by grounding them in explicit KG structures. While reranking is an established technique in KG completion~\cite{DBLP:conf/coling/WangHHLYL24, DBLP:journals/corr/abs-2402-02389}, its application to KGQA by leveraging subgraph features for scoring LLM-generated candidates is an active research area to which this thesis contributes significantly.
+
+\section{Specialized Aspects and Applications of KGQA}
+\label{sec:rw_specialized_kgqa}
+
+Beyond foundational methodologies, certain specialized aspects and applications of KGQA are particularly relevant to this dissertation, namely factoid question answering and multilingual KGQA.
+
+\subsection{Factoid Question Answering}
+Factoid questions seek specific, concise factual information, such as named entities, dates, or numbers (e.g., \textit{"What is the capital of France?"} or \textit{"Who directed Inception?"}). These questions are well-suited for KGQA, as KGs can provide definitive answers if the fact is present. While LLMs can generate factoid answers, reliability is a concern due to hallucinations (see Section~\ref{sec:rw_llm_fundamentals_qa}). KGQA systems using KGs often achieve higher factoid accuracy than standalone LLMs~\cite{DBLP:conf/emnlp/GuptaC018}.
+
+The research in this thesis, particularly the ACT Selection method (Chapter~\ref{chap:act_selection}) and the subgraph-based reranking approach (Chapter~\ref{chap:controllable_fusion}), aims to improve factoid QA accuracy by integrating LLM capabilities with KG factual grounding. Evaluation in this area often uses metrics like Hits@1, measuring if the top-ranked answer is correct, which is critical for factoid queries. Challenges increase with complex factoid questions (multi-hop, temporal, comparative), making robust LLM-KG fusion even more important.
+
+\subsection{Multilingual KGQA}
+Multilingual Knowledge Graph Question Answering (MLKGQA) enables users to query KGs and receive answers in various languages. This is crucial given that KGs like Wikidata are inherently multilingual.
+
+Key challenges in MLKGQA include:
+\begin{itemize}
+    \item \textbf{Cross-lingual Alignment}: Mapping entities, relations, and queries across languages.
+    \item \textbf{Resource Scarcity}: Fewer NLP tools and datasets for non-English languages.
+    \item \textbf{Linguistic Diversity}: Structural differences between languages.
+    \item \textbf{KG Multilingualism Variation}: Completeness of labels/descriptions varies across languages within a KG.
+    \item \textbf{Code-Switching}: Queries mixing languages.
+\end{itemize}
+
+Approaches include translation-based methods, multilingual embeddings (e.g., mBERT~\cite{DBLP:conf/naacl/DevlinCLT19}, XLM-R~\cite{DBLP:conf/acl/ConneauKGCWGGOZ20}), zero-shot/few-shot cross-lingual transfer, and directly multilingual models.
+
+This thesis, while not focused on creating new MLKGQA techniques, leverages multilingual resources. Wikidata, the primary KG used, is multilingual. Datasets used (Mintaka~\cite{DBLP:conf/coling/SenAS22-mintaka}, RuBQ~\cite{korablinov2020rubq}) have multilingual aspects. The methodologies in Chapter~\ref{chap:act_selection} (using mGENRE~\cite{decao2021multilingual} for multilingual entity linking) and Chapter~\ref{chap:controllable_fusion} (graph structures are language-agnostic post-linking) are designed with multilingual adaptability in mind.
+
+\section{KGQA Datasets and the Rationale for \texttt{ShortPathQA}}
+\label{sec:rw_datasets_shortpathqa}
+Benchmark datasets are vital for KGQA system development and evaluation. They typically pair natural language questions with answers from a specific KG.
+
+Early datasets like \textbf{SimpleQuestions}~\cite{simplequestions} (for Freebase) and its Wikidata adaptation \textbf{SimpleQuestions-Wikidata (SQWD)}~\cite{SQ_WD} (used in Chapter~\ref{chap:act_selection}) focused on single-fact questions. More complex datasets like ComplexWebQuestions emerged later~\cite{DBLP:conf/naacl/TalmorB18}.
+
+Prominent multilingual datasets include \textbf{RuBQ}~\cite{korablinov2020rubq,rybin2021rubq} (Russian/English over Wikidata, used in Chapter~\ref{chap:act_selection}) and \textbf{Mintaka}~\cite{DBLP:conf/coling/SenAS22-mintaka}. Mintaka is a notable multilingual dataset featuring complex questions over Wikidata, designed to test a system's ability to handle questions requiring multiple hops and diverse reasoning skills. It contains over 2 million question-answer pairs across eight languages (English, German, French, Spanish, Portuguese, Italian, Arabic, and Japanese), making it a valuable resource for developing and evaluating robust, multilingual KGQA systems. This dataset is utilized in both Chapter~\ref{chap:act_selection} and Chapter~\ref{chap:controllable_fusion}).
+
+While invaluable, existing end-to-end KGQA datasets pose challenges for evaluating specific components of LLM-KG fusion, such as the subgraph-based reasoning and reranking mechanisms explored in Chapter~\ref{chap:controllable_fusion}. Errors can propagate through multi-stage pipelines (entity linking, subgraph retrieval, answer extraction), obscuring the performance of the fusion component itself. Moreover, the engineering overhead of hosting and querying large KGs like Wikidata, and the lack of standardized subgraph representations, makes it difficult to compare different subgraph utilization strategies directly.
+
+To address these limitations and specifically to facilitate research into controllable LLM-KG fusion by focusing on the reasoning and reranking aspects over pre-defined KG subgraphs, this dissertation introduces the \textbf{\texttt{ShortPathQA}} dataset. As detailed in Chapter~\ref{chap:controllable_fusion} (Section~4.7, originally Section~\ref{sec:controllable_fusion:dataset}), \texttt{ShortPathQA} provides questions (from Mintaka and newly curated examples) paired with pre-computed Wikidata subgraphs connecting question entities to candidate answers. This resource aims to lower the barrier to entry for research on how LLMs can effectively utilize explicit KG path information, by separating the subgraph utilization task from the complexities of upstream entity linking and large-scale KG path retrieval. It thus provides a targeted benchmark for the types of controllable fusion mechanisms developed in this thesis.
