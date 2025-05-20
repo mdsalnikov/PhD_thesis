@@ -1,15 +1,18 @@
+% \section*{Publications on the dissertation contents}
 
 
-\section*{Publications on the dissertation contents}
 
-\begin{enumerate}
-    \item Importance Sampling Approach to Chance-Constrained DC Optimal Power Flow / Lukashevich, A., Gorchakov, V., Vorobev, P., Deka, D., \& Maximov, Y. //IEEE Transactions on Control of Network Systems. 2023. Vol. 11, no. 2. P. 928-937
-    \item \fullcite{lukashevich2021power}
-    \item \fullcite{lukashevich2023importance}
-    \item Data-driven stochastic AC-OPF using Gaussian process regression / Mitrovic, M., Lukashevich, A., Vorobev, P., Terzija, V., Budennyy, S., Maximov, Y., \& Deka, D. //International Journal of Electrical Power \& Energy Systems. – 2023. – Vol. 152. – P. 109249.
-\end{enumerate}
-
-    
-
-
-\printbibliography[heading=subbibliography]
+\clearpage                                  % В том числе гарантирует, что список литературы в оглавлении будет с правильным номером страницы
+%\hypersetup{ urlcolor=black }               % Ссылки делаем чёрными
+%\providecommand*{\BibDash}{}                % В стилях ugost2008 отключаем использование тире как разделителя
+\urlstyle{rm}                               % ссылки URL обычным шрифтом
+\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=false}}{} % не рекомендуется применять пакет микротипографики к автоматически генерируемому списку литературы
+\printbibliography                           % Подключаем Bib-базы: все статьи единым списком
+% Режим с подсписками
+%\insertbiblioexternal                      % Подключаем Bib-базы: статьи, не являющиеся статьями автора по теме диссертации
+% Для вывода выберите и расскомментируйте одно из двух
+%\insertbiblioauthor                        % Подключаем Bib-базы: работы автора единым списком 
+%\insertbiblioauthorgrouped                 % Подключаем Bib-базы: работы автора сгруппированные (ВАК, WoS, Scopus и т.д.)
+\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=true}}{}
+\urlstyle{tt}                               % возвращаем установки шрифта ссылок URL
+%\hypersetup{ urlcolor={urlcolor} }          % Восстанавливаем цвет ссылок
