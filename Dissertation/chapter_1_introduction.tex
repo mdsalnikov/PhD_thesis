@@ -7,6 +7,8 @@ For a long time, a key goal in artificial intelligence has been to make machines
 
 Now that LLMs are used so much, KGs are even more important as a source of true, organized knowledge. LLMs are good at creating natural text and understanding general meanings. But they are not so good at handling facts that change often. They also have trouble adding new information without messing up the knowledge they already have. For example, LLMs alone often cannot answer comparative questions correctly if they do not have access to structured information, as shown in our work on the CAM 2.0 system~\cite{DBLP:conf/coling/ShalloufHSVMPBN24}. Our research in~\cite{pletenev-etal-2025-much} looked at the problems of adding new facts into LLMs using Low-rank Adaptation (LoRA). This study showed that using LoRA to add new knowledge can be harmful. The LLM might become worse at general question answering. This happens especially if the new knowledge is mostly about certain things. The LLM might then often give those overrepresented answers and be less likely to say when it's not sure. These results show that we really need good ways to combine the text-making skills of LLMs with the facts from KGs. We should not just try to update the LLM's own knowledge. This dissertation works on this problem. It offers and tests new methods for mixing LLMs and KGs better, to make KGQA systems more accurate and trustworthy.
 
+\textit{Note: In some portion of this document (20-30\% of the entire text); Artificial Intelligence assistant, particularly Generative AI, has been used to improve, rephrase, shorten, or summarize the content. The technologies used include Gemini 2.5 Pro, Grok and Perplexity. All generated content was manually reviewed and edited to ensure accuracy and coherence.}
+
 \section{Dissertation Objectives}
 \label{sec:intro:objectives}
 This dissertation wants to create and test new ways to combine Large Language Models with Knowledge Graphs. The goal is to make Question Answering systems that are more accurate, dependable, and controllable. The main objectives are:
@@ -29,6 +31,10 @@ The new scientific ideas in this dissertation are in creating and testing new wa
     \end{itemize}
     \item \textbf{Creation of a Specialized Evaluation Resource (ShortPathQA):} The development and publication of the \texttt{ShortPathQA} dataset (Chapter~\ref{sec:controllable_fusion:dataset}, \cite{DBLP:conf/nldb/SalnikovSPQA25}) is a significant novel contribution. This dataset directly supports the research on Controllable Fusion via Subgraph Reranking presented in this dissertation and aims to foster further community exploration of such methods. As the first QA resource offering pre-computed KG subgraphs, \texttt{ShortPathQA} allows researchers to focus on the core tasks of subgraph reasoning and reranking. This isolates these tasks from the complexities of upstream entity linking and large-scale KG processing, thereby facilitating more targeted evaluation and development of controllable fusion techniques.
 \end{enumerate}
+
+\subsection{Structure and volume of the dissertation
+}
+This dissertation is structured to systematically present these contributions across five chapters, with a logical progression from foundational concepts through individual methodologies to integrated system implementations and system demonstrations. Section~\ref{sec:intro:background} provides a detailed overview of the background and relevance of the work. Chapter~\ref{chap:act_selection} introduces the Answer Candidate Type Selection method. Chapter~\ref{chap:controllable_fusion} introduces the Controllable Fusion via Subgraph Reranking method. Chapter~\ref{chap:system_demos} introduces the system demonstrations for the ACT Selection and tools for supporting Controllable Fusion methods.
 
 \section{Theoretical and Practical Significance}
 \label{sec:intro:significance}
@@ -119,5 +125,16 @@ The publications by the author that form the basis of or are related to this dis
     \item Maria Lysyuk, \textbf{Mikhail Salnikov}, Pavel Braslavski, and Alexander Panchenko. (2024). Konstruktor: A Strong Baseline for Simple Knowledge Graph Question Answering. \textit{arXiv preprint arXiv:2409.15902}.
     \item Dmitrii Iarosh, Alexander Panchenko, and \textbf{Mikhail Salnikov}. (2025). On Reducing Factual Hallucinations in Graph-to-Text Generation Using Large Language Models. In \textit{Proceedings of the Workshop on Generative AI and Knowledge Graphs (GenAIK)}.
     \item Sergey Pletenev, Maria Marina, Daniil Moskovskiy, Vasily Konovalov, Pavel Braslavski, Alexander Panchenko, and \textbf{Mikhail Salnikov}. (2025). How Much Knowledge Can You Pack into a LoRA Adapter without Harming LLM?. In \textit{Findings of the Association for Computational Linguistics: NAACL 2025}.
+\end{itemize}
+
+\section{Author's Personal Contribution}
+\label{sec:intro:contribution}
+
+Author's personal contribution to the research presented in this dissertation is as follows:
+\begin{itemize}
+    \item \textbf{ACT Selection Method Development (Chapter~\ref{chap:act_selection}):} Complete conceptualization, implementation, and experimental validation of the Answer Candidate Type Selection pipeline, including the design of the four-component scoring mechanism (type score, neighbor score, Text-to-Text score, property similarity score)
+    \item \textbf{Subgraph Reranking Framework (Chapter~\ref{chap:controllable_fusion}):} Full development of the controllable fusion methodology and experiments design was done by the Dissertation author. Graph-To-Text (G2T) models implementation and experiments design was developed by the author's advisor and with significant help from the Hai Le, Dmitrii Iarosh and Ivan Lazichny. Olga Tsymboi and Egor Cheremiskin implemented experiments with Mistal and Mixtral models. 
+    \item \textbf{ShortPathQA Dataset Creation (Chapter~\ref{sec:controllable_fusion:dataset}):} Author full responsibility for dataset design, subgraph generation pipeline. Annotation framework establishment and question curation for manual part of the dataset was done by Andrey Sakhovskiy and Irina Nikishina. Andrey Sakhovskiy made experiments with encoder-only baselines.
+    \item \textbf{System Demonstration Creation (Chapter~\ref{chap:system_demos}):} Author full responsibility for system demonstration creation. Dmitrii Iarosh helped with the development of the subgraph visualization tool and DevOps tasks.
 \end{itemize}
 

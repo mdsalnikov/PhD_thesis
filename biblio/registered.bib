@@ -212,3 +212,8 @@
     ISBN = "979-8-89176-195-7",
     abstract = "The performance of Large Language Models (LLMs) on many tasks is greatly limited by the knowledge learned during pre-training and stored in the model`s parameters. Low-rank adaptation (LoRA) is a popular and efficient training technique for updating or domain-specific adaptation of LLMs. In this study, we investigate how new facts can be incorporated into the LLM using LoRA without compromising the previously learned knowledge. We fine-tuned Llama-3.1-8B-instruct using LoRA with varying amounts of new knowledge. Our experiments have shown that the best results are obtained when the training data contains a mixture of known and new facts. However, this approach is still potentially harmful because the model`s performance on external question-answering benchmarks declines after such fine-tuning. When the training data is biased towards certain entities, the model tends to regress to few overrepresented answers. In addition, we found that the model becomes more confident and refuses to provide an answer in only few cases. These findings highlight the potential pitfalls of LoRA-based LLM updates and underscore the importance of training data composition and tuning parameters to balance new knowledge integration and general model capabilities."
 }
+
+@article{salnikovreranking,
+  title={Reranking Answers of Large Language Models with Knowledge Graphs},
+  author={Salnikov, Mikhail and Le, Hai and Tsymboi, Olga and Lazichny, Ivan and Iarosh, Dmitrii and Cheremiskin, Egor and Savchenko, Andrey and Simakov, Dmitry and Panchenko, Alexander}
+}
