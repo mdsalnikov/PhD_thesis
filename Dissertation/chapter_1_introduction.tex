@@ -1,16 +1,15 @@
-\chapter{Introduction}
-\label{chap:introduction}
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
 
-\section{Background and Relevance of the Work}
-\label{sec:intro:background}
+\textbf{Background and Relevance of the Work.}
 For a long time, a key goal in artificial intelligence has been to make machines that can understand and answer human questions using large collections of structured knowledge. Knowledge Graphs (KGs) are good for this because they can show how facts are connected, which helps give exact answers. The arrival of Large Language Models (LLMs) has changed this area a lot. LLMs are trained on huge amounts of text and are very good at understanding and creating language. They also store a lot of factual knowledge inside themselves. However, when we use LLMs for Knowledge Graph Question Answering (KGQA), they have some problems. A big problem is that they can create answers that sound good but are wrong. This is often called hallucination~\cite{lin-etal-2022-truthfulqa, DBLP:conf/emnlp/RobertsRS20, DBLP:journals/csur/JiLFYSXIBMF23, DBLP:journals/corr/abs-2401-01313}. Also, it is hard to understand how LLMs come up with their answers, so it's difficult to check if the answers are based on facts.
 
-Now that LLMs are used so much, KGs are even more important as a source of true, organized knowledge. LLMs are good at creating natural text and understanding general meanings. But they are not so good at handling facts that change often. They also have trouble adding new information without messing up the knowledge they already have. For example, LLMs alone often cannot answer comparative questions correctly if they do not have access to structured information, as shown in our work on the CAM 2.0 system~\cite{DBLP:conf/coling/ShalloufHSVMPBN24}. Our research in~\cite{pletenev-etal-2025-much} looked at the problems of adding new facts into LLMs using Low-rank Adaptation (LoRA). This study showed that using LoRA to add new knowledge can be harmful. The LLM might become worse at general question answering. This happens especially if the new knowledge is mostly about certain things. The LLM might then often give those overrepresented answers and be less likely to say when it's not sure. These results show that we really need good ways to combine the text-making skills of LLMs with the facts from KGs. We should not just try to update the LLM's own knowledge. This dissertation works on this problem. It offers and tests new methods for mixing LLMs and KGs better, to make KGQA systems more accurate and trustworthy.
+
+Now that LLMs are used so much, KGs are even more important as a source of true, organized knowledge. LLMs are good at creating natural text and understanding general meanings. But they are not so good at handling facts that change often. They also have trouble adding new information without messing up the knowledge they already have. For example, LLMs alone often cannot answer comparative questions correctly if they do not have access to structured information, as shown in our work on the CAM 2.0 system~\cite{DBLP:conf/coling/ShalloufHSVMPBN24}. Our research in~\cite{pletenev-etal-2025-much} looked at the problems of adding new facts into LLMs using Low-rank Adaptation (LoRA). This study showed that using LoRA to add new knowledge can be harmful. The LLM might become worse at general question answering. This happens especially if the new knowledge is mostly about certain things. The LLM might then often give those overrepresented answers and be less likely to say when it's not sure. These results show that we really need good ways to combine the text-making skills of LLMs with the facts from KGs. We should not just try to update the LLM's own knowledge. This dissertation works on this problem. It offers and tests new methods for mixing LLMs and KGs better, to make KGQA systems more trustworthy.
 
 \textit{Note: In some portion of this document (20-30\% of the entire text); Artificial Intelligence assistant, particularly Generative AI, has been used to improve, rephrase, shorten, or summarize the content. The technologies used include Gemini 2.5 Pro, Grok and Perplexity. All generated content was manually reviewed and edited to ensure accuracy and coherence.}
 
-\section{Dissertation Objectives}
-\label{sec:intro:objectives}
+\textbf{Dissertation Objectives.}
 This dissertation wants to create and test new ways to combine Large Language Models with Knowledge Graphs. The goal is to make Question Answering systems that are more accurate, dependable, and controllable. The main objectives are:
 \begin{itemize}
     \item To make better answer candidates in KGQA. We can do this by using the LLMs' ability to understand meaning, together with specific type rules from KGs. This includes creating a method called Answer Candidate Type (ACT) Selection. This method predicts the likely semantic type of an answer. It then uses this type to filter and improve candidate answers (Chapter~\ref{chap:act_selection} has more details).
@@ -18,8 +17,7 @@ This dissertation wants to create and test new ways to combine Large Language Mo
     \item To make LLM-generated answers more factually correct and controllable. We can do this by creating a system to re-rank candidate answers. This system uses structural proof from KG subgraphs. This includes finding important subgraphs that connect question entities to LLM-generated candidates. It also includes getting different features from these subgraphs and using various rankers to choose candidates that have stronger KG-based proof (Chapter~\ref{chap:controllable_fusion} has more details).
 \end{itemize}
 
-\section{Scientific Novelty}
-\label{sec:intro:novelty}
+\textbf{Scientific Novelty.}
 The new scientific ideas in this dissertation are in creating and testing new ways to mix LLMs and KGs. These ways help solve important problems in KGQA:
 \begin{enumerate}
     \item \textbf{New Answer Candidate Typing and Selection:} The Answer Candidate Type~(ACT) Selection method (Chapter~\ref{chap:act_selection}, \cite{DBLP:journals/corr/abs-2310-07008}) is a new way to improve KGQA. It is special because it combines an LLM's skill to guess the semantic type of an answer with the clear type information from a KG (for example, Wikidata's P31 `instance of' property). This type-based checking of LLM-generated candidates works like a strong filter and scoring tool. It greatly improves the quality of candidate answers, even if the LLM first gives the wrong answer but gets its type right.
@@ -32,20 +30,17 @@ The new scientific ideas in this dissertation are in creating and testing new wa
     \item \textbf{Creation of a Specialized Evaluation Resource (ShortPathQA):} The development and publication of the \texttt{ShortPathQA} dataset (Chapter~\ref{sec:controllable_fusion:dataset}, \cite{DBLP:conf/nldb/SalnikovSPQA25}) is a significant novel contribution. This dataset directly supports the research on Controllable Fusion via Subgraph Reranking presented in this dissertation and aims to foster further community exploration of such methods. As the first QA resource offering pre-computed KG subgraphs, \texttt{ShortPathQA} allows researchers to focus on the core tasks of subgraph reasoning and reranking. This isolates these tasks from the complexities of upstream entity linking and large-scale KG processing, thereby facilitating more targeted evaluation and development of controllable fusion techniques.
 \end{enumerate}
 
-\subsection{Structure and volume of the dissertation
-}
-This dissertation is structured to systematically present these contributions across five chapters, with a logical progression from foundational concepts through individual methodologies to integrated system implementations and system demonstrations. Section~\ref{sec:intro:background} provides a detailed overview of the background and relevance of the work. Chapter~\ref{chap:act_selection} introduces the Answer Candidate Type Selection method. Chapter~\ref{chap:controllable_fusion} introduces the Controllable Fusion via Subgraph Reranking method. Chapter~\ref{chap:system_demos} introduces the system demonstrations for the ACT Selection and tools for supporting Controllable Fusion methods.
+\textbf{Structure and volume of the dissertation.}
+This dissertation is structured to systematically present these contributions across four chapters, with a logical progression from foundational concepts through individual methodologies to integrated system implementations and system demonstrations. Introduction and Chapter~\ref{chap:related_work} provides a detailed overview of the background and relevance of the work. Chapter~\ref{chap:act_selection} introduces the Answer Candidate Type Selection method. Chapter~\ref{chap:controllable_fusion} introduces the Controllable Fusion via Subgraph Reranking method. Chapter~\ref{chap:system_demos} introduces the system demonstrations for the ACT Selection and tools for supporting Controllable Fusion methods.
 
-\section{Theoretical and Practical Significance}
-\label{sec:intro:significance}
+\textbf{Theoretical and Practical Significance.}
 The research presented in this dissertation holds both theoretical and practical significance for the fields of Natural Language Processing and Artificial Intelligence, particularly in the domain of Knowledge Graph Question Answering.
 
 Theoretically, this work contributes to a deeper understanding of how the complementary strengths of LLMs (which are good at semantic understanding and fluency) and KGs (which provide structured factual knowledge and verifiability) can be synergistically combined. It explores specific mechanisms for this fusion, moving beyond simple retrieval augmentation towards more nuanced methods of candidate refinement and evidence-based reranking. The investigation into type-based filtering (ACT Selection) sheds light on the implicit semantic knowledge captured by LLMs and how it can be explicitly leveraged in conjunction with KG schema for improved reasoning. The study of subgraph-based reranking contributes to theories of evidence-based reasoning in QA, demonstrating how structural path information in KGs can serve as a robust signal for factuality and control in LLM outputs. Furthermore, the creation of the \texttt{ShortPathQA} dataset facilitates more focused theoretical explorations into subgraph reasoning by providing a standardized benchmark.
 
 Practically, the methodologies developed, particularly ACT Selection and subgraph-based reranking, offer practical pathways to improve the factual accuracy and reliability of QA systems. This is crucial for real-world applications where incorrect information can have significant consequences. By making LLM outputs more controllable and grounded in verifiable KG facts, this research contributes to building more trustworthy AI systems. The ability to trace an answer back to KG evidence, as facilitated by subgraph analysis, enhances interpretability. The ACT Selection method offers a resource-efficient strategy to boost the performance of even smaller LLMs, making high-quality KGQA more accessible when computational resources are constrained. The \texttt{ShortPathQA} dataset provides a valuable, ready-to-use resource for other researchers and practitioners, lowering the barrier to entry for developing and evaluating LLM-KG fusion techniques without the need for extensive KG infrastructure setup. Finally, the system demonstrations (Chapter~\ref{chap:system_demos}), including API endpoints and visualization tools, provide tangible proofs-of-concept and reusable components for building advanced KGQA applications.
 
-\section{Research Methodology}
-\label{sec:intro:methodology}
+\textbf{Research Methodology.}
 The research in this dissertation employs a multifaceted methodology combining theoretical development with empirical experimentation and system implementation.
 \begin{enumerate}
     \item \textbf{Literature Review and Problem Formulation:} The work begins with a comprehensive review of existing research in KGQA, LLMs, and LLM-KG fusion strategies (Chapter~\ref{chap:related_work}) to identify gaps and formulate precise research questions.
@@ -94,8 +89,7 @@ The research in this dissertation employs a multifaceted methodology combining t
     \end{itemize}
 \end{enumerate}
 
-\section{Validation of Research Results and Reliability}
-\label{sec:intro:validation}
+\textbf{Validation of Research Results and Reliability.}
 The research findings presented in this dissertation are validated through rigorous empirical evaluation on multiple standard benchmark datasets and newly created resources. The reliability of the results is ensured by:
 \begin{itemize}
     \item \textbf{Standardized Datasets and Metrics:} For the ACT Selection method (Chapter~\ref{chap:act_selection}), evaluations were performed on three Wikidata-based one-hop KGQA datasets: SimpleQuestions-Wikidata (SQWD), RuBQ (English translations), and a subset of Mintaka (one-hop English questions). The primary metric was Hits@1, which directly measures the accuracy of the top-ranked answer.
@@ -110,8 +104,7 @@ The research findings presented in this dissertation are validated through rigor
 \end{itemize}
 These measures collectively ensure that the conclusions drawn are well-supported by empirical evidence and that the proposed methods offer reliable improvements in KGQA.
 
-\section{Approbation of the Work and Publications}
-\label{sec:intro:approbation}
+\textbf{Approbation of the Work and Publications.}
 The research presented in this dissertation has been disseminated through peer-reviewed publications in international conferences and journals, and through participation in shared tasks and system demonstrations. The key contributions have been presented to and validated by the scientific community.
 
 The publications by the author that form the basis of or are related to this dissertation are:
@@ -127,8 +120,7 @@ The publications by the author that form the basis of or are related to this dis
     \item Sergey Pletenev, Maria Marina, Daniil Moskovskiy, Vasily Konovalov, Pavel Braslavski, Alexander Panchenko, and \textbf{Mikhail Salnikov}. (2025). How Much Knowledge Can You Pack into a LoRA Adapter without Harming LLM?. In \textit{Findings of the Association for Computational Linguistics: NAACL 2025}.
 \end{itemize}
 
-\section{Author's Personal Contribution}
-\label{sec:intro:contribution}
+\textbf{Author's Personal Contribution.}
 
 Author's personal contribution to the research presented in this dissertation is as follows:
 \begin{itemize}
