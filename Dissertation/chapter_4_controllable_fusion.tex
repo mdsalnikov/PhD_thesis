@@ -88,7 +88,21 @@ With our extracted subgraphs and their corresponding answer candidate, we seek t
     \item \textbf{Average shortest path}: the average of each shortest path between the question entity and the answer entity. 
     \item \textbf{Density}: measurement of the density of a graph, where the number of edges in a dense graph is close to the maximal number of edges (each pair of nodes is connected by an edge). The density $d$ for the graph $G$ is formulated as $d = \frac{m}{n(n-1)}$, where $n$ is the number of nodes and $m$ is the number of edges in $G$.
    \item \textbf{Katz centrality}~\cite{katz1953new}: measurement of the importance (or ``centrality'' - how ``central'' a node is in the graph) of a specific node $i$ in a graph $G$. The Katz centrality for node $i$ of graph $G$ is formulated as $x_i = \alpha \sum_{j} A_{ij} x_j + \beta$, where $A$ is the adjacency matrix of graph $G$ with eigenvalues $\lambda$, $\beta$ is the parameter that controls the initial centrality, and $\alpha < \frac{1}{\lambda_{\max}}$. 
-    \item \textbf{PageRank}~\cite{page1999pagerank}: a popular algorithm used by Google to rank web pages in the search query by counting the number and quality of links to a page to determine an estimate of its importance. In graph theory, the ``web pages'' and ``links'' are synonymous with nodes and edges. 
+    % \item \textbf{PageRank}~\cite{page1999pagerank}: a popular algorithm used by Google to rank web pages in the search query by counting the number and quality of links to a page to determine an estimate of its importance. In graph theory, the ``web pages'' and ``links'' are synonymous with nodes and edges. 
+    \item \textbf{PageRank}~\cite{page1999pagerank} is an algorithm that ranks nodes in a graph G based on the structure of incoming links, where each node's importance is calculated as the sum of the PageRank values of nodes linking to it, weighted by their outgoing link counts.
+
+    The PageRank formula with damping factor $d$ is:
+    
+    $ PR(p_i) = \frac{1-d}{N} + d\sum_{p_j \in M(p_i)} \frac{PR(p_j)}{L(p_j)} $
+    
+    where:
+    - $p_i$ is a node in graph G
+    - $M(p_i)$ is the set of nodes that link to $p_i$
+    - $L(p_j)$ is the number of outbound links from node $p_j$
+    - $N$ is the total number of nodes in graph G
+    - $d$ is the damping factor (typically 0.85)
+    
+    The algorithm iteratively computes these values until convergence, with the PageRank vector representing the dominant eigenvector of the modified adjacency matrix of graph G.
 \end{itemize}
 
 \noindent We hypothesize that these features may provide ranker models with insights into the complexity of the respective subgraphs.
