@@ -174,22 +174,34 @@
                   Irina Nikishina and
                   Aida Usmanova and
                   Angelie Kraft and
-                  Cedric Möller and 
+                  Cedric M{\"{o}}ller and
                   Debayan Banerjee and
                   Junbo Huang and
-                  Longquan Jiang and 
+                  Longquan Jiang and
                   Rana Abdullah and
                   Xi Yan and
                   Elena Tutubalina and
                   Ricardo Usbeck and
                   Alexander Panchenko},
-  title        = {ShortPathQA: A Dataset for Controllable Fusion of Large Language Models with Knowledge Graphs},
+  editor       = {Ryutaro Ichise},
+  title        = {ShortPathQA: {A} Dataset for Controllable Fusion of Large Language
+                  Models with Knowledge Graphs},
   booktitle    = {Natural Language Processing and Information Systems - 30th International
                   Conference on Applications of Natural Language to Information Systems,
-                  {NLDB} 2025, Turin, Italy, June 24-26, 2025, Proceedings, Part {II}},
+                  {NLDB} 2025, Kanazawa, Japan, July 4-6, 2025, Proceedings, Part {I}},
   series       = {Lecture Notes in Computer Science},
-  year         = {2025}
+  volume       = {15836},
+  pages        = {95--110},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-97141-9\_7},
+  doi          = {10.1007/978-3-031-97141-9\_7},
+  timestamp    = {Thu, 17 Jul 2025 14:25:02 +0200},
+  biburl       = {https://dblp.org/rec/conf/nldb/SalnikovSNUKMBHJAYTUP25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
+
+
 @inproceedings{pletenev-etal-2025-much,
     title = "How Much Knowledge Can You Pack into a {L}o{RA} Adapter without Harming {LLM}?",
     author = "Pletenev, Sergey  and
@@ -211,9 +223,4 @@
     pages = "4309--4322",
     ISBN = "979-8-89176-195-7",
     abstract = "The performance of Large Language Models (LLMs) on many tasks is greatly limited by the knowledge learned during pre-training and stored in the model`s parameters. Low-rank adaptation (LoRA) is a popular and efficient training technique for updating or domain-specific adaptation of LLMs. In this study, we investigate how new facts can be incorporated into the LLM using LoRA without compromising the previously learned knowledge. We fine-tuned Llama-3.1-8B-instruct using LoRA with varying amounts of new knowledge. Our experiments have shown that the best results are obtained when the training data contains a mixture of known and new facts. However, this approach is still potentially harmful because the model`s performance on external question-answering benchmarks declines after such fine-tuning. When the training data is biased towards certain entities, the model tends to regress to few overrepresented answers. In addition, we found that the model becomes more confident and refuses to provide an answer in only few cases. These findings highlight the potential pitfalls of LoRA-based LLM updates and underscore the importance of training data composition and tuning parameters to balance new knowledge integration and general model capabilities."
-}
-
-@article{salnikovreranking,
-  title={Reranking Answers of Large Language Models with Knowledge Graphs},
-  author={Salnikov, Mikhail and Le, Hai and Tsymboi, Olga and Lazichny, Ivan and Iarosh, Dmitrii and Cheremiskin, Egor and Savchenko, Andrey and Simakov, Dmitry and Panchenko, Alexander}
 }

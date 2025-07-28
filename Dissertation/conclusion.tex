@@ -1,0 +1,13 @@
+\chapter*{Conclusion}
+\label{chap:conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+This dissertation addressed the critical challenge of factual unreliability in Large Language Models (LLMs) for Knowledge Graph Question Answering (KGQA). By developing and testing novel methods for fusing LLMs with Knowledge Graphs (KGs), this work has produced more accurate, dependable, and controllable QA systems. The research successfully demonstrated that combining the semantic understanding of LLMs with the structured, verifiable knowledge of KGs provides a robust solution to the problem of AI-generated "hallucinations."
+
+The primary contributions of this thesis are two distinct but complementary fusion methodologies. The first, \textbf{Answer Candidate Type (ACT) Selection}, improves answer generation by using an LLM's ability to predict the semantic type of an answer, which serves as a powerful filter to refine and rerank candidates. This approach proved highly effective, significantly boosting performance (e.g., from 61\% to 94\% in answer type accuracy for T5-Large-SSM) across standard KGQA datasets.
+
+The second contribution is a \textbf{Controllable Fusion framework that uses subgraph reranking}. This method enhances the factual correctness of LLM outputs by verifying multiple answer candidates against structural evidence from the KG. By extracting features from the shortest paths connecting question entities to answers, this technique consistently improves answer selection. To support this line of research, the \textbf{ShortPathQA dataset} was created—a novel resource providing over 143,000 questions with pre-computed KG subgraphs, which facilitates more focused and standardized evaluation of fusion techniques.
+
+The practical significance of this research was demonstrated through the implementation of complete system pipelines with API endpoints and an interactive subgraph visualization tool. These systems validate the real-world applicability of the proposed methods. The methodologies were rigorously evaluated on multiple benchmarks, showing consistent performance gains across different LLM architectures and sizes through comprehensive testing and ablation studies.
+
+In summary, this dissertation delivers a validated set of techniques for integrating LLMs with KGs. It provides effective strategies that enhance the factual grounding of question answering systems, reduce hallucinations, and improve interpretability. By creating more trustworthy and controllable AI, the principles and methods established here lay a solid foundation for the future development of advanced, reliable, and versatile QA technologies.

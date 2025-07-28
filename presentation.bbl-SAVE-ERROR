@@ -1,0 +1,288 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{vakbib1}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3a4ef68d2d3d9b402717799e2542b421}{%
+           family={Фамилия2},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3cf411ec1bb57aa79585a17c7cb4648f}{%
+           family={Фамилия3},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{fullhash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{fullhashraw}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{bibnamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorbibnamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authornamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorfullhash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorfullhashraw}{68d209ef1398ade3d8834d8b486dd3a1}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Журнал}
+      \field{langid}{russian}
+      \field{title}{Название статьи}
+      \field{year}{2013}
+      \true{nocite}
+      \keyw{,biblioauthorvak,biblioauthorwos,biblioauthor,bibliofull}
+    \endentry
+    \entry{vakbib2}{article}{useauthor=false}{}
+      \name{author}{4}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3a4ef68d2d3d9b402717799e2542b421}{%
+           family={Фамилия2},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3cf411ec1bb57aa79585a17c7cb4648f}{%
+           family={Фамилия3},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=943e7586af5bd904cc47333f7d59a202}{%
+           family={Фамилия4},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{291bc03a33c604352608aeb36187973d}
+      \strng{authornamehash}{291bc03a33c604352608aeb36187973d}
+      \strng{authorfullhash}{d0e3fc384e4845c1cba66a6a0b1f3b90}
+      \strng{authorfullhashraw}{d0e3fc384e4845c1cba66a6a0b1f3b90}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Журнал}
+      \field{langid}{russian}
+      \field{title}{Название статьи}
+      \field{year}{2014}
+      \true{nocite}
+      \keyw{,biblioauthorvak,biblioauthor,bibliofull}
+    \endentry
+    \entry{wosbib1}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3a4ef68d2d3d9b402717799e2542b421}{%
+           family={Фамилия2},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3cf411ec1bb57aa79585a17c7cb4648f}{%
+           family={Фамилия3},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{fullhash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{fullhashraw}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{bibnamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorbibnamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authornamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorfullhash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorfullhashraw}{68d209ef1398ade3d8834d8b486dd3a1}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Журнал}
+      \field{langid}{russian}
+      \field{title}{Название статьи}
+      \field{year}{2011}
+      \true{nocite}
+      \keyw{,biblioauthorwos,biblioauthor,bibliofull}
+    \endentry
+    \entry{scbib1}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3a4ef68d2d3d9b402717799e2542b421}{%
+           family={Фамилия2},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+        {{hash=3cf411ec1bb57aa79585a17c7cb4648f}{%
+           family={Фамилия3},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{fullhash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{fullhashraw}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{bibnamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorbibnamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authornamehash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorfullhash}{68d209ef1398ade3d8834d8b486dd3a1}
+      \strng{authorfullhashraw}{68d209ef1398ade3d8834d8b486dd3a1}
+      \field{extraname}{3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Журнал}
+      \field{langid}{russian}
+      \field{title}{Название статьи}
+      \field{year}{2018}
+      \true{nocite}
+      \keyw{,biblioauthorscopus,biblioauthorwos,biblioauthor,bibliofull}
+    \endentry
+    \entry{confbib1}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{bibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorbibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authornamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Название сборника}
+      \field{langid}{russian}
+      \field{title}{название тезисов конференции}
+      \field{year}{2015}
+      \true{nocite}
+      \keyw{,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{confbib2}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{bibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorbibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authornamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Название сборника}
+      \field{langid}{russian}
+      \field{title}{название тезисов конференции}
+      \field{year}{2015}
+      \true{nocite}
+      \keyw{,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+    \entry{bib1}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{bibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorbibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authornamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \field{extraname}{3}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Журнал}
+      \field{langid}{russian}
+      \field{title}{Название статьи}
+      \field{year}{2012}
+      \true{nocite}
+      \keyw{,biblioauthorconf,biblioauthorother,biblioauthor,bibliofull}
+    \endentry
+    \entry{bib2}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=80941ecf01a5fc5cc10f9fb0286a5444}{%
+           family={Фамилия},
+           familyi={Ф\bibinitperiod},
+           given={И.\bibnamedelimi О.},
+           giveni={И\bibinitperiod\bibinitdelim О\bibinitperiod}}}%
+      }
+      \strng{namehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{fullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{bibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorbibnamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authornamehash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhash}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \strng{authorfullhashraw}{80941ecf01a5fc5cc10f9fb0286a5444}
+      \field{extraname}{4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Название сборника}
+      \field{langid}{russian}
+      \field{title}{название тезисов конференции}
+      \field{year}{2012}
+      \true{nocite}
+      \keyw{,biblioauthorconf,biblioauthor,bibliofull}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

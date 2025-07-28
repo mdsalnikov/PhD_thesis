@@ -1767,6 +1767,18 @@
         <bcf:map_step map_field_set="media" map_field_value="text"/>
       </bcf:map>
     </bcf:maps>
+    <bcf:maps datatype="bibtex" level="user">
+      <bcf:map map_overwrite="1">
+        <bcf:per_datasource>biblio/author.bib</bcf:per_datasource>
+        <bcf:map_step map_field_set="addendum" map_null="1"/>
+      </bcf:map>
+    </bcf:maps>
+    <bcf:maps datatype="bibtex" level="user">
+      <bcf:map map_overwrite="1" map_foreach="address,chapter,edition,editor,eid,howpublished,institution,key,month,note,number,organization,pages,publisher,school,series,type,media,url,doi,location,volume,">
+        <bcf:per_datasource>biblio/author.bib</bcf:per_datasource>
+        <bcf:map_step map_field_set="$MAPLOOP" map_null="1"/>
+      </bcf:map>
+    </bcf:maps>
     <bcf:maps datatype="bibtex" level="style">
       <bcf:map map_overwrite="1">
         <bcf:map_step map_field_source="author" map_match="(.+\s+and\s+){3,}|and\s+others\s*$" map_final="1"/>
@@ -3633,86 +3645,3 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">biblio/registered.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">lin-etal-2022-truthfulqa</bcf:citekey>
-    <bcf:citekey order="1" intorder="2">DBLP:conf/emnlp/RobertsRS20</bcf:citekey>
-    <bcf:citekey order="1" intorder="3">DBLP:journals/csur/JiLFYSXIBMF23</bcf:citekey>
-    <bcf:citekey order="1" intorder="4">DBLP:journals/corr/abs-2401-01313</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">DBLP:conf/coling/ShalloufHSVMPBN24</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">pletenev-etal-2025-much</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">DBLP:journals/corr/abs-2310-07008</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">DBLP:journals/corr/abs-2310-02166</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">DBLP:journals/corr/abs-2310-07008</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">DBLP:journals/corr/abs-2310-02166</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">DBLP:journals/tkde/PanLWCWW24</bcf:citekey>
-    <bcf:citekey order="13" intorder="2">DBLP:conf/ijcai/0001LW0S0Y24</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">DBLP:journals/corr/VijayakumarCSSL16-diverse-beam-search</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">decao2021multilingual</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">reimers-2019-sentence-bert</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">page1999pagerank</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">katz1953new</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">DBLP:conf/nips/Song0QLL20</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">DBLP:conf/nips/ProkhorenkovaGV18-catboost</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">DBLP:conf/coling/SenAS22-mintaka</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">SQ_WD</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">korablinov2020rubq</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">DBLP:conf/coling/SenAS22-mintaka</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">diefenbach2020towards</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">Huang2019KnowledgeGE</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">DBLP:conf/acl/RazzhigaevSMBP23</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">SQ_WD</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">korablinov2020rubq</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">DBLP:conf/coling/SenAS22-mintaka</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">diefenbach2020towards</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">Huang2019KnowledgeGE</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">DBLP:conf/acl/RazzhigaevSMBP23</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">DBLP:journals/corr/abs-2310-07008</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">decao2021multilingual</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">reimers-2019-sentence-bert</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">DBLP:journals/corr/abs-2310-02166</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">page1999pagerank</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">katz1953new</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">DBLP:conf/nips/Song0QLL20</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">DBLP:journals/corr/abs-2007-08426</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">DBLP:conf/coling/ColasAW22-GAP</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">DBLP:conf/nips/ProkhorenkovaGV18-catboost</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">DBLP:conf/coling/SenAS22-mintaka</bcf:citekey>
-    <bcf:citekey order="50" intorder="1">DBLP:conf/acl/RazzhigaevSMBP23</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">DBLP:journals/corr/abs-2310-07008</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">DBLP:journals/corr/abs-2310-02166</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">DBLP:conf/nldb/SalnikovSPQA25</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">SQ_WD</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">korablinov2020rubq</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">DBLP:conf/coling/SenAS22-mintaka</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">DBLP:conf/acl/RazzhigaevSMBP23</bcf:citekey>
-  </bcf:section>
-  <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="none">
-    <bcf:sort order="1">
-      <bcf:sortitem order="1">citeorder</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2">
-      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
-    </bcf:sort>
-  </bcf:sortingtemplate>
-  <!-- DATALISTS -->
-  <bcf:datalist section="0"
-                name="none/global//global/global/global"
-                type="entry"
-                sortingtemplatename="none"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global"
-                namehashtemplatename="global">
-  </bcf:datalist>
-</bcf:controlfile>
