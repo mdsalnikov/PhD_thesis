@@ -145,7 +145,7 @@
       \strng{authornamehash}{03452017673895bbfe99d513d532e6b4}
       \strng{authorfullhash}{03452017673895bbfe99d513d532e6b4}
       \strng{authorfullhashraw}{03452017673895bbfe99d513d532e6b4}
-      \strng{editorbibnamehash}{7126226c96b902f79c86c0a19c719ffe}
+      \strng{editorbibnamehash}{b493927e65eacfc394fe1e594cf72a89}
       \strng{editornamehash}{7126226c96b902f79c86c0a19c719ffe}
       \strng{editorfullhash}{b493927e65eacfc394fe1e594cf72a89}
       \strng{editorfullhashraw}{b493927e65eacfc394fe1e594cf72a89}
@@ -223,7 +223,7 @@
            given={Pascale},
            giveni={P\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{7f1de58d3d36035f2dcbf85d331900f1}
+      \strng{authorbibnamehash}{10ef4394bec37f952600a5bbcdf4c91e}
       \strng{authornamehash}{7f1de58d3d36035f2dcbf85d331900f1}
       \strng{authorfullhash}{10ef4394bec37f952600a5bbcdf4c91e}
       \strng{authorfullhashraw}{10ef4394bec37f952600a5bbcdf4c91e}
@@ -290,7 +290,7 @@
            given={Amitava},
            giveni={A\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{64d460dfac14383a0f55334ef4eb6f04}
+      \strng{authorbibnamehash}{9f2a9aec539e169db5bc103a79bb9e9b}
       \strng{authornamehash}{64d460dfac14383a0f55334ef4eb6f04}
       \strng{authorfullhash}{9f2a9aec539e169db5bc103a79bb9e9b}
       \strng{authorfullhashraw}{9f2a9aec539e169db5bc103a79bb9e9b}
@@ -398,11 +398,11 @@
         {ELRA}%
         {ICCL}%
       }
-      \strng{authorbibnamehash}{1deff6c653bc334af9f7199fd082281c}
+      \strng{authorbibnamehash}{f29f68b8a8c622734dcd658fa337a78c}
       \strng{authornamehash}{1deff6c653bc334af9f7199fd082281c}
       \strng{authorfullhash}{f29f68b8a8c622734dcd658fa337a78c}
       \strng{authorfullhashraw}{f29f68b8a8c622734dcd658fa337a78c}
-      \strng{editorbibnamehash}{c0f71bf98493a021e0ad741a5193b2ff}
+      \strng{editorbibnamehash}{7f52c43b4dd49579397545969a1f8637}
       \strng{editornamehash}{c0f71bf98493a021e0ad741a5193b2ff}
       \strng{editorfullhash}{7f52c43b4dd49579397545969a1f8637}
       \strng{editorfullhashraw}{7f52c43b4dd49579397545969a1f8637}
@@ -484,7 +484,7 @@
       \list{publisher}{1}{%
         {Association for Computational Linguistics}%
       }
-      \strng{authorbibnamehash}{10e29d8eef7defafd17dc7a4dfa7f696}
+      \strng{authorbibnamehash}{aabe7fd727869d34e740a119ca8ac161}
       \strng{authornamehash}{10e29d8eef7defafd17dc7a4dfa7f696}
       \strng{authorfullhash}{aabe7fd727869d34e740a119ca8ac161}
       \strng{authorfullhashraw}{aabe7fd727869d34e740a119ca8ac161}
@@ -594,7 +594,7 @@
       \list{publisher}{1}{%
         {Springer}%
       }
-      \strng{authorbibnamehash}{3eddde6151db627612c97fe76f9c4060}
+      \strng{authorbibnamehash}{2be5501c10980116cf312dc95f2f0132}
       \strng{authornamehash}{3eddde6151db627612c97fe76f9c4060}
       \strng{authorfullhash}{2be5501c10980116cf312dc95f2f0132}
       \strng{authorfullhashraw}{2be5501c10980116cf312dc95f2f0132}
@@ -659,7 +659,7 @@
            given={Alexander},
            giveni={A\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{3eddde6151db627612c97fe76f9c4060}
+      \strng{authorbibnamehash}{5f7f0e02100168283cc45302d438c63e}
       \strng{authornamehash}{3eddde6151db627612c97fe76f9c4060}
       \strng{authorfullhash}{5f7f0e02100168283cc45302d438c63e}
       \strng{authorfullhashraw}{5f7f0e02100168283cc45302d438c63e}
@@ -726,7 +726,7 @@
            given={Alexander},
            giveni={A\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{3eddde6151db627612c97fe76f9c4060}
+      \strng{authorbibnamehash}{d4c8829576905dbf1b434bfc15810c22}
       \strng{authornamehash}{3eddde6151db627612c97fe76f9c4060}
       \strng{authorfullhash}{d4c8829576905dbf1b434bfc15810c22}
       \strng{authorfullhashraw}{d4c8829576905dbf1b434bfc15810c22}
@@ -788,7 +788,7 @@
            given={Xindong},
            giveni={X\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{a06719f1ea597a9aeaa02fe6d8de8c05}
+      \strng{authorbibnamehash}{7a1d6ba55d864e39998368b4a9f788c2}
       \strng{authornamehash}{a06719f1ea597a9aeaa02fe6d8de8c05}
       \strng{authorfullhash}{7a1d6ba55d864e39998368b4a9f788c2}
       \strng{authorfullhashraw}{7a1d6ba55d864e39998368b4a9f788c2}
@@ -858,7 +858,7 @@
       \list{publisher}{1}{%
         {ijcai.org}%
       }
-      \strng{authorbibnamehash}{f804c536412a806670f6df1142427b87}
+      \strng{authorbibnamehash}{c87e3324fc553272ddba8ce19f3a9dac}
       \strng{authornamehash}{f804c536412a806670f6df1142427b87}
       \strng{authorfullhash}{c87e3324fc553272ddba8ce19f3a9dac}
       \strng{authorfullhashraw}{c87e3324fc553272ddba8ce19f3a9dac}
@@ -917,7 +917,7 @@
            given={Dhruv},
            giveni={D\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{fbde3d584aa84d7b70ea8eb7b5f7cd1f}
+      \strng{authorbibnamehash}{52763a329eb5f1d2fad7454a8864827d}
       \strng{authornamehash}{fbde3d584aa84d7b70ea8eb7b5f7cd1f}
       \strng{authorfullhash}{52763a329eb5f1d2fad7454a8864827d}
       \strng{authorfullhashraw}{52763a329eb5f1d2fad7454a8864827d}
@@ -996,7 +996,7 @@
            given={Fabio},
            giveni={F\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{9e446c0b52237f393f5ac81791aab458}
+      \strng{authorbibnamehash}{62f803220265178389a44c21c7e10a02}
       \strng{authornamehash}{9e446c0b52237f393f5ac81791aab458}
       \strng{authorfullhash}{62f803220265178389a44c21c7e10a02}
       \strng{authorfullhashraw}{62f803220265178389a44c21c7e10a02}
@@ -1069,7 +1069,7 @@
       \strng{authornamehash}{2466af6376c9c5e3658dcc6692351f3e}
       \strng{authorfullhash}{2466af6376c9c5e3658dcc6692351f3e}
       \strng{authorfullhashraw}{2466af6376c9c5e3658dcc6692351f3e}
-      \strng{editorbibnamehash}{50a493d0885b78a76247a8faab26ce57}
+      \strng{editorbibnamehash}{6f401db5289f8ba6e23209eef52e0ad3}
       \strng{editornamehash}{50a493d0885b78a76247a8faab26ce57}
       \strng{editorfullhash}{6f401db5289f8ba6e23209eef52e0ad3}
       \strng{editorfullhashraw}{6f401db5289f8ba6e23209eef52e0ad3}
@@ -1121,7 +1121,7 @@
       \list{publisher}{1}{%
         {Citeseer}%
       }
-      \strng{authorbibnamehash}{07b677797f2f761de27121ff4ec8b078}
+      \strng{authorbibnamehash}{ffb9d3b81040fde7532166a51129fc75}
       \strng{authornamehash}{07b677797f2f761de27121ff4ec8b078}
       \strng{authorfullhash}{ffb9d3b81040fde7532166a51129fc75}
       \strng{authorfullhashraw}{ffb9d3b81040fde7532166a51129fc75}
@@ -1224,11 +1224,11 @@
            given={Hsuan{-}Tien},
            giveni={H\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{ef785d946ac82628344a34852d7c40ee}
+      \strng{authorbibnamehash}{f1a4feab9099d615657bbd14dc4caffa}
       \strng{authornamehash}{ef785d946ac82628344a34852d7c40ee}
       \strng{authorfullhash}{f1a4feab9099d615657bbd14dc4caffa}
       \strng{authorfullhashraw}{f1a4feab9099d615657bbd14dc4caffa}
-      \strng{editorbibnamehash}{4cf660a37a0b51cf987caa2c88fb2930}
+      \strng{editorbibnamehash}{26d0f2bcddce8acfecdf6413bf3f7b3d}
       \strng{editornamehash}{4cf660a37a0b51cf987caa2c88fb2930}
       \strng{editorfullhash}{26d0f2bcddce8acfecdf6413bf3f7b3d}
       \strng{editorfullhashraw}{26d0f2bcddce8acfecdf6413bf3f7b3d}
@@ -1307,11 +1307,11 @@
            given={Roman},
            giveni={R\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{25a949db10e0b59df23b6648f6ecb1e4}
+      \strng{authorbibnamehash}{7cc7663eb1187e8958128c0cd355ef3e}
       \strng{authornamehash}{25a949db10e0b59df23b6648f6ecb1e4}
       \strng{authorfullhash}{7cc7663eb1187e8958128c0cd355ef3e}
       \strng{authorfullhashraw}{7cc7663eb1187e8958128c0cd355ef3e}
-      \strng{editorbibnamehash}{a7107fc44d58e0d53178f67bb2ce15f8}
+      \strng{editorbibnamehash}{6d461cf527e8a2344e08990ad60323f4}
       \strng{editornamehash}{a7107fc44d58e0d53178f67bb2ce15f8}
       \strng{editorfullhash}{6d461cf527e8a2344e08990ad60323f4}
       \strng{editorfullhashraw}{6d461cf527e8a2344e08990ad60323f4}
@@ -1463,7 +1463,7 @@
       \strng{authornamehash}{216b4f492d1e6dfca5e0c7a57e10bb90}
       \strng{authorfullhash}{216b4f492d1e6dfca5e0c7a57e10bb90}
       \strng{authorfullhashraw}{216b4f492d1e6dfca5e0c7a57e10bb90}
-      \strng{editorbibnamehash}{c0f71bf98493a021e0ad741a5193b2ff}
+      \strng{editorbibnamehash}{38ad53164d86a94be13ce350e7a34665}
       \strng{editornamehash}{c0f71bf98493a021e0ad741a5193b2ff}
       \strng{editorfullhash}{38ad53164d86a94be13ce350e7a34665}
       \strng{editorfullhashraw}{38ad53164d86a94be13ce350e7a34665}
@@ -1533,11 +1533,11 @@
       \list{publisher}{1}{%
         {CEUR-WS.org}%
       }
-      \strng{authorbibnamehash}{0b22431ea3800377ba11ca41101140cf}
+      \strng{authorbibnamehash}{6f33086d0fe01c5663e271aa8f4c8678}
       \strng{authornamehash}{0b22431ea3800377ba11ca41101140cf}
       \strng{authorfullhash}{6f33086d0fe01c5663e271aa8f4c8678}
       \strng{authorfullhashraw}{6f33086d0fe01c5663e271aa8f4c8678}
-      \strng{editorbibnamehash}{b2dacc4dd33e4a4033e9811e3f681679}
+      \strng{editorbibnamehash}{e74f2497b0f43afba6c6fc9bb8991f15}
       \strng{editornamehash}{b2dacc4dd33e4a4033e9811e3f681679}
       \strng{editorfullhash}{e74f2497b0f43afba6c6fc9bb8991f15}
       \strng{editorfullhashraw}{e74f2497b0f43afba6c6fc9bb8991f15}
@@ -1626,7 +1626,7 @@
       \strng{authornamehash}{b5d49fc6df169eccdb32f625fb21f073}
       \strng{authorfullhash}{b5d49fc6df169eccdb32f625fb21f073}
       \strng{authorfullhashraw}{b5d49fc6df169eccdb32f625fb21f073}
-      \strng{editorbibnamehash}{5ac4286d40d30d03998e458efb80853e}
+      \strng{editorbibnamehash}{9c273bedd273a8fa6589061c4f41f18f}
       \strng{editornamehash}{5ac4286d40d30d03998e458efb80853e}
       \strng{editorfullhash}{9c273bedd273a8fa6589061c4f41f18f}
       \strng{editorfullhashraw}{9c273bedd273a8fa6589061c4f41f18f}
@@ -1678,7 +1678,7 @@
            given={Pierre},
            giveni={P\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{0b22431ea3800377ba11ca41101140cf}
+      \strng{authorbibnamehash}{c737ec4ca1cd04a97556c2557140f1bc}
       \strng{authornamehash}{0b22431ea3800377ba11ca41101140cf}
       \strng{authorfullhash}{c737ec4ca1cd04a97556c2557140f1bc}
       \strng{authorfullhashraw}{c737ec4ca1cd04a97556c2557140f1bc}
@@ -1755,11 +1755,11 @@
       \list{publisher}{1}{%
         {ACM}%
       }
-      \strng{authorbibnamehash}{af9eeeee564ee6969d7bb5c76206f4b4}
+      \strng{authorbibnamehash}{bbac7e314fb466a458e5a2dc0d4d28dc}
       \strng{authornamehash}{af9eeeee564ee6969d7bb5c76206f4b4}
       \strng{authorfullhash}{bbac7e314fb466a458e5a2dc0d4d28dc}
       \strng{authorfullhashraw}{bbac7e314fb466a458e5a2dc0d4d28dc}
-      \strng{editorbibnamehash}{0b1951c9c3cb2f29b0571c8b687ec57f}
+      \strng{editorbibnamehash}{8f3ffedb6ad1da5cc860d72ceaea0fdf}
       \strng{editornamehash}{0b1951c9c3cb2f29b0571c8b687ec57f}
       \strng{editorfullhash}{8f3ffedb6ad1da5cc860d72ceaea0fdf}
       \strng{editorfullhashraw}{8f3ffedb6ad1da5cc860d72ceaea0fdf}
@@ -1831,7 +1831,7 @@
       \list{publisher}{1}{%
         {Association for Computational Linguistics}%
       }
-      \strng{authorbibnamehash}{481f843af0df06e29ae556b28c24e61e}
+      \strng{authorbibnamehash}{e73cd17ea917f4ea2046bf97e23fced5}
       \strng{authornamehash}{481f843af0df06e29ae556b28c24e61e}
       \strng{authorfullhash}{e73cd17ea917f4ea2046bf97e23fced5}
       \strng{authorfullhashraw}{e73cd17ea917f4ea2046bf97e23fced5}
@@ -1882,7 +1882,7 @@
            given={Iryna},
            giveni={I\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{3f5a5951955b06133b8084781ea164bd}
+      \strng{authorbibnamehash}{1936d6fd3c4d819245794e1148a6bcd5}
       \strng{authornamehash}{3f5a5951955b06133b8084781ea164bd}
       \strng{authorfullhash}{1936d6fd3c4d819245794e1148a6bcd5}
       \strng{authorfullhashraw}{1936d6fd3c4d819245794e1148a6bcd5}
@@ -2039,7 +2039,7 @@
       \strng{authornamehash}{4a3facdaf805ffc8d4ee28c47df009d3}
       \strng{authorfullhash}{4a3facdaf805ffc8d4ee28c47df009d3}
       \strng{authorfullhashraw}{4a3facdaf805ffc8d4ee28c47df009d3}
-      \strng{editorbibnamehash}{c0f71bf98493a021e0ad741a5193b2ff}
+      \strng{editorbibnamehash}{38ad53164d86a94be13ce350e7a34665}
       \strng{editornamehash}{c0f71bf98493a021e0ad741a5193b2ff}
       \strng{editorfullhash}{38ad53164d86a94be13ce350e7a34665}
       \strng{editorfullhashraw}{38ad53164d86a94be13ce350e7a34665}
