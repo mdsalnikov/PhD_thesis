@@ -22,7 +22,6 @@ This chapter's organization consists of several sections in order to provide a c
 \begin{itemize}
     \item \textbf{System Architecture (Section \ref{sec:system_demos:architecture}):} This section provides an outline of the general architecture of our implemented systems. It details the integration of LLMs with KGs, and also the specific components of the M3M pipeline, the ACT Selection pipeline, the baseline Seq2Seq model, and the subgraph visualization tool.
     \item \textbf{Implementation Details (Section \ref{sec:system_demos:implementation}):} Here, we will delve into technical specifics of our systems' implementation. This includes the selection of technologies, programming frameworks (for instance, FastAPI for API endpoints), key Python libraries (e.g., PyTorch, spaCy, Sentence Transformers, PyWikidata), and also challenges that were faced during development, particularly in ensuring cross-linguistic compatibility and efficient KG interaction.
-    \item \textbf{Conclusion (Section \ref{sec:system_demos:conclusion}):} This section gives a summary of the key findings and implications of our system demonstrations, highlighting the practical utility of our approach in real-world scenarios. It also provides a brief discussion on current limitations and potential future research directions.
 \end{itemize}
 
 \section{System Architecture}
@@ -43,7 +42,7 @@ This pipeline serves as a fundamental component for generating initial answer ca
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{system_demonstration/demo_seq2seq.png}
+    \includegraphics[width=0.99\textwidth]{system_demonstration/demo_seq2seq.png}
     \caption{Demonstration of the baseline Seq2Seq pipeline.}
     \label{fig:demo_seq2seq}
 \end{figure}
@@ -87,14 +86,14 @@ The M3M pipeline exposes its functionality via a FastAPI endpoint (\path{/pipeli
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{system_demonstration/demo_m3m.png}
+    \includegraphics[width=0.99\textwidth]{system_demonstration/demo_m3m.png}
     \caption{Demonstration of the M3M pipeline in action.}
     \label{fig:demo_m3m}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{system_demonstration/demo_api_m3m.png}
+    \includegraphics[width=0.99\textwidth]{system_demonstration/demo_api_m3m.png}
     \caption{API interaction with the M3M pipeline.}
     \label{fig:demo_api_m3m}
 \end{figure}
@@ -117,14 +116,14 @@ This pipeline is also exposed via FastAPI through multiple endpoints (e.g., \pat
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{system_demonstration/demo_act.png}
+    \includegraphics[width=0.99\textwidth]{system_demonstration/demo_act.png}
     \caption{Demonstration of the ACT Selection pipeline.}
     \label{fig:demo_act}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{system_demonstration/demo_m3m(act)_1.png}
+    \includegraphics[width=0.99\textwidth]{system_demonstration/demo_m3m(act)_1.png}
     \caption{Further demonstration of the M3M pipeline incorporating ACT Selection principles.}
     \label{fig:demo_m3m_act_1}
 \end{figure}
@@ -153,7 +152,7 @@ This section delves into the technical specifics of the implemented systems, hig
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{system_demonstration/demo_api.png}
+    \includegraphics[width=0.99\textwidth]{system_demonstration/demo_api.png}
     \caption{Overview of the general API interface for the demonstrated systems.}
     \label{fig:demo_api}
 \end{figure}
@@ -196,13 +195,5 @@ The frontend for the subgraph visualization tool (\path{m3m/app/templates/graph_
     \item \textbf{User Experience Enhancements:} Features like preloading entity images and showing image previews on mouseover enhance the tool's usability.
 \end{itemize}
 This tool effectively demonstrates how complex KG structures can be made accessible and interpretable through a web interface, aiding in the analysis of subgraph-based KGQA methods discussed in Chapter~\ref{chap:controllable_fusion}.
-
-\section{Conclusion}
-\label{sec:system_demos:conclusion}
-In this chapter, we have made a transition from the theoretical frameworks that were discussed previously, towards the tangible implementation and demonstration of several key systems which are designed for addressing factoid question answering. We have presented four distinct, yet interconnected systems: the baseline Seq2Seq pipeline, this serves as a foundational reference; the M3M pipeline, which embodies our core approach to multilingual KGQA from prior work~\cite{DBLP:conf/acl/RazzhigaevSMBP23}; the ACT Selection pipeline, that showcases advanced answer type refinement as was detailed in Chapter~\ref{chap:act_selection}; and the subgraph visualization tool, being an interactive aid which supports the research on controllable KG-LLM fusion from Chapter~\ref{chap:controllable_fusion}.
-
-Through detailed descriptions of their architectures and implementation specifics—with highlighting the usage of Python, FastAPI for API development, and key libraries for instance PyTorch, HuggingFace Transformers, spaCy, and PyWikidata—we have illustrated how these systems are functioning in practice. The inclusion of visual demonstrations (Figures~\ref{fig:demo_seq2seq} to~\ref{fig:demo_api}) has further elucidated their operational characteristics and user interfaces. These systems serve as robust proofs-of-concept for our methodologies, thereby demonstrating the practical viability of an integration of Large Language Models with Knowledge Graphs for enhancing question answering capabilities, particularly in multilingual contexts. They also provide valuable tools for the research community, by facilitating further exploration and development in KGQA.
-
-The development and demonstration of these systems do underscore the benefits of our integrated approach, by showcasing improvements in semantic understanding, answer precision, and also the ability for leveraging structured knowledge effectively. While these implementations mark a significant progress, we acknowledge current limitations, which are primarily concerning scalability to highly complex queries and the challenge of an extension of robust support to a wider array of underrepresented languages. Future research will be focused on an addressing of these limitations by an incorporation of more sophisticated reasoning mechanisms within the pipelines, a further expansion of language coverage, and an enhancement of the interactivity and analytical capabilities of our visualization tools. The insights that were gained from building and evaluating these systems lay a solid foundation for continued innovation in the pursuit of more accurate, reliable, and versatile question answering technologies, building upon the principles which were established in "A System for Answering Simple Questions in Multiple Languages."
 
 

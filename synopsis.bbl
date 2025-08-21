@@ -92,7 +92,7 @@
       \verb{url}
       \verb https://aclanthology.org/2022.acl-long.229/
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/emnlp/RobertsRS20}{inproceedings}{useeditor=false}{}
       \name{author}{3}{}{%
@@ -168,7 +168,7 @@
       \verb{url}
       \verb https://doi.org/10.18653/v1/2020.emnlp-main.437
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:journals/csur/JiLFYSXIBMF23}{article}{useauthor=false}{}
       \name{author}{10}{}{%
@@ -250,7 +250,7 @@
       \verb{url}
       \verb https://doi.org/10.1145/3571730
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:journals/corr/abs-2401-01313}{article}{useauthor=false}{}
       \name{author}{7}{}{%
@@ -317,7 +317,7 @@
       \verb{url}
       \verb https://doi.org/10.48550/arXiv.2401.01313
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/coling/ShalloufHSVMPBN24}{inproceedings}{useauthor=false,useeditor=false}{}
       \name{author}{8}{}{%
@@ -421,7 +421,7 @@
       \verb{url}
       \verb https://aclanthology.org/2024.lrec-main.238
       \endverb
-      \keyw{,biblioregistered,bibliofull}
+      \keyw{,biblioauthor,bibliofull}
     \endentry
     \entry{pletenev-etal-2025-much}{inproceedings}{useauthor=false}{}
       \name{author}{7}{}{%
@@ -509,7 +509,7 @@
       \verb{url}
       \verb https://aclanthology.org/2025.findings-naacl.243/
       \endverb
-      \keyw{,biblioregistered,bibliofull}
+      \keyw{,biblioauthor,bibliofull}
     \endentry
     \entry{DBLP:conf/nldb/SalnikovSPQA25}{inproceedings}{useauthor=false}{}
       \name{author}{14}{}{%
@@ -584,19 +584,47 @@
            given={Alexander},
            giveni={A\bibinitperiod}}}%
       }
+      \name{editor}{1}{}{%
+        {{hash=443ee41c641fc99a6461404d747ec29d}{%
+           family={Ichise},
+           familyi={I\bibinitperiod},
+           given={Ryutaro},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
       \strng{authorbibnamehash}{3eddde6151db627612c97fe76f9c4060}
       \strng{authornamehash}{3eddde6151db627612c97fe76f9c4060}
       \strng{authorfullhash}{2be5501c10980116cf312dc95f2f0132}
       \strng{authorfullhashraw}{2be5501c10980116cf312dc95f2f0132}
+      \strng{editorbibnamehash}{443ee41c641fc99a6461404d747ec29d}
+      \strng{editornamehash}{443ee41c641fc99a6461404d747ec29d}
+      \strng{editorfullhash}{443ee41c641fc99a6461404d747ec29d}
+      \strng{editorfullhashraw}{443ee41c641fc99a6461404d747ec29d}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Natural Language Processing and Information Systems - 30th International Conference on Applications of Natural Language to Information Systems, {NLDB} 2025, Turin, Italy, June 24-26, 2025, Proceedings, Part {II}}
+      \field{booktitle}{Natural Language Processing and Information Systems - 30th International Conference on Applications of Natural Language to Information Systems, {NLDB} 2025, Kanazawa, Japan, July 4-6, 2025, Proceedings, Part {I}}
+      \field{internalsortvolume}{15836}
       \field{media}{text}
       \field{series}{Lecture Notes in Computer Science}
-      \field{title}{ShortPathQA: A Dataset for Controllable Fusion of Large Language Models with Knowledge Graphs}
+      \field{title}{ShortPathQA: {A} Dataset for Controllable Fusion of Large Language Models with Knowledge Graphs}
       \field{year}{2025}
-      \keyw{,biblioregistered,bibliofull}
+      \field{pages}{95\bibrangedash 110}
+      \range{pages}{16}
+      \field{volume}{15836}
+      \range{volume}{1}
+      \verb{doi}
+      \verb 10.1007/978-3-031-97141-9\_7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-031-97141-9\_7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-031-97141-9%5C_7
+      \endverb
+      \keyw{,biblioauthor,bibliofull}
     \endentry
     \entry{DBLP:journals/corr/abs-2310-07008}{article}{useauthor=false}{}
       \name{author}{6}{}{%
@@ -658,7 +686,7 @@
       \verb{url}
       \verb https://doi.org/10.48550/arXiv.2310.07008
       \endverb
-      \keyw{,biblioregistered,bibliofull}
+      \keyw{,biblioauthor,bibliofull}
     \endentry
     \entry{DBLP:journals/corr/abs-2310-02166}{article}{useauthor=false}{}
       \name{author}{7}{}{%
@@ -725,7 +753,7 @@
       \verb{url}
       \verb https://doi.org/10.48550/arXiv.2310.02166
       \endverb
-      \keyw{,biblioregistered,bibliofull}
+      \keyw{,biblioauthor,bibliofull}
     \endentry
     \entry{DBLP:journals/tkde/PanLWCWW24}{article}{useauthor=false}{}
       \name{author}{6}{}{%
@@ -787,7 +815,7 @@
       \verb{url}
       \verb https://doi.org/10.1109/TKDE.2024.3352100
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/ijcai/0001LW0S0Y24}{inproceedings}{useauthor=false}{}
       \name{author}{7}{}{%
@@ -849,7 +877,7 @@
       \verb{url}
       \verb https://www.ijcai.org/proceedings/2024/898
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:journals/corr/VijayakumarCSSL16-diverse-beam-search}{article}{useauthor=false}{}
       \name{author}{7}{}{%
@@ -913,15 +941,15 @@
       \verb{url}
       \verb http://arxiv.org/abs/1610.02424
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{decao2021multilingual}{article}{useauthor=false}{}
       \name{author}{10}{}{%
-        {{hash=47c980f95ffa4286e6c23421afca90c7}{%
-           family={De\bibnamedelima Cao},
-           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
-           given={Nicola},
-           giveni={N\bibinitperiod}}}%
+        {{hash=848d17c801ae461613e3410c7e1d3385}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Nicola\bibnamedelima De},
+           giveni={N\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
         {{hash=9825446add26b320aea811f184ef643c}{%
            family={Wu},
            familyi={W\bibinitperiod},
@@ -968,28 +996,34 @@
            given={Fabio},
            giveni={F\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {MIT Press One Broadway, 12th Floor, Cambridge, Massachusetts 02142, USA~…}%
-      }
-      \strng{authorbibnamehash}{ab05157d19e0ca77facb09a0030339e5}
-      \strng{authornamehash}{ab05157d19e0ca77facb09a0030339e5}
-      \strng{authorfullhash}{7c3513fc489ae871f5ece20f8552f7e1}
-      \strng{authorfullhashraw}{7c3513fc489ae871f5ece20f8552f7e1}
+      \strng{authorbibnamehash}{9e446c0b52237f393f5ac81791aab458}
+      \strng{authornamehash}{9e446c0b52237f393f5ac81791aab458}
+      \strng{authorfullhash}{62f803220265178389a44c21c7e10a02}
+      \strng{authorfullhashraw}{62f803220265178389a44c21c7e10a02}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{internalsortvolume}{10}
-      \field{journaltitle}{Transactions of the Association for Computational Linguistics}
+      \field{journaltitle}{Trans. Assoc. Comput. Linguistics}
       \field{media}{text}
-      \field{title}{Multilingual autoregressive entity linking}
+      \field{title}{Multilingual Autoregressive Entity Linking}
       \field{year}{2022}
       \field{pages}{274\bibrangedash 290}
       \range{pages}{17}
       \field{volume}{10}
       \range{volume}{1}
-      \keyw{,bibliofull}
+      \verb{doi}
+      \verb 10.1162/TACL\_A\_00460
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1162/tacl\_a\_00460
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1162/tacl%5C_a%5C_00460
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
     \endentry
-    \entry{reimers-2019-sentence-bert}{inproceedings}{}{}
+    \entry{reimers-2019-sentence-bert}{inproceedings}{useeditor=false}{}
       \name{author}{2}{}{%
         {{hash=da9947b27b0d1c4c912e2b391426d443}{%
            family={Reimers},
@@ -1002,6 +1036,28 @@
            given={Iryna},
            giveni={I\bibinitperiod}}}%
       }
+      \name{editor}{4}{}{%
+        {{hash=8db8ce939f6707d15a65c68fb7eb7fce}{%
+           family={Inui},
+           familyi={I\bibinitperiod},
+           given={Kentaro},
+           giveni={K\bibinitperiod}}}%
+        {{hash=78f8ffda028131a2ad3f19fb3e42cdb7}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=800a361562c5521177148c8fa518b0da}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=099b49eba881fb48d8a736fb9873c0e6}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Xiaojun},
+           giveni={X\bibinitperiod}}}%
+      }
       \list{publisher}{1}{%
         {Association for Computational Linguistics}%
       }
@@ -1013,22 +1069,30 @@
       \strng{authornamehash}{2466af6376c9c5e3658dcc6692351f3e}
       \strng{authorfullhash}{2466af6376c9c5e3658dcc6692351f3e}
       \strng{authorfullhashraw}{2466af6376c9c5e3658dcc6692351f3e}
+      \strng{editorbibnamehash}{50a493d0885b78a76247a8faab26ce57}
+      \strng{editornamehash}{50a493d0885b78a76247a8faab26ce57}
+      \strng{editorfullhash}{6f401db5289f8ba6e23209eef52e0ad3}
+      \strng{editorfullhashraw}{6f401db5289f8ba6e23209eef52e0ad3}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing}
+      \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing, {EMNLP-IJCNLP} 2019, Hong Kong, China, November 3-7, 2019}
       \field{media}{text}
-      \field{month}{11}
       \field{title}{Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks}
       \field{year}{2019}
+      \field{pages}{3980\bibrangedash 3990}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.18653/V1/D19-1410
+      \endverb
       \verb{urlraw}
-      \verb https://arxiv.org/abs/1908.10084
+      \verb https://doi.org/10.18653/v1/D19-1410
       \endverb
       \verb{url}
-      \verb https://arxiv.org/abs/1908.10084
+      \verb https://doi.org/10.18653/v1/D19-1410
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{page1999pagerank}{article}{useauthor=false}{}
       \true{moreauthor}
@@ -1067,7 +1131,7 @@
       \field{media}{text}
       \field{title}{The pagerank citation ranking: Bringing order to the web}
       \field{year}{1999}
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{katz1953new}{article}{}{}
       \name{author}{1}{}{%
@@ -1103,7 +1167,7 @@
       \range{pages}{5}
       \field{volume}{18}
       \range{volume}{1}
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/nips/Song0QLL20}{inproceedings}{useauthor=false,useeditor=false}{}
       \name{author}{5}{}{%
@@ -1181,7 +1245,7 @@
       \verb{url}
       \verb https://proceedings.neurips.cc/paper/2020/hash/c3a690be93aa602ee2dc0ccab5b7b67e-Abstract.html
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/nips/ProkhorenkovaGV18-catboost}{inproceedings}{useauthor=false,useeditor=false}{}
       \name{author}{5}{}{%
@@ -1266,7 +1330,7 @@
       \verb{url}
       \verb https://proceedings.neurips.cc/paper/2018/hash/14491b756b3a51daac41c24863285549-Abstract.html
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/coling/SenAS22-mintaka}{inproceedings}{useeditor=false}{}
       \name{author}{3}{}{%
@@ -1295,8 +1359,8 @@
         {{hash=940237b79f8c6e9df9ba38e7fe4a2c51}{%
            family={Huang},
            familyi={H\bibinitperiod},
-           given={Chu-Ren},
-           giveni={C\bibinithyphendelim R\bibinitperiod}}}%
+           given={Chu{-}Ren},
+           giveni={C\bibinitperiod}}}%
         {{hash=ee118060e648ad5a57f00b9ec8c0d13b}{%
            family={Kim},
            familyi={K\bibinitperiod},
@@ -1315,18 +1379,18 @@
         {{hash=929dc1fc3408644c495635f6d8f5d11e}{%
            family={Choi},
            familyi={C\bibinitperiod},
-           given={Key-Sun},
-           giveni={K\bibinithyphendelim S\bibinitperiod}}}%
+           given={Key{-}Sun},
+           giveni={K\bibinitperiod}}}%
         {{hash=c891372aa7d7f74d87ef541d4f9a7e38}{%
            family={Ryu},
            familyi={R\bibinitperiod},
-           given={Pum-Mo},
-           giveni={P\bibinithyphendelim M\bibinitperiod}}}%
+           given={Pum{-}Mo},
+           giveni={P\bibinitperiod}}}%
         {{hash=e55fd0c9df4aeb6e86644d12d7232f06}{%
            family={Chen},
            familyi={C\bibinitperiod},
-           given={Hsin-Hsi},
-           giveni={H\bibinithyphendelim H\bibinitperiod}}}%
+           given={Hsin{-}Hsi},
+           giveni={H\bibinitperiod}}}%
         {{hash=66cc1529838596058f6897ba41d2a676}{%
            family={Donatelli},
            familyi={D\bibinitperiod},
@@ -1385,11 +1449,8 @@
         {{hash=2e8ae8479a3e662d00d3df0b2fb78bed}{%
            family={Na},
            familyi={N\bibinitperiod},
-           given={Seung-Hoon},
-           giveni={S\bibinithyphendelim H\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Gyeongju, Republic of Korea}%
+           given={Seung{-}Hoon},
+           giveni={S\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {International Committee on Computational Linguistics}%
@@ -1410,10 +1471,9 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 29th International Conference on Computational Linguistics}
+      \field{booktitle}{Proceedings of the 29th International Conference on Computational Linguistics, {COLING} 2022, Gyeongju, Republic of Korea, October 12-17, 2022}
       \field{media}{text}
-      \field{month}{10}
-      \field{title}{Mintaka: A Complex, Natural, and Multilingual Dataset for End-to-End Question Answering}
+      \field{title}{Mintaka: {A} Complex, Natural, and Multilingual Dataset for End-to-End Question Answering}
       \field{year}{2022}
       \field{pages}{1604\bibrangedash 1619}
       \range{pages}{16}
@@ -1423,9 +1483,9 @@
       \verb{url}
       \verb https://aclanthology.org/2022.coling-1.138
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
-    \entry{SQ_WD}{inproceedings}{useauthor=false}{}
+    \entry{SQ_WD}{inproceedings}{useauthor=false,useeditor=false}{}
       \name{author}{4}{}{%
         {{hash=0b8a9ce8c527636c3bd76de324419d16}{%
            family={Diefenbach},
@@ -1448,18 +1508,57 @@
            given={Pierre},
            giveni={P\bibinitperiod}}}%
       }
+      \name{editor}{4}{}{%
+        {{hash=bf4ae1486f4c5cb53bbb1c1570e8e8a1}{%
+           family={Nikitina},
+           familyi={N\bibinitperiod},
+           given={Nadeschda},
+           giveni={N\bibinitperiod}}}%
+        {{hash=67893d5873e3d7725a9f4faaa1f4948f}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Dezhao},
+           giveni={D\bibinitperiod}}}%
+        {{hash=9a26b52e478d6baff0da0f3f34302804}{%
+           family={Fokoue},
+           familyi={F\bibinitperiod},
+           given={Achille},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c473afc32040dac4457a143ece875c44}{%
+           family={Haase},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CEUR-WS.org}%
+      }
       \strng{authorbibnamehash}{0b22431ea3800377ba11ca41101140cf}
       \strng{authornamehash}{0b22431ea3800377ba11ca41101140cf}
       \strng{authorfullhash}{6f33086d0fe01c5663e271aa8f4c8678}
       \strng{authorfullhashraw}{6f33086d0fe01c5663e271aa8f4c8678}
+      \strng{editorbibnamehash}{b2dacc4dd33e4a4033e9811e3f681679}
+      \strng{editornamehash}{b2dacc4dd33e4a4033e9811e3f681679}
+      \strng{editorfullhash}{e74f2497b0f43afba6c6fc9bb8991f15}
+      \strng{editorfullhashraw}{e74f2497b0f43afba6c6fc9bb8991f15}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the {ISWC} 2017 Posters {\&} Demonstrations and Industry Tracks co-located with 16th International Semantic Web Conference {(ISWC} 2017), Vienna, Austria, October 23rd - to - 25th, 2017.}
+      \field{booktitle}{Proceedings of the {ISWC} 2017 Posters {\&} Demonstrations and Industry Tracks co-located with 16th International Semantic Web Conference {(ISWC} 2017), Vienna, Austria, October 23rd - to - 25th, 2017}
+      \field{internalsortvolume}{1963}
       \field{media}{text}
+      \field{series}{{CEUR} Workshop Proceedings}
       \field{title}{Question Answering Benchmarks for Wikidata}
       \field{year}{2017}
-      \keyw{,bibliofull}
+      \field{volume}{1963}
+      \range{volume}{1}
+      \verb{urlraw}
+      \verb https://ceur-ws.org/Vol-1963/paper555.pdf
+      \endverb
+      \verb{url}
+      \verb https://ceur-ws.org/Vol-1963/paper555.pdf
+      \endverb
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{korablinov2020rubq}{inproceedings}{useeditor=false}{}
       \name{author}{2}{}{%
@@ -1480,11 +1579,11 @@
            familyi={P\bibinitperiod},
            given={Jeff\bibnamedelima Z.},
            giveni={J\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
-        {{hash=3442f627050a3f1136cc892b830aba0e}{%
+        {{hash=4fb77a4bd449d40757fa6f195ad238d4}{%
            family={Tamma},
            familyi={T\bibinitperiod},
-           given={Valentina\bibnamedelimb A.\bibnamedelimi M.},
-           giveni={V\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+           given={Valentina},
+           giveni={V\bibinitperiod}}}%
         {{hash=394d1d807bb7b7586bae609d5aa73cee}{%
            family={d'Amato},
            familyi={d\bibinitperiod},
@@ -1529,8 +1628,8 @@
       \strng{authorfullhashraw}{b5d49fc6df169eccdb32f625fb21f073}
       \strng{editorbibnamehash}{5ac4286d40d30d03998e458efb80853e}
       \strng{editornamehash}{5ac4286d40d30d03998e458efb80853e}
-      \strng{editorfullhash}{716e1b894f301fc3c7f091d702284134}
-      \strng{editorfullhashraw}{716e1b894f301fc3c7f091d702284134}
+      \strng{editorfullhash}{9c273bedd273a8fa6589061c4f41f18f}
+      \strng{editorfullhashraw}{9c273bedd273a8fa6589061c4f41f18f}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -1554,7 +1653,7 @@
       \verb{url}
       \verb https://doi.org/10.1007/978-3-030-62466-8%5C_7
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{diefenbach2020towards}{article}{useauthor=false}{}
       \name{author}{4}{}{%
@@ -1606,7 +1705,7 @@
       \verb{url}
       \verb https://doi.org/10.3233/SW-190343
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{Huang2019KnowledgeGE}{inproceedings}{useauthor=false,useeditor=false}{}
       \name{author}{4}{}{%
@@ -1682,7 +1781,7 @@
       \verb{url}
       \verb https://doi.org/10.1145/3289600.3290956
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/acl/RazzhigaevSMBP23}{inproceedings}{useauthor=false}{}
       \name{author}{5}{}{%
@@ -1758,7 +1857,7 @@
       \verb{url}
       \verb https://doi.org/10.18653/v1/2023.acl-demo.51
       \endverb
-      \keyw{,biblioregistered,bibliofull}
+      \keyw{,biblioauthor,bibliofull}
     \endentry
     \entry{DBLP:journals/corr/abs-2007-08426}{article}{useauthor=false}{}
       \name{author}{4}{}{%
@@ -1807,7 +1906,7 @@
       \verb{url}
       \verb https://arxiv.org/abs/2007.08426
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
     \entry{DBLP:conf/coling/ColasAW22-GAP}{inproceedings}{useeditor=false}{}
       \name{author}{3}{}{%
@@ -1960,7 +2059,7 @@
       \verb{url}
       \verb https://aclanthology.org/2022.coling-1.506
       \endverb
-      \keyw{,bibliofull}
+      \keyw{,biblioexternal,bibliofull}
     \endentry
   \enddatalist
 \endrefsection

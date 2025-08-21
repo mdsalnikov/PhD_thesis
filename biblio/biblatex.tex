@@ -12,7 +12,7 @@ style=gost-numeric,% стиль цитирования и библиографи
 language=autobib,% получение языка из babel/polyglossia, default: autobib % если ставить autocite или auto, то цитаты в тексте с указанием страницы, получат указание страницы на языке оригинала
 autolang=other,% многоязычная библиография
 clearlang=true,% внутренний сброс поля language, если он совпадает с языком из babel/polyglossia
-defernumbers=true,% нумерация проставляется после двух компиляций, зато позволяет выцеплять библиографию по ключевым словам и нумеровать не из большего списка
+defernumbers=true,% немедленная нумерация (исправляет нули при раздельных списках)
 sortcites=true,% сортировать номера затекстовых ссылок при цитировании (если в квадратных скобках несколько ссылок, то отображаться будут отсортированно, а не абы как)
 doi=false,% Показывать или нет ссылки на DOI
 isbn=false,% Показывать или нет ISBN, ISSN, ISRN
@@ -220,7 +220,7 @@ clearlang=true,% внутренний сброс поля language, если о�
             \step[fieldset=keywords,fieldvalue={,biblioauthorprogram},append=true]
         }
         \map[overwrite]{ % добавляем ключевые слова, чтобы различать источники
-            \perdatasource{biblio/external.bib}
+            \perdatasource{biblio/external_rebiber.bib}
             \step[fieldset=keywords, fieldvalue={,biblioexternal},append=true]
         }
         \map[overwrite]{ % добавляем ключевые слова, чтобы различать источники
@@ -408,6 +408,32 @@ clearlang=true,% внутренний сброс поля language, если о�
 %}{}
 %\DeclareFieldFormat{title}{\usebibmacro{string+doi}{#1}} % ссылка на doi с названия работы
 %\DeclareFieldFormat{journaltitle}{\usebibmacro{string+doi}{#1}} % ссылка на doi с названия журнала
+%% Heading and author placement adjustments (GOST-compliant):
+%% - Start each entry with ONLY the first author (surname, initials)
+%% - Then the title
+%% - Then the full author list via 'byauthor' (already provided by the style)
+\makeatletter
+% Keep heading text formatting simple (no italics)
+\renewcommand*{\mkgostheading}[1]{#1}
+% Avoid extra punctuation here; drivers add labelnamepunct themselves
+\DeclareFieldFormat{heading}{\mkgostheading{#1}}
+
+% Print first author (or first editor if no author). Fallback to existing heading/title
+\renewbibmacro*{heading}{%
+  \begingroup
+    \setcounter{minnames}{1}% ensure a single name here
+    \setcounter{maxnames}{1}%
+    \ifnameundef{author}{%
+      \ifnameundef{editor}{\printfield{heading}}{\printnames[heading][1-1]{editor}}%
+    }{\printnames[heading][1-1]{author}}%
+  \endgroup}
+
+% Suppress pre-title author/editor prints; they will appear after title via byauthor/byeditor
+\renewbibmacro*{author}{}
+\renewbibmacro*{author/editor}{}
+\renewbibmacro*{author/translator+others}{}
+\renewbibmacro*{author/editor+others/translator+others}{}
+\makeatother
 %%% Тире как разделитель в библиографии традиционной руской длины:
 \renewcommand*{\newblockpunct}{\addperiod\addnbspace\cyrdash\space\bibsentence}
 %%% Убрать тире из разделителей элементов в библиографии:
@@ -425,7 +451,7 @@ clearlang=true,% внутренний сброс поля language, если о�
 
 %%% В списке литературы обозначение одной буквой диапазона страниц англоязычного источника %%%
 \DefineBibliographyStrings{english}{%
-    pages = {p\adddot} %заглавность буквы затем по месту определяется работой самого biblatex
+    pages = {P\adddot} %заглавность буквы затем по месту определяется работой самого biblatex
 }
 
 %%% В ссылке на источник в основном тексте с указанием конкретной страницы обозначение одной большой буквой %%%
@@ -613,11 +639,10 @@ clearlang=true,% внутренний сброс поля language, если о�
     }{}
 }
 \newcommand*{\insertbiblioauthor}{
-    \printbibliography[heading=pubgroup, section=0, filter=papersregistered, title=\bibtitleauthor]
     \ifnumequal{\value{englishthesis}}{0}{
-        \printbibliography[heading=pubgroup, section=0, filter=papersregistered, title=\bibtitleauthor]
+        \printbibliography[heading=pubgroup, section=0, filter=papersregistered, title=\bibtitleauthor, resetnumbers=true]
     }{
-        \printbibliography[heading=pubgroup, section=0, filter=papersregistered, title=\bibtitleauthorEn]    
+        \printbibliography[heading=pubgroup, section=0, filter=papersregistered, title=\bibtitleauthorEn, resetnumbers=true]    
     }
 }
 \newcommand*{\insertbiblioauthorimportant}{
@@ -643,9 +668,22 @@ clearlang=true,% внутренний сброс поля language, если о�
 
 \newcommand*{\insertbiblioexternal}{
     \ifnumequal{\value{englishthesis}}{0}{
-        \printbibliography[heading=pubgroup,    section=0, keyword=biblioexternal,     title=\bibtitlefull]
+        % \printbibliography[heading=pubgroup,    section=0, keyword=biblioexternal,     title=\bibtitlefull]
+        \printbibliography[keyword=biblioexternal,section=0, title=\bibtitlefull]
     }{
-        \printbibliography[heading=pubgroup,    section=0, keyword=biblioexternal,     title=\bibtitlefullEn]
+        % \printbibliography[heading=pubgroup,    section=0, keyword=biblioexternal,     title=\bibtitlefullEn]
+        \printbibliography[keyword=biblioexternal,section=0, title=\bibtitlefullEn]
     }
-
 }
+
+
+% newcommand*{\insertbibliofull}{
+%     \ifnumequal{\value{englishthesis}}{0}{
+%         \printbibliography[keyword=bibliofull,section=0, title=\bibtitlefull]
+%     }{
+%         \printbibliography[keyword=bibliofull,section=0]    
+%     }
+%     \ifnumequal{\value{draft}}{0}{
+%       \printbibliography[heading=nobibheading,env=counter,keyword=bibliofull,section=0]
+%     }{}
+% }

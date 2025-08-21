@@ -28,7 +28,7 @@ This section presents our proposed approach, Answer Candidate Type~(ACT) Selecti
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.95\textwidth]{act_selection/pipeline_example.png}
+    \includegraphics[width=0.99\textwidth]{act_selection/pipeline_example.png}
     \caption{The Answer Candidate Type (ACT) Selection pipeline for Knowledge Graph Question Answering (KGQA). The process combines a sequence-to-sequence model with knowledge graph-based entity linking and scoring to identify the correct answer, "Konami," as the publisher of "Neo Contra."}
     \label{fig:act_selection:pipeline_example}
 \end{figure}
@@ -44,7 +44,7 @@ The formula~\ref{eq:candidate_generation:diverse_beam_search} involves splitting
         Y_{[t]}^g = \quad & \underset{y_1^{g}, \dots, y_{B\prime}^g \in Y_t^g} {\text{argmax}} \quad \underbrace{\sum_{b \in [B\prime]} \Theta(y_{b, [t]}^g)}_{\text{diversity penalty}} \\ 
         & + \underbrace{\sum_{h=1}^{g-1} \lambda_g \Delta(y_{b,[t]}^g, Y_{[t]}^h)}_{\text{dissimilarity term}},
     \end{aligned} 
-    \label{eq:act_selection:diverse_beam_search}
+    \label{eq:candidate_generation:diverse_beam_search}
 \end{equation}
 
 Using Diverse Beam Search instead of Greedy Search often leads to a better exploration of the search space by ensuring that alternative answers are considered.  We define the types of entities using the Wikidata property \texttt{instance\_of}~(P31). Note that an entity can be of multiple types. Finally, the initial list of answer candidates is used in the Answer Candidate Typing and the Candidate Scorer with the mined candidates. 
@@ -115,37 +115,117 @@ Our core hypothesis is that even when a closed-book Question Answering (QA) text
 
 In our evaluations, we specifically focused on two prevalent Text-to-Text model architectures: T5 and BART. Our proposed ACT Selection approach consistently leads to improved performance across the diverse datasets previously mentioned, as indicated by the mean Hits@1 scores. The Text-to-Text models underwent a fine-tuning phase using the training splits of the SQWD dataset and the complete training split of the Mintaka dataset. Following this, their performance was rigorously evaluated on the respective test splits of SQWD, RuBQ, and Mintaka, utilizing these specifically tuned model versions.
 
-The comprehensive results, detailed in Table~\ref{tab:act_selection:full_results}, further substantiate that the ACT Selection method consistently elevates the quality of Knowledge Graph Question Answering (KGQA) across a spectrum of Text-to-Text models. Importantly, our experiments also confirmed the versatility of our method, demonstrating its effective application even in a zero-shot learning context—that is, with Text-to-Text models that have not undergone any specific fine-tuning for the QA task. The advantages conferred by ACT Selection, particularly in terms of quality uplift, are especially pronounced when applied to smaller model architectures. For instance, the T5-large model, which contains 737 million parameters, when integrated with ACT Selection, achieves a level of performance comparable to that of the significantly larger T5-11b model, boasting 11 billion parameters. This finding is particularly noteworthy as it suggests that ACT Selection can serve as a resource-efficient strategy to substantially boost performance, an important consideration when access to extremely large-scale models or extensive computational resources for fine-tuning is constrained.
+The comprehensive results, detailed in Table~\ref{tab:act_selection:sqwd}, Table~\ref{tab:act_selection:rubq}, and Table~\ref{tab:act_selection:mintaka}, further substantiate that the ACT Selection method consistently elevates the quality of Knowledge Graph Question Answering (KGQA) across a spectrum of Text-to-Text models. Importantly, our experiments also confirmed the versatility of our method, demonstrating its effective application even in a zero-shot learning context—that is, with Text-to-Text models that have not undergone any specific fine-tuning for the QA task. The advantages conferred by ACT Selection, particularly in terms of quality uplift, are especially pronounced when applied to smaller model architectures. For instance, the T5-large model, which contains 737 million parameters, when integrated with ACT Selection, achieves a level of performance comparable to that of the significantly larger T5-11b model, boasting 11 billion parameters. This finding is particularly noteworthy as it suggests that ACT Selection can serve as a resource-efficient strategy to substantially boost performance, an important consideration when access to extremely large-scale models or extensive computational resources for fine-tuning is constrained.
+
+
+% \begin{table*}[ht]
+%     \caption{Evaluation results on three one-hop KGQA datasets (Hits@1 scores): comparing Text-To-Text Language Model with and without our proposed ACT Selection approach in zero-shot (without tuning for QA) or tuned on SQWD or Mintaka.}
+%     \label{tab:act_selection:full_results}
+%     \centering
+    
+%     \begin{tabular}{lrrrrrrrrr}
+%     \hline
+%                  & \multicolumn{3}{c}{\textit{SimpleQuestions-Wikidata}}                                                                                                                                                           & \multicolumn{3}{c}{\textit{RuBQ (English)}}                                                                                                                                                                    & \multicolumn{3}{c}{\textit{Mintaka (one-hop, English)}}                                                                                                                                                         \\ 
+%                            Tuned on $\rightarrow$ & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} \\ \hline
+%     BART-base              & 0                                                                      & 16.54                                                            & 7.08                                                                & 0                                                                      & 5.93                                                             & 3.72                                                                & 0                                                                      & 2.06                                                             & 9.12                                                                \\ 
+%     Ours       & 30.38                                                                  & \textbf{42.60}                                                   & 30.70                                                               & 9.50                                                                   & 11.65                                                            & \textbf{11.72}                                                      & 4.70                                                                   & 5.88                                                             & \textbf{10.29}                                                      \\ \hline
+%     BART-large             & 0                                                                      & 16.97                                                            & 3.02                                                                & 0                                                                      & 4.07                                                             & 4.86                                                                & 0                                                                      & 1.76                                                             & 12.65                                                               \\ 
+%     Ours      & 30.42                                                                  & \textbf{42.64}                                                   & 31.39                                                               & 9.50                                                                   & 12.15                                                            & \textbf{12.79}                                                      & 4.41                                                                   & 5.29                                                             & \textbf{15.29}                                                      \\ \hline
+%     T5-base                & 0                                                                      & 21.26                                                            & 6.19                                                                & 0                                                                      & 6.22                                                             & 6.93                                                                & 0                                                                      & 4.41                                                             & 8.24                                                                \\
+%     Ours        & 30.47                                                                  & \textbf{43.13}                                                   & 34.60                                                               & 9.44                                                                   & 14.44                                                            & \textbf{16.58}                                                      & 4.71                                                                   & 8.53                                                             & \textbf{10.59}                                                      \\ \hline
+%     T5-large               & 0                                                                      & 22.36                                                            & 9.43                                                                & 0                                                                      & 11.15                                                            & 12.15                                                               & 0                                                                      & 7.06                                                             & 14.41                                                               \\ 
+%     Ours       & 29.88                                                                  & \textbf{43.05}                                                   & 36.89                                                               & 9.44                                                                   & 18.94                                                            & \textbf{20.51}                                                      & 4.71                                                                   & 10.00                                                            & \textbf{15.88}                                                      \\ \hline
+%     T5-large-ssm           & 0.57                                                                   & 23.66                                                            & 5.92                                                                & 0.42                                                                   & 21.44                                                            & 23.87                                                               & 0.50                                                                   & 19.71                                                            & 27.65                                                               \\ 
+%     Ours    & 23.39                                                                  & \textbf{47.42}                                                   & 36.54                                                               & 9.72                                                                   & 26.02                                                            & \textbf{27.88}                                                      & 6.76                                                                   & 18.53                                                            & \textbf{28.24}                                                      \\ \hline
+%     T5-large-ssm-nq        & 5.12                                                                   & 22.52                                                            & 4.34                                                                & 18.87                                                                  & 17.80                                                            & 19.23                                                               & 17.65                                                                  & 14.12                                                            & 23.24                                                               \\ 
+%     Ours & 35.09                                                                  & \textbf{43.88}                                                   & 36.39                                                               & \textbf{27.52}                                                         & 25.38                                                            & 26.38                                                               & 22.94                                                                  & 14.12                                                            & \textbf{25.59}                                                      \\ \hline
+%     T5-11b-ssm             & 1.81                                                                   & ---                                                              & ---                                                                 & 14.09                                                                  & ---                                                              & ---                                                                 & 20.88                                                                  & ---                                                              & ---                                                                 \\ 
+%     Ours      & \textbf{25.84}                                                         & ---                                                              & ---                                                                 & \textbf{20.94}                                                         & ---                                                              & ---                                                                 & \textbf{24.71}                                                         & ---                                                              & ---                                                                 \\ \hline
+%     T5-11b-ssm-nq          & 10.94                                                                  & ---                                                              & ---                                                                 & 33.38                                                                  & ---                                                              & ---                                                                 & 41.76                                                                  & ---                                                              & ---                                                                 \\ 
+%     Ours  & \textbf{38.51}                                                         & ---                                                              & ---                                                                 & \textbf{38.31}                                                         & ---                                                              & ---                                                                 & \textbf{45.00}                                                         & ---                                                              & ---                                                                 \\ \hline
+%     \end{tabular}
+    
+% \end{table*}
+
+\begin{table*}[ht]
+    \caption{Evaluation results on SimpleQuestions-Wikidata (Hits@1 scores): comparing baseline and our ACT Selection approach.}
+    \label{tab:act_selection:sqwd}
+    \centering
+    \begin{tabular}{lrrr}
+    \hline
+    Tuned on $\rightarrow$ & Zero-shot & SQWD & Mintaka \\ \hline
+    BART-base      & 0      & 16.54 & 7.08  \\
+    Ours           & 30.38  & \textbf{42.60} & 30.70 \\ \hline
+    BART-large     & 0      & 16.97 & 3.02  \\
+    Ours           & 30.42  & \textbf{42.64} & 31.39 \\ \hline
+    T5-base        & 0      & 21.26 & 6.19  \\
+    Ours           & 30.47  & \textbf{43.13} & 34.60 \\ \hline
+    T5-large       & 0      & 22.36 & 9.43  \\
+    Ours           & 29.88  & \textbf{43.05} & 36.89 \\ \hline
+    T5-large-ssm   & 0.57   & 23.66 & 5.92  \\
+    Ours           & 23.39  & \textbf{47.42} & 36.54 \\ \hline
+    T5-large-ssm-nq & 5.12  & 22.52 & 4.34  \\
+    Ours           & 35.09  & \textbf{43.88} & 36.39 \\ \hline
+    T5-11b-ssm     & 1.81   & ---   & ---   \\
+    Ours           & \textbf{25.84} & --- & --- \\ \hline
+    T5-11b-ssm-nq  & 10.94  & ---   & ---   \\
+    Ours           & \textbf{38.51} & --- & --- \\ \hline
+    \end{tabular}
+\end{table*}
+
+\begin{table*}[ht]
+    \caption{Evaluation results on RuBQ (English) (Hits@1 scores): comparing baseline and our ACT Selection approach.}
+    \label{tab:act_selection:rubq}
+    \centering
+    \begin{tabular}{lrrr}
+    \hline
+    Tuned on $\rightarrow$ & Zero-shot & SQWD & Mintaka \\ \hline
+    BART-base      & 0      & 5.93  & 3.72  \\
+    Ours           & 9.50   & 11.65 & \textbf{11.72} \\ \hline
+    BART-large     & 0      & 4.07  & 4.86  \\
+    Ours           & 9.50   & 12.15 & \textbf{12.79} \\ \hline
+    T5-base        & 0      & 6.22  & 6.93  \\
+    Ours           & 9.44   & 14.44 & \textbf{16.58} \\ \hline
+    T5-large       & 0      & 11.15 & 12.15 \\
+    Ours           & 9.44   & 18.94 & \textbf{20.51} \\ \hline
+    T5-large-ssm   & 0.42   & 21.44 & 23.87 \\
+    Ours           & 9.72   & 26.02 & \textbf{27.88} \\ \hline
+    T5-large-ssm-nq & 18.87 & 17.80 & 19.23 \\
+    Ours           & \textbf{27.52} & 25.38 & 26.38 \\ \hline
+    T5-11b-ssm     & 14.09  & ---   & ---   \\
+    Ours           & \textbf{20.94} & --- & --- \\ \hline
+    T5-11b-ssm-nq  & 33.38  & ---   & ---   \\
+    Ours           & \textbf{38.31} & --- & --- \\ \hline
+    \end{tabular}
+\end{table*}
 
 
 \begin{table*}[ht]
-    \caption{Evaluation results on three one-hop KGQA datasets (Hits@1 scores): comparing Text-To-Text Language Model with and without our proposed ACT Selection approach in zero-shot (without tuning for QA) or tuned on SQWD or Mintaka.}
-    \label{tab:act_selection:full_results}
+    \caption{Evaluation results on Mintaka (English, one-hop) (Hits@1 scores): comparing baseline and our ACT Selection approach.}
+    \label{tab:act_selection:mintaka}
     \centering
-    \resizebox{0.99\textwidth}{!}{
-    \begin{tabular}{lrrrrrrrrr}
+    \begin{tabular}{lrrr}
     \hline
-                 & \multicolumn{3}{c}{\textit{SimpleQuestions-Wikidata}}                                                                                                                                                           & \multicolumn{3}{c}{\textit{RuBQ (English)}}                                                                                                                                                                    & \multicolumn{3}{c}{\textit{Mintaka (one-hop, English)}}                                                                                                                                                         \\ 
-                           Tuned on $\rightarrow$ & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Zero-shot\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}SQWD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Mintaka\end{tabular}} \\ \hline
-    BART-base              & 0                                                                      & 16.54                                                            & 7.08                                                                & 0                                                                      & 5.93                                                             & 3.72                                                                & 0                                                                      & 2.06                                                             & 9.12                                                                \\ 
-    Ours       & 30.38                                                                  & \textbf{42.60}                                                   & 30.70                                                               & 9.50                                                                   & 11.65                                                            & \textbf{11.72}                                                      & 4.70                                                                   & 5.88                                                             & \textbf{10.29}                                                      \\ \hline
-    BART-large             & 0                                                                      & 16.97                                                            & 3.02                                                                & 0                                                                      & 4.07                                                             & 4.86                                                                & 0                                                                      & 1.76                                                             & 12.65                                                               \\ 
-    Ours      & 30.42                                                                  & \textbf{42.64}                                                   & 31.39                                                               & 9.50                                                                   & 12.15                                                            & \textbf{12.79}                                                      & 4.41                                                                   & 5.29                                                             & \textbf{15.29}                                                      \\ \hline
-    T5-base                & 0                                                                      & 21.26                                                            & 6.19                                                                & 0                                                                      & 6.22                                                             & 6.93                                                                & 0                                                                      & 4.41                                                             & 8.24                                                                \\
-    Ours        & 30.47                                                                  & \textbf{43.13}                                                   & 34.60                                                               & 9.44                                                                   & 14.44                                                            & \textbf{16.58}                                                      & 4.71                                                                   & 8.53                                                             & \textbf{10.59}                                                      \\ \hline
-    T5-large               & 0                                                                      & 22.36                                                            & 9.43                                                                & 0                                                                      & 11.15                                                            & 12.15                                                               & 0                                                                      & 7.06                                                             & 14.41                                                               \\ 
-    Ours       & 29.88                                                                  & \textbf{43.05}                                                   & 36.89                                                               & 9.44                                                                   & 18.94                                                            & \textbf{20.51}                                                      & 4.71                                                                   & 10.00                                                            & \textbf{15.88}                                                      \\ \hline
-    T5-large-ssm           & 0.57                                                                   & 23.66                                                            & 5.92                                                                & 0.42                                                                   & 21.44                                                            & 23.87                                                               & 0.50                                                                   & 19.71                                                            & 27.65                                                               \\ 
-    Ours    & 23.39                                                                  & \textbf{47.42}                                                   & 36.54                                                               & 9.72                                                                   & 26.02                                                            & \textbf{27.88}                                                      & 6.76                                                                   & 18.53                                                            & \textbf{28.24}                                                      \\ \hline
-    T5-large-ssm-nq        & 5.12                                                                   & 22.52                                                            & 4.34                                                                & 18.87                                                                  & 17.80                                                            & 19.23                                                               & 17.65                                                                  & 14.12                                                            & 23.24                                                               \\ 
-    Ours & 35.09                                                                  & \textbf{43.88}                                                   & 36.39                                                               & \textbf{27.52}                                                         & 25.38                                                            & 26.38                                                               & 22.94                                                                  & 14.12                                                            & \textbf{25.59}                                                      \\ \hline
-    T5-11b-ssm             & 1.81                                                                   & ---                                                              & ---                                                                 & 14.09                                                                  & ---                                                              & ---                                                                 & 20.88                                                                  & ---                                                              & ---                                                                 \\ 
-    Ours      & \textbf{25.84}                                                         & ---                                                              & ---                                                                 & \textbf{20.94}                                                         & ---                                                              & ---                                                                 & \textbf{24.71}                                                         & ---                                                              & ---                                                                 \\ \hline
-    T5-11b-ssm-nq          & 10.94                                                                  & ---                                                              & ---                                                                 & 33.38                                                                  & ---                                                              & ---                                                                 & 41.76                                                                  & ---                                                              & ---                                                                 \\ 
-    Ours  & \textbf{38.51}                                                         & ---                                                              & ---                                                                 & \textbf{38.31}                                                         & ---                                                              & ---                                                                 & \textbf{45.00}                                                         & ---                                                              & ---                                                                 \\ \hline
+    Tuned on $\rightarrow$ & Zero-shot & SQWD & Mintaka \\ \hline
+    BART-base      & 0      & 2.06  & 9.12  \\
+    Ours           & 4.70   & 5.88  & \textbf{10.29} \\ \hline
+    BART-large     & 0      & 1.76  & 12.65 \\
+    Ours           & 4.41   & 5.29  & \textbf{15.29} \\ \hline
+    T5-base        & 0      & 4.41  & 8.24  \\
+    Ours           & 4.71   & 8.53  & \textbf{10.59} \\ \hline
+    T5-large       & 0      & 7.06  & 14.41 \\
+    Ours           & 4.71   & 10.00 & \textbf{15.88} \\ \hline
+    T5-large-ssm   & 0.50   & 19.71 & 27.65 \\
+    Ours           & 6.76   & 18.53 & \textbf{28.24} \\ \hline
+    T5-large-ssm-nq & 17.65 & 14.12 & 23.24 \\
+    Ours           & 22.94  & 14.12 & \textbf{25.59} \\ \hline
+    T5-11b-ssm     & 20.88  & ---   & ---   \\
+    Ours           & \textbf{24.71} & --- & --- \\ \hline
+    T5-11b-ssm-nq  & 41.76  & ---   & ---   \\
+    Ours           & \textbf{45.00} & --- & --- \\ \hline
     \end{tabular}
-    }
 \end{table*}
+
 
 
 Consistent with general observations in the field, larger models typically demonstrate superior performance. Within our experiments, T5 models, when enhanced by our suggested method, generally outperformed their BART counterparts. Crucially, however, across all evaluated T5 and BART models, the integration of ACT Selection resulted in a marked and consistent enhancement of the foundational Text-to-Text model's performance.
@@ -177,41 +257,53 @@ Furthermore, to guide ChatGPT towards generating answers in a style that is amen
 \subsection{Ablation Study and Error Analysis}
 \label{sec:act_selection:ablation_study}
 
-To gain deeper insights into the individual contributions of the different components within our ACT Selection framework, we conducted a comprehensive ablation study. The detailed results of this study are presented in Table~\ref{tab:act_selection:ablation_study}. A primary objective was to meticulously investigate the impact of each proposed scoring mechanism on the overall candidate set collection and ranking process. Crucially, we aimed to empirically confirm our hypothesis that the integration of semantic type information significantly enhances the quality of candidate selection. Our observations from this study revealed that approaches which relied solely on individual scores, such as the Question-Property Similarity score alone, did not achieve the same level of effectiveness as the complete ACT~Selection methodology which combines multiple signals.
+To gain deeper insights into the individual contributions of the different components within our ACT Selection framework, we conducted a comprehensive ablation study. The detailed results of this study are presented in Table~\ref{tab:act_selection:ablation_study_vertical} that reported results on the SimpleQuestions-Wikidata (SQWD) dataset, using the T5-large-ssm model fine-tuned specifically on SQWD. Each row investigates the performance when using different sources for answer candidates: (1) only initial candidates generated by the Text-to-Text model, (2) only candidates derived from the one-hop neighbors of question entities in the Knowledge Graph, and (3) the full set combining both sources. The columns evaluate the impact of relying on individual scoring components (Type score, Forward one-hop neighbors score, Text-to-Text LM candidates score, Question-Property Similarity score) versus the full ACT Selection approach that utilizes all scores in conjunction. A primary objective was to meticulously investigate the impact of each proposed scoring mechanism on the overall candidate set collection and ranking process. Crucially, we aimed to empirically confirm our hypothesis that the integration of semantic type information significantly enhances the quality of candidate selection. Our observations from this study revealed that approaches which relied solely on individual scores, such as the Question-Property Similarity score alone, did not achieve the same level of effectiveness as the complete ACT~Selection methodology which combines multiple signals.
 
 Furthermore, this ablation study also allowed us to scrutinize the importance of the initial answer candidates generated by the Text-to-Text model. We specifically examined whether a strategy restricted to only the one-hop neighbors of question entities would be sufficient for achieving high performance. This part of the investigation was designed to quantify the distinct value added by the initial, broader set of candidates derived from the language model in the final answer selection pipeline.
 
+% \begin{table*}[ht]
+% \caption{Detailed results of the ablation study for the Answer Candidate Type (ACT) Selection framework. The table reports Hits@1 scores.}
+% \label{tab:act_selection:ablation_study}
+%     \centering
+%     \begin{tabular}{lrrrrr}
+%         \toprule
+%         & \textbf{Type score} & \textbf{\makecell{Forward one-hop\\neighbours score}} & \textbf{\makecell{Text-to-Text LM\\candidates score}} & \textbf{\makecell{Question-Property\\Similarity score}} & \textbf{All scores} \\
+%         \midrule
+%         \makecell[l]{Only initial candidates\\generated by Text-to-Text} & 2.51 & 31.73 & 27.04 & 31.82 & 35.89 \\
+%         \hline
+%         \makecell[l]{Only question\\neighbours candidates} & 5.07 & 4.84 & 4.52 & 29.86 & 30.06 \\
+%         \hline
+%         \makecell[l]{Full answer\\candidates set} & 2.81 & 5.46 & 27.04 & 30.75 & \textbf{47.42} \\
+%         \bottomrule
+%     \end{tabular}
+% \end{table*}
+
 \begin{table*}[ht]
-\caption{Detailed results of the ablation study for the Answer Candidate Type (ACT) Selection framework. The table reports Hits@1 scores on the SimpleQuestions-Wikidata (SQWD) dataset, using the T5-large-ssm model fine-tuned specifically on SQWD. Each row investigates the performance when using different sources for answer candidates: (1) only initial candidates generated by the Text-to-Text model, (2) only candidates derived from the one-hop neighbors of question entities in the Knowledge Graph, and (3) the full set combining both sources. The columns evaluate the impact of relying on individual scoring components (Type score, Forward one-hop neighbors score, Text-to-Text LM candidates score, Question-Property Similarity score) versus the full ACT Selection approach that utilizes all scores in conjunction.}
-\label{tab:act_selection:ablation_study}
+\caption{Detailed results of the ablation study for the Answer Candidate Type (ACT) Selection framework in vertical format. The table reports Hits@1 scores.}
+\label{tab:act_selection:ablation_study_vertical}
     \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{lrrrrr}
-            \toprule
-            & \textbf{Type score} & \textbf{\makecell{Forward one-hop\\neighbours score}} & \textbf{\makecell{Text-to-Text LM\\candidates score}} & \textbf{\makecell{Question-Property\\Similarity score}} & \textbf{All scores} \\
-            \midrule
-            \makecell[l]{Only initial candidates\\generated by Text-to-Text} & 2.51 & 31.73 & 27.04 & 31.82 & 35.89 \\
-            \hline
-            \makecell[l]{Only question\\neighbours candidates} & 5.07 & 4.84 & 4.52 & 29.86 & 30.06 \\
-            \hline
-            \makecell[l]{Full answer\\candidates set} & 2.81 & 5.46 & 27.04 & 30.75 & \textbf{47.42} \\
-            \bottomrule
-        \end{tabular}
-    }
+    \begin{tabular}{lrrr}
+        \toprule
+        & \makecell[c]{Only initial candidates\\generated by Text-to-Text} 
+        & \makecell[c]{Only question\\neighbours candidates} 
+        & \makecell[c]{Full answer\\candidates set} \\
+        \midrule
+        \textbf{Type score} & 2.51 & 5.07 & 2.81 \\
+        \hline
+        \textbf{\makecell[l]{Forward one-hop\\neighbours score}} & 31.73 & 4.84 & 5.46 \\
+        \hline
+        \textbf{\makecell[l]{Text-to-Text LM\\candidates score}} & 27.04 & 4.52 & 27.04 \\
+        \hline
+        \textbf{\makecell[l]{Question-Property\\Similarity score}} & 31.82 & 29.86 & 30.75 \\
+        \hline
+        \textbf{All scores} & 35.89 & 30.06 & \textbf{47.42} \\
+        \bottomrule
+    \end{tabular}
 \end{table*}
+    
 
 Beyond the ablation study, we also performed an error analysis to further illustrate the corrective capabilities of the ACT~Selection approach, particularly in instances where the baseline Text-to-Text Language Models (LMs) initially produced incorrect answers. This analysis was conducted using a representative subset of questions and their corresponding predictions from the T5-Large-SSM model on the SQWD dataset. Our specific focus was directed towards those questions for which the model's original top-1 prediction was erroneous, yet the ACT~Selection framework successfully identified and promoted the correct answer.
 
 Within this chosen subset of challenging questions, the standalone Text-to-Text model managed to generate the correct answer in only 58.4\% of cases. In contrast, our Entity Linking module demonstrated high efficacy, correctly extracting 99.11\% of the relevant question entities for this same subset. This highlights that the subsequent step of augmenting the candidate pool with additional candidates retrieved from the one-hop neighbors of these accurately linked question entities proved to be a crucial factor in ultimately locating and selecting the correct answer.
 
-
-\section{Conclusion}
-\label{sec:act_selection:conclusion}
-
-In this chapter, we introduced and detailed the Answer Candidate Type~(ACT) Selection method, an approach designed to enhance question answering over Knowledge Graphs by systematically post-processing the beam-search outputs generated by Text-to-Text language models. The core of this technique lies in a straightforward yet effective aggregation of a Knowledge Graph's `instance-of` relations (such as Wikidata's P31 property). This aggregation allows for the derivation of the likely semantic type of the expected answer, which then serves as a powerful constraint for refining the candidate pool.
-
-Our extensive experiments, conducted across three distinct English one-hop KGQA datasets, demonstrated that this relatively simple type-driven post-processing consistently improves the performance of a variety of Text-to-Text LMs. Notably, the ACT Selection method not only boosts the results of these foundational models but also compares favorably against both specialized KGQA techniques and the more recent capabilities of large conversational models like ChatGPT, even when the latter is guided by carefully selected prompts and its output is meticulously entity-linked. The robustness of this approach was evident across different scenarios, including both fine-tuned and zero-shot learning settings, underscoring its broad applicability.
-
-Beyond its immediate application to single-relation KGQA, the ACT Selection method also holds promise for directly performing answer typing as a standalone task. Looking ahead, the principles underlying this approach could potentially be adapted to more complex scenarios, including multilingual question answering and multi-hop reasoning over KGs. Furthermore, our findings indicate a positive correlation between the size of the underlying pre-trained language model and the ultimate QA quality achieved with ACT Selection, suggesting that leveraging even larger models could lead to further significant performance gains in future work.
-
-
+ 

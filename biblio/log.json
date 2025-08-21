@@ -1,0 +1,666 @@
+{
+  "updated": 65,
+  "total_entries": 205,
+  "not_found": [
+    {
+      "key": "polyak1987introduction",
+      "title": "Introduction to optimization",
+      "year": "1987",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "charnes1958cost",
+      "title": "Cost horizons and certainty equivalents: an approach to stochastic programming of heating oil",
+      "year": "1958",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "caramanis2011robust",
+      "title": "Robust optimization in machine learning",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "yaari1965uncertain",
+      "title": "Uncertain lifetime, life insurance, and the theory of the consumer",
+      "year": "1965",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "iea2024electricity",
+      "title": "Electricity",
+      "year": "2024",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "tanuishkina2024scirep",
+      "title": "Case Study on Climate Change Effects and Food Security in Southeast Asia",
+      "year": "2024",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "mitrovic2023data",
+      "title": "Data-driven stochastic AC-OPF using Gaussian process regression",
+      "year": "2023",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "mitrovic2023fast",
+      "title": "Fast Data-Driven Chance Constrained AC-OPF Using Hybrid Sparse Gaussian Processes",
+      "year": "2023",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "lou2019multi",
+      "title": "Multi-stage Security Constrained OPF Using Dynamic Thermal Rating",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "crucitti2005locating",
+      "title": "Locating critical lines in high-voltage electrical power grids",
+      "year": "2005",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "fernandez2016review",
+      "title": "Review of dynamic line rating systems for wind power integration",
+      "year": "2016",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "lavaei2011zero",
+      "title": "Zero duality gap in optimal power flow problem",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "bai2008semidefinite",
+      "title": "Semidefinite programming for optimal power flow problems",
+      "year": "2008",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "carpentier1962contribution",
+      "title": "Contribution a l'etude du dispatching economique",
+      "year": "1962",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "kirchhoff1847ueber",
+      "title": "Ueber die Aufl{\\\"o}sung der Gleichungen, auf welche man bei der Untersuchung der linearen Vertheilung galvanischer Str{\\\"o}me gef{\\\"u}hrt wird",
+      "year": "1847",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "zhuravlev1999discrete",
+      "title": "Discrete analysis",
+      "year": "1999",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "pakhira2014linear",
+      "title": "A linear time-complexity k-means algorithm using cluster shifting",
+      "year": "2014",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "frangioni2008solving",
+      "title": "Solving unit commitment problems with general ramp constraints",
+      "year": "2008",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "barrows2019ieee",
+      "title": "The {IEEE} reliability test system: A proposed 2019 update",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "shapiro1965analysis",
+      "title": "An analysis of variance test for normality (complete samples)",
+      "year": "1965",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "draper2021practical",
+      "title": "The Practical Scope of the Central Limit Theorem",
+      "year": "2021",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "rouaud2013probability",
+      "title": "Probability, statistics and estimation",
+      "year": "2013",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "scholz2011central",
+      "title": "Central Limit Theorems and Proofs",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "dhople2012framework",
+      "title": "A framework to determine the probability density function for the output power of wind farms",
+      "year": "2012",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "wang2010probabilistic",
+      "title": "Probabilistic calculation of total transfer capability including large-scale solar park",
+      "year": "2010",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "dupavcova1990stability",
+      "title": "Stability and sensitivity-analysis for stochastic programming",
+      "year": "1990",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "Oki2012GLPKL",
+      "title": "GLPK (GNU Linear Programming Kit)",
+      "year": "2012",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chen2024data",
+      "title": "Data-driven chance constrained programs over Wasserstein balls",
+      "year": "2024",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "baros2021examining",
+      "title": "Examining the economic optimality of automatic generation control",
+      "year": "2021",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "xu2017real",
+      "title": "The real time generation scheduling model considering automatic generation control",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "monticelli1987security",
+      "title": "Security-constrained optimal power flow with post-contingency corrective rescheduling",
+      "year": "1987",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "capitanescu2007improving",
+      "title": "Improving the statement of the corrective security-constrained optimal power-flow problem",
+      "year": "2007",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "lou2019multi",
+      "title": "Multi-stage Security Constrained {OPF} Using Dynamic Thermal Rating",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "roald2017chance",
+      "title": "Chance-constrained AC optimal power flow: Reformulations and efficient algorithms",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "sousa2010robust",
+      "title": "Robust optimal power flow solution using trust region and interior-point methods",
+      "year": "2010",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "ding2016adjustable",
+      "title": "Adjustable robust optimal power flow with the price of robustness for large-scale power systems",
+      "year": "2016",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "ben2002robust",
+      "title": "Robust optimization--methodology and applications",
+      "year": "2002",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "geng2019data",
+      "title": "Data-driven decision making in power systems with probabilistic guarantees: Theory and applications of chance-con- strained optimization",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "stott2012optimal",
+      "title": "Optimal power flow: Basic requirements for real-life problems and their solutions",
+      "year": "2012",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "bai2015improved",
+      "title": "Improved artificial bee colony based on orthognal learning for optimal power flow",
+      "year": "2015",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "hak2016sustainable",
+      "title": "Sustainable Development Goals: A need for relevant indicators",
+      "year": "2016",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "gielen2019role",
+      "title": "The role of renewable energy in the global energy transformation",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "khachiyan1989problem",
+      "title": "The problem of calculating the volume of a polyhedron is enumerably hard",
+      "year": "1989",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "zimmerman2010matpower",
+      "title": "MATPOWER: Steady-state operations, planning, and analysis tools for power systems research and education",
+      "year": "2010",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "harjanne2019abandoning",
+      "title": "Abandoning the concept of renewable energy",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "thellufsen2016roles",
+      "title": "Roles of local and national energy systems in the integration of renewable energy",
+      "year": "2016",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "coffrin2018powermodels",
+      "title": "Powermodels. jl: An open-source framework for exploring power flow formulations",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "juditsky2011first",
+      "title": "First order methods for nonsmooth convex large-scale optimization, i: general purpose methods",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "elvira2021advances",
+      "title": "Advances in importance sampling",
+      "year": "2021",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "arregui2019generalized",
+      "title": "Generalized Multiple Importance Sampling",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "he2014optimal",
+      "title": "Optimal mixture weights in multiple importance sampling",
+      "year": "2014",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "nemirovski2001lectures",
+      "title": "Lectures on modern convex optimization",
+      "year": "2001",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "contingencyMLE",
+      "title": "Contingency Probability Estimation Using Weather and Geographical Data for On-Line Security Assessment",
+      "year": "2006",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chen2008probabilistic",
+      "title": "Probabilistic load flow: A review",
+      "year": "2008",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "prusty2017critical",
+      "title": "A critical review on probabilistic load flow studies in uncertainty constrained power systems with photovoltaic generation and a new approach",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "yu2009probabilistic",
+      "title": "Probabilistic load flow evaluation with hybrid latin hypercube sampling and cholesky decomposition",
+      "year": "2009",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "vittal2009steady",
+      "title": "A steady-state voltage stability analysis of power systems with high penetrations of wind",
+      "year": "2009",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "da1990probabilistic",
+      "title": "Probabilistic load flow by a multilinear simulation algorithm",
+      "year": "1990",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "su2005probabilistic",
+      "title": "Probabilistic load-flow computation using point estimate method",
+      "year": "2005",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "singh2006power",
+      "title": "Power system adequacy and security calculations using Monte Carlo simulation incorporating intelligent system methodology",
+      "year": "2006",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "golden2003senate",
+      "title": "Senate bill 1078: The renewable portfolio standard-California asserts its renewable energy leadership",
+      "year": "2003",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "schmietendorf2017impact",
+      "title": "The impact of turbulent renewable energy production on power grid stability and quality",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "kroposki2017achieving",
+      "title": "Achieving a 100\\% renewable grid: operating electric power systems with extremely high levels of variable renewable energy",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "3contingencymethods",
+      "title": "Computation of Contingency Probabilities for Electric Transmission Decision Problems",
+      "year": "2005",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "montecarlofeasibility",
+      "title": "Risk of Static Security Assessment of a Power System using Non-sequential Monte Carlo Simulation",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "genz2020package",
+      "title": "Package ‘mvtnorm’",
+      "year": "2020",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "fan2012hoeffding",
+      "title": "Hoeffding’s inequality for supermartingales",
+      "year": "2012",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "owen2000safe",
+      "title": "Safe and effective importance sampling",
+      "year": "2000",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "ryu2014adaptive",
+      "title": "Adaptive importance sampling via stochastic convex programming",
+      "year": "2014",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chen2018data",
+      "title": "Data-driven chance constrained programs over Wasserstein balls",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "anvari2016short",
+      "title": "Short term fluctuations of wind and solar power systems",
+      "year": "2016",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "pena2020dc",
+      "title": "{DC} optimal power flow with joint chance constraints",
+      "year": "2020",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "roald2013analytical",
+      "title": "Analytical reformulation of security constrained optimal power flow with probabilistic constraints",
+      "year": "2013",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "lubin2015robust",
+      "title": "A robust approach to chance constrained optimal power flow with renewable generation",
+      "year": "2015",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chatterjee2018sample",
+      "title": "The sample size required in importance sampling",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "pandapower.2018",
+      "title": "{P}andapower — An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "gielen2019role",
+      "title": "The role of renewable energy in the global energy transformation",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "khachiyan1989problem",
+      "title": "The problem of calculating the volume of a polyhedron is enumerably hard",
+      "year": "1989",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "zimmerman2010matpower",
+      "title": "MATPOWER: Steady-state operations, planning, and analysis tools for power systems research and education",
+      "year": "2010",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "harjanne2019abandoning",
+      "title": "Abandoning the concept of renewable energy",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "thellufsen2016roles",
+      "title": "Roles of local and national energy systems in the integration of renewable energy",
+      "year": "2016",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "coffrin2018powermodels",
+      "title": "Powermodels. jl: An open-source framework for exploring power flow formulations",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "juditsky2011first",
+      "title": "First order methods for nonsmooth convex large-scale optimization, i: general purpose methods",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "elvira2021advances",
+      "title": "Advances in importance sampling",
+      "year": "2021",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "arregui2019generalized",
+      "title": "Generalized Multiple Importance Sampling",
+      "year": "2019",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "he2014optimal",
+      "title": "Optimal mixture weights in multiple importance sampling",
+      "year": "2014",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "nemirovski2001lectures",
+      "title": "Lectures on modern convex optimization",
+      "year": "2001",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "contingencyMLE",
+      "title": "Contingency Probability Estimation Using Weather and Geographical Data for On-Line Security Assessment",
+      "year": "2006",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chen2008probabilistic",
+      "title": "Probabilistic load flow: A review",
+      "year": "2008",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "prusty2017critical",
+      "title": "A critical review on probabilistic load flow studies in uncertainty constrained power systems with photovoltaic generation and a new approach",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "yu2009probabilistic",
+      "title": "Probabilistic load flow evaluation with hybrid latin hypercube sampling and cholesky decomposition",
+      "year": "2009",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "vittal2009steady",
+      "title": "A steady-state voltage stability analysis of power systems with high penetrations of wind",
+      "year": "2009",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "da1990probabilistic",
+      "title": "Probabilistic load flow by a multilinear simulation algorithm",
+      "year": "1990",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "su2005probabilistic",
+      "title": "Probabilistic load-flow computation using point estimate method",
+      "year": "2005",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "singh2006power",
+      "title": "Power system adequacy and security calculations using Monte Carlo simulation incorporating intelligent system methodology",
+      "year": "2006",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "golden2003senate",
+      "title": "Senate bill 1078: The renewable portfolio standard-California asserts its renewable energy leadership",
+      "year": "2003",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "schmietendorf2017impact",
+      "title": "The impact of turbulent renewable energy production on power grid stability and quality",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "kroposki2017achieving",
+      "title": "Achieving a 100\\% renewable grid: operating electric power systems with extremely high levels of variable renewable energy",
+      "year": "2017",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "3contingencymethods",
+      "title": "Computation of Contingency Probabilities for Electric Transmission Decision Problems",
+      "year": "2005",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "montecarlofeasibility",
+      "title": "Risk of Static Security Assessment of a Power System using Non-sequential Monte Carlo Simulation",
+      "year": "2011",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "genz2020package",
+      "title": "Package ‘mvtnorm’",
+      "year": "2020",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "fan2012hoeffding",
+      "title": "Hoeffding’s inequality for supermartingales",
+      "year": "2012",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "owen2000safe",
+      "title": "Safe and effective importance sampling",
+      "year": "2000",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "ryu2014adaptive",
+      "title": "Adaptive importance sampling via stochastic convex programming",
+      "year": "2014",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chen2018data",
+      "title": "Data-driven chance constrained programs over Wasserstein balls",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "pena2020dc",
+      "title": "{DC} optimal power flow with joint chance constraints",
+      "year": "2020",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "roald2013analytical",
+      "title": "Analytical reformulation of security constrained optimal power flow with probabilistic constraints",
+      "year": "2013",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "lubin2015robust",
+      "title": "A robust approach to chance constrained optimal power flow with renewable generation",
+      "year": "2015",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "chatterjee2018sample",
+      "title": "The sample size required in importance sampling",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    },
+    {
+      "key": "pandapower.2018",
+      "title": "{P}andapower — An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems",
+      "year": "2018",
+      "reason": "no exact title match in DBLP"
+    }
+  ]
+}

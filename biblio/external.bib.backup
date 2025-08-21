@@ -1,0 +1,2424 @@
+@comment{%article{lukashevich2023importance,
+%  title={Importance Sampling Approach for Dynamic Stochastic Optimal Power Flow Control},
+  author={Lukashevich, Aleksander and Bulkin, Aleksander and Grinis, Roland and Makarov, Ilya and Maximov, Yury},
+  journal={arXiv preprint arXiv:2310.02509},
+  year={2023}
+}}
+
+@comment{}}
+
+@inproceedings{3contingencymethods,
+ author = {McCalley, J.D. and Fei Xiao and Yong Jiang and Qiming Chen},
+ booktitle = {Proceedings of the 13th International Conference on, Intelligent Systems Application to Power Systems},
+ doi = {10.1109/ISAP.2005.1599321},
+ number = {},
+ pages = {540-545},
+ title = {Computation of Contingency Probabilities for Electric Transmission Decision Problems},
+ volume = {},
+ year = {2005}
+}
+
+@inproceedings{agafonov2021accelerated,
+ author = {Artem Agafonov and
+Pavel E. Dvurechensky and
+Gesualdo Scutari and
+Alexander V. Gasnikov and
+Dmitry Kamzolov and
+Aleksandr Lukashevich and
+Amir Daneshmand},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/conf/cdc/AgafonovDSGKLD21.bib},
+ booktitle = {2021 60th {IEEE} Conference on Decision and Control (CDC), Austin,
+TX, USA, December 14-17, 2021},
+ doi = {10.1109/CDC45484.2021.9683400},
+ pages = {2407--2413},
+ publisher = {{IEEE}},
+ timestamp = {Mon, 26 Jun 2023 20:42:26 +0200},
+ title = {An Accelerated Second-Order Method for Distributed Stochastic Optimization},
+ url = {https://doi.org/10.1109/CDC45484.2021.9683400},
+ year = {2021}
+}
+
+@incollection{ahmed2008solving,
+ author = {Ahmed, Shabbir and Shapiro, Alexander},
+ booktitle = {State-of-the-art decision-making tools in the information-intensive age},
+ pages = {261--269},
+ publisher = {Informs},
+ title = {Solving chance-constrained stochastic programs via sampling and integer programming},
+ year = {2008}
+}
+
+@article{anvari2016short,
+ author = {Anvari, Mehrnaz and Lohmann, Gerald and W{\"a}chter, Matthias and Milan, Patrick and Lorenz, Elke and Heinemann, Detlev and Tabar, M Reza Rahimi and Peinke, Joachim},
+ journal = {New J. of Phys.},
+ number = {6},
+ pages = {063027},
+ publisher = {IOP Publishing},
+ title = {Short term fluctuations of wind and solar power systems},
+ volume = {18},
+ year = {2016}
+}
+
+@article{arregui2019generalized,
+ author = {Elvira, V{\'\i}ctor  and Martino, Luca and Garc{\'\i}a, David Luengo and Bugallo, M{\'o}nica F},
+ journal = {Statistical science},
+ number = {1},
+ pages = {129--155},
+ title = {Generalized Multiple Importance Sampling},
+ volume = {34},
+ year = {2019}
+}
+
+@article{arregui2019generalized,
+ author = {Elvira, V{\'\i}ctor  and Martino, Luca and Garc{\'\i}a, David Luengo and Bugallo, M{\'o}nica F},
+ journal = {Statistical science},
+ number = {1},
+ pages = {129--155},
+ title = {Generalized Multiple Importance Sampling},
+ volume = {34},
+ year = {2019}
+}
+
+@article{bai2008semidefinite,
+ author = {Bai, Xiaoqing and Wei, Hua and Fujisawa, Katsuki and Wang, Yong},
+ journal = {International Journal of Electrical Power \& Energy Systems},
+ number = {6-7},
+ pages = {383--392},
+ publisher = {Elsevier},
+ title = {Semidefinite programming for optimal power flow problems},
+ volume = {30},
+ year = {2008}
+}
+
+@inproceedings{bai2015improved,
+ author = {Bai, Wenlei and Eke, Ibrahim and Lee, Kwang Y},
+ booktitle = {2015 18th international conference on intelligent system application to power systems (ISAP)},
+ organization = {Ieee},
+ pages = {1--6},
+ title = {Improved artificial bee colony based on orthognal learning for optimal power flow},
+ year = {2015}
+}
+
+@article{baros2021examining,
+ author = {Baros, Stefanos and Chen, Yu Christine and Dhople, Sairaj V},
+ journal = {IEEE Tr. on Power Systems},
+ number = {5},
+ pages = {4611--4620},
+ publisher = {IEEE},
+ title = {Examining the economic optimality of automatic generation control},
+ volume = {36},
+ year = {2021}
+}
+
+@article{barrows2019ieee,
+ author = {Barrows, Clayton and Bloom, Aaron and Ehlen, Ali and Ik{\"a}heimo, Jussi and Jorgenson, Jennie and Krishnamurthy, Dheepak and Lau, Jessica and McBennett, Brendan and O’Connell, Matthew and Preston, Eugene and others},
+ journal = {IEEE Tr. on Power Systems},
+ number = {1},
+ pages = {119--127},
+ publisher = {IEEE},
+ title = {The {IEEE} reliability test system: A proposed 2019 update},
+ volume = {35},
+ year = {2019}
+}
+
+@book{ben2001lectures,
+ author = {Ben-Tal, Aharon and Nemirovski, Arkadi},
+ publisher = {SIAM},
+ title = {Lectures on modern convex optimization: analysis, algorithms, and engineering applications},
+ year = {2001}
+}
+
+@book{ben2001lectures,
+ author = {Ben-Tal, Aharon and Nemirovski, Arkadi},
+ publisher = {SIAM},
+ title = {Lectures on modern convex optimization: analysis, algorithms, and engineering applications},
+ year = {2001}
+}
+
+@article{ben2002robust,
+ author = {Ben-Tal, Aharon and Nemirovski, Arkadi},
+ journal = {Mathematical programming},
+ pages = {453--480},
+ publisher = {Springer},
+ title = {Robust optimization--methodology and applications},
+ volume = {92},
+ year = {2002}
+}
+
+@book{ben2009robust,
+ author = {Ben-Tal, Aharon and El Ghaoui, Laurent and Nemirovski, Arkadi},
+ publisher = {Princeton university press},
+ title = {Robust optimization},
+ volume = {28},
+ year = {2009}
+}
+
+@incollection{bernal2018mixed,
+ author = {Bernal, David E and Chen, Qi and Gong, Felicity and Grossmann, Ignacio E},
+ booktitle = {Computer Aided Chemical Engineering},
+ pages = {895--900},
+ publisher = {Elsevier},
+ title = {Mixed-integer nonlinear decomposition toolbox for Pyomo (MindtPy)},
+ volume = {44},
+ year = {2018}
+}
+
+@article{bertsimas2011theory,
+ author = {Dimitris Bertsimas and
+David B. Brown and
+Constantine Caramanis},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamrev/BertsimasBC11.bib},
+ doi = {10.1137/080734510},
+ journal = {{SIAM} Rev.},
+ number = {3},
+ pages = {464--501},
+ timestamp = {Fri, 04 Jul 2025 22:15:11 +0200},
+ title = {Theory and Applications of Robust Optimization},
+ url = {https://doi.org/10.1137/080734510},
+ volume = {53},
+ year = {2011}
+}
+
+@article{bertsimas2018robust,
+ author = {Dimitris Bertsimas and
+Vishal Gupta and
+Nathan Kallus},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/BertsimasGK18a.bib},
+ doi = {10.1007/S10107-017-1174-Z},
+ journal = {Math. Program.},
+ number = {1-2},
+ pages = {217--282},
+ timestamp = {Sun, 13 Jun 2021 11:15:38 +0200},
+ title = {Robust sample average approximation},
+ url = {https://doi.org/10.1007/s10107-017-1174-z},
+ volume = {171},
+ year = {2018}
+}
+
+@article{bertsimas2018robust,
+ author = {Dimitris Bertsimas and
+Vishal Gupta and
+Nathan Kallus},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/BertsimasGK18a.bib},
+ doi = {10.1007/S10107-017-1174-Z},
+ journal = {Math. Program.},
+ number = {1-2},
+ pages = {217--282},
+ timestamp = {Sun, 13 Jun 2021 11:15:38 +0200},
+ title = {Robust sample average approximation},
+ url = {https://doi.org/10.1007/s10107-017-1174-z},
+ volume = {171},
+ year = {2018}
+}
+
+@article{bienstock2014chance,
+ author = {Daniel Bienstock and
+Michael Chertkov and
+Sean Harnett},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamrev/BienstockCH14.bib},
+ doi = {10.1137/130910312},
+ journal = {{SIAM} Rev.},
+ number = {3},
+ pages = {461--495},
+ timestamp = {Tue, 29 Sep 2020 10:58:52 +0200},
+ title = {Chance-Constrained Optimal Power Flow: Risk-Aware Network Control
+under Uncertainty},
+ url = {https://doi.org/10.1137/130910312},
+ volume = {56},
+ year = {2014}
+}
+
+@article{bienstock2014chance,
+ author = {Daniel Bienstock and
+Michael Chertkov and
+Sean Harnett},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamrev/BienstockCH14.bib},
+ doi = {10.1137/130910312},
+ journal = {{SIAM} Rev.},
+ number = {3},
+ pages = {461--495},
+ timestamp = {Tue, 29 Sep 2020 10:58:52 +0200},
+ title = {Chance-Constrained Optimal Power Flow: Risk-Aware Network Control
+under Uncertainty},
+ url = {https://doi.org/10.1137/130910312},
+ volume = {56},
+ year = {2014}
+}
+
+@article{calafiore2005uncertain,
+ author = {Giuseppe Carlo Calafiore and
+Marco C. Campi},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/CalafioreC05.bib},
+ doi = {10.1007/S10107-003-0499-Y},
+ journal = {Math. Program.},
+ number = {1},
+ pages = {25--46},
+ timestamp = {Tue, 07 Jul 2020 08:40:51 +0200},
+ title = {Uncertain convex programs: randomized solutions and confidence levels},
+ url = {https://doi.org/10.1007/s10107-003-0499-y},
+ volume = {102},
+ year = {2005}
+}
+
+@article{calafiore2006scenario,
+ author = {Giuseppe Carlo Calafiore and
+Marco C. Campi},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tac/CalafioreC06.bib},
+ doi = {10.1109/TAC.2006.875041},
+ journal = {{IEEE} Trans. Autom. Control.},
+ number = {5},
+ pages = {742--753},
+ timestamp = {Tue, 07 Jul 2020 08:40:51 +0200},
+ title = {The scenario approach to robust control design},
+ url = {https://doi.org/10.1109/TAC.2006.875041},
+ volume = {51},
+ year = {2006}
+}
+
+@article{campi2011sampling,
+ author = {Marco C. Campi and
+Simone Garatti},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jota/CampiG11.bib},
+ doi = {10.1007/S10957-010-9754-6},
+ journal = {J. Optim. Theory Appl.},
+ number = {2},
+ pages = {257--280},
+ timestamp = {Tue, 07 Apr 2020 14:39:49 +0200},
+ title = {A Sampling-and-Discarding Approach to Chance-Constrained Optimization:
+Feasibility and Optimality},
+ url = {https://doi.org/10.1007/s10957-010-9754-6},
+ volume = {148},
+ year = {2011}
+}
+
+@article{campi2011sampling,
+ author = {Marco C. Campi and
+Simone Garatti},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jota/CampiG11.bib},
+ doi = {10.1007/S10957-010-9754-6},
+ journal = {J. Optim. Theory Appl.},
+ number = {2},
+ pages = {257--280},
+ timestamp = {Tue, 07 Apr 2020 14:39:49 +0200},
+ title = {A Sampling-and-Discarding Approach to Chance-Constrained Optimization:
+Feasibility and Optimality},
+ url = {https://doi.org/10.1007/s10957-010-9754-6},
+ volume = {148},
+ year = {2011}
+}
+
+@article{capitanescu2007improving,
+ author = {Capitanescu, Florin and Wehenkel, Louis},
+ journal = {IEEE Tr. on Power Systems},
+ number = {2},
+ pages = {887--889},
+ publisher = {IEEE},
+ title = {Improving the statement of the corrective security-constrained optimal power-flow problem},
+ volume = {22},
+ year = {2007}
+}
+
+@article{cappe2008adaptive,
+ author = {Olivier Capp{\'{e}} and
+Randal Douc and
+Arnaud Guillin and
+Jean{-}Michel Marin and
+Christian P. Robert},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/sac/CappeDGMR08.bib},
+ doi = {10.1007/S11222-008-9059-X},
+ journal = {Stat. Comput.},
+ number = {4},
+ pages = {447--459},
+ timestamp = {Sat, 30 Sep 2023 10:25:12 +0200},
+ title = {Adaptive importance sampling in general mixture classes},
+ url = {https://doi.org/10.1007/s11222-008-9059-x},
+ volume = {18},
+ year = {2008}
+}
+
+@article{cappe2008adaptive,
+ author = {Olivier Capp{\'{e}} and
+Randal Douc and
+Arnaud Guillin and
+Jean{-}Michel Marin and
+Christian P. Robert},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/sac/CappeDGMR08.bib},
+ doi = {10.1007/S11222-008-9059-X},
+ journal = {Stat. Comput.},
+ number = {4},
+ pages = {447--459},
+ timestamp = {Sat, 30 Sep 2023 10:25:12 +0200},
+ title = {Adaptive importance sampling in general mixture classes},
+ url = {https://doi.org/10.1007/s11222-008-9059-x},
+ volume = {18},
+ year = {2008}
+}
+
+@article{caramanis2011robust,
+ author = {Caramanis, Constantine and Mannor, Shie and Xu, Huan},
+ title = {Robust optimization in machine learning},
+ year = {2011}
+}
+
+@article{carpentier1962contribution,
+ author = {Carpentier, Jacques},
+ journal = {Bull. Soc. Fr. Elec. Ser.},
+ pages = {431},
+ title = {Contribution a l'etude du dispatching economique},
+ volume = {3},
+ year = {1962}
+}
+
+@article{charnes1958cost,
+ author = {Charnes, Abraham and Cooper, William W and Symonds, Gifford H},
+ journal = {Management science},
+ number = {3},
+ pages = {235--263},
+ publisher = {INFORMS},
+ title = {Cost horizons and certainty equivalents: an approach to stochastic programming of heating oil},
+ volume = {4},
+ year = {1958}
+}
+
+@article{chatterjee2018sample,
+ author = {Chatterjee, Sourav and Diaconis, Persi and others},
+ journal = {The Annals of Applied Probability},
+ number = {2},
+ pages = {1099--1135},
+ title = {The sample size required in importance sampling},
+ volume = {28},
+ year = {2018}
+}
+
+@article{chatterjee2018sample,
+ author = {Chatterjee, Sourav and Diaconis, Persi and others},
+ journal = {The Annals of Applied Probability},
+ number = {2},
+ pages = {1099--1135},
+ title = {The sample size required in importance sampling},
+ volume = {28},
+ year = {2018}
+}
+
+@inproceedings{chen2008probabilistic,
+ author = {Chen, Peiyuan and Chen, Zhe and Bak-Jensen, Birgitte},
+ booktitle = {Third International Conference on Electric Utility Deregulation and Restructuring and Power Technologies},
+ pages = {1586--1591},
+ title = {Probabilistic load flow: A review},
+ year = {2008}
+}
+
+@inproceedings{chen2008probabilistic,
+ author = {Chen, Peiyuan and Chen, Zhe and Bak-Jensen, Birgitte},
+ booktitle = {Third International Conference on Electric Utility Deregulation and Restructuring and Power Technologies},
+ pages = {1586--1591},
+ title = {Probabilistic load flow: A review},
+ year = {2008}
+}
+
+@article{chen2018data,
+ author = {Chen, Zhi and Kuhn, Daniel and Wiesemann, Wolfram},
+ journal = {arXiv preprint arXiv:1809.00210},
+ title = {Data-driven chance constrained programs over Wasserstein balls},
+ year = {2018}
+}
+
+@article{chen2018data,
+ author = {Chen, Zhi and Kuhn, Daniel and Wiesemann, Wolfram},
+ journal = {arXiv preprint arXiv:1809.00210},
+ title = {Data-driven chance constrained programs over Wasserstein balls},
+ year = {2018}
+}
+
+@article{chen2024data,
+ author = {Chen, Zhi and Kuhn, Daniel and Wiesemann, Wolfram},
+ journal = {Operations Research},
+ number = {1},
+ pages = {410--424},
+ publisher = {INFORMS},
+ title = {Data-driven chance constrained programs over Wasserstein balls},
+ volume = {72},
+ year = {2024}
+}
+
+@inproceedings{coffrin2018powermodels,
+ author = {Coffrin, Carleton and Bent, Russell and Sundar, Kaarthik and Ng, Yeesian and Lubin, Miles},
+ booktitle = {2018 Power Systems Computation Conference},
+ organization = {IEEE},
+ pages = {1--8},
+ title = {Powermodels. jl: An open-source framework for exploring power flow formulations},
+ year = {2018}
+}
+
+@inproceedings{coffrin2018powermodels,
+ author = {Coffrin, Carleton and Bent, Russell and Sundar, Kaarthik and Ng, Yeesian and Lubin, Miles},
+ booktitle = {2018 Power Systems Computation Conference},
+ organization = {IEEE},
+ pages = {1--8},
+ title = {Powermodels. jl: An open-source framework for exploring power flow formulations},
+ year = {2018}
+}
+
+@inproceedings{contingencyMLE,
+ author = {Xiao, Fei and McCalley, James D. and Ou, Yan and Adams, John and Myers, Steven},
+ booktitle = {2006 International Conference on Probabilistic Methods Applied to Power Systems},
+ number = {},
+ pages = {1-7},
+ title = {Contingency Probability Estimation Using Weather and Geographical Data for On-Line Security Assessment},
+ volume = {},
+ year = {2006}
+}
+
+@inproceedings{contingencyMLE,
+ author = {Xiao, Fei and McCalley, James D. and Ou, Yan and Adams, John and Myers, Steven},
+ booktitle = {2006 International Conference on Probabilistic Methods Applied to Power Systems},
+ number = {},
+ pages = {1-7},
+ title = {Contingency Probability Estimation Using Weather and Geographical Data for On-Line Security Assessment},
+ volume = {},
+ year = {2006}
+}
+
+@article{crucitti2005locating,
+ author = {Crucitti, Paolo and Latora, Vito and Marchiori, Massimo},
+ journal = {Fluctuation and Noise Letters},
+ number = {02},
+ pages = {L201--L208},
+ publisher = {World Scientific},
+ title = {Locating critical lines in high-voltage electrical power grids},
+ volume = {5},
+ year = {2005}
+}
+
+@inproceedings{da1990probabilistic,
+ author = {Da Silva, AM Leite and Arienti, VL},
+ booktitle = {IEE Proceedings C (Generation, Transmission and Distribution)},
+ number = {4},
+ organization = {IET},
+ pages = {276--282},
+ title = {Probabilistic load flow by a multilinear simulation algorithm},
+ volume = {137},
+ year = {1990}
+}
+
+@inproceedings{da1990probabilistic,
+ author = {Da Silva, AM Leite and Arienti, VL},
+ booktitle = {IEE Proceedings C (Generation, Transmission and Distribution)},
+ number = {4},
+ organization = {IET},
+ pages = {276--282},
+ title = {Probabilistic load flow by a multilinear simulation algorithm},
+ volume = {137},
+ year = {1990}
+}
+
+@book{de1983automatic,
+ author = {De Mello, FP and Undrill, JM},
+ publisher = { },
+ title = {Automatic Generation Control},
+ year = {1983}
+}
+
+@inproceedings{dhople2012framework,
+ author = {Dhople, Sairaj V and Dom{\'\i}nguez-Garc{\'\i}a, Alejandro D},
+ booktitle = {2012 North American Power Symposium},
+ organization = {IEEE},
+ pages = {1--6},
+ title = {A framework to determine the probability density function for the output power of wind farms},
+ year = {2012}
+}
+
+@article{diamond2016cvxpy,
+ author = {Steven Diamond and
+Stephen P. Boyd},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jmlr/DiamondB16.bib},
+ journal = {J. Mach. Learn. Res.},
+ pages = {83:1--83:5},
+ timestamp = {Wed, 11 Sep 2024 14:41:28 +0200},
+ title = {{CVXPY:} {A} Python-Embedded Modeling Language for Convex Optimization},
+ url = {https://jmlr.org/papers/v17/15-408.html},
+ volume = {17},
+ year = {2016}
+}
+
+@article{ding2016adjustable,
+ author = {Ding, Tao and Bie, Zhaohong and Bai, Linquan and Li, Fangxing},
+ journal = {IET Generation, Transmission \& Distrib.},
+ number = {1},
+ pages = {164--174},
+ publisher = {Wiley Online Library},
+ title = {Adjustable robust optimal power flow with the price of robustness for large-scale power systems},
+ volume = {10},
+ year = {2016}
+}
+
+@article{draper2021practical,
+ author = {Draper, David and Guo, Erdong},
+ journal = {arXiv preprint arXiv:2111.12267},
+ title = {The Practical Scope of the Central Limit Theorem},
+ year = {2021}
+}
+
+@inproceedings{duchi2010composite,
+ author = {John C. Duchi and
+Shai Shalev{-}Shwartz and
+Yoram Singer and
+Ambuj Tewari},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/conf/colt/DuchiSST10.bib},
+ booktitle = {{COLT} 2010 - The 23rd Conference on Learning Theory, Haifa, Israel,
+June 27-29, 2010},
+ editor = {Adam Tauman Kalai and
+Mehryar Mohri},
+ pages = {14--26},
+ publisher = {Omnipress},
+ timestamp = {Tue, 25 Jan 2022 13:23:33 +0100},
+ title = {Composite Objective Mirror Descent},
+ url = {http://colt2010.haifa.il.ibm.com/papers/COLT2010proceedings.pdf\#page=22},
+ year = {2010}
+}
+
+@inproceedings{duchi2010composite,
+ author = {John C. Duchi and
+Shai Shalev{-}Shwartz and
+Yoram Singer and
+Ambuj Tewari},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/conf/colt/DuchiSST10.bib},
+ booktitle = {{COLT} 2010 - The 23rd Conference on Learning Theory, Haifa, Israel,
+June 27-29, 2010},
+ editor = {Adam Tauman Kalai and
+Mehryar Mohri},
+ pages = {14--26},
+ publisher = {Omnipress},
+ timestamp = {Tue, 25 Jan 2022 13:23:33 +0100},
+ title = {Composite Objective Mirror Descent},
+ url = {http://colt2010.haifa.il.ibm.com/papers/COLT2010proceedings.pdf\#page=22},
+ year = {2010}
+}
+
+@article{dupavcova1990stability,
+ author = {Dupa{\v{c}}ov{\'a}, Jitka},
+ journal = {Annals of operations research},
+ pages = {115--142},
+ publisher = {Springer},
+ title = {Stability and sensitivity-analysis for stochastic programming},
+ volume = {27},
+ year = {1990}
+}
+
+@article{dupavcova2003scenario,
+ author = {Jitka Dupacov{\'{a}} and
+Nicole Gr{\"{o}}we{-}Kuska and
+Werner R{\"{o}}misch},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/DupacovaGR03.bib},
+ doi = {10.1007/S10107-002-0331-0},
+ journal = {Math. Program.},
+ number = {3},
+ pages = {493--511},
+ timestamp = {Sat, 27 May 2017 14:25:33 +0200},
+ title = {Scenario reduction in stochastic programming},
+ url = {https://doi.org/10.1007/s10107-002-0331-0},
+ volume = {95},
+ year = {2003}
+}
+
+@article{dvurechensky2022hyperfast,
+ author = {Pavel E. Dvurechensky and
+Dmitry Kamzolov and
+Aleksandr Lukashevich and
+Soomin Lee and
+Erik Ordentlich and
+C{\'{e}}sar A. Uribe and
+Alexander V. Gasnikov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/ejco/DvurechenskyKLL22.bib},
+ doi = {10.1016/J.EJCO.2022.100045},
+ journal = {{EURO} J. Comput. Optim.},
+ pages = {100045},
+ timestamp = {Tue, 31 Jan 2023 20:45:40 +0100},
+ title = {Hyperfast second-order local solvers for efficient statistically preconditioned
+distributed optimization},
+ url = {https://doi.org/10.1016/j.ejco.2022.100045},
+ volume = {10},
+ year = {2022}
+}
+
+@book{el2008electric,
+ author = {El-Sharkawi, Mohamed A},
+ publisher = {CRC press},
+ title = {Electric energy: an introduction},
+ year = {2008}
+}
+
+@article{elvira2021advances,
+ author = {Elvira, V{\'\i}ctor and Martino, Luca},
+ journal = {arXiv preprint arXiv:2102.05407},
+ title = {Advances in importance sampling},
+ year = {2021}
+}
+
+@article{elvira2021advances,
+ author = {Elvira, V{\'\i}ctor and Martino, Luca},
+ journal = {arXiv preprint arXiv:2102.05407},
+ title = {Advances in importance sampling},
+ year = {2021}
+}
+
+@article{esfahani2017data,
+ author = {Peyman Mohajerin Esfahani and
+Daniel Kuhn},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/EsfahaniK18.bib},
+ doi = {10.1007/S10107-017-1172-1},
+ journal = {Math. Program.},
+ number = {1-2},
+ pages = {115--166},
+ timestamp = {Sun, 03 Dec 2023 12:07:09 +0100},
+ title = {Data-driven distributionally robust optimization using the Wasserstein
+metric: performance guarantees and tractable reformulations},
+ url = {https://doi.org/10.1007/s10107-017-1172-1},
+ volume = {171},
+ year = {2018}
+}
+
+@article{fan2012hoeffding,
+ author = {Fan, Xiequan and Grama, Ion and Liu, Quansheng},
+ journal = {Stochastic Processes and their Applications},
+ number = {10},
+ pages = {3545--3559},
+ publisher = {Elsevier},
+ title = {Hoeffding’s inequality for supermartingales},
+ volume = {122},
+ year = {2012}
+}
+
+@article{fan2012hoeffding,
+ author = {Fan, Xiequan and Grama, Ion and Liu, Quansheng},
+ journal = {Stochastic Processes and their Applications},
+ number = {10},
+ pages = {3545--3559},
+ publisher = {Elsevier},
+ title = {Hoeffding’s inequality for supermartingales},
+ volume = {122},
+ year = {2012}
+}
+
+@article{fedotov2003refinements,
+ author = {Alexei A. Fedotov and
+Peter Harremo{\"{e}}s and
+Flemming Tops{\o}e},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tit/FedotovHT03.bib},
+ doi = {10.1109/TIT.2003.811927},
+ journal = {{IEEE} Trans. Inf. Theory},
+ number = {6},
+ pages = {1491--1498},
+ timestamp = {Tue, 10 Mar 2020 10:43:05 +0100},
+ title = {Refinements of Pinsker's inequality},
+ url = {https://doi.org/10.1109/TIT.2003.811927},
+ volume = {49},
+ year = {2003}
+}
+
+@article{fedotov2003refinements,
+ author = {Alexei A. Fedotov and
+Peter Harremo{\"{e}}s and
+Flemming Tops{\o}e},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tit/FedotovHT03.bib},
+ doi = {10.1109/TIT.2003.811927},
+ journal = {{IEEE} Trans. Inf. Theory},
+ number = {6},
+ pages = {1491--1498},
+ timestamp = {Tue, 10 Mar 2020 10:43:05 +0100},
+ title = {Refinements of Pinsker's inequality},
+ url = {https://doi.org/10.1109/TIT.2003.811927},
+ volume = {49},
+ year = {2003}
+}
+
+@article{fernandez2016review,
+ author = {Fernandez, E and Albizu, I and Bedialauneta, MT and Mazon, AJ and Leite, Patricia T},
+ journal = {Renewable and Sustainable Energy Reviews},
+ pages = {80--92},
+ publisher = {Elsevier},
+ title = {Review of dynamic line rating systems for wind power integration},
+ volume = {53},
+ year = {2016}
+}
+
+@article{frangioni2008solving,
+ author = {Frangioni, Antonio and Gentile, Claudio and Lacalandra, Fabrizio},
+ journal = {International Journal of Electrical Power \& Energy Systems},
+ number = {5},
+ pages = {316--326},
+ publisher = {Elsevier},
+ title = {Solving unit commitment problems with general ramp constraints},
+ volume = {30},
+ year = {2008}
+}
+
+@article{geng2019data,
+ author = {Geng, Xinbo and Xie, Le},
+ journal = {Ann. rev. in control},
+ pages = {341--363},
+ publisher = {Elsevier},
+ title = {Data-driven decision making in power systems with probabilistic guarantees: Theory and applications of chance-con- strained optimization},
+ volume = {47},
+ year = {2019}
+}
+
+@article{genz2020package,
+ author = {Genz, Alan and Bretz, Frank and Miwa, Tetsuhisa and Mi, Xuefei and Leisch, Friedrich and Scheipl, Fabian and Bornkamp, Bjoern and Maechler, Martin and Hothorn, Torsten and Hothorn, Maintainer Torsten},
+ journal = {J. of Computational and Graphical Statistics},
+ pages = {950--971},
+ title = {Package ‘mvtnorm’},
+ volume = {11},
+ year = {2020}
+}
+
+@article{genz2020package,
+ author = {Genz, Alan and Bretz, Frank and Miwa, Tetsuhisa and Mi, Xuefei and Leisch, Friedrich and Scheipl, Fabian and Bornkamp, Bjoern and Maechler, Martin and Hothorn, Torsten and Hothorn, Maintainer Torsten},
+ journal = {J. of Computational and Graphical Statistics},
+ pages = {950--971},
+ title = {Package ‘mvtnorm’},
+ volume = {11},
+ year = {2020}
+}
+
+@article{gielen2019role,
+ author = {Gielen, Dolf and Boshell, Francisco and Saygin, Deger and Bazilian, Morgan D and Wagner, Nicholas and Gorini, Ricardo},
+ journal = {Energy Strategy Reviews},
+ pages = {38--50},
+ title = {The role of renewable energy in the global energy transformation},
+ volume = {24},
+ year = {2019}
+}
+
+@article{gielen2019role,
+ author = {Gielen, Dolf and Boshell, Francisco and Saygin, Deger and Bazilian, Morgan D and Wagner, Nicholas and Gorini, Ricardo},
+ journal = {Energy Strategy Reviews},
+ pages = {38--50},
+ title = {The role of renewable energy in the global energy transformation},
+ volume = {24},
+ year = {2019}
+}
+
+@article{golden2003senate,
+ author = {Golden, Kevin S},
+ journal = {Ecology LQ},
+ pages = {693},
+ publisher = {HeinOnline},
+ title = {Senate bill 1078: The renewable portfolio standard-California asserts its renewable energy leadership},
+ volume = {30},
+ year = {2003}
+}
+
+@article{golden2003senate,
+ author = {Golden, Kevin S},
+ journal = {Ecology LQ},
+ pages = {693},
+ publisher = {HeinOnline},
+ title = {Senate bill 1078: The renewable portfolio standard-California asserts its renewable energy leadership},
+ volume = {30},
+ year = {2003}
+}
+
+@misc{grabar2023longterm,
+ author = {Grabar, Vsevolod and Marusov, Alexander and Maximov, Yury and Sotiriadi, Nazar and Bulkin, Alexander and Zaytsev, Alexey},
+ howpublished = {In Reveiw},
+ title = {Long Term Drought Prediction using Deep Neural Networks based on Geospatial Weather Data},
+ year = {2023}
+}
+
+@article{hak2016sustainable,
+ author = {H{\'a}k, Tom{\'a}{\v{s}} and Janou{\v{s}}kov{\'a}, Svatava and Moldan, Bed{\v{r}}ich},
+ journal = {Ecological indicators},
+ pages = {565--573},
+ publisher = {Elsevier},
+ title = {Sustainable Development Goals: A need for relevant indicators},
+ volume = {60},
+ year = {2016}
+}
+
+@article{harjanne2019abandoning,
+ author = {Harjanne, Atte and Korhonen, Janne M},
+ journal = {Energy policy},
+ pages = {330--340},
+ title = {Abandoning the concept of renewable energy},
+ volume = {127},
+ year = {2019}
+}
+
+@article{harjanne2019abandoning,
+ author = {Harjanne, Atte and Korhonen, Janne M},
+ journal = {Energy policy},
+ pages = {330--340},
+ title = {Abandoning the concept of renewable energy},
+ volume = {127},
+ year = {2019}
+}
+
+@book{hart2017pyomo,
+ author = {Hart, William E and Laird, Carl D and Watson, Jean-Paul and Woodruff, David L and Hackebeil, Gabriel A and Nicholson, Bethany L and Siirola, John D and others},
+ publisher = {Springer},
+ title = {Pyomo-optimization modeling in python},
+ volume = {67},
+ year = {2017}
+}
+
+@article{he2014optimal,
+ author = {He, Hera Y and Owen, Art B},
+ journal = {arXiv preprint arXiv:1411.3954},
+ title = {Optimal mixture weights in multiple importance sampling},
+ year = {2014}
+}
+
+@article{he2014optimal,
+ author = {He, Hera Y and Owen, Art B},
+ journal = {arXiv preprint arXiv:1411.3954},
+ title = {Optimal mixture weights in multiple importance sampling},
+ year = {2014}
+}
+
+@article{heitsch2003scenario,
+ author = {Holger Heitsch and
+Werner R{\"{o}}misch},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/coap/HeitschR03.bib},
+ doi = {10.1023/A:1021805924152},
+ journal = {Comput. Optim. Appl.},
+ number = {2-3},
+ pages = {187--206},
+ timestamp = {Tue, 14 Jul 2020 14:27:59 +0200},
+ title = {Scenario Reduction Algorithms in Stochastic Programming},
+ url = {https://doi.org/10.1023/A:1021805924152},
+ volume = {24},
+ year = {2003}
+}
+
+@article{huangfu2018parallelizing,
+ author = {Qi Huangfu and
+J. A. J. Hall},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mpc/HuangfuH18.bib},
+ doi = {10.1007/S12532-017-0130-5},
+ journal = {Math. Program. Comput.},
+ number = {1},
+ pages = {119--142},
+ timestamp = {Fri, 31 Jan 2020 21:32:05 +0100},
+ title = {Parallelizing the dual revised simplex method},
+ url = {https://doi.org/10.1007/s12532-017-0130-5},
+ volume = {10},
+ year = {2018}
+}
+
+@inproceedings{iea2024electricity,
+ author = {IEA},
+ title = {Electricity},
+ url = {https://www.iea.org/reports/electricity-2024},
+ year = {2024}
+}
+
+@article{ji2021data,
+ author = {Ran Ji and
+Miguel A. Lejeune},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jgo/JiL21.bib},
+ doi = {10.1007/S10898-020-00966-0},
+ journal = {J. Glob. Optim.},
+ number = {4},
+ pages = {779--811},
+ timestamp = {Wed, 07 Apr 2021 15:58:21 +0200},
+ title = {Data-driven distributionally robust chance-constrained optimization
+with Wasserstein metric},
+ url = {https://doi.org/10.1007/s10898-020-00966-0},
+ volume = {79},
+ year = {2021}
+}
+
+@article{jia2021iterative,
+ author = {Mengshuo Jia and
+Gabriela Hug and
+Chen Shen},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-2010-11746.bib},
+ eprint = {2010.11746},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Mon, 19 Dec 2022 16:14:41 +0100},
+ title = {Iterative Decomposition of Joint Chance Constraints in {OPF}},
+ url = {https://arxiv.org/abs/2010.11746},
+ volume = {abs/2010.11746},
+ year = {2020}
+}
+
+@article{juditsky2011first,
+ author = {Juditsky, Anatoli and Nemirovski, Arkadi and others},
+ journal = {Optimization for Machine Learning},
+ number = {2011},
+ pages = {121},
+ title = {First order methods for nonsmooth convex large-scale optimization, i: general purpose methods},
+ year = {2011}
+}
+
+@article{juditsky2011first,
+ author = {Juditsky, Anatoli and Nemirovski, Arkadi and others},
+ journal = {Optimization for Machine Learning},
+ number = {2011},
+ pages = {121},
+ title = {First order methods for nonsmooth convex large-scale optimization, i: general purpose methods},
+ year = {2011}
+}
+
+@inproceedings{kaufmann2012bayesian,
+ author = {Emilie Kaufmann and
+Olivier Capp{\'{e}} and
+Aur{\'{e}}lien Garivier},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jmlr/KaufmannCG12.bib},
+ booktitle = {Proceedings of the Fifteenth International Conference on Artificial
+Intelligence and Statistics, {AISTATS} 2012, La Palma, Canary Islands,
+Spain, April 21-23, 2012},
+ editor = {Neil D. Lawrence and
+Mark A. Girolami},
+ pages = {592--600},
+ publisher = {JMLR.org},
+ series = {{JMLR} Proceedings},
+ timestamp = {Wed, 29 May 2019 08:41:47 +0200},
+ title = {On Bayesian Upper Confidence Bounds for Bandit Problems},
+ url = {http://proceedings.mlr.press/v22/kaufmann12.html},
+ volume = {22},
+ year = {2012}
+}
+
+@inproceedings{kaufmann2012bayesian,
+ author = {Emilie Kaufmann and
+Olivier Capp{\'{e}} and
+Aur{\'{e}}lien Garivier},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jmlr/KaufmannCG12.bib},
+ booktitle = {Proceedings of the Fifteenth International Conference on Artificial
+Intelligence and Statistics, {AISTATS} 2012, La Palma, Canary Islands,
+Spain, April 21-23, 2012},
+ editor = {Neil D. Lawrence and
+Mark A. Girolami},
+ pages = {592--600},
+ publisher = {JMLR.org},
+ series = {{JMLR} Proceedings},
+ timestamp = {Wed, 29 May 2019 08:41:47 +0200},
+ title = {On Bayesian Upper Confidence Bounds for Bandit Problems},
+ url = {http://proceedings.mlr.press/v22/kaufmann12.html},
+ volume = {22},
+ year = {2012}
+}
+
+@article{keutchayan2023problem,
+ author = {Julien Keutchayan and
+Janosch Ortmann and
+Walter Rei},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/cms/KeutchayanOR23.bib},
+ doi = {10.1007/S10287-023-00446-2},
+ journal = {Comput. Manag. Sci.},
+ number = {1},
+ pages = {13},
+ timestamp = {Sat, 29 Apr 2023 19:25:53 +0200},
+ title = {Problem-driven scenario clustering in stochastic optimization},
+ url = {https://doi.org/10.1007/s10287-023-00446-2},
+ volume = {20},
+ year = {2023}
+}
+
+@article{khachiyan1989problem,
+ author = {Khachiyan, Leonid Genrikhovich},
+ journal = {Russian Mathematical Surveys},
+ number = {3},
+ pages = {199},
+ title = {The problem of calculating the volume of a polyhedron is enumerably hard},
+ volume = {44},
+ year = {1989}
+}
+
+@article{khachiyan1989problem,
+ author = {Khachiyan, Leonid Genrikhovich},
+ journal = {Russian Mathematical Surveys},
+ number = {3},
+ pages = {199},
+ title = {The problem of calculating the volume of a polyhedron is enumerably hard},
+ volume = {44},
+ year = {1989}
+}
+
+@article{kirchhoff1847ueber,
+ author = {Kirchhoff, Gustav},
+ journal = {Annalen der Physik},
+ number = {12},
+ pages = {497--508},
+ publisher = {WILEY-VCH Verlag Leipzig},
+ title = {Ueber die Aufl{\"o}sung der Gleichungen, auf welche man bei der Untersuchung der linearen Vertheilung galvanischer Str{\"o}me gef{\"u}hrt wird},
+ volume = {148},
+ year = {1847}
+}
+
+@article{kroposki2017achieving,
+ author = {Kroposki, Benjamin and Johnson, Brian and Zhang, Yingchen and Gevorgian, Vahan and Denholm, Paul and Hodge, Bri-Mathias and Hannegan, Bryan},
+ journal = {IEEE Power and Energy Magazine},
+ number = {2},
+ pages = {61--73},
+ publisher = {IEEE},
+ title = {Achieving a 100\% renewable grid: operating electric power systems with extremely high levels of variable renewable energy},
+ volume = {15},
+ year = {2017}
+}
+
+@article{kroposki2017achieving,
+ author = {Kroposki, Benjamin and Johnson, Brian and Zhang, Yingchen and Gevorgian, Vahan and Denholm, Paul and Hodge, Bri-Mathias and Hannegan, Bryan},
+ journal = {IEEE Power and Energy Magazine},
+ number = {2},
+ pages = {61--73},
+ publisher = {IEEE},
+ title = {Achieving a 100\% renewable grid: operating electric power systems with extremely high levels of variable renewable energy},
+ volume = {15},
+ year = {2017}
+}
+
+@book{l2009monte,
+ author = {L'Ecuyer, Pierre and Owen, Art B},
+ publisher = {Springer},
+ title = {Monte Carlo and Quasi-Monte Carlo Methods 2008},
+ year = {2009}
+}
+
+@book{l2009monte,
+ author = {L'Ecuyer, Pierre and Owen, Art B},
+ publisher = {Springer},
+ title = {Monte Carlo and Quasi-Monte Carlo Methods 2008},
+ year = {2009}
+}
+
+@book{lan2020first,
+ author = {Lan, Guanghui},
+ publisher = {Springer},
+ title = {First-order and Stochastic Optimization Methods for Machine Learning},
+ year = {2020}
+}
+
+@book{lan2020first,
+ author = {Lan, Guanghui},
+ publisher = {Springer},
+ title = {First-order and Stochastic Optimization Methods for Machine Learning},
+ year = {2020}
+}
+
+@article{lavaei2011zero,
+ author = {Lavaei, Javad and Low, Steven H},
+ journal = {IEEE Transactions on Power systems},
+ number = {1},
+ pages = {92--107},
+ publisher = {IEEE},
+ title = {Zero duality gap in optimal power flow problem},
+ volume = {27},
+ year = {2011}
+}
+
+@article{lee2019convex,
+ author = {Dongchan Lee and
+Hung D. Nguyen and
+Krishnamurthy Dvijotham and
+Konstantin S. Turitsyn},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tcns/Lee0DT19.bib},
+ doi = {10.1109/TCNS.2019.2930896},
+ journal = {{IEEE} Trans. Control. Netw. Syst.},
+ number = {3},
+ pages = {1235--1245},
+ timestamp = {Sun, 19 Jan 2025 15:03:03 +0100},
+ title = {Convex Restriction of Power Flow Feasibility Sets},
+ url = {https://doi.org/10.1109/TCNS.2019.2930896},
+ volume = {6},
+ year = {2019}
+}
+
+@article{lee2019convex,
+ author = {Dongchan Lee and
+Hung D. Nguyen and
+Krishnamurthy Dvijotham and
+Konstantin S. Turitsyn},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tcns/Lee0DT19.bib},
+ doi = {10.1109/TCNS.2019.2930896},
+ journal = {{IEEE} Trans. Control. Netw. Syst.},
+ number = {3},
+ pages = {1235--1245},
+ timestamp = {Sun, 19 Jan 2025 15:03:03 +0100},
+ title = {Convex Restriction of Power Flow Feasibility Sets},
+ url = {https://doi.org/10.1109/TCNS.2019.2930896},
+ volume = {6},
+ year = {2019}
+}
+
+@inproceedings{liang2016emerging,
+ author = {Xiaodong Liang},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/conf/iasam/Liang16.bib},
+ booktitle = {2016 {IEEE} Industry Applications Society Annual Meeting, Portland,
+OR, USA, October 2-6, 2016},
+ doi = {10.1109/IAS.2016.7731973},
+ pages = {1--9},
+ publisher = {{IEEE}},
+ timestamp = {Tue, 21 Mar 2023 20:59:58 +0100},
+ title = {Emerging power quality challenges due to integration of renewable
+energy sources},
+ url = {https://doi.org/10.1109/IAS.2016.7731973},
+ year = {2016}
+}
+
+@inproceedings{liang2016emerging,
+ author = {Xiaodong Liang},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/conf/iasam/Liang16.bib},
+ booktitle = {2016 {IEEE} Industry Applications Society Annual Meeting, Portland,
+OR, USA, October 2-6, 2016},
+ doi = {10.1109/IAS.2016.7731973},
+ pages = {1--9},
+ publisher = {{IEEE}},
+ timestamp = {Tue, 21 Mar 2023 20:59:58 +0100},
+ title = {Emerging power quality challenges due to integration of renewable
+energy sources},
+ url = {https://doi.org/10.1109/IAS.2016.7731973},
+ year = {2016}
+}
+
+@article{liang2020scenario,
+ author = {Junkai Liang and
+Wenyuan Tang},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tsg/LiangT21.bib},
+ doi = {10.1109/TSG.2020.3047759},
+ journal = {{IEEE} Trans. Smart Grid},
+ number = {3},
+ pages = {2652--2662},
+ timestamp = {Thu, 29 Apr 2021 15:11:36 +0200},
+ title = {Scenario Reduction for Stochastic Day-Ahead Scheduling: {A} Mixed
+Autoencoder Based Time-Series Clustering Approach},
+ url = {https://doi.org/10.1109/TSG.2020.3047759},
+ volume = {12},
+ year = {2021}
+}
+
+@inproceedings{lou2019multi,
+ author = {Lou, Xiansi and Zhang, Jianlian and Guo, Chuangxin and Tao, Hongfei and Yang, Caiming and Zhang, Jianguang},
+ booktitle = {2019 IEEE Power \& Energy Society General Meeting (PESGM)},
+ organization = {IEEE},
+ pages = {1--5},
+ title = {Multi-stage Security Constrained OPF Using Dynamic Thermal Rating},
+ year = {2019}
+}
+
+@inproceedings{lou2019multi,
+ author = {Lou, Xiansi and Zhang, Jianlian and Guo, Chuangxin and Tao, Hongfei and Yang, Caiming and Zhang, Jianguang},
+ booktitle = {2019 IEEE Power \& Energy Society General Meeting},
+ organization = {IEEE},
+ pages = {1--5},
+ title = {Multi-stage Security Constrained {OPF} Using Dynamic Thermal Rating},
+ year = {2019}
+}
+
+@article{lubin2015robust,
+ author = {Lubin, Miles and Dvorkin, Yury and Backhaus, Scott},
+ journal = {IEEE Tr. on Power Syst.},
+ number = {5},
+ pages = {3840--3849},
+ title = {A robust approach to chance constrained optimal power flow with renewable generation},
+ volume = {31},
+ year = {2015}
+}
+
+@article{lubin2015robust,
+ author = {Lubin, Miles and Dvorkin, Yury and Backhaus, Scott},
+ journal = {IEEE Transactions on Power Systems},
+ number = {5},
+ pages = {3840--3849},
+ title = {A robust approach to chance constrained optimal power flow with renewable generation},
+ volume = {31},
+ year = {2015}
+}
+
+@article{lukashevich2021importance,
+ author = {Aleksander Lukashevich and
+Vyacheslav Gorchakov and
+Petr Vorobev and
+Deepjyoti Deka and
+Yury Maximov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/tcns/LukashevichGVDM24.bib},
+ doi = {10.1109/TCNS.2023.3330232},
+ journal = {{IEEE} Trans. Control. Netw. Syst.},
+ number = {2},
+ pages = {928--937},
+ timestamp = {Thu, 04 Jul 2024 22:04:12 +0200},
+ title = {Importance Sampling Approach to Chance-Constrained {DC} Optimal Power
+Flow},
+ url = {https://doi.org/10.1109/TCNS.2023.3330232},
+ volume = {11},
+ year = {2024}
+}
+
+@article{lukashevich2021power,
+ author = {Aleksandr Lukashevich and
+Yury Maximov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/csysl/LukashevichM22.bib},
+ doi = {10.1109/LCSYS.2021.3088402},
+ journal = {{IEEE} Control. Syst. Lett.},
+ pages = {1010--1015},
+ timestamp = {Mon, 07 Feb 2022 17:49:43 +0100},
+ title = {Power Grid Reliability Estimation via Adaptive Importance Sampling},
+ url = {https://doi.org/10.1109/LCSYS.2021.3088402},
+ volume = {6},
+ year = {2022}
+}
+
+@article{lukashevich2023importance,
+ author = {Aleksandr Lukashevich and
+Aleksandr Bulkin and
+Yury Maximov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/csysl/LukashevichBM24.bib},
+ doi = {10.1109/LCSYS.2024.3413367},
+ journal = {{IEEE} Control. Syst. Lett.},
+ pages = {1613--1618},
+ timestamp = {Fri, 19 Jul 2024 23:16:26 +0200},
+ title = {A-Priori Reduction of Scenario Approximation for Automated Generation
+Control in High-Voltage Power Grids With Renewable Energy},
+ url = {https://doi.org/10.1109/LCSYS.2024.3413367},
+ volume = {8},
+ year = {2024}
+}
+
+@book{machowski2020power,
+ author = {Machowski, Jan and Lubosny, Zbigniew and Bialek, Janusz W and Bumby, James R},
+ publisher = {John Wiley \& Sons},
+ title = {Power system dynamics: stability and control},
+ year = {2020}
+}
+
+@article{mezghani2020stochastic,
+ author = {Ily{\`{e}}s Mezghani and
+Sidhant Misra and
+Deepjyoti Deka},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-1910-09144.bib},
+ eprint = {1910.09144},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Tue, 22 Oct 2019 18:17:16 +0200},
+ title = {Stochastic {AC} Optimal Power Flow: {A} Data-Driven Approach},
+ url = {http://arxiv.org/abs/1910.09144},
+ volume = {abs/1910.09144},
+ year = {2019}
+}
+
+@article{mitrovic2023data,
+ author = {Mitrovic, Mile and Lukashevich, Aleksandr and Vorobev, Petr and Terzija, Vladimir and Budennyy, Semen and Maximov, Yury and Deka, Deepjyoti},
+ journal = {International Journal of Electrical Power \& Energy Systems},
+ pages = {109249},
+ publisher = {Elsevier},
+ title = {Data-driven stochastic AC-OPF using Gaussian process regression},
+ volume = {152},
+ year = {2023}
+}
+
+@inproceedings{mitrovic2023fast,
+ author = {Mitrovic, Mile and Lukashevich, Aleksandr and Vorobev, Petr and Terzija, Vladimir and Maximov, Yury and Deka, Deepjyoti},
+ booktitle = {2023 IEEE Belgrade PowerTech},
+ organization = {IEEE},
+ pages = {1--7},
+ title = {Fast Data-Driven Chance Constrained AC-OPF Using Hybrid Sparse Gaussian Processes},
+ year = {2023}
+}
+
+@article{mitrovic2023gp,
+ author = {Mile Mitrovic and
+Ognjen Kundacina and
+Aleksandr Lukashevich and
+Semen A. Budennyy and
+Petr Vorobev and
+Vladimir V. Terzija and
+Yury Maximov and
+Deepjyoti Deka},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/simpa/MitrovicKLBVTMD23.bib},
+ doi = {10.1016/J.SIMPA.2023.100489},
+ journal = {Softw. Impacts},
+ pages = {100489},
+ timestamp = {Mon, 03 Mar 2025 22:22:51 +0100},
+ title = {{GP} {CC-OPF:} Gaussian Process based optimization tool for Chance-Constrained
+Optimal Power Flow},
+ url = {https://doi.org/10.1016/j.simpa.2023.100489},
+ volume = {16},
+ year = {2023}
+}
+
+@article{mitrovic2023gp,
+ author = {Mile Mitrovic and
+Ognjen Kundacina and
+Aleksandr Lukashevich and
+Semen A. Budennyy and
+Petr Vorobev and
+Vladimir V. Terzija and
+Yury Maximov and
+Deepjyoti Deka},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/simpa/MitrovicKLBVTMD23.bib},
+ doi = {10.1016/J.SIMPA.2023.100489},
+ journal = {Softw. Impacts},
+ pages = {100489},
+ timestamp = {Mon, 03 Mar 2025 22:22:51 +0100},
+ title = {{GP} {CC-OPF:} Gaussian Process based optimization tool for Chance-Constrained
+Optimal Power Flow},
+ url = {https://doi.org/10.1016/j.simpa.2023.100489},
+ volume = {16},
+ year = {2023}
+}
+
+@inproceedings{molzahn2014investigation,
+ author = {Daniel K. Molzahn and
+Bernard C. Lesieutre and
+Christopher L. DeMarco},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/conf/hicss/MolzahnLD14.bib},
+ booktitle = {47th Hawaii International Conference on System Sciences, {HICSS} 2014,
+Waikoloa, HI, USA, January 6-9, 2014},
+ doi = {10.1109/HICSS.2014.293},
+ pages = {2325--2334},
+ publisher = {{IEEE} Computer Society},
+ timestamp = {Fri, 24 Mar 2023 00:02:20 +0100},
+ title = {Investigation of Non-zero Duality Gap Solutions to a Semidefinite
+Relaxation of the Optimal Power Flow Problem},
+ url = {https://doi.org/10.1109/HICSS.2014.293},
+ year = {2014}
+}
+
+@article{montecarlofeasibility,
+ author = {M. Marsadek, A. Mohamed and Z.M. Norpiah},
+ journal = {Journal of Applied Sciences, 11: 300-307},
+ number = {11},
+ pages = {300--307},
+ title = {Risk of Static Security Assessment of a Power System using Non-sequential Monte Carlo Simulation},
+ volume = {},
+ year = {2011}
+}
+
+@article{montecarlofeasibility,
+ author = {M. Marsadek, A. Mohamed and Z.M. Norpiah},
+ journal = {Journal of Applied Sciences, 11: 300-307},
+ number = {11},
+ pages = {300--307},
+ title = {Risk of Static Security Assessment of a Power System using Non-sequential Monte Carlo Simulation},
+ volume = {},
+ year = {2011}
+}
+
+@article{monticelli1987security,
+ author = {Monticelli, A and Pereira, MVF and Granville, S},
+ journal = {IEEE Tr. on Power Systems},
+ number = {1},
+ pages = {175--180},
+ publisher = {IEEE},
+ title = {Security-constrained optimal power flow with post-contingency corrective rescheduling},
+ volume = {2},
+ year = {1987}
+}
+
+@incollection{morlet1983sampling,
+ author = {Morlet, Jean},
+ booktitle = {Issues in acoustic Signal processing and recognition},
+ pages = {233--261},
+ publisher = {Springer},
+ title = {Sampling theory and wave propagation},
+ year = {1983}
+}
+
+@incollection{morlet1983sampling,
+ author = {Morlet, Jean},
+ booktitle = {Issues in acoustic Signal processing and recognition},
+ pages = {233--261},
+ publisher = {Springer},
+ title = {Sampling theory and wave propagation},
+ year = {1983}
+}
+
+@article{morozov2023cmip,
+ author = {Vsevolod Morozov and
+Artem Galliamov and
+Aleksandr Lukashevich and
+Antonina Kurdukova and
+Yury Maximov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-2311-03370.bib},
+ doi = {10.48550/ARXIV.2311.03370},
+ eprint = {2311.03370},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Mon, 03 Mar 2025 21:33:27 +0100},
+ title = {{CMIP} {X-MOS:} Improving Climate Models with Extreme Model Output
+Statistics},
+ url = {https://doi.org/10.48550/arXiv.2311.03370},
+ volume = {abs/2311.03370},
+ year = {2023}
+}
+
+@misc{morozov2023cmip,
+ author = {Morozov, Vsevolod and Gabidullin, Artem and Lukashevich, Aleksandr and Kurdukova, Antonina and Maximov, Yury},
+ howpublished = {In Review},
+ title = {CMIP X-MOS: Improving Climate Models with Extreme Model Output Statistics},
+ year = {2023}
+}
+
+@misc{mozikov2023accessing,
+ author = {Mozikov, Mikhail and Makarov, Ilya and Bulkin, Alexandr and Taniushkina, Daria and Grinis, Roland and Maximov, Yury},
+ howpublished = {In Review},
+ title = {Accessing Convective Hazards Frequency Shift under Climate Change with Physics-Informed Machine Learning},
+ year = {2023}
+}
+
+@inproceedings{nemirovski2001lectures,
+ author = {Nemirovski, Arkadi},
+ booktitle = {Society for Industrial and Applied Mathematics (SIAM)},
+ title = {Lectures on modern convex optimization},
+ year = {2001}
+}
+
+@inproceedings{nemirovski2001lectures,
+ author = {Nemirovski, Arkadi},
+ booktitle = {Society for Industrial and Applied Mathematics (SIAM)},
+ title = {Lectures on modern convex optimization},
+ year = {2001}
+}
+
+@incollection{nemirovski2006scenario,
+ author = {Nemirovski, Arkadi and Shapiro, Alexander},
+ booktitle = {Probabilistic and randomized methods for design under uncertainty},
+ pages = {3--47},
+ publisher = {Springer},
+ title = {Scenario approximations of chance constraints},
+ year = {2006}
+}
+
+@incollection{nemirovski2006scenario,
+ author = {Nemirovski, Arkadi and Shapiro, Alexander},
+ booktitle = {Probabilistic and randomized methods for design under uncertainty},
+ pages = {3--47},
+ publisher = {Springer},
+ title = {Scenario approximations of chance constraints},
+ year = {2006}
+}
+
+@article{nemirovski2007convex,
+ author = {Arkadi Nemirovski and
+Alexander Shapiro},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamjo/NemirovskiS06.bib},
+ doi = {10.1137/050622328},
+ journal = {{SIAM} J. Optim.},
+ number = {4},
+ pages = {969--996},
+ timestamp = {Thu, 13 Jul 2023 08:31:53 +0200},
+ title = {Convex Approximations of Chance Constrained Programs},
+ url = {https://doi.org/10.1137/050622328},
+ volume = {17},
+ year = {2006}
+}
+
+@article{nemirovski2007convex,
+ author = {Arkadi Nemirovski and
+Alexander Shapiro},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamjo/NemirovskiS06.bib},
+ doi = {10.1137/050622328},
+ journal = {{SIAM} J. Optim.},
+ number = {4},
+ pages = {969--996},
+ timestamp = {Thu, 13 Jul 2023 08:31:53 +0200},
+ title = {Convex Approximations of Chance Constrained Programs},
+ url = {https://doi.org/10.1137/050622328},
+ volume = {17},
+ year = {2006}
+}
+
+@article{nemirovski2009robust,
+ author = {Arkadi Nemirovski and
+Anatoli B. Juditsky and
+Guanghui Lan and
+Alexander Shapiro},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamjo/NemirovskiJLS09.bib},
+ doi = {10.1137/070704277},
+ journal = {{SIAM} J. Optim.},
+ number = {4},
+ pages = {1574--1609},
+ timestamp = {Thu, 13 Jul 2023 08:31:53 +0200},
+ title = {Robust Stochastic Approximation Approach to Stochastic Programming},
+ url = {https://doi.org/10.1137/070704277},
+ volume = {19},
+ year = {2009}
+}
+
+@article{nemirovski2009robust,
+ author = {Arkadi Nemirovski and
+Anatoli B. Juditsky and
+Guanghui Lan and
+Alexander Shapiro},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/siamjo/NemirovskiJLS09.bib},
+ doi = {10.1137/070704277},
+ journal = {{SIAM} J. Optim.},
+ number = {4},
+ pages = {1574--1609},
+ timestamp = {Thu, 13 Jul 2023 08:31:53 +0200},
+ title = {Robust Stochastic Approximation Approach to Stochastic Programming},
+ url = {https://doi.org/10.1137/070704277},
+ volume = {19},
+ year = {2009}
+}
+
+@article{nemirovski2012safe,
+ author = {Arkadi Nemirovski},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/eor/Nemirovski12.bib},
+ doi = {10.1016/J.EJOR.2011.11.006},
+ journal = {Eur. J. Oper. Res.},
+ number = {3},
+ pages = {707--718},
+ timestamp = {Fri, 21 Feb 2020 13:18:16 +0100},
+ title = {On safe tractable approximations of chance constraints},
+ url = {https://doi.org/10.1016/j.ejor.2011.11.006},
+ volume = {219},
+ year = {2012}
+}
+
+@article{nemirovski2012safe,
+ author = {Arkadi Nemirovski},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/eor/Nemirovski12.bib},
+ doi = {10.1016/J.EJOR.2011.11.006},
+ journal = {Eur. J. Oper. Res.},
+ number = {3},
+ pages = {707--718},
+ timestamp = {Fri, 21 Feb 2020 13:18:16 +0100},
+ title = {On safe tractable approximations of chance constraints},
+ url = {https://doi.org/10.1016/j.ejor.2011.11.006},
+ volume = {219},
+ year = {2012}
+}
+
+@inproceedings{Oki2012GLPKL,
+ author = {Eiji Oki},
+ title = {GLPK (GNU Linear Programming Kit)},
+ url = {https://api.semanticscholar.org/CorpusID:63578694},
+ year = {2012}
+}
+
+@article{owen2000safe,
+ author = {Owen, Art and Zhou, Yi},
+ journal = {Journal of the American Statistical Association},
+ number = {449},
+ pages = {135--143},
+ publisher = {Taylor \& Francis Group},
+ title = {Safe and effective importance sampling},
+ volume = {95},
+ year = {2000}
+}
+
+@article{owen2000safe,
+ author = {Owen, Art and Zhou, Yi},
+ journal = {Journal of the American Statistical Association},
+ number = {449},
+ pages = {135--143},
+ publisher = {Taylor \& Francis Group},
+ title = {Safe and effective importance sampling},
+ volume = {95},
+ year = {2000}
+}
+
+@article{owen2019importance,
+ author = {Art B. Owen and
+Yury Maximov and
+Michael Chertkov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-1710-06965.bib},
+ eprint = {1710.06965},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Mon, 13 Aug 2018 16:46:40 +0200},
+ title = {Importance sampling the union of rare events with an application to
+power systems analysis},
+ url = {http://arxiv.org/abs/1710.06965},
+ volume = {abs/1710.06965},
+ year = {2017}
+}
+
+@article{owen2019importance,
+ author = {Art B. Owen and
+Yury Maximov and
+Michael Chertkov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-1710-06965.bib},
+ eprint = {1710.06965},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Mon, 13 Aug 2018 16:46:40 +0200},
+ title = {Importance sampling the union of rare events with an application to
+power systems analysis},
+ url = {http://arxiv.org/abs/1710.06965},
+ volume = {abs/1710.06965},
+ year = {2017}
+}
+
+@inproceedings{pakhira2014linear,
+ author = {Pakhira, Malay K},
+ booktitle = {2014 international conference on computational intelligence and communication networks},
+ organization = {IEEE},
+ pages = {1047--1051},
+ title = {A linear time-complexity k-means algorithm using cluster shifting},
+ year = {2014}
+}
+
+@article{pandapower.2018,
+ author = {L. Thurner and A. Scheidler and F. Sch{\"a}fer and J. Menke and J. Dollichon and F. Meier and S. Meinecke and M. Braun},
+ doi = {10.1109/TPWRS.2018.2829021},
+ issn = {0885-8950},
+ journal = {IEEE Tr. on Power Syst.},
+ number = {6},
+ pages = {6510-6521},
+ title = {{P}andapower — An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems},
+ volume = {33},
+ year = {2018}
+}
+
+@article{pandapower.2018,
+ author = {L. Thurner and A. Scheidler and F. Sch{\"a}fer and J. Menke and J. Dollichon and F. Meier and S. Meinecke and M. Braun},
+ doi = {10.1109/TPWRS.2018.2829021},
+ issn = {0885-8950},
+ journal = {IEEE Transactions on Power Systems},
+ month = {Nov},
+ number = {6},
+ pages = {6510-6521},
+ title = {{P}andapower — An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems},
+ volume = {33},
+ year = {2018}
+}
+
+@article{pena2020dc,
+ author = {Pena-Ordieres, Alejandra and Molzahn, Daniel K and Roald, Line A and W{\"a}chter, Andreas},
+ journal = {IEEE Tr. on Power Syst.},
+ number = {1},
+ pages = {147--158},
+ publisher = {IEEE},
+ title = {{DC} optimal power flow with joint chance constraints},
+ volume = {36},
+ year = {2020}
+}
+
+@article{pena2020dc,
+ author = {Pena-Ordieres, Alejandra and Molzahn, Daniel K and Roald, Line A and W{\"a}chter, Andreas},
+ journal = {IEEE Transactions on Power Systems},
+ number = {1},
+ pages = {147--158},
+ publisher = {IEEE},
+ title = {{DC} optimal power flow with joint chance constraints},
+ volume = {36},
+ year = {2020}
+}
+
+@article{polyak1987introduction,
+ author = {Polyak, Boris T},
+ pages = {253-268},
+ publisher = {New York, Optimization Software},
+ title = {Introduction to optimization},
+ year = {1987}
+}
+
+@article{powermodels,
+ author = {Carleton Coffrin and
+Russell Bent and
+Kaarthik Sundar and
+Yeesian Ng and
+Miles Lubin},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-1711-01728.bib},
+ eprint = {1711.01728},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Mon, 13 Aug 2018 16:46:27 +0200},
+ title = {PowerModels.jl: An Open-Source Framework for Exploring Power Flow
+Formulations},
+ url = {http://arxiv.org/abs/1711.01728},
+ volume = {abs/1711.01728},
+ year = {2017}
+}
+
+@article{powermodels,
+ author = {Carleton Coffrin and
+Russell Bent and
+Kaarthik Sundar and
+Yeesian Ng and
+Miles Lubin},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/corr/abs-1711-01728.bib},
+ eprint = {1711.01728},
+ eprinttype = {arXiv},
+ journal = {CoRR},
+ timestamp = {Mon, 13 Aug 2018 16:46:27 +0200},
+ title = {PowerModels.jl: An Open-Source Framework for Exploring Power Flow
+Formulations},
+ url = {http://arxiv.org/abs/1711.01728},
+ volume = {abs/1711.01728},
+ year = {2017}
+}
+
+@article{prusty2017critical,
+ author = {Prusty, B Rajanarayan and Jena, Debashisha},
+ journal = {Renewable and Sustainable Energy Reviews},
+ pages = {1286--1302},
+ publisher = {Elsevier},
+ title = {A critical review on probabilistic load flow studies in uncertainty constrained power systems with photovoltaic generation and a new approach},
+ volume = {69},
+ year = {2017}
+}
+
+@article{prusty2017critical,
+ author = {Prusty, B Rajanarayan and Jena, Debashisha},
+ journal = {Renewable and Sustainable Energy Reviews},
+ pages = {1286--1302},
+ publisher = {Elsevier},
+ title = {A critical review on probabilistic load flow studies in uncertainty constrained power systems with photovoltaic generation and a new approach},
+ volume = {69},
+ year = {2017}
+}
+
+@inproceedings{roald2013analytical,
+ author = {Roald, Line and Oldewurtel, Frauke and Krause, Thilo and Andersson, G{\"o}ran},
+ booktitle = {2013 IEEE Grenoble Conference},
+ organization = {IEEE},
+ pages = {1--6},
+ title = {Analytical reformulation of security constrained optimal power flow with probabilistic constraints},
+ year = {2013}
+}
+
+@inproceedings{roald2013analytical,
+ author = {Roald, Line and Oldewurtel, Frauke and Krause, Thilo and Andersson, G{\"o}ran},
+ booktitle = {2013 IEEE Grenoble Conference},
+ organization = {IEEE},
+ pages = {1--6},
+ title = {Analytical reformulation of security constrained optimal power flow with probabilistic constraints},
+ year = {2013}
+}
+
+@article{roald2017chance,
+ author = {Roald, Line and Andersson, G{\"o}ran},
+ journal = {IEEE Tr. on Power Systems},
+ number = {3},
+ pages = {2906--2918},
+ publisher = {IEEE},
+ title = {Chance-constrained AC optimal power flow: Reformulations and efficient algorithms},
+ volume = {33},
+ year = {2017}
+}
+
+@article{rouaud2013probability,
+ author = {Rouaud, Mathieu},
+ journal = {Propagation of uncertainties},
+ pages = {1110},
+ title = {Probability, statistics and estimation},
+ volume = {191},
+ year = {2013}
+}
+
+@book{rubinstein2013cross,
+ author = {Rubinstein, Reuven Y and Kroese, Dirk P},
+ publisher = {Springer Science \& Business Media},
+ title = {The cross-entropy method: a unified approach to combinatorial optimization, Monte-Carlo simulation and machine learning},
+ year = {2013}
+}
+
+@book{rubinstein2013cross,
+ author = {Rubinstein, Reuven Y and Kroese, Dirk P},
+ publisher = {Springer Science \& Business Media},
+ title = {The cross-entropy method: a unified approach to combinatorial optimization, Monte-Carlo simulation and machine learning},
+ year = {2013}
+}
+
+@article{rujeerapaiboon2022scenario,
+ author = {Napat Rujeerapaiboon and
+Kilian Schindler and
+Daniel Kuhn and
+Wolfram Wiesemann},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/RujeerapaiboonS22.bib},
+ doi = {10.1007/S10107-018-1269-1},
+ journal = {Math. Program.},
+ number = {1},
+ pages = {207--242},
+ timestamp = {Sun, 19 Jan 2025 13:52:25 +0100},
+ title = {Scenario reduction revisited: fundamental limits and guarantees},
+ url = {https://doi.org/10.1007/s10107-018-1269-1},
+ volume = {191},
+ year = {2022}
+}
+
+@article{ryu2014adaptive,
+ author = {Ryu, Ernest K and Boyd, Stephen P},
+ journal = {arXiv preprint arXiv:1412.4845},
+ title = {Adaptive importance sampling via stochastic convex programming},
+ year = {2014}
+}
+
+@article{ryu2014adaptive,
+ author = {Ryu, Ernest K and Boyd, Stephen P},
+ journal = {arXiv preprint arXiv:1412.4845},
+ title = {Adaptive importance sampling via stochastic convex programming},
+ year = {2014}
+}
+
+@article{sahinidis2004optimization,
+ author = {Nikolaos V. Sahinidis},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/cce/Sahinidis04.bib},
+ doi = {10.1016/J.COMPCHEMENG.2003.09.017},
+ journal = {Comput. Chem. Eng.},
+ number = {6-7},
+ pages = {971--983},
+ timestamp = {Mon, 18 May 2020 12:44:03 +0200},
+ title = {Optimization under uncertainty: state-of-the-art and opportunities},
+ url = {https://doi.org/10.1016/j.compchemeng.2003.09.017},
+ volume = {28},
+ year = {2004}
+}
+
+@article{schmietendorf2017impact,
+ author = {Schmietendorf, Katrin and Peinke, Joachim and Kamps, Oliver},
+ journal = {The European Physical Journal B},
+ number = {11},
+ pages = {1--6},
+ publisher = {Springer},
+ title = {The impact of turbulent renewable energy production on power grid stability and quality},
+ volume = {90},
+ year = {2017}
+}
+
+@article{schmietendorf2017impact,
+ author = {Schmietendorf, Katrin and Peinke, Joachim and Kamps, Oliver},
+ journal = {The European Physical Journal B},
+ number = {11},
+ pages = {1--6},
+ publisher = {Springer},
+ title = {The impact of turbulent renewable energy production on power grid stability and quality},
+ volume = {90},
+ year = {2017}
+}
+
+@article{scholz2011central,
+ author = {Scholz, FW},
+ journal = {Lecture Notes, Univ. Washington},
+ title = {Central Limit Theorems and Proofs},
+ year = {2011}
+}
+
+@article{sen1992relaxations,
+ author = {Suvrajeet Sen},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/orl/Sen92.bib},
+ doi = {10.1016/0167-6377(92)90037-4},
+ journal = {Oper. Res. Lett.},
+ number = {2},
+ pages = {81--86},
+ timestamp = {Thu, 23 May 2019 16:56:53 +0200},
+ title = {Relaxations for probabilistically constrained programs with discrete
+random variables},
+ url = {https://doi.org/10.1016/0167-6377(92)90037-4},
+ volume = {11},
+ year = {1992}
+}
+
+@article{seri2013scenario,
+ author = {Raffaello Seri and
+Christine Choirat},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jota/SeriC13.bib},
+ doi = {10.1007/S10957-012-0230-3},
+ journal = {J. Optim. Theory Appl.},
+ number = {2},
+ pages = {590--614},
+ timestamp = {Thu, 14 Oct 2021 09:37:32 +0200},
+ title = {Scenario Approximation of Robust and Chance-Constrained Programs},
+ url = {https://doi.org/10.1007/s10957-012-0230-3},
+ volume = {158},
+ year = {2013}
+}
+
+@article{seri2013scenario,
+ author = {Raffaello Seri and
+Christine Choirat},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/jota/SeriC13.bib},
+ doi = {10.1007/S10957-012-0230-3},
+ journal = {J. Optim. Theory Appl.},
+ number = {2},
+ pages = {590--614},
+ timestamp = {Thu, 14 Oct 2021 09:37:32 +0200},
+ title = {Scenario Approximation of Robust and Chance-Constrained Programs},
+ url = {https://doi.org/10.1007/s10957-012-0230-3},
+ volume = {158},
+ year = {2013}
+}
+
+@article{shapiro1965analysis,
+ author = {Shapiro, Samuel Sanford and Wilk, Martin B},
+ journal = {Biometrika},
+ number = {3-4},
+ pages = {591--611},
+ publisher = {Oxford University Press},
+ title = {An analysis of variance test for normality (complete samples)},
+ volume = {52},
+ year = {1965}
+}
+
+@misc{shevchenko2023climate,
+ author = {Shevchenko, Valeriy and Lukashevich, Aleksander and Bulkin, Aleksandr and Grinis, Roland and Kovalev, Kirill and Narozhnaia, Veronika and Sotiriadi, Nazar and Krenke, Alexander and Maximov, Yury},
+ howpublished = {In Review},
+ title = {Climate Change Impact on Agricultural Land Suitability: A Machine Learning-Based Eurasia Case Study},
+ year = {2023}
+}
+
+@misc{shevchenko2023food,
+ author = {Shevchenko, Valeriy and Lukashevich, Aleksander and Bulkin, Aleksandr and Grinis, Roland and Kovalev, Kirill and Narozhnaia, Veronika and Sotiriadi, Nazar and Krenke, Alexander and Maximov, Yury},
+ howpublished = {In Review},
+ title = {Climate Change and Future Food Security: Predicting the Extent of Cropland Gain or Degradation}
+}
+
+@article{shevchenko2024climate,
+ author = {Valeriy Shevchenko and
+Aleksandr Lukashevich and
+Daria Taniushkina and
+Alexander Bulkin and
+Roland Grinis and
+Kirill Kovalev and
+Veronika Narozhnaia and
+Nazar Sotiriadi and
+Alexander Krenke and
+Yury Maximov},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/access/ShevchenkoLTBGKNSKM24.bib},
+ doi = {10.1109/ACCESS.2024.3358865},
+ journal = {{IEEE} Access},
+ pages = {15748--15763},
+ timestamp = {Thu, 29 Feb 2024 20:53:45 +0100},
+ title = {Climate Change Impact on Agricultural Land Suitability: An Interpretable
+Machine Learning-Based Eurasia Case Study},
+ url = {https://doi.org/10.1109/ACCESS.2024.3358865},
+ volume = {12},
+ year = {2024}
+}
+
+@article{simonovits2003compute,
+ author = {Mikl{\'{o}}s Simonovits},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/Simonovits03.bib},
+ doi = {10.1007/S10107-003-0447-X},
+ journal = {Math. Program.},
+ number = {1-2},
+ pages = {337--374},
+ timestamp = {Sat, 27 May 2017 14:25:34 +0200},
+ title = {How to compute the volume in high dimension?},
+ url = {https://doi.org/10.1007/s10107-003-0447-x},
+ volume = {97},
+ year = {2003}
+}
+
+@article{simonovits2003compute,
+ author = {Mikl{\'{o}}s Simonovits},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/Simonovits03.bib},
+ doi = {10.1007/S10107-003-0447-X},
+ journal = {Math. Program.},
+ number = {1-2},
+ pages = {337--374},
+ timestamp = {Sat, 27 May 2017 14:25:34 +0200},
+ title = {How to compute the volume in high dimension?},
+ url = {https://doi.org/10.1007/s10107-003-0447-x},
+ volume = {97},
+ year = {2003}
+}
+
+@inproceedings{singh2006power,
+ author = {Singh, Chanan and Luo, Xiaochuan and Kim, Hyungchul},
+ booktitle = {2006 International Conference on Probabilistic Methods Applied to Power Systems},
+ organization = {IEEE},
+ pages = {1--9},
+ title = {Power system adequacy and security calculations using Monte Carlo simulation incorporating intelligent system methodology},
+ year = {2006}
+}
+
+@inproceedings{singh2006power,
+ author = {Singh, Chanan and Luo, Xiaochuan and Kim, Hyungchul},
+ booktitle = {2006 International Conference on Probabilistic Methods Applied to Power Systems},
+ organization = {IEEE},
+ pages = {1--9},
+ title = {Power system adequacy and security calculations using Monte Carlo simulation incorporating intelligent system methodology},
+ year = {2006}
+}
+
+@article{sousa2010robust,
+ author = {Sousa, Andr{\'e}a A and Torres, Geraldo L and Canizares, Claudio A},
+ journal = {IEEE Tr. on Power Systems},
+ number = {2},
+ pages = {487--499},
+ publisher = {IEEE},
+ title = {Robust optimal power flow solution using trust region and interior-point methods},
+ volume = {26},
+ year = {2010}
+}
+
+@inproceedings{stott2012optimal,
+ author = {Stott, Brian and Alsa{\c{c}}, Ongun},
+ booktitle = {SEPOPE XII Symposium, Rio de Janeiro, Brazil},
+ pages = {1--10},
+ title = {Optimal power flow: Basic requirements for real-life problems and their solutions},
+ volume = {11},
+ year = {2012}
+}
+
+@article{su2005probabilistic,
+ author = {Su, Chun-Lien},
+ journal = {IEEE Tr. on Power Systems},
+ number = {4},
+ pages = {1843--1851},
+ publisher = {IEEE},
+ title = {Probabilistic load-flow computation using point estimate method},
+ volume = {20},
+ year = {2005}
+}
+
+@article{su2005probabilistic,
+ author = {Su, Chun-Lien},
+ journal = {IEEE Transactions on Power Systems},
+ number = {4},
+ pages = {1843--1851},
+ publisher = {IEEE},
+ title = {Probabilistic load-flow computation using point estimate method},
+ volume = {20},
+ year = {2005}
+}
+
+@article{tanuishkina2024scirep,
+ author = {Taniushkina, Daria and Lukashevich, Aleksander and Shevchenko, Valeriy et al},
+ journal = {Scientific Reports (in press)},
+ pages = {0},
+ publisher = {Nature Portfolio},
+ title = {Case Study on Climate Change Effects and Food Security in Southeast Asia},
+ year = {2024}
+}
+
+@article{thellufsen2016roles,
+ author = {Thellufsen, Jakob Zinck and Lund, Henrik},
+ journal = {Applied Energy},
+ pages = {419--429},
+ title = {Roles of local and national energy systems in the integration of renewable energy},
+ volume = {183},
+ year = {2016}
+}
+
+@article{thellufsen2016roles,
+ author = {Thellufsen, Jakob Zinck and Lund, Henrik},
+ journal = {Applied Energy},
+ pages = {419--429},
+ title = {Roles of local and national energy systems in the integration of renewable energy},
+ volume = {183},
+ year = {2016}
+}
+
+@book{tsybakov2008introduction,
+ author = {Tsybakov, Alexandre B},
+ publisher = {Springer Science \& Business Media},
+ title = {Introduction to nonparametric estimation},
+ year = {2008}
+}
+
+@book{tsybakov2008introduction,
+ author = {Tsybakov, Alexandre B},
+ publisher = {Springer Science \& Business Media},
+ title = {Introduction to nonparametric estimation},
+ year = {2008}
+}
+
+@article{vittal2009steady,
+ author = {Vittal, Eknath and O'Malley, Mark and Keane, Andrew},
+ journal = {IEEE Tr. on Power Systems},
+ number = {1},
+ pages = {433--442},
+ publisher = {IEEE},
+ title = {A steady-state voltage stability analysis of power systems with high penetrations of wind},
+ volume = {25},
+ year = {2009}
+}
+
+@article{vittal2009steady,
+ author = {Vittal, Eknath and O'Malley, Mark and Keane, Andrew},
+ journal = {IEEE Transactions on Power Systems},
+ number = {1},
+ pages = {433--442},
+ publisher = {IEEE},
+ title = {A steady-state voltage stability analysis of power systems with high penetrations of wind},
+ volume = {25},
+ year = {2009}
+}
+
+@article{wachter2006implementation,
+ author = {Andreas W{\"{a}}chter and
+Lorenz T. Biegler},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/mp/WachterB06.bib},
+ doi = {10.1007/S10107-004-0559-Y},
+ journal = {Math. Program.},
+ number = {1},
+ pages = {25--57},
+ timestamp = {Mon, 26 Jun 2023 20:52:50 +0200},
+ title = {On the implementation of an interior-point filter line-search algorithm
+for large-scale nonlinear programming},
+ url = {https://doi.org/10.1007/s10107-004-0559-y},
+ volume = {106},
+ year = {2006}
+}
+
+@article{wang2010probabilistic,
+ author = {Wang, Min and Ding, Ming},
+ journal = {Automation of Electric Power Systems},
+ number = {7},
+ pages = {31--35},
+ publisher = {Automation of Electric Power Systems Press, P. O. Box 323 Nanjing 210003~…},
+ title = {Probabilistic calculation of total transfer capability including large-scale solar park},
+ volume = {34},
+ year = {2010}
+}
+
+@article{wilhelm2010tmvtnorm,
+ author = {Stefan Wilhelm and
+B. G. Manjunath},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/rjour/WilhelmM10.bib},
+ doi = {10.32614/RJ-2010-005},
+ journal = {R J.},
+ number = {1},
+ pages = {25},
+ timestamp = {Sun, 19 Jan 2025 14:44:13 +0100},
+ title = {tmvtnorm: {A} Package for the Truncated Multivariate Normal Distribution},
+ url = {https://doi.org/10.32614/rj-2010-005},
+ volume = {2},
+ year = {2010}
+}
+
+@article{wilhelm2010tmvtnorm,
+ author = {Stefan Wilhelm and
+B. G. Manjunath},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/rjour/WilhelmM10.bib},
+ doi = {10.32614/RJ-2010-005},
+ journal = {R J.},
+ number = {1},
+ pages = {25},
+ timestamp = {Sun, 19 Jan 2025 14:44:13 +0100},
+ title = {tmvtnorm: {A} Package for the Truncated Multivariate Normal Distribution},
+ url = {https://doi.org/10.32614/rj-2010-005},
+ volume = {2},
+ year = {2010}
+}
+
+@phdthesis{williamson1989probabilistic,
+ author = {Williamson, Robert Charles and others},
+ school = {University of Queensland Brisbane},
+ title = {Probabilistic arithmetic},
+ year = {1989}
+}
+
+@book{wood2013power,
+ author = {Wood, Allen J and Wollenberg, Bruce F and Shebl{\'e}, Gerald B},
+ publisher = {John Wiley \& Sons},
+ title = {Power generation, operation, and control},
+ year = {2013}
+}
+
+@inproceedings{xu2017real,
+ author = {Xu, Fan and Gao, Zonghe and Ding, Qia and Tu, Mengfu},
+ booktitle = {2017 IEEE EI2 Conference},
+ organization = {IEEE},
+ pages = {1--6},
+ title = {The real time generation scheduling model considering automatic generation control},
+ year = {2017}
+}
+
+@article{yaari1965uncertain,
+ author = {Yaari, Menahem E},
+ journal = {The Review of Economic Studies},
+ number = {2},
+ pages = {137--150},
+ publisher = {Wiley-Blackwell},
+ title = {Uncertain lifetime, life insurance, and the theory of the consumer},
+ volume = {32},
+ year = {1965}
+}
+
+@article{yu2009probabilistic,
+ author = {Yu, Han and Chung, CY and Wong, KP and Lee, HW and Zhang, JH},
+ journal = {IEEE Tr. on Power Systems},
+ number = {2},
+ pages = {661--667},
+ publisher = {IEEE},
+ title = {Probabilistic load flow evaluation with hybrid latin hypercube sampling and cholesky decomposition},
+ volume = {24},
+ year = {2009}
+}
+
+@article{yu2009probabilistic,
+ author = {Yu, Han and Chung, CY and Wong, KP and Lee, HW and Zhang, JH},
+ journal = {IEEE Transactions on Power Systems},
+ number = {2},
+ pages = {661--667},
+ publisher = {IEEE},
+ title = {Probabilistic load flow evaluation with hybrid latin hypercube sampling and cholesky decomposition},
+ volume = {24},
+ year = {2009}
+}
+
+@article{zhang2017data,
+ author = {Senlin Zhang and
+Yixing Wang and
+Meiqin Liu and
+Zhejing Bao},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/access/ZhangWLB18.bib},
+ doi = {10.1109/ACCESS.2017.2785763},
+ journal = {{IEEE} Access},
+ pages = {7675--7686},
+ timestamp = {Sat, 28 Jun 2025 22:33:08 +0200},
+ title = {Data-Based Line Trip Fault Prediction in Power Systems Using {LSTM}
+Networks and {SVM}},
+ url = {https://doi.org/10.1109/ACCESS.2017.2785763},
+ volume = {6},
+ year = {2018}
+}
+
+@article{zhang2017data,
+ author = {Senlin Zhang and
+Yixing Wang and
+Meiqin Liu and
+Zhejing Bao},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/access/ZhangWLB18.bib},
+ doi = {10.1109/ACCESS.2017.2785763},
+ journal = {{IEEE} Access},
+ pages = {7675--7686},
+ timestamp = {Sat, 28 Jun 2025 22:33:08 +0200},
+ title = {Data-Based Line Trip Fault Prediction in Power Systems Using {LSTM}
+Networks and {SVM}},
+ url = {https://doi.org/10.1109/ACCESS.2017.2785763},
+ volume = {6},
+ year = {2018}
+}
+
+@misc{zhang2021properties,
+ archiveprefix = {arXiv},
+ author = {Yufeng Zhang and Wanwei Liu and Zhenbang Chen and Kenli Li and Ji Wang},
+ eprint = {2102.05485},
+ primaryclass = {cs.IT},
+ title = {On the Properties of Kullback-Leibler Divergence Between Gaussians},
+ year = {2021}
+}
+
+@misc{zhang2021properties,
+ archiveprefix = {arXiv},
+ author = {Yufeng Zhang and Wanwei Liu and Zhenbang Chen and Kenli Li and Ji Wang},
+ eprint = {2102.05485},
+ primaryclass = {cs.IT},
+ title = {On the Properties of Kullback-Leibler Divergence Between Gaussians},
+ year = {2021}
+}
+
+@article{zhou2019wind,
+ author = {Bowen Zhou and
+Xiangjin Ma and
+Yanhong Luo and
+Dongsheng Yang},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/access/ZhouMLY19.bib},
+ doi = {10.1109/ACCESS.2019.2952555},
+ journal = {{IEEE} Access},
+ pages = {165279--165292},
+ timestamp = {Wed, 13 Nov 2024 20:25:15 +0100},
+ title = {Wind Power Prediction Based on {LSTM} Networks and Nonparametric Kernel
+Density Estimation},
+ url = {https://doi.org/10.1109/ACCESS.2019.2952555},
+ volume = {7},
+ year = {2019}
+}
+
+@article{zhou2019wind,
+ author = {Bowen Zhou and
+Xiangjin Ma and
+Yanhong Luo and
+Dongsheng Yang},
+ bibsource = {dblp computer science bibliography, https://dblp.org},
+ biburl = {https://dblp.org/rec/journals/access/ZhouMLY19.bib},
+ doi = {10.1109/ACCESS.2019.2952555},
+ journal = {{IEEE} Access},
+ pages = {165279--165292},
+ timestamp = {Wed, 13 Nov 2024 20:25:15 +0100},
+ title = {Wind Power Prediction Based on {LSTM} Networks and Nonparametric Kernel
+Density Estimation},
+ url = {https://doi.org/10.1109/ACCESS.2019.2952555},
+ volume = {7},
+ year = {2019}
+}
+
+@article{zhuravlev1999discrete,
+ author = {Zhuravlev, Yu I and Flerov, Yu A},
+ journal = {Student’s Book},
+ title = {Discrete analysis},
+ year = {1999}
+}
+
+@article{zimmerman2010matpower,
+ author = {Zimmerman, Ray Daniel and Murillo-S{\'a}nchez, Carlos Edmundo and Thomas, Robert John},
+ journal = {IEEE Tr. on power systems},
+ number = {1},
+ pages = {12--19},
+ title = {MATPOWER: Steady-state operations, planning, and analysis tools for power systems research and education},
+ volume = {26},
+ year = {2010}
+}
+
+@article{zimmerman2010matpower,
+ author = {Zimmerman, Ray Daniel and Murillo-S{\'a}nchez, Carlos Edmundo and Thomas, Robert John},
+ journal = {IEEE Transactions on power systems},
+ number = {1},
+ pages = {12--19},
+ title = {MATPOWER: Steady-state operations, planning, and analysis tools for power systems research and education},
+ volume = {26},
+ year = {2010}
+}

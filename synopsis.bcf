@@ -1742,7 +1742,7 @@
         <bcf:map_step map_field_set="keywords" map_field_value=",biblioauthorprogram" map_append="1"/>
       </bcf:map>
       <bcf:map map_overwrite="1">
-        <bcf:per_datasource>biblio/external.bib</bcf:per_datasource>
+        <bcf:per_datasource>biblio/external_rebiber.bib</bcf:per_datasource>
         <bcf:map_step map_field_set="keywords" map_field_value=",biblioexternal" map_append="1"/>
       </bcf:map>
       <bcf:map map_overwrite="1">
